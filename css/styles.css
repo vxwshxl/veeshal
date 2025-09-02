@@ -359,6 +359,9 @@ h1.homeTxt {
     object-fit: cover; /* Ensures it covers the container without distortion */
 }
 
+.highlight {
+    color: #F9B646;
+}
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {

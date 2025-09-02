@@ -1,101 +1,76 @@
 /* Portfolio Styles */
+.portfolioContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+}
 
-img{
+/* Grid Layout */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+}
+
+/* Card Styling */
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background: #f8f8f8;
+}
+
+.card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
 }
 
-.projectContainer{
-    width: 100%;
-    height: 100%;
-}
-
-.menu {
-    width: 100%;
-    margin: 20em 0;
-}
-
-.menu-item {
-    width: 100%;
-    padding: 0 2em;
-    display: flex;
+/* Hover Zoom Effect */
+.card:hover img {
+    transform: scale(1.08);
     cursor: pointer;
 }
 
-.menu p {
+/* Portfolio Text */
+.portfolio-title {
     position: absolute;
-    top: 0%;
-    width: 100%;
-    /* font-family: "PP Neue Montreal"; */
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: 100%;
-    letter-spacing: -0.02em;
-    transition: color 0.25s;
-}
-
-.info,
-.name,
-.tag {
-    position: relative;
-    overflow: hidden;
-}
-
-.info,
-.tag {
-    flex: 1;
-    height: 14px;
-    font-size: 14px;
-}
-
-.tag {
-    text-align: right;
-}
-
-.name {
-    flex: 4;
-    height: 60px;
-    font-size: 60px;
-    text-align: center;
-}
-
-.info p:nth-child(2),
-.name p:nth-child(2),
-.tag p:nth-child(2) {
-    top: 100%;
-    color: #000;
-}
-
-.menu:hover .info p:nth-child(1),
-.menu:hover .name p:nth-child(1),
-.menu:hover .tag p:nth-child(1) {
-    color: rgb(165, 165, 165);
-}
-
-.preview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 489px;
-    height: 275px;
-    z-index: 2;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    font-weight: 900;
+    color: #F9B646;
+    text-transform: lowercase;
     pointer-events: none;
+    z-index: 2;
 }
 
-.preview-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+/* Make portfolio text appear above all cards except last */
+.card {
+    z-index: 1;
+}
+.last-card {
+    z-index: 3;
 }
 
-.preview-img-2 {
-    top: 20px;
-    left: 20px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.preview-img img {
-    position: absolute;
-    top: 0;
-    left: 0;
+@media (max-width: 600px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .portfolio-title {
+        font-size: 3rem;
+    }
 }

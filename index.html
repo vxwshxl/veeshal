@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/aboutStyles.css">
     <link rel="stylesheet" href="css/portfolioStyles.css">
+    <link rel="stylesheet" href="css/projectStyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -54,7 +55,7 @@
                     <nav>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="#">Intro</a></li>
+                            <li><a href="#"><span class="highlight">Intro</span></a></li>
                             <li><a href="#">Projects</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact</a></li>
@@ -165,6 +166,18 @@
         </main>
     </div>
 
+    <div class="portfolioContainer">
+        <div class="portfolio-grid">
+            <div class="card"><img src="assets/portfolio/1.png" alt="Portfolio 1"></div>
+            <div class="card"><img src="assets/portfolio/2.png" alt="Portfolio 2"></div>
+            <div class="card"><img src="assets/portfolio/3.png" alt="Portfolio 3"></div>
+            <div class="card"><img src="assets/portfolio/4.png" alt="Portfolio 4"></div>
+            <div class="card"><img src="assets/portfolio/5.png" alt="Portfolio 5"></div>
+            <div class="card last-card"><img src="assets/portfolio/6.png" alt="Portfolio 6"></div>
+        </div>
+        <h1 class="portfolio-title">portfolio</h1>
+    </div>
+
     <div class="marquee-container">
         <div class="marquee-content">
             <h1 class="blackTxt">projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp;</h1>
@@ -177,7 +190,7 @@
             <div class="preview-img preview-img-2"></div>
         </div>
         <div class="menu">
-            <div class="menu-item">
+            <div class="menu-item" data-url="https://anglo-bodo-dictionary.com">
                 <div class="info">
                     <p>Tool</p>
                 </div>
@@ -188,7 +201,7 @@
                     <p>Web Development</p>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" data-url="https://kgc-app.in">
                 <div class="info">
                     <p>Education</p>
                 </div>
@@ -199,7 +212,7 @@
                     <p>Web & App Development</p>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" data-url="https://swrzee.in">
                 <div class="info">
                     <p>Enterprise</p>
                 </div>
@@ -210,7 +223,7 @@
                     <p>Web Development</p>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" data-url="https://www.youtube.com/watch?v=gNVz83QSoY4">
                 <div class="info">
                     <p>Travel</p>
                 </div>
@@ -221,7 +234,7 @@
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" data-url="https://www.youtube.com/watch?v=gBvocwLObFQ">
                 <div class="info">
                     <p>Travel</p>
                 </div>
@@ -232,7 +245,7 @@
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" data-video="assets/open-mic.mp4">
                 <div class="info">
                     <p>Event</p>
                 </div>
@@ -243,7 +256,7 @@
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" data-image="assets/projects/7.png">
                 <div class="info">
                     <p>Local Shop</p>
                 </div>
@@ -254,12 +267,51 @@
                     <p>Banner Editing</p>
                 </div>
             </div>
+
+            <!-- Popup Modal (supports both video and image) -->
+            <div id="mediaModal" class="media-modal">
+                <div class="media-content">
+                    <span id="closeMedia" class="close-btn">&times;</span>
+                    
+                    <!-- Video element -->
+                    <video id="popupVideo" controls>
+                        <source src="" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+
+                    <!-- Image element -->
+                    <img id="popupImage" src="" alt="Popup Image">
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="footer">
+        <div class="top">
+            <!-- Header/Navigation -->
+            <div class="space"></div>
+            <header>
+                <div class="logo">
+                    <a href="index.html"><img src="assets/logo.png"></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#"><span class="highlight">Intro</span></a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <h1 class="homeTxt">fall back<span class="highlight">?</span></h1>
+        <h1 class="homeTxt">redesign<span class="highlight">..!</span></h1>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/aboutScript.js"></script>
-    <script src="js/portfolioScript.js"></script>
+    <script src="js/projectScript.js"></script>
 </body>
 </html>
