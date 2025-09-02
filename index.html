@@ -9,9 +9,10 @@
     <link rel="shortcut icon" href="assets/vee-logo.png">
     <title>Veeshal D. Bodosa - Crafting Code & Cinematics</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/aboutStyles.css">
+    <link rel="stylesheet" href="css/introStyles.css">
     <link rel="stylesheet" href="css/portfolioStyles.css">
     <link rel="stylesheet" href="css/projectStyles.css">
+    <link rel="stylesheet" href="css/aboutStyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -124,10 +125,10 @@
         </div>
     </div>    
 
-    <div class="aboutContainer">
-        <!-- About Content -->
-        <main class="about">
-            <div class="marquee-container-about">
+    <div class="introContainer">
+        <!-- Intro Content -->
+        <main class="intro">
+            <div class="marquee-container-intro">
                 <div class="marquee-content">
                     <h1 class="whiteTxt">intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp;</h1>
                 </div>
@@ -135,7 +136,7 @@
             
             <!-- Image container -->
             <div id="imageContainer" style="position: relative; display: block;">
-                <img id="aboutImage" src="assets/hitr.jpg" style="display: block; cursor: pointer;">
+                <img id="introImage" src="assets/hitr.jpg" style="display: block; cursor: pointer;">
 
                 <button id="playBtn" class="play-pause-btn">
                     <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,7 +147,7 @@
 
             <!-- Video container -->
             <div id="videoContainer" style="position: relative; display: none;">
-                <video id="aboutVideo" 
+                <video id="introVideo" 
                     src="assets/HITR.mp4" 
                     loop 
                     muted 
@@ -286,6 +287,69 @@
         </div>
     </div>
 
+    <div class="aboutContainer">
+        <h2>
+            <span class="accent">vee</span> aka <span class="accent">Veeshal D. Bodosa</span> coder and cinematic storyteller.
+            I love crafting <span class="highlight">web experiences</span>, designing seamless <span class="highlight">apps</span>,  
+            and bringing visions to life through <span class="highlight">cinematics</span>.
+        <br>
+            Blending code and creativity is where I thrive.
+        </h2>
+
+        <!-- Logo Marquee -->
+        <div class="logoMarquee">
+            <div class="marqueeInner">
+                <!-- Frontend -->
+                <img src="assets/skills/react-native.png" alt="React Native" />
+                <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
+                <img src="assets/skills/expo.png" alt="Expo" />
+
+                <!-- Backend -->
+                <img src="assets/skills/php.png" alt="PHP" />
+                <img src="assets/skills/mysql.png" alt="MySQL" />
+                <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
+
+                <!-- Video Editing -->
+                <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
+                <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
+                <img src="assets/skills/capcut.png" alt="CapCut" />
+
+                <!-- Photo Editing & Design -->
+                <img src="assets/skills/figma.png" alt="Figma" />
+                <img src="assets/skills/krita.png" alt="Krita" />
+                <img src="assets/skills/canva.png" alt="Canva" />
+
+                <!-- Animation -->
+                <img src="assets/skills/jitter.png" alt="Jitter" />
+
+                <!-- Repeat for Infinite Loop -->
+                <img src="assets/skills/react-native.png" alt="React Native" />
+                <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
+                <img src="assets/skills/expo.png" alt="Expo" />
+                <img src="assets/skills/php.png" alt="PHP" />
+                <img src="assets/skills/mysql.png" alt="MySQL" />
+                <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
+                <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
+                <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
+                <img src="assets/skills/capcut.png" alt="CapCut" />
+                <img src="assets/skills/figma.png" alt="Figma" />
+                <img src="assets/skills/krita.png" alt="Krita" />
+                <img src="assets/skills/canva.png" alt="Canva" />
+                <img src="assets/skills/jitter.png" alt="Jitter" />
+            </div>
+        </div>
+
+        <p class="aboutText">
+            When things <span class="accent">fall</span>,
+            <br>
+            Don’t quit —
+            <br>
+            Instead <span class="highlight">redesign</span>..!
+        </p>
+    </div>
+
+    <hr class="line">
+    
     <div class="footer">
         <div class="top">
             <!-- Header/Navigation -->
@@ -311,7 +375,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/aboutScript.js"></script>
+    <script src="js/introScript.js"></script>
     <script src="js/projectScript.js"></script>
+    <script src="js/aboutScript.js"></script>
 </body>
 </html>

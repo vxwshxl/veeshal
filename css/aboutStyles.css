@@ -1,170 +1,81 @@
-/* About Styles */
 .aboutContainer {
-    margin-top: 20px;
+  width: 100%;
+  padding: 60px;
+  display: block;
+  justify-content: center;
 }
 
-.about {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 40px;
+.aboutContainer h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  text-align: left;
+  width: 70%;
 }
 
-.about img{
-    width: 100%;
-    object-fit: cover;
+.aboutContainer .highlight {
+  color: #F9B646; /* Accent Yellow */
+  font-weight: 900;
 }
 
-.about video{
-    width: 100%;
-    object-fit: cover;
+.aboutContainer .accent {
+  color: #ff5f6d; /* Soft gradient pinkish-red */
+  font-weight: 700;
 }
 
-.marquee-container,
-.marquee-container-about {
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    z-index: 10;
-}
-.marquee-container-about {
-    margin-top: -53px;
-}
-
-.marquee-content {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
+/* Logo Marquee */
+.logoMarquee {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
 }
 
-h1.whiteTxt{
-    display: inline-block;
-    font-size: 150px;
-    line-height: 0.9;
-    font-weight: 900;
-    text-transform: lowercase;
-    color: #F8F7F3;
+.marqueeInner {
+  display: flex;
+  gap: 200px;
+  animation: scroll 25s linear infinite;
 }
 
-h1.blackTxt{
-    display: inline-block;
-    font-size: 150px;
-    line-height: 0.9;
-    font-weight: 900;
-    text-transform: lowercase;
-    color: #000;
+.marqueeInner img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+  opacity: 0.7;
 }
 
-/* Play/Pause Button Styles */
-.play-pause-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    z-index: 20;
+.marqueeInner img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.15);
 }
 
-.play-pause-btn:hover {
-    background: rgba(0, 0, 0, 0.9);
-    border-color: rgba(255, 255, 255, 1);
-    transform: scale(1.1);
+/* Infinite scroll animation */
+@keyframes scroll {
+  from {
+      transform: translateX(0%);
+  }
+  to {
+      transform: translateX(-50%);
+  }
 }
 
-.play-pause-btn:active {
-    transform: scale(0.95);
-}
-
-/* Thumbnail & video styling */
-#imageContainer {
-    width: 90%;
-    border-radius: 40px;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-}
-
-#aboutImage {
-    width: 100%;
-    border-radius: 40px;
-    height: auto;
-    object-fit: cover;
-    display: block;
-}
-
-#videoContainer {
-    width: 90%;
-    border-radius: 40px;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    z-index: 100;
-}
-
-#aboutVideo {
-    width: 100%;
-    border-radius: 40px;
-    height: auto;
-    object-fit: cover;
-    display: block;
-}
-
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-    .marquee-container {
-        margin-top: -28px;
-    }
-    h1.aboutTxt {
-        font-size: 80px;
-    }
-    .about img{
-        height: auto;
-    }
-
-    /* Image container positioning */
-    #aboutImage {
-        border-radius: 20px;
-    }
-
-    /* Video container */
-    #videoContainer {
-        border-radius: 20px;
-    }
-
-    /* Video element inside container */
-    #aboutVideo {
-        border-radius: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .marquee-container {
-        margin-top: -22px;
-    }
-    h1.aboutTxt {
-        font-size: 60px;
-    }
-    .about img{
-        height: auto;
-    }
+/* About text / quotes */
+.aboutText {
+  width: 60%;
+  font-size: 20px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.8;
+  margin-left: auto;
+  text-align: right;
+  font-style: italic;
 }
