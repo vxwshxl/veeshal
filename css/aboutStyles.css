@@ -108,6 +108,7 @@ h1.blackTxt{
     display: block;
     margin: 0 auto;
     cursor: pointer;
+    z-index: 100;
 }
 
 #aboutVideo {
