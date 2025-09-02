@@ -6,11 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         './assets/projects/4.png',
         './assets/projects/5.png',
         './assets/projects/6.png',
-        './assets/projects/7.png',
-        './assets/projects/8.png',
-        './assets/projects/9.png',
-        './assets/projects/10.png',
-        './assets/projects/11.png'
+        './assets/projects/7.png'
     ];
 
     const menuItems = document.querySelectorAll('.menu-item');
@@ -82,4 +78,39 @@ document.addEventListener("DOMContentLoaded", function() {
             duration: 0.3,
         });
     }
+
+    const mouseOutAnimation = (elem) => {
+        gsap.to(elem.querySelectorAll("p:nth-child(1)"), {
+            top: "0%",
+            duration: 0.3,
+        });
+        gsap.to(elem.querySelectorAll("p:nth-child(2)"), {
+            top: "100%",
+            duration: 0.3,
+        });
+    }
+
+    document.querySelector('.menu').addEventListener('mouseout', function() {
+        gsap.to('.preview-img img', {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 1,
+            ease: "power3.out",
+        });
+    });
+
+    // Fixed mousemove event to account for scroll position
+    document.addEventListener('mousemove', function(e) {
+        const preview = document.querySelector('.preview');
+        
+        // Calculate position relative to the document (includes scroll)
+        const x = e.pageX || e.clientX + window.scrollX;
+        const y = e.pageY || e.clientY + window.scrollY;
+
+        gsap.to(preview, {
+            x: x,
+            y: y,
+            duration: 1,
+            ease: "power3.out",
+        });
+    });
 });
