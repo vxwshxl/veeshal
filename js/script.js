@@ -84,7 +84,7 @@ wheelTl.to(".wheel", {
 });
 
 gsap.fromTo(
-    ".container",
+    ".home",
     {
         duration: 2,
         transform: "translateX(150%)",
@@ -106,7 +106,7 @@ gsap.to(".loader", 2.5, {
     delay: 3.5,
 });
 
-gsap.to(".container", 2, {
+gsap.to(".home", 2, {
     scale: 1,
     ease: "power4.inOut",
     delay: 3.5,
@@ -114,4 +114,26 @@ gsap.to(".container", 2, {
         // Re-enable scrolling after animation
         document.body.style.overflow = "auto";
     }
+});
+
+// SINGLE PAGE SCROLLING ANIMATION
+const sections = document.querySelectorAll("section, div[id$='Container']");
+const navLinks = document.querySelectorAll("nav ul li a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
 });

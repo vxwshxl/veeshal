@@ -17,7 +17,7 @@
 }
 
 html {
-    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -230,7 +230,7 @@ nav a {
     transition: all 0.3s ease;
 }
 
-.container {
+.home {
     position: relative;
     top: 0;
     left: 0;
@@ -248,7 +248,7 @@ nav a {
     padding: 0 20px 20px 20px;
 }
 
-.home {
+.homeContent {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -379,7 +379,7 @@ h1.homeTxt {
 }
 
 @media (max-width: 768px) {
-    .home {
+    .homeContent {
         flex-direction: column;
     }
     
