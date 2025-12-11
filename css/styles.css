@@ -86,7 +86,7 @@ canvas {
     height: 100%;
     border-radius: 100%;
     background: #1a1a1a;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 /* Rim (Middle circle) */
@@ -213,7 +213,7 @@ header {
     align-items: center;
 }
 
-.logo img{
+.logo img {
     width: 100px;
 }
 
@@ -237,7 +237,7 @@ nav a {
     display: block;
     justify-content: center;
     align-items: center;
-    background:#f8f7f3;
+    background: #f8f7f3;
     z-index: 12;
 }
 
@@ -306,7 +306,8 @@ h1.homeTxt {
     font-weight: 600;
     flex-shrink: 0;
     transition: all 0.3s ease;
-    margin-left: -5px; /* Overlapping effect */
+    margin-left: -5px;
+    /* Overlapping effect */
 }
 
 /* Ensure the first icon doesn't get pushed left */
@@ -324,7 +325,8 @@ h1.homeTxt {
     display: flex;
     justify-content: space-between;
 }
-.stats a{
+
+.stats a {
     text-decoration: none;
 }
 
@@ -352,11 +354,15 @@ h1.homeTxt {
     overflow: hidden;
     padding: 30px;
 }
+
 .feature-card img {
     aspect-ratio: 1 / 1;
-    width: 100%; /* or a specific value */
-    height: auto; /* Maintains aspect ratio */
-    object-fit: cover; /* Ensures it covers the container without distortion */
+    width: 100%;
+    /* or a specific value */
+    height: auto;
+    /* Maintains aspect ratio */
+    object-fit: cover;
+    /* Ensures it covers the container without distortion */
 }
 
 .highlight {
@@ -365,57 +371,141 @@ h1.homeTxt {
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-    h1.homeTxt {
-        font-size: 80px;
+    .homeContainer {
+        padding: 0 20px 40px 20px;
     }
-    
+
+    .homeContent {
+        flex-direction: column-reverse;
+        /* Image On Top */
+        gap: 50px;
+        align-items: center;
+    }
+
+    .content-left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1.homeTxt {
+        font-size: 100px;
+        text-align: center;
+    }
+
+    .welcome-text {
+        text-align: center;
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        width: 100%;
+    }
+
     .stat-item h2 {
-        font-size: 40px;
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .stat-item p {
+        text-align: center;
+    }
+
+    .content-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .feature-card {
         padding: 0;
+        min-height: auto;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    /* Header Reordering: Logos on sides, Nav below */
+    header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        padding: 20px 0;
+    }
+
+    /* First logo (default order is fine, but being explicit helps) */
+    .logo:first-child {
+        order: 1;
+        width: auto;
+        justify-content: flex-start;
+    }
+
+    /* Second logo (India flag) - needs to be moved to order 2 */
+    .logo:last-child {
+        order: 2;
+        width: auto;
+        justify-content: flex-end;
+    }
+
+    /* Navigation - force to new line (order 3) */
+    nav {
+        order: 3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul {
+        justify-content: center;
+        width: 100%;
     }
 }
 
 @media (max-width: 768px) {
-    .homeContent {
-        flex-direction: column;
-    }
-    
     h1.homeTxt {
         font-size: 60px;
+        margin-top: 10px;
     }
-    
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-    
+
     nav ul {
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 15px 25px;
     }
-    
-    .feature-card {
-        min-height: 400px;
-        padding: 0;
+
+    .stats {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 30px;
+    }
+
+    .stat-item h2 {
+        font-size: 40px;
     }
 }
 
 @media (max-width: 480px) {
     h1.homeTxt {
-        font-size: 40px;
+        font-size: 50px;
     }
-    
-    .welcome-text {
-        font-size: 16px;
-        text-align: left;
+
+    nav ul {
+        gap: 10px 20px;
     }
-    
+
     .stats {
         flex-direction: column;
         gap: 30px;
+        align-items: center;
     }
 }
