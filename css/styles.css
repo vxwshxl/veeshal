@@ -404,6 +404,10 @@ h1.homeTxt {
         margin: 20px 0;
     }
 
+    .social-icons .line {
+        display: none;
+    }
+
     .stats {
         display: flex;
         justify-content: center;
