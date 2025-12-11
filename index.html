@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,10 @@
     <link rel="stylesheet" href="css/portfolioStyles.css">
     <link rel="stylesheet" href="css/projectStyles.css">
     <link rel="stylesheet" href="css/aboutStyles.css">
+    <link rel="stylesheet" href="css/contactStyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="loader">
         <h1 class="counter">0</h1>
@@ -26,13 +29,13 @@
         <div class="wheel">
             <!-- Tyre (Outer circle) -->
             <div class="tyre"></div>
-            
+
             <!-- Rim (Middle circle) -->
             <div class="rim"></div>
-            
+
             <!-- Spokes Container -->
             <div class="spokes-container" id="spokes"></div>
-            
+
             <!-- Central Logo -->
             <div class="bmw-logo">
                 <div class="bmw-logo-quarter"></div>
@@ -59,8 +62,8 @@
                             <li><a href="#intro"><span class="highlight">Intro</span></a></li>
                             <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#project">Projects</a></li>
-                            <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
+                            <li><a href="#about">About</a></li>
                         </ul>
                     </nav>
                     <div class="logo">
@@ -69,7 +72,7 @@
                 </header>
                 <hr class="line">
             </div>
-    
+
             <!-- Home Content -->
             <main class="homeContent">
                 <div class="content-left">
@@ -88,7 +91,7 @@
                         <a href="https://www.facebook.com/vxwshxl" target="_blank" class="social-icon">fb</a>
                         <hr class="line">
                     </div>
-    
+
                     <div class="stats">
                         <div class="stat-item">
                             <h2>+5</h2>
@@ -109,14 +112,15 @@
                         <div class="stat-item">
                             <h2>+50k</h2>
                             <p>Monthly Visitors for<br>
-                                <a href="https://anglo-bodo-dictionary.com" target="_blank" style="font-weight:bold; color: #F9B646; cursor: pointer;">
+                                <a href="https://anglo-bodo-dictionary.com" target="_blank"
+                                    style="font-weight:bold; color: #F9B646; cursor: pointer;">
                                     Anglo-Bodo Dictionary
-                                </a>                            
+                                </a>
                             </p>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="content-right">
                     <div class="feature-card">
                         <img src="assets/vee-img.png">
@@ -124,44 +128,42 @@
                 </div>
             </main>
         </div>
-    </div>    
+    </div>
 
     <div id="intro" class="intro">
         <!-- Intro Content -->
         <main class="intro">
             <div class="marquee-container-intro">
                 <div class="marquee-content">
-                    <h1 class="whiteTxt">intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp;</h1>
+                    <h1 class="whiteTxt">intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp;
+                        intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp; intro. &nbsp; vee. &nbsp;</h1>
                 </div>
             </div>
-            
+
             <!-- Image container -->
             <div id="imageContainer" style="position: relative; display: block;">
                 <img id="introImage" src="assets/hitr.jpg" style="display: block; cursor: pointer;">
 
                 <button id="playBtn" class="play-pause-btn">
-                    <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="5,3 19,12 5,21" fill="currentColor"/>
+                    <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="5,3 19,12 5,21" fill="currentColor" />
                     </svg>
                 </button>
             </div>
 
             <!-- Video container -->
             <div id="videoContainer" style="position: relative; display: none;">
-                <video id="introVideo" 
-                    src="assets/HITR.mp4" 
-                    loop 
-                    muted 
-                    playsinline 
-                    preload="auto"
+                <video id="introVideo" src="assets/HITR.mp4" loop muted playsinline preload="auto"
                     style="width: 100%; height: 100%; object-fit: cover;">
                 </video>
 
                 <!-- Play/Pause Button (moved outside videoContainer) -->
                 <button id="pauseBtn" class="play-pause-btn">
-                    <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                        <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
-                        <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
+                    <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <rect x="6" y="4" width="4" height="16" fill="currentColor" />
+                        <rect x="14" y="4" width="4" height="16" fill="currentColor" />
                     </svg>
                 </button>
             </div>
@@ -182,7 +184,8 @@
 
     <div class="marquee-container">
         <div class="marquee-content">
-            <h1 class="blackTxt">projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp;</h1>
+            <h1 class="blackTxt">projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp;
+                projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp;</h1>
         </div>
     </div>
 
@@ -247,6 +250,17 @@
                     <p>Video Editing</p>
                 </div>
             </div>
+            <div class="menu-item" data-video="assets/GDG.mp4">
+                <div class="info">
+                    <p>Event</p>
+                </div>
+                <div class="name">
+                    <p>GOOGLE DEV GROUP - 2025</p>
+                </div>
+                <div class="tag">
+                    <p>Video Editing</p>
+                </div>
+            </div>
             <div class="menu-item" data-video="assets/open-mic.mp4">
                 <div class="info">
                     <p>Event</p>
@@ -274,7 +288,7 @@
             <div id="mediaModal" class="media-modal">
                 <div class="media-content">
                     <span id="closeMedia" class="close-btn">&times;</span>
-                    
+
                     <!-- Video element -->
                     <video id="popupVideo" controls>
                         <source src="" type="video/mp4">
@@ -288,13 +302,60 @@
         </div>
     </div>
 
+    <div id="contact" class="contact">
+        <div class="contact-container">
+            <!-- Left Column: Image -->
+            <div class="contact-image">
+                <img src="assets/contact-interior.png" alt="Interior Design">
+            </div>
+
+            <!-- Right Column: Form -->
+            <div class="contact-content">
+                <h1>contact</h1>
+
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder=" ">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder=" ">
+                            <label for="email">Email Address</label>
+                        </div>
+                    </div>
+
+                    <div class="selection-group">
+                        <label>Category</label>
+                        <div class="pills">
+                            <button type="button" class="pill-btn active">Project Development</button>
+                            <button type="button" class="pill-btn">Visual / Video Editing</button>
+                            <button type="button" class="pill-btn">Redesign</button>
+                            <button type="button" class="pill-btn">Hire Me</button>
+                            <button type="button" class="pill-btn">Others</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group message-group">
+                        <textarea id="message" placeholder=" "></textarea>
+                        <label for="message">Your message</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn" style="border-radius: 12px;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div id="about" class="about">
         <h2>
-            <span class="accent">vee</span> aka <span class="accent">Veeshal D. Bodosa</span>, a coder & cinematic storyteller.
-        <br>
-            I craft <span class="highlight">web experiences</span>, designing seamless <span class="highlight">apps</span>,  
+            <span class="accent">vee</span> aka <span class="accent">Veeshal D. Bodosa</span>, a coder & cinematic
+            storyteller.
+            <br>
+            I craft <span class="highlight">web experiences</span>, designing seamless <span
+                class="highlight">apps</span>,
             & bringing visions to life through <span class="highlight">cinematics</span>.
-        <br>
+            <br>
             Blending code & creativity is where I thrive.
         </h2>
 
@@ -351,7 +412,7 @@
     </div>
 
     <hr class="line">
-    
+
     <div class="footer">
         <div class="top">
             <!-- Header/Navigation -->
@@ -366,8 +427,8 @@
                         <li><a href="#intro"><span class="highlight">Intro</span></a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#project">Projects</a></li>
-                        <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="#about">About</a></li>
                     </ul>
                 </nav>
             </header>
@@ -380,5 +441,7 @@
     <script src="js/script.js"></script>
     <script src="js/introScript.js"></script>
     <script src="js/projectScript.js"></script>
+    <script src="js/contactScript.js"></script>
 </body>
+
 </html>

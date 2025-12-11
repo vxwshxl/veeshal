@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
         './assets/projects/4.png',
         './assets/projects/5.png',
         './assets/projects/6.png',
-        './assets/projects/7.png'
+        './assets/projects/7.png',
+        './assets/projects/8.png'
     ];
 
     const menuItems = document.querySelectorAll('.menu-item');
