@@ -1,14 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const imageSources = [
-        './assets/projects/1.png',
-        './assets/projects/2.png',
-        './assets/projects/3.png',
-        './assets/projects/4.png',
-        './assets/projects/5.png',
-        './assets/projects/6.png',
-        './assets/projects/7.png',
-        './assets/projects/8.png'
-    ];
+document.addEventListener("DOMContentLoaded", function () {
+
 
     const menuItems = document.querySelectorAll('.menu-item');
 
@@ -45,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
             clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
             duration: 1,
             ease: "power3.out",
-            onComplete: function() {
+            onComplete: function () {
                 removeExtraImages(preview1);
                 removeExtraImages(preview2);
             }
@@ -58,10 +49,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    document.querySelectorAll('.menu-item').forEach((item, index) => {
+    document.querySelectorAll('.menu-item').forEach((item) => {
         item.addEventListener('mouseover', () => {
             mouseOverAnimation(item);
-            appendImages(imageSources[index]);
+            const hoverSrc = item.getAttribute('data-hover-src');
+            if (hoverSrc) appendImages(hoverSrc);
         });
 
         item.addEventListener('mouseout', () => {
@@ -91,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    document.querySelector('.menu').addEventListener('mouseout', function() {
+    document.querySelector('.menu').addEventListener('mouseout', function () {
         gsap.to('.preview-img img', {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
             duration: 1,
@@ -100,12 +92,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Fixed mousemove event to account for scroll position
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function (e) {
         const preview = document.querySelector('.preview');
-        
-        // Calculate position relative to the document (includes scroll)
-        const x = e.pageX || e.clientX + window.scrollX;
-        const y = e.pageY || e.clientY + window.scrollY;
+
+        // Use clientX/Y for fixed elements so they track relative to the viewport
+        const x = e.clientX;
+        const y = e.clientY;
 
         gsap.to(preview, {
             x: x,
@@ -156,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 popupVideo.load();
                 popupVideo.play();
                 popupVideo.style.display = "block";
-            } 
+            }
             else if (imageSrc) {
                 // Show image popup
                 popupImage.setAttribute("src", imageSrc);
