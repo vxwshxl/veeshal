@@ -1,3 +1,9 @@
-# Ignore large video file
+# Credentials
+.env
+
+# Large files
 assets/HITR.mp4
-open-mic.mp4
+assets/open-mic.mp4
+
+# OS Files
+.DS_Store

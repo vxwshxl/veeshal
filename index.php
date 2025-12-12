@@ -1,3 +1,15 @@
+<?php
+// Simple .env parser
+$env = [];
+if (file_exists(__DIR__ . '/.env')) {
+    $lines = file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($name, $value) = explode('=', $line, 2);
+        $env[trim($name)] = trim($value);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +53,18 @@
     <link rel="stylesheet" href="css/aboutStyles.css">
     <link rel="stylesheet" href="css/contactStyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Crypto-JS for Gravatar MD5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+    <script type="text/javascript">
+        // Inject Variables from PHP
+        const EMAIL_PUBLIC_KEY = "<?php echo isset($env['EMAILJS_PUBLIC_KEY']) ? $env['EMAILJS_PUBLIC_KEY'] : ''; ?>";
+        const EMAIL_SERVICE_ID = "<?php echo isset($env['EMAILJS_SERVICE_ID']) ? $env['EMAILJS_SERVICE_ID'] : ''; ?>";
+        const EMAIL_TEMPLATE_ID = "<?php echo isset($env['EMAILJS_TEMPLATE_ID']) ? $env['EMAILJS_TEMPLATE_ID'] : ''; ?>";
+    </script>
 </head>
 
 <body>
@@ -342,14 +366,14 @@
             <div class="contact-content">
                 <h2>contact</h2>
 
-                <form>
+                <form id="contactForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" id="name" placeholder=" ">
+                            <input type="text" id="name" placeholder=" " required>
                             <label for="name">Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" placeholder=" ">
+                            <input type="email" id="email" placeholder=" " required>
                             <label for="email">Email Address</label>
                         </div>
                     </div>
@@ -366,7 +390,7 @@
                     </div>
 
                     <div class="form-group message-group">
-                        <textarea id="message" placeholder=" "></textarea>
+                        <textarea id="message" placeholder=" " required></textarea>
                         <label for="message">Your message</label>
                     </div>
 
@@ -391,45 +415,59 @@
         <!-- Logo Marquee -->
         <div class="logoMarquee">
             <div class="marqueeInner">
-                <!-- Frontend -->
-                <img src="assets/skills/react-native.png" alt="React Native" />
-                <img src="assets/skills/flutter.png" alt="Flutter" />
-                <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
-                <img src="assets/skills/expo.png" alt="Expo" />
+                <!-- Set 1 -->
+                <div class="logo-set">
+                    <!-- Frontend -->
+                    <img src="assets/skills/react-native.png" alt="React Native" />
+                    <img src="assets/skills/flutter.png" alt="Flutter" />
+                    <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
+                    <img src="assets/skills/expo.png" alt="Expo" />
 
-                <!-- Backend -->
-                <img src="assets/skills/php.png" alt="PHP" />
-                <img src="assets/skills/mysql.png" alt="MySQL" />
-                <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
+                    <!-- Backend -->
+                    <img src="assets/skills/php.png" alt="PHP" />
+                    <img src="assets/skills/mysql.png" alt="MySQL" />
+                    <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
 
-                <!-- Video Editing -->
-                <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
-                <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
-                <img src="assets/skills/capcut.png" alt="CapCut" />
+                    <!-- Video Editing -->
+                    <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
+                    <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
+                    <img src="assets/skills/capcut.png" alt="CapCut" />
 
-                <!-- Photo Editing & Design -->
-                <img src="assets/skills/figma.png" alt="Figma" />
-                <img src="assets/skills/krita.png" alt="Krita" />
-                <img src="assets/skills/canva.png" alt="Canva" />
+                    <!-- Photo Editing & Design -->
+                    <img src="assets/skills/figma.png" alt="Figma" />
+                    <img src="assets/skills/krita.png" alt="Krita" />
+                    <img src="assets/skills/canva.png" alt="Canva" />
 
-                <!-- Animation -->
-                <img src="assets/skills/jitter.png" alt="Jitter" />
+                    <!-- Animation -->
+                    <img src="assets/skills/jitter.png" alt="Jitter" />
+                </div>
 
-                <!-- Repeat for Infinite Loop -->
-                <img src="assets/skills/react-native.png" alt="React Native" />
-                <img src="assets/skills/flutter.png" alt="Flutter" />
-                <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
-                <img src="assets/skills/expo.png" alt="Expo" />
-                <img src="assets/skills/php.png" alt="PHP" />
-                <img src="assets/skills/mysql.png" alt="MySQL" />
-                <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
-                <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
-                <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
-                <img src="assets/skills/capcut.png" alt="CapCut" />
-                <img src="assets/skills/figma.png" alt="Figma" />
-                <img src="assets/skills/krita.png" alt="Krita" />
-                <img src="assets/skills/canva.png" alt="Canva" />
-                <img src="assets/skills/jitter.png" alt="Jitter" />
+                <!-- Set 2 (Duplicate for loop) -->
+                <div class="logo-set">
+                    <!-- Frontend -->
+                    <img src="assets/skills/react-native.png" alt="React Native" />
+                    <img src="assets/skills/flutter.png" alt="Flutter" />
+                    <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
+                    <img src="assets/skills/expo.png" alt="Expo" />
+
+                    <!-- Backend -->
+                    <img src="assets/skills/php.png" alt="PHP" />
+                    <img src="assets/skills/mysql.png" alt="MySQL" />
+                    <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
+
+                    <!-- Video Editing -->
+                    <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
+                    <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
+                    <img src="assets/skills/capcut.png" alt="CapCut" />
+
+                    <!-- Photo Editing & Design -->
+                    <img src="assets/skills/figma.png" alt="Figma" />
+                    <img src="assets/skills/krita.png" alt="Krita" />
+                    <img src="assets/skills/canva.png" alt="Canva" />
+
+                    <!-- Animation -->
+                    <img src="assets/skills/jitter.png" alt="Jitter" />
+                </div>
             </div>
         </div>
 

@@ -16,12 +16,14 @@
 }
 
 .about .highlight {
-  color: #F9B646; /* Accent Yellow */
+  color: #F9B646;
+  /* Accent Yellow */
   font-weight: 900;
 }
 
 .about .accent {
-  color: #ff5f6d; /* Soft gradient pinkish-red */
+  color: #ff5f6d;
+  /* Soft gradient pinkish-red */
   font-weight: 700;
 }
 
@@ -32,18 +34,32 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  /* Ensure overflow is hidden */
   margin: 40px 0;
 }
 
 .marqueeInner {
   display: flex;
-  gap: 200px;
-  animation: scroll 25s linear infinite;
+  width: max-content;
+  /* crucial for infinite scroll of variable width */
+  animation: scroll 40s linear infinite;
+  /* Increased base duration for desktop for smoothness */
+}
+
+/* Grouping container for logos */
+.logo-set {
+  display: flex;
+  gap: 100px;
+  /* Reduced gap for better density */
+  padding-right: 100px;
+  /* Maintain equal gap between sets */
+  align-items: center;
 }
 
 .marqueeInner img {
-  height: 100px;
+  height: 80px;
+  /* Slightly smaller base size */
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -61,10 +77,11 @@
 /* Infinite scroll animation */
 @keyframes scroll {
   from {
-      transform: translateX(0%);
+    transform: translateX(0%);
   }
+
   to {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 
@@ -78,24 +95,49 @@
   margin-left: auto;
   text-align: right;
   font-style: italic;
+  padding-right: 20px;
 }
 
-@media (max-width: 1024px){
-  .about{
+@media (max-width: 1024px) {
+  .about {
     padding: 40px;
   }
-  .about h2{
+
+  .about h2 {
     text-align: justify;
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
   }
-  .logoMarquee{
-    margin: 0px;
+
+  .logoMarquee {
+    margin: 20px 0;
+    height: 150px;
   }
-  .marqueeInner{
+
+  .logo-set {
     gap: 50px;
+    padding-right: 50px;
   }
-  .marqueeInner img{
-    height: 70px;
+
+  .marqueeInner {
+    animation-duration: 15s;
+    /* Faster on mobile/tablet */
+  }
+
+  .marqueeInner img {
+    height: 60px;
+  }
+
+  .aboutText {
+    width: 100%;
+    text-align: center;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeInner {
+    animation-duration: 8s;
+    /* Even faster on small mobile */
   }
 }
