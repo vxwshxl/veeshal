@@ -210,7 +210,8 @@ canvas {
 }
 
 /* Header/Footer & Navigation */
-header, footer {
+header,
+footer {
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -254,7 +255,8 @@ nav a {
 }
 
 /* Main Content */
-.homeContainer, .footerContainer {
+.homeContainer,
+.footerContainer {
     max-width: 95%;
     margin: 0 auto;
     padding: 0 20px 20px 20px;
@@ -279,7 +281,7 @@ nav a {
 }
 
 /* Typography */
-h1.homeTxt {
+.homeTxt {
     font-size: 150px;
     line-height: 0.9;
     font-weight: 900;
@@ -383,7 +385,9 @@ h1.homeTxt {
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-    .homeContainer, .footerContainer {
+
+    .homeContainer,
+    .footerContainer {
         padding: 0 20px 40px 20px;
     }
 
@@ -401,7 +405,7 @@ h1.homeTxt {
         align-items: center;
     }
 
-    h1.homeTxt {
+    .homeTxt {
         font-size: 100px;
         text-align: center;
     }
@@ -499,7 +503,7 @@ h1.homeTxt {
 }
 
 @media (max-width: 768px) {
-    h1.homeTxt {
+    .homeTxt {
         font-size: 60px;
         margin-top: 10px;
     }
@@ -521,7 +525,7 @@ h1.homeTxt {
 }
 
 @media (max-width: 480px) {
-    h1.homeTxt {
+    .homeTxt {
         font-size: 50px;
     }
 

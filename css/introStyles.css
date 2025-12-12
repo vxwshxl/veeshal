@@ -10,12 +10,12 @@
     gap: 40px;
 }
 
-.intro img{
+.intro img {
     width: 100%;
     object-fit: cover;
 }
 
-.intro video{
+.intro video {
     width: 100%;
     object-fit: cover;
 }
@@ -28,6 +28,7 @@
     white-space: nowrap;
     z-index: 10;
 }
+
 .marquee-container-intro {
     margin-top: -53px;
 }
@@ -37,7 +38,7 @@
     animation: marquee 15s linear infinite;
 }
 
-h1.whiteTxt{
+.whiteTxt {
     display: inline-block;
     font-size: 150px;
     line-height: 0.9;
@@ -46,7 +47,7 @@ h1.whiteTxt{
     color: #F8F7F3;
 }
 
-h1.blackTxt{
+.blackTxt {
     display: inline-block;
     font-size: 150px;
     line-height: 0.9;
@@ -124,6 +125,7 @@ h1.blackTxt{
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -131,7 +133,7 @@ h1.blackTxt{
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-    h1.whiteTxt{
+    h1.whiteTxt {
         display: inline-block;
         font-size: 100px;
         line-height: 1.4;
@@ -139,7 +141,8 @@ h1.blackTxt{
         text-transform: lowercase;
         color: #F8F7F3;
     }
-    h1.blackTxt{
+
+    h1.blackTxt {
         display: inline-block;
         font-size: 100px;
         line-height: 3;
@@ -147,13 +150,16 @@ h1.blackTxt{
         text-transform: lowercase;
         color: #000;
     }
+
     .marquee-container {
         margin-top: -28px;
     }
+
     h1.introTxt {
         font-size: 80px;
     }
-    .intro img{
+
+    .intro img {
         height: auto;
     }
 
@@ -177,10 +183,12 @@ h1.blackTxt{
     .marquee-container {
         margin-top: -22px;
     }
+
     h1.introTxt {
         font-size: 60px;
     }
-    .intro img{
+
+    .intro img {
         height: auto;
     }
 }
