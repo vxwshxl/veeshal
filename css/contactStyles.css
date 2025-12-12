@@ -25,11 +25,15 @@
 .contact-image {
     flex: 1;
     border-radius: 40px;
-    /* Rounded corners matching user image */
     overflow: hidden;
     position: relative;
-    max-height: 800px;
-    /* Adjust as needed */
+    aspect-ratio: 1 / 1;
+    /* Enforce square shape */
+    align-self: center;
+    /* Prevent stretching to match form height */
+    max-width: 500px;
+    /* Optional: Constrain it so it doesn't get too huge on large screens */
+    margin: 0 auto;
 }
 
 .contact-image img {
