@@ -138,6 +138,15 @@ if (file_exists(__DIR__ . '/.env')) {
                         <a href="https://www.linkedin.com/in/vxwshxl" target="_blank" class="social-icon">in</a>
                         <a href="https://x.com/vxwshxl" target="_blank" class="social-icon">x</a>
                         <a href="https://www.facebook.com/vxwshxl" target="_blank" class="social-icon">fb</a>
+                        
+                        <!-- Resume Button -->
+                        <hr class="line">
+                        <a href="RESUME - VEESHAL.pdf" target="_blank" class="resume-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 16L7 11H10V4H14V11H17L12 16ZM6 18V20H18V18H6Z" fill="currentColor"/>
+                            </svg>
+                            RESUME
+                        </a>
                         <hr class="line">
                     </div>
 
@@ -145,7 +154,7 @@ if (file_exists(__DIR__ . '/.env')) {
                         <div class="stat-item">
                             <h2>+5</h2>
                             <p>Developed Live<br>
-                                <a href="#projects-coding" style="font-weight:bold; color: #F9B646; cursor: pointer;">
+                                <a href="#project" style="font-weight:bold; color: #F9B646; cursor: pointer;">
                                     Coding Projects
                                 </a>
                             </p>
@@ -153,7 +162,7 @@ if (file_exists(__DIR__ . '/.env')) {
                         <div class="stat-item">
                             <h2>+15</h2>
                             <p>Edited High-Quality<br>
-                                <a href="#projects-video" style="font-weight:bold; color: #F9B646; cursor: pointer;">
+                                <a href="#project" style="font-weight:bold; color: #F9B646; cursor: pointer;">
                                     Video Projects
                                 </a>
                             </p>
@@ -234,8 +243,8 @@ if (file_exists(__DIR__ . '/.env')) {
 
     <div class="marquee-container">
         <div class="marquee-content">
-            <div class="blackTxt">projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp;
-                projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp; projects. &nbsp; vee. &nbsp;</div>
+            <div class="blackTxt">featured. &nbsp; projects. &nbsp; vee. &nbsp; featured. &nbsp; projects. &nbsp; vee. &nbsp; featured. &nbsp; projects. &nbsp; vee. &nbsp;
+            featured. &nbsp; projects. &nbsp; vee. &nbsp; featured. &nbsp; projects. &nbsp; vee. &nbsp; featured. &nbsp; projects. &nbsp; vee. &nbsp;</div>
         </div>
     </div>
 
@@ -364,7 +373,7 @@ if (file_exists(__DIR__ . '/.env')) {
 
             <!-- Right Column: Form -->
             <div class="contact-content">
-                <h2>contact</h2>
+                <h1 class="contactTxt">contact</h1>
 
                 <form id="contactForm">
                     <div class="form-row">
@@ -394,7 +403,7 @@ if (file_exists(__DIR__ . '/.env')) {
                         <label for="message">Your message</label>
                     </div>
 
-                    <button type="submit" class="submit-btn" style="border-radius: 12px;">Submit</button>
+                    <button type="submit" class="submit-btn">Submit</button>
                 </form>
             </div>
         </div>

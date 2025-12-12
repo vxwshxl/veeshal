@@ -334,6 +334,30 @@ nav a {
     color: #fff;
 }
 
+/* Resume Button */
+.resume-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 25px;
+    border: 2px solid #000;
+    background: transparent;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.resume-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
 /* Stats */
 .stats {
     display: flex;
@@ -418,6 +442,15 @@ nav a {
     .social-icons {
         justify-content: center;
         margin: 20px 0;
+        flex-wrap: wrap;
+        /* Allow wrapping */
+    }
+
+    /* Force resume button to new line on mobile/tab */
+    .resume-btn {
+        width: 80%;
+        margin-left: 0;
+        margin-top: 15px;
     }
 
     .social-icons .line {

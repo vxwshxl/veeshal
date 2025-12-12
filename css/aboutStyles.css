@@ -127,12 +127,6 @@
   .marqueeInner img {
     height: 60px;
   }
-
-  .aboutText {
-    width: 100%;
-    text-align: center;
-    padding-right: 0;
-  }
 }
 
 @media (max-width: 768px) {
