@@ -210,7 +210,7 @@ header {
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 95%;
     padding: 0 20px;
@@ -250,7 +250,7 @@ nav a {
 }
 
 /* Main Content */
-.homeContainer {
+.homeContainer, .footerContainer {
     max-width: 95%;
     margin: 0 auto;
     padding: 0 20px 20px 20px;
@@ -379,7 +379,7 @@ h1.homeTxt {
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-    .homeContainer {
+    .homeContainer, .footerContainer {
         padding: 0 20px 40px 20px;
     }
 
