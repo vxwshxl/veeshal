@@ -38,12 +38,15 @@ canvas {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    /* Fallback */
+    height: 100dvh;
     background: #f8f7f3;
     z-index: 11;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .counter {
@@ -75,6 +78,9 @@ canvas {
     position: relative;
     width: 400px;
     height: 400px;
+    /* Ensure wheel scales on small screens */
+    max-width: 90vw;
+    max-height: 90vw;
 }
 
 /* Tyre (Outer circle) */
@@ -177,6 +183,8 @@ canvas {
     background: #999;
     border-radius: 50%;
     border: 1px solid #666;
+    transform: translate(-50%, -50%);
+    /* Center the bolt on its position */
 }
 
 .top {
@@ -507,9 +515,49 @@ h1.homeTxt {
         gap: 10px 20px;
     }
 
+
     .stats {
         flex-direction: column;
         gap: 30px;
         align-items: center;
+    }
+}
+
+/* Mobile Loader Positioning */
+@media (max-width: 768px) {
+    .counter {
+        right: 1.5rem;
+        bottom: 1.5rem;
+        font-size: 15vw;
+        /* Slightly larger on mobile for visibility */
+    }
+
+    .site-teaser {
+        right: 1.5rem;
+        top: 1.5rem;
+    }
+
+    .wheel {
+        /* On smaller screens, the max-width: 90vw handles the size,
+           but we might want to ensure it doesn't get too small or too big */
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wheel {
+        width: 250px;
+        height: 250px;
+    }
+
+    .counter {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .site-teaser {
+        right: 1rem;
+        top: 1rem;
     }
 }

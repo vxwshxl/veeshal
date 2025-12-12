@@ -8,7 +8,7 @@ document.body.scrollTop = 0;
 document.body.style.overflow = "hidden";
 
 // Loader
-function startLoader () {
+function startLoader() {
     let counterElement = document.querySelector('.counter');
     let currentValue = 0;
 
@@ -40,23 +40,23 @@ const numSpokes = 10;
 
 for (let i = 0; i < numSpokes; i++) {
     const angle = (i * 360 / numSpokes);
-    
+
     // Create spoke
     const spoke = document.createElement('div');
     spoke.className = 'spoke';
     spoke.style.transform = `rotate(${angle}deg)`;
     spokesContainer.appendChild(spoke);
-    
+
     // Create bolt
     const bolt = document.createElement('div');
     bolt.className = 'bolt';
-    
-    // Position bolt along rim
+
+    // Position bolt along rim using percentages for responsiveness
     const boltAngle = angle * (Math.PI / 180);
-    const boltRadius = 155;
-    bolt.style.left = `${Math.cos(boltAngle) * boltRadius + 200}px`;
-    bolt.style.top = `${Math.sin(boltAngle) * boltRadius + 200}px`;
-    
+    const boltRadiusPercent = 38.75; // 155px / 400px * 100
+    bolt.style.left = `${50 + Math.cos(boltAngle) * boltRadiusPercent}%`;
+    bolt.style.top = `${50 + Math.sin(boltAngle) * boltRadiusPercent}%`;
+
     document.querySelector('.wheel').appendChild(bolt);
 }
 
@@ -68,7 +68,7 @@ gsap.from(".wheel", 2, {
 });
 
 // Start rotation - slow to fast
-const wheelTl = gsap.timeline({delay: 1});
+const wheelTl = gsap.timeline({ delay: 1 });
 
 // First rotation (slower)
 wheelTl.to(".wheel", 3, {
@@ -92,12 +92,12 @@ gsap.fromTo(
         ease: "power4.inOut",
         delay: 2,
     }, {
-        duration: 2,
-        scale: 0.6,
-        transform: "translateX(0%)",
-        ease: "power4.inOut",
-        delay: 2,
-    }
+    duration: 2,
+    scale: 0.6,
+    transform: "translateX(0%)",
+    ease: "power4.inOut",
+    delay: 2,
+}
 );
 
 gsap.to(".loader", 2.5, {
