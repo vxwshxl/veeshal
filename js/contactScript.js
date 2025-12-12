@@ -1,3 +1,33 @@
+const showToast = (message, type = 'success') => {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerText = message;
+
+    // Auto remove logic
+    const duration = 4000;
+    let timeout;
+
+    const removeToast = () => {
+        toast.classList.add('hide');
+        toast.addEventListener('animationend', () => {
+            toast.remove();
+        });
+    };
+
+    timeout = setTimeout(removeToast, duration);
+
+    // Click to dismiss
+    toast.addEventListener('click', () => {
+        clearTimeout(timeout);
+        removeToast();
+    });
+
+    container.appendChild(toast);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // Handle pill selection
     const pillGroups = document.querySelectorAll('.pills');
@@ -52,31 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Prepare template parameters
-            // Note: Keys must match your EmailJS template variables
             const templateParams = {
-                to_name: "Veeshal", // Or whoever receives it
+                to_name: "Veeshal",
                 name: name,
                 email: email,
                 category: category,
                 message: message,
-                pfp: pfpUrl, // You likely need to add {{pfp}} to your email template HTML
+                pfp: pfpUrl,
                 time: new Date().toLocaleString()
             };
 
-            // Send via EmailJS
-            // Use values from .env (Need to pass Service/Template IDs from PHP too, or hardcode if they aren't secret)
-            // Ideally should pass via PHP variables like public key.
-            // Assuming the variables in .env are public-safe enough to be in JS source (Service/Template IDs usually are)
-            // But I will inject them properly via PHP in index.php to be consistent.
-
-            // Wait, I didn't inject Service/Template ID in index.php. 
-            // I will use the global variables if available, otherwise I'll need to update index.php or use hardcoded values if the user strictly wanted .env.
-            // The user said "make sure credentials are in .env file".
-            // I should inject SERVICE_ID and TEMPLATE_ID too.
-
             if (typeof EMAIL_SERVICE_ID === 'undefined' || typeof EMAIL_TEMPLATE_ID === 'undefined') {
-                console.error("Service ID or Template ID not defined.");
-                alert("Configuration Error: Missing EmailJS IDs.");
+                showToast("Configuration Error: Missing EmailJS IDs.", "error");
                 submitBtn.innerText = originalBtnText;
                 submitBtn.disabled = false;
                 return;
@@ -84,14 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             emailjs.send(EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID, templateParams)
                 .then(function () {
-                    alert('Message Sent Successfully!');
+                    showToast('Message Sent Successfully!', 'success');
                     contactForm.reset();
                     // Reset pills
                     document.querySelectorAll('.pill-btn').forEach(p => p.classList.remove('active'));
                     document.querySelector('.pill-btn').classList.add('active'); // Set first as default
                 }, function (error) {
                     console.error('FAILED...', error);
-                    alert('Failed to send message. Please try again.');
+                    showToast('Failed to send message. Please try again.', 'error');
                 })
                 .finally(() => {
                     submitBtn.innerText = originalBtnText;
