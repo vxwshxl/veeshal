@@ -139,6 +139,14 @@ h1.blackTxt{
         text-transform: lowercase;
         color: #F8F7F3;
     }
+    h1.blackTxt{
+        display: inline-block;
+        font-size: 100px;
+        line-height: 3;
+        font-weight: 900;
+        text-transform: lowercase;
+        color: #000;
+    }
     .marquee-container {
         margin-top: -28px;
     }

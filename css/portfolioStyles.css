@@ -5,13 +5,16 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2em;
+    /* Keep padding fixed or standard relative */
 }
 
 /* Grid Layout */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5em;
+    /* Always 3 columns */
+    gap: 1.5vw;
+    /* Scalable gap */
 }
 
 /* Card Styling */
@@ -43,34 +46,44 @@
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 200px;
-    font-weight: 900;
+    font-size: 12vw;
+    /* Scalable font size based on viewport width */
+    font-weight: 800;
     color: #F9B646;
     text-transform: lowercase;
     pointer-events: none;
     z-index: 2;
+    white-space: nowrap;
+    /* Prevent line breaks on small screens */
 }
 
 /* Make portfolio text appear above all cards except last */
 .card {
     z-index: 1;
 }
+
 .last-card {
     z-index: 3;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* Portfolio Text */
+    .portfolio-title {
+        font-size: 17vw;
+    }
+    .card {
+        border-radius: 20px;
     }
 }
-
+/* Removed media queries that change grid columns to ensure consistent layout */
 @media (max-width: 600px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
+    /* Portfolio Text */
     .portfolio-title {
-        font-size: 3rem;
+        font-size: 17vw;
+    }
+    /* Adjust padding for very small screens if needed, but keeping layout same */
+    .portfolio {
+        padding: 1em;
     }
 }
