@@ -131,6 +131,14 @@ h1.blackTxt{
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
+    h1.whiteTxt{
+        display: inline-block;
+        font-size: 100px;
+        line-height: 1.4;
+        font-weight: 900;
+        text-transform: lowercase;
+        color: #F8F7F3;
+    }
     .marquee-container {
         margin-top: -28px;
     }

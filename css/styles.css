@@ -194,8 +194,12 @@ canvas {
     padding-bottom: 20px;
 }
 
-.space {
+.space-up {
     margin-top: 20px;
+}
+
+.space-down {
+    margin-bottom: 20px;
 }
 
 .line {
@@ -205,12 +209,12 @@ canvas {
     width: 95%;
 }
 
-/* Header & Navigation */
-header {
+/* Header/Footer & Navigation */
+header, footer {
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 95%;
     padding: 0 20px;
@@ -445,12 +449,22 @@ h1.homeTxt {
         max-width: 600px;
     }
 
-    /* Header Reordering: Logos on sides, Nav below */
+    /* Reordering: Logos on sides, Nav below */
     header {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        padding: 20px 0;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
         gap: 0;
         padding: 20px 0;
