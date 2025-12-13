@@ -374,6 +374,7 @@ if (file_exists(__DIR__ . '/.env')) {
             <!-- Right Column: Form -->
             <div class="contact-content">
                 <h1 class="contactTxt">contact</h1>
+                <h3 class="gmailTxt">veebodosa@gmail.com</h3>
 
                 <form id="contactForm">
                     <div class="form-row">
