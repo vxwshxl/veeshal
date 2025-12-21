@@ -122,7 +122,7 @@ if ($envPath) {
                 <hr class="line">
                 <header>
                     <div class="logo">
-                        <a href="index.html"><img src="assets/logo.png"></a>
+                        <a href="index.php"><img src="assets/logo.png"></a>
                     </div>
                     <nav>
                         <ul>
@@ -517,7 +517,7 @@ if ($envPath) {
                 <div class="space-up"></div>
                 <footer>
                     <div class="logo">
-                        <a href="index.html"><img src="assets/logo.png"></a>
+                        <a href="index.php"><img src="assets/logo.png"></a>
                     </div>
                     <nav>
                         <ul>
