@@ -41,10 +41,11 @@ if (file_exists(__DIR__ . '/.env')) {
         content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
     <meta property="twitter:image" content="https://veeshal.me/assets/vee-og.jpg">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/vee-logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/vee-logo.png">
-    <link rel="apple-touch-icon" href="assets/vee-logo.png">
-    <link rel="shortcut icon" href="assets/vee-logo.png">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <title>Veeshal D. Bodosa - Crafting Code & Cinematics</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/introStyles.css">
