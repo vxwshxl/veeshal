@@ -1,12 +1,30 @@
 <?php
 // Simple .env parser
 $env = [];
+$envPath = null;
+
+// Check for .env in current directory (Localhost)
 if (file_exists(__DIR__ . '/.env')) {
-    $lines = file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $envPath = __DIR__ . '/.env';
+} 
+// Check for .env in config directory (Hostinger/Production)
+elseif (file_exists(__DIR__ . '/../config/.env')) {
+    $envPath = __DIR__ . '/../config/.env';
+}
+
+if ($envPath) {
+    $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
+        // Skip comments
         if (strpos(trim($line), '#') === 0) continue;
-        list($name, $value) = explode('=', $line, 2);
-        $env[trim($name)] = trim($value);
+        
+        // Parse key=value
+        $parts = explode('=', $line, 2);
+        if (count($parts) === 2) {
+            $name = trim($parts[0]);
+            $value = trim($parts[1]);
+            $env[$name] = $value;
+        }
     }
 }
 ?>
