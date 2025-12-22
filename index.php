@@ -545,5 +545,4 @@ if ($envPath) {
     <script src="js/projectScript.js"></script>
     <script src="js/contactScript.js"></script>
 </body>
-
 </html>
