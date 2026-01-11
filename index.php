@@ -232,7 +232,7 @@ if ($envPath) {
 
             <!-- Video container -->
             <div id="videoContainer" style="position: relative; display: none;">
-                <video id="introVideo" src="assets/HITR.mp4" loop muted playsinline preload="auto"
+                <video id="introVideo" src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4" loop muted playsinline preload="auto"
                     style="width: 100%; height: 100%; object-fit: cover;">
                 </video>
 
@@ -331,7 +331,7 @@ if ($envPath) {
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item" data-video="assets/GDG.mp4" data-hover-src="./assets/projects/6.png">
+            <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4" data-hover-src="./assets/projects/6.png">
                 <div class="info">
                     <p>Event</p>
                 </div>
@@ -342,7 +342,7 @@ if ($envPath) {
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item" data-video="assets/open-mic.mp4" data-hover-src="./assets/projects/7.png">
+            <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4" data-hover-src="./assets/projects/7.png">
                 <div class="info">
                     <p>Event</p>
                 </div>
