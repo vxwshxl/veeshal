@@ -130,6 +130,7 @@ if ($envPath) {
                             <li><a href="#intro"><span class="highlight">Intro</span></a></li>
                             <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#project">Projects</a></li>
+                            <li><a href="blogs/index.php">Blogs</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="#about">About</a></li>
                         </ul>
@@ -525,6 +526,7 @@ if ($envPath) {
                             <li><a href="#intro"><span class="highlight">Intro</span></a></li>
                             <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#project">Projects</a></li>
+                            <li><a href="blogs/index.php">Blogs</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="#about">About</a></li>
                         </ul>
