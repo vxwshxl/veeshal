@@ -102,7 +102,7 @@ if ($envPath) {
                     </div>
                     <nav>
                         <ul>
-                            <li><a href="../index.php#home">Home</a></li>
+                            <li><a href="../index.php">Home</a></li>
                             <li><a href="../index.php#intro">Intro</a></li>
                             <li><a href="../index.php#portfolio">Portfolio</a></li>
                             <li><a href="../index.php#project">Projects</a></li>
@@ -122,89 +122,121 @@ if ($envPath) {
             <div class="blog-container">
                 <!-- Sidebar -->
                 <aside class="blog-sidebar">
-                    <h3 class="blog-category-title">Blog categories</h3>
+                    <h3 class="blog-category-title">Categories</h3>
                     <ul class="blog-categories">
-                        <li><a href="#" class="active">View all</a></li>
-                        <li><a href="#">Product design</a></li>
-                        <li><a href="#">Software development</a></li>
-                        <li><a href="#">Product management</a></li>
-                        <li><a href="#">Productivity</a></li>
-                        <li><a href="#">User research</a></li>
-                        <li><a href="#">Design inspiration</a></li>
+                        <li><a href="index.php" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
+                        <?php
+                        $categories = [
+                            'Product design',
+                            'Software development',
+                            'Product management',
+                            'Productivity',
+                            'User research',
+                            'Design inspiration'
+                        ];
+                        foreach ($categories as $cat) {
+                            $isActive = isset($_GET['category']) && $_GET['category'] === $cat ? 'active' : '';
+                            echo "<li><a href=\"?category=" . urlencode($cat) . "\" class=\"$isActive\">$cat</a></li>";
+                        }
+                        ?>
                     </ul>
                 </aside>
 
                 <!-- Main Content -->
                 <main class="blog-content">
-                    <h3 class="recent-posts-title">Recent posts</h3>
+                    <?php
+                    // Mock Data - 11 Blog Posts
+                    $all_posts = [
+                        [
+                            'title' => 'Figma’s new auto layout explained',
+                            'date' => '12 June 2023',
+                            'category' => 'Product design',
+                            'image' => '../assets/portfolio/1.png'
+                        ],
+                        [
+                            'title' => 'Streamline your UX research process',
+                            'date' => '12 June 2023',
+                            'category' => 'User research',
+                            'image' => '../assets/portfolio/2.png'
+                        ],
+                        [
+                            'title' => 'Level up your product design skills',
+                            'date' => '12 June 2023',
+                            'category' => 'Product design',
+                            'image' => '../assets/portfolio/3.png'
+                        ],
+                        [
+                            'title' => 'Ensuring inclusivity in UX research',
+                            'date' => '12 June 2023',
+                            'category' => 'User research',
+                            'image' => '../assets/portfolio/4.png'
+                        ],
+                        [
+                            'title' => 'How to synthesize data like a pro',
+                            'date' => '12 June 2023',
+                            'category' => 'User research',
+                            'image' => '../assets/portfolio/5.png'
+                        ],
+                        [
+                            'title' => 'The anatomy of great storytelling',
+                            'date' => '12 June 2023',
+                            'category' => 'Design inspiration',
+                            'image' => '../assets/portfolio/6.png'
+                        ],
+                         [
+                            'title' => 'Mastering CSS Grid Layout',
+                            'date' => '15 July 2023',
+                            'category' => 'Software development',
+                            'image' => '../assets/portfolio/1.png'
+                        ],
+                        [
+                            'title' => 'The Future of Product Management',
+                            'date' => '20 July 2023',
+                            'category' => 'Product management',
+                            'image' => '../assets/portfolio/2.png'
+                        ],
+                        [
+                            'title' => 'Boost Your Productivity with AI',
+                            'date' => '22 July 2023',
+                            'category' => 'Productivity',
+                            'image' => '../assets/portfolio/3.png'
+                        ],
+                        [
+                            'title' => 'Minimalism in Modern UI Design',
+                            'date' => '05 August 2023',
+                            'category' => 'Design inspiration',
+                            'image' => '../assets/portfolio/4.png'
+                        ],
+                        [
+                            'title' => 'Testing PHP Pagination Logic',
+                            'date' => '10 August 2023',
+                            'category' => 'Software development',
+                            'image' => '../assets/portfolio/5.png'
+                        ]
+                    ];
+                    ?>
+                    
+                    <!-- Inject Data for JS -->
+                    <script>
+                        const allPosts = <?php echo json_encode($all_posts); ?>;
+                    </script>
+
+                    <div class="blog-content-header">
+                        <h3 class="recent-posts-title">Recent posts</h3>
+                        <div class="search-container">
+                            <input type="text" placeholder="Search" class="search-input">
+                        </div>
+                    </div>
                     
                     <div class="posts-grid">
-                        <!-- Post 1 -->
-                        <a href="#" class="blog-card">
-                            <div class="blog-image">
-                                <img src="../assets/portfolio/1.png" alt="Post 1">
-                            </div>
-                            <div class="blog-info">
-                                <h4 class="blog-title">Figma’s new auto layout explained</h4>
-                                <span class="blog-date">12 June 2023</span>
-                            </div>
-                        </a>
-
-                        <!-- Post 2 -->
-                        <a href="#" class="blog-card">
-                            <div class="blog-image">
-                                <img src="../assets/portfolio/2.png" alt="Post 2">
-                            </div>
-                            <div class="blog-info">
-                                <h4 class="blog-title">Streamline your UX research process</h4>
-                                <span class="blog-date">12 June 2023</span>
-                            </div>
-                        </a>
-
-                        <!-- Post 3 -->
-                        <a href="#" class="blog-card">
-                            <div class="blog-image">
-                                <img src="../assets/portfolio/3.png" alt="Post 3">
-                            </div>
-                            <div class="blog-info">
-                                <h4 class="blog-title">Level up your product design skills</h4>
-                                <span class="blog-date">12 June 2023</span>
-                            </div>
-                        </a>
-                        
-                        <!-- Post 4 -->
-                        <a href="#" class="blog-card">
-                            <div class="blog-image">
-                                <img src="../assets/portfolio/4.png" alt="Post 4">
-                            </div>
-                            <div class="blog-info">
-                                <h4 class="blog-title">Ensuring inclusivity in UX research</h4>
-                                <span class="blog-date">12 June 2023</span>
-                            </div>
-                        </a>
-
-                        <!-- Post 5 -->
-                        <a href="#" class="blog-card">
-                            <div class="blog-image">
-                                <img src="../assets/portfolio/5.png" alt="Post 5">
-                            </div>
-                            <div class="blog-info">
-                                <h4 class="blog-title">How to synthesize data like a pro</h4>
-                                <span class="blog-date">12 June 2023</span>
-                            </div>
-                        </a>
-
-                        <!-- Post 6 -->
-                        <a href="#" class="blog-card">
-                            <div class="blog-image">
-                                <img src="../assets/portfolio/6.png" alt="Post 6">
-                            </div>
-                            <div class="blog-info">
-                                <h4 class="blog-title">The anatomy of great storytelling</h4>
-                                <span class="blog-date">12 June 2023</span>
-                            </div>
-                        </a>
+                        <!-- Content rendered via JS -->
                     </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-container" style="margin-top: 50px; display: flex; justify-content: center; gap: 8px; align-items: center; flex-wrap: wrap;">
+                        <!-- Pagination rendered via JS -->
+                    </div>
+
                 </main>
             </div>
         </div>
@@ -222,7 +254,7 @@ if ($envPath) {
                         </div>
                         <nav>
                             <ul>
-                                <li><a href="../index.php#home">Home</a></li>
+                                <li><a href="../index.php">Home</a></li>
                                 <li><a href="../index.php#intro">Intro</a></li>
                                 <li><a href="../index.php#portfolio">Portfolio</a></li>
                                 <li><a href="../index.php#project">Projects</a></li>
@@ -244,5 +276,6 @@ if ($envPath) {
 
     <!-- Removed js/script.js to prevent loader and entrance animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../js/blogScript.js"></script>
 </body>
 </html>
