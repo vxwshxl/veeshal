@@ -30,7 +30,7 @@ if ($envPath) {
 
     <title>Git for Beginners - Veeshal D. Bodosa</title>
     <meta name="description" content="Git for Beginners: Basics and Essential Commands. Learn what Git is, why use it, and how to start version controlling your projects.">
-    <meta name="keywords" content="Git, Version Control, Coding, Web Development, Tutorial, Beginners">
+    <meta name="keywords" content="Git, Version Control, Coding, Web Development, Tutorial, Beginners, github, version-control-systems, repository, chaicode, chaicohort, webdevcohort2026, masterji">
     <meta name="author" content="Veeshal D. Bodosa">
 
     <!-- Open Graph / Facebook -->
