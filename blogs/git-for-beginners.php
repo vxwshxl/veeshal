@@ -200,7 +200,7 @@ if ($envPath) {
                             </div>
 
                             <h2 id="conclusion">Conclusion</h2>
-                            <p>Git is a powerful tool that transforms how developers build software. While it has many more advanced features like branching and remote repositories (GitHub/GitLab), these basics—<code>init</code>, <code>add</code>, <code>commit</code>, and <code>status</code>—are the foundation of your daily workflow.</p>
+                            <p>Git is a powerful tool that transforms how developers build software. While it has many more advanced features like branching and remote repositories (GitHub/GitLab), these basics: <code>init</code>, <code>add</code>, <code>commit</code>, and <code>status </code>are the foundation of your daily workflow.</p>
                         </article>
                     </div>
 

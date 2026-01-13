@@ -1,21 +1,19 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Smooth Scroll without Hash Update
+    // 1. Smooth Scroll
     const tocLinks = document.querySelectorAll('.toc-link');
-    
+
     tocLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
-                // Smooth scroll to section
-                // Offset calculation (header + padding)
                 const headerOffset = 100;
                 const elementPosition = targetSection.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: "smooth"
@@ -24,38 +22,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Scroll Spy (Active Link Highlight)
-    // We observe all headings that have IDs matching toc links
+    // 2. Scroll Spy (Scroll Event based)
+    // Works better for flat content (h2... p... h2...) where headings scroll off-screen
     const sections = Array.from(tocLinks).map(link => {
         const id = link.getAttribute('href');
         return document.querySelector(id);
     }).filter(section => section !== null);
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '-100px 0px -70% 0px', // Trigger when section is near top
-        threshold: 0
-    };
+    function onScroll() {
+        // Offset to trigger activation (e.g., 150px from top)
+        const scrollPosition = window.scrollY + 150;
 
-    const observerCallback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Remove active class from all
-                tocLinks.forEach(link => link.classList.remove('active'));
-                
-                // Add active class to corresponding link
-                const id = '#' + entry.target.getAttribute('id');
-                const activeLink = document.querySelector(`.toc-link[href="${id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                    
-                    // Also scroll sidebar if needed (optional polish)
-                    // activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        let currentSection = null;
+
+        // Find the last section that is above the scroll line
+        sections.forEach(section => {
+            // offsetTop is relative to parent, so strictly we want relative to document
+            // Standard approach: section.offsetTop (works if no positioned parents interfere)
+            if (section.offsetTop <= scrollPosition) {
+                currentSection = section;
+            }
+        });
+
+        // Determine if we are at the bottom of the page
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            currentSection = sections[sections.length - 1];
+        }
+
+        // Update Active Class
+        tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (currentSection) {
+                const activeId = '#' + currentSection.getAttribute('id');
+                if (link.getAttribute('href') === activeId) {
+                    link.classList.add('active');
                 }
             }
         });
-    };
+    }
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sections.forEach(section => observer.observe(section));
+    // Throttle scroll event for performance
+    let isTicking = false;
+    window.addEventListener('scroll', () => {
+        if (!isTicking) {
+            window.requestAnimationFrame(() => {
+                onScroll();
+                isTicking = false;
+            });
+            isTicking = true;
+        }
+    });
+
+    // Initial check
+    onScroll();
 });
