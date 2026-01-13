@@ -275,7 +275,7 @@ if ($envPath) {
         </div>
         <div class="menu">
             <div class="menu-item" data-url="https://anglo-bodo-dictionary.com"
-                data-hover-src="./assets/projects/1.png">
+                data-hover-src="./assets/projects/1.webp">
                 <div class="info">
                     <p>Tool</p>
                 </div>
@@ -286,7 +286,7 @@ if ($envPath) {
                     <p>Web Development</p>
                 </div>
             </div>
-            <div class="menu-item" data-url="https://kgc-app.in" data-hover-src="./assets/projects/2.png">
+            <div class="menu-item" data-url="https://kgc-app.in" data-hover-src="./assets/projects/2.webp">
                 <div class="info">
                     <p>Education</p>
                 </div>
@@ -297,7 +297,7 @@ if ($envPath) {
                     <p>Web & App Development</p>
                 </div>
             </div>
-            <div class="menu-item" data-url="https://swrzee.in" data-hover-src="./assets/projects/3.png">
+            <div class="menu-item" data-url="https://swrzee.in" data-hover-src="./assets/projects/3.webp">
                 <div class="info">
                     <p>Enterprise</p>
                 </div>
@@ -309,7 +309,7 @@ if ($envPath) {
                 </div>
             </div>
             <div class="menu-item" data-url="https://www.youtube.com/watch?v=gNVz83QSoY4"
-                data-hover-src="./assets/projects/4.png">
+                data-hover-src="./assets/projects/4.webp">
                 <div class="info">
                     <p>Travel</p>
                 </div>
@@ -321,7 +321,7 @@ if ($envPath) {
                 </div>
             </div>
             <div class="menu-item" data-url="https://www.youtube.com/watch?v=gBvocwLObFQ"
-                data-hover-src="./assets/projects/5.png">
+                data-hover-src="./assets/projects/5.webp">
                 <div class="info">
                     <p>Travel</p>
                 </div>
@@ -332,7 +332,7 @@ if ($envPath) {
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4" data-hover-src="./assets/projects/6.png">
+            <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4" data-hover-src="./assets/projects/6.webp">
                 <div class="info">
                     <p>Event</p>
                 </div>
@@ -343,7 +343,7 @@ if ($envPath) {
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4" data-hover-src="./assets/projects/7.png">
+            <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4" data-hover-src="./assets/projects/7.webp">
                 <div class="info">
                     <p>Event</p>
                 </div>
@@ -354,7 +354,7 @@ if ($envPath) {
                     <p>Video Editing</p>
                 </div>
             </div>
-            <div class="menu-item" data-image="assets/projects/8.png" data-hover-src="./assets/projects/8.png">
+            <div class="menu-item" data-image="assets/projects/8.webp" data-hover-src="./assets/projects/8.webp">
                 <div class="info">
                     <p>Local Shop</p>
                 </div>
