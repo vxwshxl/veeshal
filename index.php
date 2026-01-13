@@ -356,6 +356,28 @@ if ($envPath) {
             </div>
             <div class="menu-item" data-image="assets/projects/8.webp" data-hover-src="./assets/projects/8.webp">
                 <div class="info">
+                    <p>Event</p>
+                </div>
+                <div class="name">
+                    <p>Badminton Tournament</p>
+                </div>
+                <div class="tag">
+                    <p>Banner Editing</p>
+                </div>
+            </div>
+            <div class="menu-item" data-image="assets/projects/9.webp" data-hover-src="./assets/projects/9.webp">
+                <div class="info">
+                    <p>Tool</p>
+                </div>
+                <div class="name">
+                    <p>BODOअख्रां Pvt. Ltd. Logo</p>
+                </div>
+                <div class="tag">
+                    <p>Logo Design</p>
+                </div>
+            </div>
+            <div class="menu-item" data-image="assets/projects/10.webp" data-hover-src="./assets/projects/10.webp">
+                <div class="info">
                     <p>Local Shop</p>
                 </div>
                 <div class="name">

@@ -121,7 +121,8 @@
 .media-content {
     position: relative;
     max-width: 800px;
-    width: 80%;
+    width: auto;
+    max-height: 90vh;
     background: #000;
     padding: 10px;
     border-radius: 12px;
@@ -141,7 +142,9 @@
 
 /* Image styles */
 .media-content img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    max-height: 85vh;
     border-radius: 10px;
     display: none;
     /* Hidden by default */
@@ -272,6 +275,12 @@
     .info,
     .tag {
         font-size: 14px;
+    }
+
+    .close-btn {
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.9);
     }
 }
 
