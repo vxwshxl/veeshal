@@ -221,8 +221,6 @@ if ($envPath) {
                                 <a href="" class="blog-tag">#chaicode</a>
                                 <a href="" class="blog-tag">#chaicohort</a>
                                 <a href="" class="blog-tag">#webdevcohort2026</a>
-                                <a href="" class="blog-tag">#hiteshchaudhary</a>
-                                <a href="" class="blog-tag">#piyushgarag</a>
                                 <a href="" class="blog-tag">#masterji</a>
                             </div>
                         </div>
