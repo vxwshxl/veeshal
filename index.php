@@ -49,7 +49,7 @@ if ($envPath) {
     <meta property="og:title" content="Veeshal D. Bodosa - Crafting Code & Cinematics">
     <meta property="og:description"
         content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
-    <meta property="og:image" content="https://veeshal.me/assets/vee-og.jpg">
+    <meta property="og:image" content="https://veeshal.me/assets/vee-og.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -57,7 +57,7 @@ if ($envPath) {
     <meta property="twitter:title" content="Veeshal D. Bodosa - Crafting Code & Cinematics">
     <meta property="twitter:description"
         content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
-    <meta property="twitter:image" content="https://veeshal.me/assets/vee-og.jpg">
+    <meta property="twitter:image" content="https://veeshal.me/assets/vee-og.webp">
 
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -201,7 +201,7 @@ if ($envPath) {
 
                 <div class="content-right">
                     <div class="feature-card">
-                        <img src="assets/vee-img.jpg" alt="Veeshal D. Bodosa Portrait">
+                        <img src="assets/vee-img.webp" alt="Veeshal D. Bodosa Portrait">
                     </div>
                 </div>
             </main>
@@ -251,12 +251,12 @@ if ($envPath) {
 
     <div id="portfolio" class="portfolio">
         <div class="portfolio-grid">
-            <div class="card"><img src="assets/portfolio/1.png" alt="Portfolio 1"></div>
-            <div class="card"><img src="assets/portfolio/2.png" alt="Portfolio 2"></div>
-            <div class="card"><img src="assets/portfolio/3.png" alt="Portfolio 3"></div>
-            <div class="card"><img src="assets/portfolio/4.png" alt="Portfolio 4"></div>
-            <div class="card"><img src="assets/portfolio/5.png" alt="Portfolio 5"></div>
-            <div class="card last-card"><img src="assets/portfolio/6.png" alt="Portfolio 6"></div>
+            <div class="card"><img src="assets/portfolio/1.webp" alt="Portfolio 1"></div>
+            <div class="card"><img src="assets/portfolio/2.webp" alt="Portfolio 2"></div>
+            <div class="card"><img src="assets/portfolio/3.webp" alt="Portfolio 3"></div>
+            <div class="card"><img src="assets/portfolio/4.webp" alt="Portfolio 4"></div>
+            <div class="card"><img src="assets/portfolio/5.webp" alt="Portfolio 5"></div>
+            <div class="card last-card"><img src="assets/portfolio/6.webp" alt="Portfolio 6"></div>
         </div>
         <h2 class="portfolio-title">portfolio</h2>
     </div>
@@ -388,7 +388,7 @@ if ($envPath) {
         <div class="contact-container">
             <!-- Left Column: Image -->
             <div class="contact-image">
-                <img src="assets/vee.jpg" alt="vee">
+                <img src="assets/vee.webp" alt="vee">
             </div>
 
             <!-- Right Column: Form -->
