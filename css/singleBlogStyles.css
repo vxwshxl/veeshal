@@ -247,3 +247,202 @@ header.blog-header {
         border-radius: 8px;
     }
 }
+
+/* Sidebar Layout (3-Column) */
+.single-blog-container.with-sidebar {
+    max-width: 1400px;
+    padding-bottom: 80px;
+}
+
+.blog-layout-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    /* 3 Columns */
+    gap: 40px;
+    align-items: start;
+    position: relative;
+    margin: 20px 0px 40px;
+}
+
+.blog-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+    height: fit-content;
+    padding-top: 10px;
+}
+
+.blog-sidebar-right {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+    height: fit-content;
+    padding-top: 10px;
+}
+
+.sidebar-inner {
+    padding-right: 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    /* Only for left sidebar */
+}
+
+.sidebar-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.table-of-contents li {
+    margin-bottom: 0;
+    display: block;
+}
+
+.toc-link {
+    text-decoration: none;
+    color: #666;
+    /* Softer default color */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: block;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 0;
+}
+
+.toc-link:hover {
+    color: #000;
+    transform: translateX(4px);
+}
+
+/* Adjustments for the main content when in grid */
+.blog-layout-grid .blog-header {
+    margin-bottom: 30px;
+}
+
+.blog-layout-grid .article-content {
+    max-width: 100%;
+    /* Take full width of the grid cell */
+}
+
+/* Responsive Logic */
+.desktop-back-link {
+    display: block;
+}
+
+.mobile-back-link {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+
+    /* Reduce side columns slightly or gap */
+    .blog-layout-grid {
+        gap: 30px;
+        grid-template-columns: 200px 1fr 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* Tablet/Mobile Breakpoint: Stack everything */
+    .blog-layout-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Order: Back (Mobile) -> Content -> Tags -> (Hidden TOC) */
+
+    .blog-sidebar {
+        display: none;
+        /* Hide TOC sidebar */
+    }
+
+    .blog-sidebar-right {
+        order: 3;
+        /* Content is implicitly order 0 or we set it */
+        width: 100%;
+        position: static;
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid #eee;
+    }
+
+    .blog-main-content {
+        order: 2;
+        width: 100%;
+    }
+
+    .single-blog-container.with-sidebar {
+        max-width: 800px;
+    }
+
+    .sidebar-inner {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .desktop-back-link {
+        display: none;
+    }
+
+    .mobile-back-link {
+        display: block;
+    }
+}
+
+/* Tags Section */
+.sidebar-tags-wrapper {
+    /* No margin top needed if it's the only thing in right sidebar */
+    margin-top: 0;
+}
+
+.blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Outline Tag Style */
+.blog-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: transparent;
+    /* Transparent default */
+    color: #333;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid #333;
+    /* Dark border */
+}
+
+.blog-tag:hover {
+    background-color: #F9B646;
+    color: #000;
+    border-color: #F9B646;
+}
+
+/* Active State for Table of Contents */
+.toc-link.active {
+    color: #000;
+    background: #F9B646;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-left: -12px;
+}
