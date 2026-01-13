@@ -106,9 +106,9 @@ if ($envPath) {
                     $all_posts = [
                         [
                             'title' => 'Git for Beginners: Basics and Essential Commands',
-                            'date' => '27 Dec 2025',
+                            'date' => '13 Jan 2026',
                             'category' => 'Software development',
-                            'image' => '../assets/working-dir.png',
+                            'image' => 'images/working-dir.png',
                             'link' => 'git-for-beginners.php'
                         ]
                     ];

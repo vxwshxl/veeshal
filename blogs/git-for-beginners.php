@@ -38,14 +38,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/git-for-beginners.php">
     <meta property="og:title" content="Git for Beginners: Basics and Essential Commands">
     <meta property="og:description" content="Master the basics of Git version control. A comprehensive guide for beginners covering commands, workflows, and core concepts.">
-    <meta property="og:image" content="../assets/working-dir.png">
+    <meta property="og:image" content="images/working-dir.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/git-for-beginners.php">
     <meta property="twitter:title" content="Git for Beginners: Basics and Essential Commands">
     <meta property="twitter:description" content="Master the basics of Git version control. A comprehensive guide for beginners covering commands, workflows, and core concepts.">
-    <meta property="twitter:image" content="../assets/working-dir.png">
+    <meta property="twitter:image" content="images/working-dir.png">
     
     <!-- Code Highlight Format (optional, creating simple styles below) -->
     <!-- Code Highlight Format (styles moved to singleBlogStyles.css) -->
@@ -75,13 +75,13 @@ if ($envPath) {
                             Veeshal D. Bodosa
                         </div>
                         <div class="meta-date">
-                            27 Dec 2025
+                            13 Jan 2026
                         </div>
                     </div>
                 </header>
 
                 <div class="blog-hero-image-wrapper">
-                    <img src="../assets/working-dir.png" alt="Git Working Directory" class="blog-hero-image">
+                    <img src="images/working-dir.png" alt="Git Working Directory" class="blog-hero-image">
                 </div>
 
                 <article class="article-content">
@@ -105,7 +105,7 @@ if ($envPath) {
                     <p>A repository is like a project folder that Git tracks. It contains all your project files and the history of changes made to them.</p>
 
                     <div class="figure-container">
-                        <img src="../assets/git-structure.png" alt="Git Repository Structure Diagram" class="blog-diagram">
+                        <img src="images/git-structure.png" alt="Git Repository Structure Diagram" class="blog-diagram">
                         <div class="diagram-caption">Fig 1. Local Repository Structure Overview</div>
                     </div>
 
@@ -113,7 +113,7 @@ if ($envPath) {
                     <p>Git has a specific workflow that involves three main states/areas:</p>
                     
                     <div class="figure-container">
-                        <img src="../assets/git-flow.png" alt="Git Workflow Diagram" class="blog-diagram">
+                        <img src="images/git-flow.png" alt="Git Workflow Diagram" class="blog-diagram">
                         <div class="diagram-caption">Fig 2. The Git Workflow: Working Directory → Staging → Repo</div>
                     </div>
                     
@@ -130,7 +130,7 @@ if ($envPath) {
                     </ul>
                     
                     <div class="figure-container">
-                        <img src="../assets/git-history.png" alt="Git Commit History" class="blog-diagram">
+                        <img src="images/git-history.png" alt="Git Commit History" class="blog-diagram">
                         <div class="diagram-caption">Fig 3. Commit History Flow</div>
                     </div>
 

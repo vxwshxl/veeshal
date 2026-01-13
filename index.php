@@ -291,7 +291,7 @@ if ($envPath) {
                     <p>Education</p>
                 </div>
                 <div class="name">
-                    <p>Kokrajhar Govt. College</p>
+                    <p>Kokrajhar University</p>
                 </div>
                 <div class="tag">
                     <p>Web & App Development</p>
