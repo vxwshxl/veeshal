@@ -1,17 +1,12 @@
-Options -MultiViews
 RewriteEngine On
-RewriteBase /
 
-# 1. External Redirect: Remove .php extension from URL
-# Only for GET requests (THE_REQUEST check)
-# e.g., /about.php -> /about
+# 1. To remove .php extension from the URL (Redirect external requests)
+# Example: /about.php -> /about
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L,NE]
 
-# 2. Internal Rewrite: Route request to .php file if it exists
-# Ignore if it's a directory
+# 2. To internally forward the request to the .php file
+# Example: /about -> /about.php
 RewriteCond %{REQUEST_FILENAME} !-d
-# Check if corresponding .php file exists (path relative to DocRoot or current dir)
-RewriteCond %{DOCUMENT_ROOT}/$1.php -f [OR]
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]
