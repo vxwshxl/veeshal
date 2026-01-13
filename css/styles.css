@@ -229,6 +229,7 @@ footer {
 .logo img {
     height: 50px;
     width: 100px;
+    object-fit: cover;
 }
 
 nav ul {

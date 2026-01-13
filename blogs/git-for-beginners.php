@@ -26,12 +26,12 @@ if ($envPath) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include 'includes/head_resources.php'; ?>
+
+    <title>Git for Beginners - Veeshal D. Bodosa</title>
     <meta name="description" content="Git for Beginners: Basics and Essential Commands. Learn what Git is, why use it, and how to start version controlling your projects.">
     <meta name="keywords" content="Git, Version Control, Coding, Web Development, Tutorial, Beginners">
     <meta name="author" content="Veeshal D. Bodosa">
-    <meta name="theme-color" content="#000000">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
@@ -46,310 +46,36 @@ if ($envPath) {
     <meta property="twitter:title" content="Git for Beginners: Basics and Essential Commands">
     <meta property="twitter:description" content="Master the basics of Git version control. A comprehensive guide for beginners covering commands, workflows, and core concepts.">
     <meta property="twitter:image" content="../assets/working-dir.png">
-
-    <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-    <link rel="shortcut icon" href="../favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
-    <link rel="manifest" href="../site.webmanifest" />
-
-    <title>Git for Beginners - Veeshal D. Bodosa</title>
-
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/blogsStyles.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Code Highlight Format (optional, creating simple styles below) -->
-    <style>
-        /* Specific Styles for Single Blog Post */
-        /* Overriding global paddings for this page if necessary */
-        
-        .single-blog-container {
-            max-width: 800px;
-            margin: 0 auto;
-            /* Default desktop padding */
-            padding: 60px 20px;
-        }
-
-        .back-link-wrapper {
-            margin-bottom: 30px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-        
-        .back-link:hover {
-            color: #000;
-        }
-        
-        .back-link svg {
-            margin-right: 8px;
-            width: 16px;
-            height: 16px;
-        }
-
-        .blog-header {
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        .blog-header h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 24px;
-            color: #000;
-            letter-spacing: -0.02em;
-        }
-
-        .blog-meta-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 0.95rem;
-            color: #666;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .meta-separator {
-            width: 4px;
-            height: 4px;
-            background-color: #ccc;
-            border-radius: 50%;
-        }
-
-        .author-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid #eee;
-        }
-
-        .blog-hero-image-wrapper {
-            width: 100%;
-            margin-bottom: 50px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            background-color: #f0f0f0;
-        }
-        
-        .blog-hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        
-        /* content styling */
-        .article-content {
-            font-size: 1.125rem;
-            line-height: 1.75;
-            color: #222;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .article-content .lead {
-            font-size: 1.35rem;
-            line-height: 1.6;
-            color: #444;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .article-content h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-top: 60px;
-            margin-bottom: 24px;
-            color: #000;
-            letter-spacing: -0.01em;
-        }
-
-        .article-content h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: #000;
-        }
-
-        .article-content p {
-            margin-bottom: 24px;
-            color: #333;
-        }
-
-        .article-content ul, .article-content ol {
-            margin-bottom: 30px;
-            padding-left: 20px;
-        }
-        
-        .article-content li {
-            margin-bottom: 12px;
-            padding-left: 8px;
-        }
-        
-        /* Code blocks */
-        .code-block {
-            background-color: #1e1e1e;
-            color: #ddd;
-            padding: 24px;
-            border-radius: 12px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.95rem;
-            overflow-x: auto;
-            margin: 30px 0;
-            border: 1px solid #333;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .command {
-            color: #F9B646;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .command:last-child {
-            margin-bottom: 0;
-        }
-
-        .comment {
-            color: #888;
-            display: block;
-            margin-bottom: 4px;
-            font-style: italic;
-        }
-        
-        /* Diagrams */
-        .figure-container {
-            margin: 50px 0;
-            text-align: center;
-        }
-
-        .blog-diagram {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 1px solid #e5e5e5;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            background: #fff;
-        }
-        
-        .diagram-caption {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .single-blog-container {
-                /* Reduce side padding significantly on mobile */
-                padding: 30px 0; /* Let the container handle horizontal spacing */
-            }
-            
-            /* Home container padding override via specificity if needed, 
-               but here we are inside .single-blog-container */
-            
-            .blog-header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .blog-meta-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            
-            .meta-separator {
-                display: none;
-            }
-            
-            .article-content {
-                font-size: 1.05rem;
-            }
-            
-            .article-content .lead {
-                font-size: 1.2rem;
-            }
-
-            /* Diagram full width on mobile */
-            .blog-diagram {
-                border-radius: 8px;
-            }
-        }
-    </style>
+    <!-- Code Highlight Format (styles moved to singleBlogStyles.css) -->
 </head>
 
 <body>
     <div id="home" class="home">
         <div class="homeContainer">
-            <div class="top">
-                <!-- Header/Navigation -->
-                <div class="space-up"></div>
-                <hr class="line">
-                <header>
-                    <div class="logo">
-                        <a href="../index.php"><img src="../assets/logo.png"></a>
-                    </div>
-                    <nav>
-                        <ul>
-                            <li><a href="../index.php">Home</a></li>
-                            <li><a href="../index.php#intro">Intro</a></li>
-                            <li><a href="../index.php#portfolio">Portfolio</a></li>
-                            <li><a href="../index.php#project">Projects</a></li>
-                            <li><a href="index.php"><span class="highlight">Blogs</span></a></li>
-                            <li><a href="../index.php#contact">Contact</a></li>
-                            <li><a href="../index.php#about">About</a></li>
-                        </ul>
-                    </nav>
-                    <div class="logo">
-                        <img src="../assets/india.png" alt="Made in India">
-                    </div>
-                </header>
-                <hr class="line">
-            </div>
+            <?php include 'includes/header.php'; ?>
 
             <!-- Single Blog Post Content -->
             <div class="single-blog-container">
                 <div class="back-link-wrapper">
                     <a href="index.php" class="back-link">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                        Back to Blogs
+                        Back
                     </a>
                 </div>
                 
                 <header class="blog-header">
                     <h1>Git for Beginners: Basics and Essential Commands</h1>
                     <div class="blog-meta-row">
-                        <div class="meta-item">
-                            <!-- Could put avatar here -->
-                            <span style="font-weight: 600; color: #000;">Veeshal D. Bodosa</span>
-                        </div>
-                        <div class="meta-separator"></div>
-                        <div class="meta-item">
-                            27 Dec 2025
-                        </div>
-                        <div class="meta-separator"></div>
-                        <div class="meta-item" style="color: #F9B646; font-weight: 600;">
+                        <div class="meta-category">
                             Software Development
+                        </div>
+                        <div class="meta-author">
+                            Veeshal D. Bodosa
+                        </div>
+                        <div class="meta-date">
+                            27 Dec 2025
                         </div>
                     </div>
                 </header>
@@ -455,38 +181,12 @@ if ($envPath) {
         </div>
 
         <!-- Footer -->
-        <div class="footer">
-            <div class="footerContainer">
-                <div class="top">
-                    <!-- Footer/Navigation -->
-                    <hr class="line">
-                    <div class="space-up"></div>
-                    <footer>
-                        <div class="logo">
-                            <a href="../index.php"><img src="../assets/logo.png"></a>
-                        </div>
-                        <nav>
-                            <ul>
-                                <li><a href="../index.php">Home</a></li>
-                                <li><a href="../index.php#intro">Intro</a></li>
-                                <li><a href="../index.php#portfolio">Portfolio</a></li>
-                                <li><a href="../index.php#project">Projects</a></li>
-                                <li><a href="index.php"><span class="highlight">Blogs</span></a></li>
-                                <li><a href="../index.php#contact">Contact</a></li>
-                                <li><a href="../index.php#about">About</a></li>
-                            </ul>
-                        </nav>
-                    </footer>
-                </div>
-                 <h2 class="homeTxt">fall back<span class="highlight">?</span></h2>
-                <h2 class="homeTxt">redesign<span class="highlight">..!</span></h2>
-            </div>
-        </div>
+        <!-- Footer -->
+        <?php include 'includes/footer.php'; ?>
     </div>
 
     <!-- Toast Notification Container -->
-    <div id="toast-container"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <?php include 'includes/footer_resources.php'; ?>
     <!-- No blogScript.js needed for this simple page, or we can include empty/relevant scripts -->
 </body>
 </html>
