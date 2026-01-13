@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">No posts found.</p>';
         } else {
             grid.innerHTML = currentPosts.map(post => `
-                <a href="#" class="blog-card">
+                <a href="${post.link || '#'}" class="blog-card">
                     <div class="blog-image">
                         <img src="${post.image}" alt="${post.title}">
                     </div>

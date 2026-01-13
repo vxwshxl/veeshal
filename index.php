@@ -49,7 +49,7 @@ if ($envPath) {
     <meta property="og:title" content="Veeshal D. Bodosa - Crafting Code & Cinematics">
     <meta property="og:description"
         content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
-    <meta property="og:image" content="https://veeshal.me/assets/vee-og.jpg">
+    <meta property="og:image" content="https://veeshal.me/assets/vee-og.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -57,7 +57,7 @@ if ($envPath) {
     <meta property="twitter:title" content="Veeshal D. Bodosa - Crafting Code & Cinematics">
     <meta property="twitter:description"
         content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
-    <meta property="twitter:image" content="https://veeshal.me/assets/vee-og.jpg">
+    <meta property="twitter:image" content="https://veeshal.me/assets/vee-og.svg">
 
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -122,7 +122,7 @@ if ($envPath) {
                 <hr class="line">
                 <header>
                     <div class="logo">
-                        <a href="index.php"><img src="assets/logo.png"></a>
+                        <a href="index.php"><img src="assets/logo.svg"></a>
                     </div>
                     <nav>
                         <ul>
@@ -136,7 +136,7 @@ if ($envPath) {
                         </ul>
                     </nav>
                     <div class="logo">
-                        <img src="assets/india.png" alt="Made in India">
+                        <img src="assets/india.svg" alt="Made in India">
                     </div>
                 </header>
                 <hr class="line">
@@ -201,7 +201,7 @@ if ($envPath) {
 
                 <div class="content-right">
                     <div class="feature-card">
-                        <img src="assets/vee-img.png" alt="Veeshal D. Bodosa Portrait">
+                        <img src="assets/vee-img.svg" alt="Veeshal D. Bodosa Portrait">
                     </div>
                 </div>
             </main>
@@ -388,7 +388,7 @@ if ($envPath) {
         <div class="contact-container">
             <!-- Left Column: Image -->
             <div class="contact-image">
-                <img src="assets/vee.png" alt="vee">
+                <img src="assets/vee.svg" alt="vee">
             </div>
 
             <!-- Right Column: Form -->
@@ -518,7 +518,7 @@ if ($envPath) {
                 <div class="space-up"></div>
                 <footer>
                     <div class="logo">
-                        <a href="index.php"><img src="assets/logo.png"></a>
+                        <a href="index.php"><img src="assets/logo.svg"></a>
                     </div>
                     <nav>
                         <ul>

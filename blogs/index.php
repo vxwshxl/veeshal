@@ -98,7 +98,7 @@ if ($envPath) {
                 <hr class="line">
                 <header>
                     <div class="logo">
-                        <a href="../index.php"><img src="../assets/logo.png"></a>
+                        <a href="../index.php"><img src="../assets/logo.svg"></a>
                     </div>
                     <nav>
                         <ul>
@@ -112,7 +112,7 @@ if ($envPath) {
                         </ul>
                     </nav>
                     <div class="logo">
-                        <img src="../assets/india.png" alt="Made in India">
+                        <img src="../assets/india.svg" alt="Made in India">
                     </div>
                 </header>
                 <hr class="line">
@@ -146,72 +146,14 @@ if ($envPath) {
                 <main class="blog-content">
                     <?php
                     // Mock Data - 11 Blog Posts
+                    // Blog Posts Data
                     $all_posts = [
                         [
-                            'title' => 'Figma’s new auto layout explained',
-                            'date' => '12 June 2023',
-                            'category' => 'Product design',
-                            'image' => '../assets/portfolio/1.png'
-                        ],
-                        [
-                            'title' => 'Streamline your UX research process',
-                            'date' => '12 June 2023',
-                            'category' => 'User research',
-                            'image' => '../assets/portfolio/2.png'
-                        ],
-                        [
-                            'title' => 'Level up your product design skills',
-                            'date' => '12 June 2023',
-                            'category' => 'Product design',
-                            'image' => '../assets/portfolio/3.png'
-                        ],
-                        [
-                            'title' => 'Ensuring inclusivity in UX research',
-                            'date' => '12 June 2023',
-                            'category' => 'User research',
-                            'image' => '../assets/portfolio/4.png'
-                        ],
-                        [
-                            'title' => 'How to synthesize data like a pro',
-                            'date' => '12 June 2023',
-                            'category' => 'User research',
-                            'image' => '../assets/portfolio/5.png'
-                        ],
-                        [
-                            'title' => 'The anatomy of great storytelling',
-                            'date' => '12 June 2023',
-                            'category' => 'Design inspiration',
-                            'image' => '../assets/portfolio/6.png'
-                        ],
-                         [
-                            'title' => 'Mastering CSS Grid Layout',
-                            'date' => '15 July 2023',
+                            'title' => 'Git for Beginners: Basics and Essential Commands',
+                            'date' => '27 Dec 2025',
                             'category' => 'Software development',
-                            'image' => '../assets/portfolio/1.png'
-                        ],
-                        [
-                            'title' => 'The Future of Product Management',
-                            'date' => '20 July 2023',
-                            'category' => 'Product management',
-                            'image' => '../assets/portfolio/2.png'
-                        ],
-                        [
-                            'title' => 'Boost Your Productivity with AI',
-                            'date' => '22 July 2023',
-                            'category' => 'Productivity',
-                            'image' => '../assets/portfolio/3.png'
-                        ],
-                        [
-                            'title' => 'Minimalism in Modern UI Design',
-                            'date' => '05 August 2023',
-                            'category' => 'Design inspiration',
-                            'image' => '../assets/portfolio/4.png'
-                        ],
-                        [
-                            'title' => 'Testing PHP Pagination Logic',
-                            'date' => '10 August 2023',
-                            'category' => 'Software development',
-                            'image' => '../assets/portfolio/5.png'
+                            'image' => '../assets/working-dir.png',
+                            'link' => 'git-for-beginners.php'
                         ]
                     ];
                     ?>
@@ -250,7 +192,7 @@ if ($envPath) {
                     <div class="space-up"></div>
                     <footer>
                         <div class="logo">
-                            <a href="../index.php"><img src="../assets/logo.png"></a>
+                            <a href="../index.php"><img src="../assets/logo.svg"></a>
                         </div>
                         <nav>
                             <ul>
