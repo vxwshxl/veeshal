@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# 1. To remove .php extension from the URL (Redirect external requests)
+# Example: /about.php -> /about
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# 2. To internally forward the request to the .php file
+# Example: /about -> /about.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]

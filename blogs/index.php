@@ -80,7 +80,7 @@ if ($envPath) {
                 <aside class="blog-sidebar">
                     <h3 class="blog-category-title">Categories</h3>
                     <ul class="blog-categories">
-                        <li><a href="index.php" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
+                        <li><a href="index" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
                         <?php
                         $categories = [
                             'Product design',
@@ -109,7 +109,7 @@ if ($envPath) {
                             'date' => '13 Jan 2026',
                             'category' => 'Software development',
                             'image' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png',
-                            'link' => 'git-for-beginners.php'
+                            'link' => 'git-for-beginners'
                         ]
                     ];
                     ?>

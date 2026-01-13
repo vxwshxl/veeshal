@@ -4,17 +4,17 @@
     <hr class="line">
     <header>
         <div class="logo">
-            <a href="../index.php"><img src="../assets/logo.svg"></a>
+            <a href="../index"><img src="../assets/logo.svg"></a>
         </div>
         <nav>
             <ul>
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="../index.php#intro">Intro</a></li>
-                <li><a href="../index.php#portfolio">Portfolio</a></li>
-                <li><a href="../index.php#project">Projects</a></li>
-                <li><a href="index.php"><span class="highlight">Blogs</span></a></li>
-                <li><a href="../index.php#contact">Contact</a></li>
-                <li><a href="../index.php#about">About</a></li>
+                <li><a href="../index">Home</a></li>
+                <li><a href="../index#intro">Intro</a></li>
+                <li><a href="../index#portfolio">Portfolio</a></li>
+                <li><a href="../index#project">Projects</a></li>
+                <li><a href="index"><span class="highlight">Blogs</span></a></li>
+                <li><a href="../index#contact">Contact</a></li>
+                <li><a href="../index#about">About</a></li>
             </ul>
         </nav>
         <div class="logo">

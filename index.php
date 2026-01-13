@@ -122,7 +122,7 @@ if ($envPath) {
                 <hr class="line">
                 <header>
                     <div class="logo">
-                        <a href="index.php"><img src="assets/logo.svg"></a>
+                        <a href="index"><img src="assets/logo.svg"></a>
                     </div>
                     <nav>
                         <ul>
@@ -130,7 +130,7 @@ if ($envPath) {
                             <li><a href="#intro"><span class="highlight">Intro</span></a></li>
                             <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#project">Projects</a></li>
-                            <li><a href="blogs/index.php">Blogs</a></li>
+                            <li><a href="blogs/index">Blogs</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="#about">About</a></li>
                         </ul>
@@ -518,7 +518,7 @@ if ($envPath) {
                 <div class="space-up"></div>
                 <footer>
                     <div class="logo">
-                        <a href="index.php"><img src="assets/logo.svg"></a>
+                        <a href="index"><img src="assets/logo.svg"></a>
                     </div>
                     <nav>
                         <ul>
@@ -526,7 +526,7 @@ if ($envPath) {
                             <li><a href="#intro"><span class="highlight">Intro</span></a></li>
                             <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#project">Projects</a></li>
-                            <li><a href="blogs/index.php">Blogs</a></li>
+                            <li><a href="blogs/index">Blogs</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="#about">About</a></li>
                         </ul>
