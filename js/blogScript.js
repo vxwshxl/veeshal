@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const href = link.getAttribute('href');
                 // Extract category from href (assuming ?category=...)
-                if (href === 'index.php' || href.includes('View all')) {
+                if (href === 'index' || href === 'index.php' || href.includes('View all')) {
                     state.categoryQuery = '';
                 } else {
                     const params = new URLSearchParams(href.split('?')[1]);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Check for "View all" / No Category
             if (!state.categoryQuery) {
-                if (href === 'index.php' || href.endsWith('index.php')) {
+                if (href === 'index' || href === 'index.php' || href.endsWith('index.php')) {
                     link.classList.add('active');
                 }
                 return;
