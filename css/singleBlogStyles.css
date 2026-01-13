@@ -251,7 +251,6 @@ header.blog-header {
 /* Sidebar Layout (3-Column) */
 .single-blog-container.with-sidebar {
     max-width: 1400px;
-    padding-bottom: 80px;
 }
 
 .blog-layout-grid {
@@ -376,7 +375,6 @@ header.blog-header {
         /* Content is implicitly order 0 or we set it */
         width: 100%;
         position: static;
-        margin-top: 60px;
         padding-top: 40px;
         border-top: 1px solid #eee;
     }

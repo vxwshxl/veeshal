@@ -108,7 +108,7 @@ if ($envPath) {
                             'title' => 'Git for Beginners: Basics and Essential Commands',
                             'date' => '13 Jan 2026',
                             'category' => 'Software development',
-                            'image' => 'images/working-dir.png',
+                            'image' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png',
                             'link' => 'git-for-beginners.php'
                         ]
                     ];

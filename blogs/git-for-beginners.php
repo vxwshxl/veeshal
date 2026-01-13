@@ -38,14 +38,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/git-for-beginners.php">
     <meta property="og:title" content="Git for Beginners: Basics and Essential Commands">
     <meta property="og:description" content="Master the basics of Git version control. A comprehensive guide for beginners covering commands, workflows, and core concepts.">
-    <meta property="og:image" content="images/working-dir.png">
+    <meta property="og:image" content="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/git-for-beginners.php">
     <meta property="twitter:title" content="Git for Beginners: Basics and Essential Commands">
     <meta property="twitter:description" content="Master the basics of Git version control. A comprehensive guide for beginners covering commands, workflows, and core concepts.">
-    <meta property="twitter:image" content="images/working-dir.png">
+    <meta property="twitter:image" content="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png">
     
     <!-- Code Highlight Format (optional, creating simple styles below) -->
     <!-- Code Highlight Format (styles moved to singleBlogStyles.css) -->
@@ -112,7 +112,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="images/working-dir.png" alt="Git Working Directory" class="blog-hero-image">
+                            <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png" alt="Git Working Directory" class="blog-hero-image">
                         </div>
 
                         <article class="article-content">
@@ -142,7 +142,7 @@ if ($envPath) {
                             <p>Before diving into commands, it's crucial to understand the three distinct states of a Git project:</p>
                             
                             <div class="figure-container">
-                                <img src="images/git-flow.png" alt="Git Workflow Diagram" class="blog-diagram">
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-flow.png" alt="Git Workflow Diagram" class="blog-diagram">
                                 <div class="diagram-caption">Fig 1. The Git Workflow: Working Directory → Staging → Repo</div>
                             </div>
                             
@@ -191,12 +191,17 @@ if ($envPath) {
                             <div class="code-block">
                                 <span class="command">git log</span>
                             </div>
+                            
+                            <div class="figure-container">
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-history.png" alt="Git History Diagram" class="blog-diagram">
+                                <div class="diagram-caption">Fig 2. Visualizing Git History: A timeline of commits</div>
+                            </div>
 
                             <h2 id="repo-structure">Local Repository Structure</h2>
                             <p>Your local Git environment consists of your actual files (Working Directory) and the hidden <code>.git</code> folder (Repository). All the magic happens inside that <code>.git</code> folder, while you work with normal files in your directory.</p>
                             <div class="figure-container">
-                                <img src="images/git-structure.png" alt="Git Repository Structure Diagram" class="blog-diagram">
-                                <div class="diagram-caption">Fig 2. Structure of a Git Project</div>
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-structure.png" alt="Git Repository Structure Diagram" class="blog-diagram">
+                                <div class="diagram-caption">Fig 3. Structure of a Git Project</div>
                             </div>
 
                             <h2 id="conclusion">Conclusion</h2>
@@ -209,25 +214,26 @@ if ($envPath) {
                         <div class="sidebar-tags-wrapper">
                             <h3 class="sidebar-title">Tags</h3>
                             <div class="blog-tags">
-                                <a href="#" class="blog-tag">#git</a>
-                                <a href="#" class="blog-tag">#github</a>
-                                <a href="#" class="blog-tag">#version-control-systems</a>
-                                <a href="#" class="blog-tag">#repository</a>
-                                <a href="#" class="blog-tag">#chaicode</a>
-                                <a href="#" class="blog-tag">#chaicohort</a>
-                                <a href="#" class="blog-tag">#webdevcohort2026</a>
-                                <a href="#" class="blog-tag">#hiteshchaudhary</a>
-                                <a href="#" class="blog-tag">#piyushgarag</a>
-                                <a href="#" class="blog-tag">#masterji</a>
+                                <a href="" class="blog-tag">#git</a>
+                                <a href="" class="blog-tag">#github</a>
+                                <a href="" class="blog-tag">#version-control-systems</a>
+                                <a href="" class="blog-tag">#repository</a>
+                                <a href="" class="blog-tag">#chaicode</a>
+                                <a href="" class="blog-tag">#chaicohort</a>
+                                <a href="" class="blog-tag">#webdevcohort2026</a>
+                                <a href="" class="blog-tag">#hiteshchaudhary</a>
+                                <a href="" class="blog-tag">#piyushgarag</a>
+                                <a href="" class="blog-tag">#masterji</a>
                             </div>
                         </div>
                     </aside>
         </div>
-
-        <!-- Footer -->
-        <!-- Footer -->
-        <?php include 'includes/footer.php'; ?>
     </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include 'includes/footer.php'; ?>
+</div>
 
     <!-- Toast Notification Container -->
     <?php include 'includes/footer_resources.php'; ?>
