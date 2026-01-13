@@ -1,5 +1,4 @@
 <?php
-// Simple .env parser (reused from index.php)
 $env = [];
 $envPath = null;
 
@@ -35,14 +34,14 @@ if ($envPath) {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://veeshal.me/blogs/git-for-beginners.php">
+    <meta property="og:url" content="https://veeshal.me/blogs/git-for-beginners">
     <meta property="og:title" content="Git for Beginners: Basics and Essential Commands">
     <meta property="og:description" content="Master the basics of Git version control. A comprehensive guide for beginners covering commands, workflows, and core concepts.">
     <meta property="og:image" content="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://veeshal.me/blogs/git-for-beginners.php">
+    <meta property="twitter:url" content="https://veeshal.me/blogs/git-for-beginners">
     <meta property="twitter:title" content="Git for Beginners: Basics and Essential Commands">
     <meta property="twitter:description" content="Master the basics of Git version control. A comprehensive guide for beginners covering commands, workflows, and core concepts.">
     <meta property="twitter:image" content="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png">
@@ -59,7 +58,7 @@ if ($envPath) {
             <!-- Single Blog Post Content -->
             <div class="single-blog-container with-sidebar">
                 <div class="back-link-wrapper mobile-back-link">
-                    <a href="index.php" class="back-link">
+                    <a href="index" class="back-link">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         Back
                     </a>
@@ -69,7 +68,7 @@ if ($envPath) {
                     <!-- Sticky Sidebar -->
                     <aside class="blog-sidebar">
                         <div class="desktop-back-link" style="margin-bottom: 20px;">
-                            <a href="index.php" class="back-link">
+                            <a href="index" class="back-link">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                                 Back
                             </a>
