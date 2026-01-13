@@ -1,3 +1,4 @@
+Options +FollowSymLinks -MultiViews
 RewriteEngine On
 
 # 1. To remove .php extension from the URL (Redirect external requests)
