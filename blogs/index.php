@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Inside Git: How It Works and the Role of the .git Folder',
+                            'date' => '16 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => '../assets/blogs/inside-git/structure.png',
+                            'link' => 'inside-git-how-it-works'
+                        ],
+                        [
                             'title' => 'Git for Beginners: Basics and Essential Commands',
                             'date' => '13 Jan 2026',
                             'category' => 'Software development',
