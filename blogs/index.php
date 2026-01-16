@@ -105,10 +105,17 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Why Version Control Exists: The Pendrive Problem',
+                            'date' => '16 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/pendrive-vs-git.png',
+                            'link' => 'why-version-control-exists'
+                        ],
+                        [
                             'title' => 'Inside Git: How It Works and the Role of the .git Folder',
                             'date' => '16 Jan 2026',
                             'category' => 'Software development',
-                            'image' => '../assets/blogs/inside-git/structure.png',
+                            'image' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/inside-git/structure.png',
                             'link' => 'inside-git-how-it-works'
                         ],
                         [
