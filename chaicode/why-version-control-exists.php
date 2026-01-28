@@ -53,7 +53,7 @@ if ($envPath) {
             <?php include 'includes/header.php'; ?>
 
             <!-- Single Blog Post Content -->
-            <div class="single-blog-container with-sidebar">
+            <div class="single-chaicode-container with-sidebar">
                 <div class="back-link-wrapper mobile-back-link">
                     <a href="index" class="back-link">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -61,9 +61,9 @@ if ($envPath) {
                     </a>
                 </div>
                 
-                <div class="blog-layout-grid">
+                <div class="chaicode-layout-grid">
                     <!-- Sticky Sidebar -->
-                    <aside class="blog-sidebar">
+                    <aside class="chaicode-sidebar">
                         <div class="desktop-back-link" style="margin-bottom: 20px;">
                             <a href="index" class="back-link">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -85,10 +85,10 @@ if ($envPath) {
                     </aside>
 
                     <!-- Main Article Content -->
-                    <div class="blog-main-content">
-                        <header class="blog-header">
+                    <div class="chaicode-main-content">
+                        <header class="chaicode-header">
                             <h1>Why Version Control Exists: The Pendrive Problem</h1>
-                            <div class="blog-meta-row">
+                            <div class="chaicode-meta-row">
                                 <div class="meta-category">Software Development</div>
                                 <div class="meta-author">Veeshal D. Bodosa</div>
                                 <div class="meta-date">16 Jan 2026</div>
@@ -97,8 +97,8 @@ if ($envPath) {
 
                         </header>
 
-                        <div class="blog-hero-image-wrapper">
-                             <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/pendrive-vs-git.png" alt="Pendrive vs Git Workflow" class="blog-hero-image">
+                        <div class="chaicode-hero-image-wrapper">
+                             <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/pendrive-vs-git.png" alt="Pendrive vs Git Workflow" class="chaicode-hero-image">
                         </div>
 
                         <article class="article-content">
@@ -112,7 +112,7 @@ if ($envPath) {
                             <p>Even if you were working alone, you likely had a folder structure that looked like this:</p>
                             
                             <div class="figure-container">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/folder-chaos.png" alt="Manual Versioning Chaos" class="blog-diagram">
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/folder-chaos.png" alt="Manual Versioning Chaos" class="chaicode-diagram">
                                 <div class="diagram-caption">Fig 1. The familiar chaos of manual versioning</div>
                             </div>
                             
@@ -133,7 +133,7 @@ if ($envPath) {
                             <p>With Git, you stop thinking about "files" and start thinking about "snapshots" of your project over time. It solves the pendrive problems effectively:</p>
 
                              <div class="figure-container">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/git-timeline.png" alt="Git Timeline Clean and Organized" class="blog-diagram">
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/git-timeline.png" alt="Git Timeline Clean and Organized" class="chaicode-diagram">
                                 <div class="diagram-caption">Fig 2. The clean, linear history provided by Git</div>
                             </div>
 
@@ -152,15 +152,15 @@ if ($envPath) {
                     </div>
 
                     <!-- Right Sidebar (Tags) -->
-                    <aside class="blog-sidebar-right">
+                    <aside class="chaicode-sidebar-right">
                         <div class="sidebar-tags-wrapper">
                             <h3 class="sidebar-title">Tags</h3>
-                            <div class="blog-tags">
-                                <a href="" class="blog-tag">#version-control</a>
-                                <a href="" class="blog-tag">#git</a>
-                                <a href="" class="blog-tag">#collaboration</a>
-                                <a href="" class="blog-tag">#history</a>
-                                <a href="" class="blog-tag">#webdevcohort2026</a>
+                            <div class="chaicode-tags">
+                                <a href="" class="chaicode-tag">#version-control</a>
+                                <a href="" class="chaicode-tag">#git</a>
+                                <a href="" class="chaicode-tag">#collaboration</a>
+                                <a href="" class="chaicode-tag">#history</a>
+                                <a href="" class="chaicode-tag">#webdevcohort2026</a>
                             </div>
                         </div>
                     </aside>
@@ -175,6 +175,6 @@ if ($envPath) {
 
     <!-- Toast Notification Container -->
     <?php include 'includes/footer_resources.php'; ?>
-    <script src="../js/singleBlogScript.js"></script>
+    <script src="../js/singleChaicodeScript.js"></script>
 </body>
 </html>

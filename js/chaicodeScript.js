@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.posts-grid');
     const paginationContainer = document.querySelector('.pagination-container');
     const searchInput = document.querySelector('.search-input');
-    const categoryLinks = document.querySelectorAll('.blog-categories a');
+    const categoryLinks = document.querySelectorAll('.chaicode-categories a');
     const recentPostsTitle = document.querySelector('.recent-posts-title');
 
     // Debounce Function for Optimization
@@ -152,14 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">No posts found.</p>';
         } else {
             grid.innerHTML = currentPosts.map(post => `
-                <a href="${post.link || '#'}" class="blog-card">
-                    <div class="blog-image">
+                <a href="${post.link || '#'}" class="chaicode-card">
+                    <div class="chaicode-image">
                         <img src="${post.image}" alt="${post.title}">
                     </div>
-                    <div class="blog-info">
-                        <h4 class="blog-title">${post.title}</h4>
-                        <span class="blog-category-tag">${post.category}</span>
-                        <span class="blog-date">${post.date}</span>
+                    <div class="chaicode-info">
+                        <h4 class="chaicode-title">${post.title}</h4>
+                        <span class="chaicode-category-tag">${post.category}</span>
+                        <span class="chaicode-date">${post.date}</span>
                     </div>
                 </a>
             `).join('');
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateURL();
                     render();
                     // Scroll to top of grid
-                    document.querySelector('.blog-content').scrollIntoView({ behavior: 'smooth' });
+                    document.querySelector('.chaicode-content').scrollIntoView({ behavior: 'smooth' });
                 };
             }
 

@@ -56,7 +56,7 @@ if ($envPath) {
             <?php include 'includes/header.php'; ?>
 
             <!-- Single Blog Post Content -->
-            <div class="single-blog-container with-sidebar">
+            <div class="single-chaicode-container with-sidebar">
                 <div class="back-link-wrapper mobile-back-link">
                     <a href="index" class="back-link">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -64,9 +64,9 @@ if ($envPath) {
                     </a>
                 </div>
                 
-                <div class="blog-layout-grid">
+                <div class="chaicode-layout-grid">
                     <!-- Sticky Sidebar -->
-                    <aside class="blog-sidebar">
+                    <aside class="chaicode-sidebar">
                         <div class="desktop-back-link" style="margin-bottom: 20px;">
                             <a href="index" class="back-link">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -100,18 +100,18 @@ if ($envPath) {
                     </aside>
 
                     <!-- Main Article Content -->
-                    <div class="blog-main-content">
-                        <header class="blog-header">
+                    <div class="chaicode-main-content">
+                        <header class="chaicode-header">
                             <h1>Git for Beginners: Basics and Essential Commands</h1>
-                            <div class="blog-meta-row">
+                            <div class="chaicode-meta-row">
                                 <div class="meta-category">Software Development</div>
                                 <div class="meta-author">Veeshal D. Bodosa</div>
                                 <div class="meta-date">13 Jan 2026</div>
                             </div>
                         </header>
 
-                        <div class="blog-hero-image-wrapper">
-                            <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png" alt="Git Working Directory" class="blog-hero-image">
+                        <div class="chaicode-hero-image-wrapper">
+                            <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/working-dir.png" alt="Git Working Directory" class="chaicode-hero-image">
                         </div>
 
                         <article class="article-content">
@@ -141,7 +141,7 @@ if ($envPath) {
                             <p>Before diving into commands, it's crucial to understand the three distinct states of a Git project:</p>
                             
                             <div class="figure-container">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-flow.png" alt="Git Workflow Diagram" class="blog-diagram">
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-flow.png" alt="Git Workflow Diagram" class="chaicode-diagram">
                                 <div class="diagram-caption">Fig 1. The Git Workflow: Working Directory → Staging → Repo</div>
                             </div>
                             
@@ -192,14 +192,14 @@ if ($envPath) {
                             </div>
                             
                             <div class="figure-container">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-history.png" alt="Git History Diagram" class="blog-diagram">
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-history.png" alt="Git History Diagram" class="chaicode-diagram">
                                 <div class="diagram-caption">Fig 2. Visualizing Git History: A timeline of commits</div>
                             </div>
 
                             <h2 id="repo-structure">Local Repository Structure</h2>
                             <p>Your local Git environment consists of your actual files (Working Directory) and the hidden <code>.git</code> folder (Repository). All the magic happens inside that <code>.git</code> folder, while you work with normal files in your directory.</p>
                             <div class="figure-container">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-structure.png" alt="Git Repository Structure Diagram" class="blog-diagram">
+                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/git-for-beginners/git-structure.png" alt="Git Repository Structure Diagram" class="chaicode-diagram">
                                 <div class="diagram-caption">Fig 3. Structure of a Git Project</div>
                             </div>
 
@@ -209,18 +209,18 @@ if ($envPath) {
                     </div>
 
                     <!-- Right Sidebar (Tags) -->
-                    <aside class="blog-sidebar-right">
+                    <aside class="chaicode-sidebar-right">
                         <div class="sidebar-tags-wrapper">
                             <h3 class="sidebar-title">Tags</h3>
-                            <div class="blog-tags">
-                                <a href="" class="blog-tag">#git</a>
-                                <a href="" class="blog-tag">#github</a>
-                                <a href="" class="blog-tag">#version-control-systems</a>
-                                <a href="" class="blog-tag">#repository</a>
-                                <a href="" class="blog-tag">#chaicode</a>
-                                <a href="" class="blog-tag">#chaicohort</a>
-                                <a href="" class="blog-tag">#webdevcohort2026</a>
-                                <a href="" class="blog-tag">#masterji</a>
+                            <div class="chaicode-tags">
+                                <a href="" class="chaicode-tag">#git</a>
+                                <a href="" class="chaicode-tag">#github</a>
+                                <a href="" class="chaicode-tag">#version-control-systems</a>
+                                <a href="" class="chaicode-tag">#repository</a>
+                                <a href="" class="chaicode-tag">#chaicode</a>
+                                <a href="" class="chaicode-tag">#chaicohort</a>
+                                <a href="" class="chaicode-tag">#webdevcohort2026</a>
+                                <a href="" class="chaicode-tag">#masterji</a>
                             </div>
                         </div>
                     </aside>
@@ -236,6 +236,6 @@ if ($envPath) {
     <?php include 'includes/footer_resources.php'; ?>
     <!-- No blogScript.js needed for this simple page, or we can include empty/relevant scripts -->
     <!-- Custom Script for Single Blog Post -->
-    <script src="../js/singleBlogScript.js"></script>
+    <script src="../js/singleChaicodeScript.js"></script>
 </body>
 </html>
