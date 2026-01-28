@@ -12,8 +12,8 @@
                 <li><a href="../index#intro">Intro</a></li>
                 <li><a href="../index#portfolio">Portfolio</a></li>
                 <li><a href="../index#project">Projects</a></li>
-                <li><a href="../chaicode/index">ChaiCode</span></a></li>
-                <li><a href="index"><span class="highlight">Blogs</span></a></li>
+                <li><a href="index"><span class="highlight">ChaiCode</span></a></li>
+                <li><a href="../blogs/index">Blogs</span></a></li>
                 <li><a href="../index#contact">Contact</a></li>
                 <li><a href="../index#about">About</a></li>
             </ul>
