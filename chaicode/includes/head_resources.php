@@ -10,8 +10,8 @@
 
 <!-- Common CSS -->
 <link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="../css/blogsStyles.css">
-<link rel="stylesheet" href="../css/singleBlogStyles.css">
+<link rel="stylesheet" href="../css/chaicodeStyles.css">
+<link rel="stylesheet" href="../css/singleChaicodeStyles.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- Theme Color -->

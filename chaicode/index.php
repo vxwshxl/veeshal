@@ -3,11 +3,11 @@
 $env = [];
 $envPath = null;
 
-// Check for .env in parent directory (Localhost relative to blogs/)
+// Check for .env in parent directory (Localhost relative to chaicode/)
 if (file_exists(__DIR__ . '/../.env')) {
     $envPath = __DIR__ . '/../.env';
 } 
-// Check for .env in config directory (Hostinger/Production relative to blogs/)
+// Check for .env in config directory (Hostinger/Production relative to chaicode/)
 elseif (file_exists(__DIR__ . '/../../config/.env')) {
     $envPath = __DIR__ . '/../../config/.env';
 }
@@ -34,23 +34,23 @@ if ($envPath) {
 <head>
     <?php include 'includes/head_resources.php'; ?>
     
-    <title>Blogs - Veeshal D. Bodosa</title>
-    <meta name="description" content="Blogs - Veeshal D. Bodosa - A creative developer and video editor blending code and cinematics to craft immersive digital experiences.">
-    <meta name="keywords" content="Veeshal D. Bodosa, Web Developer, Video Editor, Portfolio, React Native, Flutter, Cinematics, Creative Developer, India, Blogs">
+    <title>ChaiCode - Veeshal D. Bodosa</title>
+    <meta name="description" content="ChaiCode - Veeshal D. Bodosa - A creative developer and video editor blending code and cinematics to craft immersive digital experiences.">
+    <meta name="keywords" content="Veeshal D. Bodosa, Web Developer, Video Editor, Portfolio, React Native, Flutter, Cinematics, Creative Developer, India, ChaiCode">
     <meta name="author" content="Veeshal D. Bodosa">
-    <link rel="canonical" href="https://veeshal.me/blogs/">
+    <link rel="canonical" href="https://veeshal.me/chaicode/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://veeshal.me/blogs/">
-    <meta property="og:title" content="Blogs - Veeshal D. Bodosa">
+    <meta property="og:url" content="https://veeshal.me/chaicode/">
+    <meta property="og:title" content="ChaiCode - Veeshal D. Bodosa">
     <meta property="og:description" content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
     <meta property="og:image" content="https://veeshal.me/assets/vee-og.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://veeshal.me/blogs/">
-    <meta property="twitter:title" content="Blogs - Veeshal D. Bodosa">
+    <meta property="twitter:url" content="https://veeshal.me/chaicode/">
+    <meta property="twitter:title" content="ChaiCode - Veeshal D. Bodosa">
     <meta property="twitter:description" content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
     <meta property="twitter:image" content="https://veeshal.me/assets/vee-og.svg">
     
@@ -74,12 +74,12 @@ if ($envPath) {
         <div class="homeContainer">
             <?php include 'includes/header.php'; ?>
 
-            <!-- Blogs Layout -->
-            <div class="blog-container">
+            <!-- ChaiCode Layout -->
+            <div class="chaicode-container">
                 <!-- Sidebar -->
-                <aside class="blog-sidebar">
-                    <h3 class="blog-category-title">Categories</h3>
-                    <ul class="blog-categories">
+                <aside class="chaicode-sidebar">
+                    <h3 class="chaicode-category-title">Categories</h3>
+                    <ul class="chaicode-categories">
                         <li><a href="index" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
                         <?php
                         $categories = [
@@ -99,10 +99,10 @@ if ($envPath) {
                 </aside>
 
                 <!-- Main Content -->
-                <main class="blog-content">
+                <main class="chaicode-content">
                     <?php
-                    // Mock Data - 11 Blog Posts
-                    // Blog Posts Data
+                    // Mock Data - 11 ChaiCode Posts
+                    // ChaiCode Posts Data
                     $all_posts = [
                         [
                             'title' => 'Why Version Control Exists: The Pendrive Problem',
@@ -133,7 +133,7 @@ if ($envPath) {
                         const allPosts = <?php echo json_encode($all_posts); ?>;
                     </script>
 
-                    <div class="blog-content-header">
+                    <div class="chaicode-content-header">
                         <h3 class="recent-posts-title">Recent posts</h3>
                         <div class="search-container">
                             <input type="text" placeholder="Search" class="search-input">
@@ -159,6 +159,6 @@ if ($envPath) {
 
     <!-- Toast Notification Container -->
     <?php include 'includes/footer_resources.php'; ?>
-    <script src="../js/blogScript.js"></script>
+    <script src="../js/chaicodeScript.js"></script>
 </body>
 </html>
