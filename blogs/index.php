@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'How DNS Resolution Works',
+                            'date' => '30 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => 'https://media.geeksforgeeks.org/wp-content/uploads/20250801171021517035/address_resolution_in_dns.webp',
+                            'link' => 'how-dns-resolution-works'
+                        ],
+                        [
                             'title' => 'Getting Started with cURL',
                             'date' => '30 Jan 2026',
                             'category' => 'Software development',
