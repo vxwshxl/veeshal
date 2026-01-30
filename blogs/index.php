@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Emmet for HTML: A Beginner’s Guide to Writing Faster Markup',
+                            'date' => '30 Jan 2026',
+                            'category' => 'HTML & CSS',
+                            'image' => 'https://www.alphr.com/wp-content/uploads/2023/10/emmet-nedir-ve-ne-ise-yarar-1280x720.jpg',
+                            'link' => 'emmet-for-html'
+                        ],
+                        [
                             'title' => 'CSS Selectors 101: Targeting Elements with Precision',
                             'date' => '30 Jan 2026',
                             'category' => 'HTML & CSS',
