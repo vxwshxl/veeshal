@@ -83,12 +83,8 @@ if ($envPath) {
                         <li><a href="index" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
                         <?php
                         $categories = [
-                            'Product design',
+                            'HTML & CSS',
                             'Software development',
-                            'Product management',
-                            'Productivity',
-                            'User research',
-                            'Design inspiration'
                         ];
                         foreach ($categories as $cat) {
                             $isActive = isset($_GET['category']) && $_GET['category'] === $cat ? 'active' : '';
@@ -106,70 +102,70 @@ if ($envPath) {
                     $all_posts = [
                         [
                             'title' => 'Emmet for HTML: A Beginner’s Guide to Writing Faster Markup',
-                            'date' => '30 Jan 2026',
+                            'date' => '27 Jan 2026',
                             'category' => 'HTML & CSS',
                             'image' => 'https://www.alphr.com/wp-content/uploads/2023/10/emmet-nedir-ve-ne-ise-yarar-1280x720.jpg',
                             'link' => 'emmet-for-html'
                         ],
                         [
                             'title' => 'CSS Selectors 101: Targeting Elements with Precision',
-                            'date' => '30 Jan 2026',
+                            'date' => '25 Jan 2026',
                             'category' => 'HTML & CSS',
                             'image' => 'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fnl1rxl108tb77t4ch3g3.png',
                             'link' => 'css-selectors-101'
                         ],
                         [
                             'title' => 'Understanding HTML Tags and Elements',
-                            'date' => '30 Jan 2026',
+                            'date' => '24 Jan 2026',
                             'category' => 'HTML & CSS',
                             'image' => 'https://i.ytimg.com/vi/mekRKzHByEQ/maxresdefault.jpg',
                             'link' => 'understanding-html-tags-and-elements'
                         ],
                         [
                             'title' => 'How a Browser Works: A Beginner-Friendly Guide',
-                            'date' => '30 Jan 2026',
+                            'date' => '23 Jan 2026',
                             'category' => 'HTML & CSS',
                             'image' => 'https://ineasysteps.com/wp-content/uploads/2021/11/How-to-web-browsers-work-image.jpg',
                             'link' => 'how-a-browser-works'
                         ],
                         [
                             'title' => 'TCP Working: 3-Way Handshake & Reliable Communication',
-                            'date' => '30 Jan 2026',
+                            'date' => '22 Jan 2026',
                             'category' => 'Software development',
                             'image' => 'https://i.ytimg.com/vi/_inkLnDbia0/sddefault.jpg',
                             'link' => 'tcp-working'
                         ],
                         [
                             'title' => 'TCP vs UDP: When to Use What',
-                            'date' => '30 Jan 2026',
+                            'date' => '21 Jan 2026',
                             'category' => 'Software development',
                             'image' => 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ZPtAG6N2qQB_iIFzEtPP7Q.png',
                             'link' => 'tcp-vs-udp'
                         ],
                         [
                             'title' => 'Understanding Network Devices',
-                            'date' => '30 Jan 2026',
+                            'date' => '20 Jan 2026',
                             'category' => 'Software development',
                             'image' => 'https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9uj3ypmyimbvite0dgu2.jpeg',
                             'link' => 'understanding-network-devices'
                         ],
                         [
                             'title' => 'How DNS Resolution Works',
-                            'date' => '30 Jan 2026',
+                            'date' => '19 Jan 2026',
                             'category' => 'Software development',
                             'image' => 'https://media.geeksforgeeks.org/wp-content/uploads/20250801171021517035/address_resolution_in_dns.webp',
                             'link' => 'how-dns-resolution-works'
                         ],
                         [
                             'title' => 'Getting Started with cURL',
-                            'date' => '30 Jan 2026',
+                            'date' => '18 Jan 2026',
                             'category' => 'Software development',
                             'image' => 'https://curl.se/logo/curl-logo.svg',
                             'link' => 'getting-started-with-curl'
                         ],
                         [
                             'title' => 'DNS Record Types Explained',
-                            'date' => '30 Jan 2026',
+                            'date' => '17 Jan 2026',
                             'category' => 'Software development',
                             'image' => 'https://www.cloudflare.com/img/learning/dns/what-is-dns/dns-lookup-diagram.png',
                             'link' => 'dns-record-types-explained'

@@ -92,7 +92,7 @@ if ($envPath) {
                             <div class="blog-meta-row">
                                 <div class="meta-category">Software Development</div>
                                 <div class="meta-author">Veeshal D. Bodosa</div>
-                                <div class="meta-date">30 Jan 2026</div>
+                                <div class="meta-date">22 Jan 2026</div>
                             </div>
                         </header>
 
