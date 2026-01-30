@@ -61,12 +61,12 @@
 <br />
 
 ### [Why Version Control Exists: The Pendrive Problem](https://veeshal.me/blogs/why-version-control-exists.php)
-![Why Version Control Exists: The Pendrive Problem](https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/pendrive-vs-git.png)
+![Why Version Control Exists: The Pendrive Problem](https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmjsud8ijzeytlosc6w49.png)
 
 <br />
 
 ### [Inside Git: How It Works and the Role of the .git Folder](https://veeshal.me/blogs/inside-git-how-it-works.php)
-![Inside Git: How It Works and the Role of the .git Folder](https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/inside-git/structure.png)
+![Inside Git: How It Works and the Role of the .git Folder](https://miro.medium.com/v2/resize:fit:1400/1*6SbxajMdhSf96PsPyrTZGg.png)
 
 <br />
 
