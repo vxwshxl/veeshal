@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Understanding HTML Tags and Elements',
+                            'date' => '30 Jan 2026',
+                            'category' => 'HTML & CSS',
+                            'image' => 'https://i.ytimg.com/vi/mekRKzHByEQ/maxresdefault.jpg',
+                            'link' => 'understanding-html-tags-and-elements'
+                        ],
+                        [
                             'title' => 'How a Browser Works: A Beginner-Friendly Guide',
                             'date' => '30 Jan 2026',
                             'category' => 'HTML & CSS',
