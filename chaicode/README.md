@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../assets/vee-og.webp" alt="Veeshal Logo" width="300"/>
+  <a href="https://veeshal.me"><img src="../assets/vee-og.webp" alt="Veeshal Logo" width="300"/></a>
   <h1>ChaiCode Projects</h1>
   <h3><code>Coding Challenges & Experiments</code></h3>
   <p>
