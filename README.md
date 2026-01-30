@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/vee-og.webp" alt="Veeshal Logo" width="300" style="border-radius: 5%;" />
+  <a href="https://veeshal.me"><img src="assets/vee-og.webp" alt="Veeshal Logo" width="300" style="border-radius: 5%;" /></a>
   <h1>Veeshal D. Bodosa</h1>
   <h3><code>Code & Cinema</code></h3>
   <p>
@@ -76,11 +76,14 @@ Hi, I'm **Veeshal D. Bodosa**, a Creative Developer and Video Editor based in In
 
 ---
 
-## ☕ ChaiCode
+## ☕ ChaiCode Projects
 
 A dedicated section for coding challenges and experiments.
-- **[View All ChaiCode Projects](./chaicode/index)**
-- **Resume Project**: A pure HTML structure for my resume.
+- **[ChaiCode Projects](https://veeshal.me/chaicode)**
+
+| Project | Type | Category |
+| :--- | :--- | :--- |
+| **[HTML Resume Page Assignment](https://veeshal.me/chaicode/resume.html)** | Assignment | Web Development |
 
 ---
 
