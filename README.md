@@ -83,7 +83,7 @@ A dedicated section for coding challenges and experiments.
 
 | Project | Type | Category |
 | :--- | :--- | :--- |
-| **[HTML Resume Page Assignment](https://veeshal.me/chaicode/resume.html)** | Assignment | Web Development |
+| **[HTML Resume Page](https://veeshal.me/chaicode/resume.html)** | Assignment | Web Development |
 
 ---
 
