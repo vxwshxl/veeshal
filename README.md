@@ -1,22 +1,26 @@
 <div align="center">
-  <img src="assets/logo.svg" alt="Veeshal Logo" width="100" />
+  <img src="assets/vee-og.webp" alt="Veeshal Logo" width="500" />
   <h1>Veeshal D. Bodosa</h1>
   <h3><code>Code & Cinema</code></h3>
   <p>
-    <b>Crafting immersive digital experiences by blending engineering precision with cinematic storytelling.</b>
+    <b>Welcome to a visual journey that blends code & creativity, and every edit tells a story.</b>
   </p>
 
   <p>
-    <a href="https://veeshal.me"><strong>Explore the Website »</strong></a>
+    <a href="https://veeshal.me"><strong>« veeshal.me »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/@vxwshxl">YouTube</a>
+    <a href="https://www.youtube.com/@vxwshxl">yt</a>
     ·
-    <a href="https://www.instagram.com/vxwshxl">Instagram</a>
+    <a href="https://www.instagram.com/vxwshxl">ig</a>
     ·
-    <a href="https://github.com/vxwshxl">GitHub</a>
+    <a href="https://github.com/vxwshxl">git</a>
     ·
-    <a href="https://www.linkedin.com/in/vxwshxl">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/vxwshxl">in</a>
+    ·
+    <a href="https://x.com/vxwshxl">x</a>
+    ·
+    <a href="https://www.facebook.com/vxwshxl">fb</a>
   </p>
 </div>
 
@@ -34,7 +38,6 @@ Hi, I'm **Veeshal D. Bodosa**, a Creative Developer and Video Editor based in In
 
 ### **💻 Development**
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Expo](https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
@@ -58,20 +61,25 @@ Hi, I'm **Veeshal D. Bodosa**, a Creative Developer and Video Editor based in In
 
 ## 📂 Featured Projects
 
-| Project | Type | Description |
+| Project | Type | Category |
 | :--- | :--- | :--- |
-| **[Anglo-Bodo Dictionary](https://anglo-bodo-dictionary.com)** | 🛠 Tool | A comprehensive dictionary tool serving the community. |
-| **[Kokrajhar University](https://kgc-app.in)** | 🎓 Education | Official app & web platform for the university. |
-| **[Swrzee Enterprise](https://swrzee.in)** | 🏢 Enterprise | Business website for Swrzee Enterprise. |
-| **[Trip to Darjeeling](https://www.youtube.com/watch?v=gNVz83QSoY4)** | 🎥 Travel | A cinematic travel vlog capturing the beauty of Darjeeling. |
-| **[GDG 2025 Highlights](https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4)** | 🎥 Event | Official highlight reel for Google Developer Group 2025. |
+| **[Anglo-Bodo Dictionary](https://anglo-bodo-dictionary.com)** | 🛠 Tool | Web Development |
+| **[Kokrajhar University](https://kgc-app.in)** | 🎓 Education | Web & App Development |
+| **[Swrzee Enterprise](https://swrzee.in)** | 🏢 Enterprise | Web Development |
+| **[Trip to Darjeeling](https://www.youtube.com/watch?v=gNVz83QSoY4)** | 🎥 Travel | Video Editing |
+| **[Andaman & Nicobar Islands](https://www.youtube.com/watch?v=gBvocwLObFQ)** | 🎥 Travel | Video Editing |
+| **[GOOGLE DEV GROUP - 2025](https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4)** | 🎥 Event | Video Editing |
+| **[Open Mic RGU - 2025](https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4)** | 🎥 Event | Video Editing |
+| **[Badminton Tournament](assets/projects/8.webp)** | 🏸 Event | Banner Editing |
+| **[BODOअख्रां Pvt. Ltd. Logo](assets/projects/9.webp)** | 🛠 Tool | Logo Design |
+| **[My Tea](assets/projects/10.webp)** | 🍵 Local Shop | Banner Editing |
 
 ---
 
 ## ☕ ChaiCode
 
 A dedicated section for coding challenges and experiments.
-- **[View All ChaiCode Projects](./chaicode/index.php)**
+- **[View All ChaiCode Projects](./chaicode/index)**
 - **Resume Project**: A pure HTML structure for my resume.
 
 ---
@@ -79,8 +87,8 @@ A dedicated section for coding challenges and experiments.
 ## 📬 Contact
 
 - **Email**: veebodosa@gmail.com
-- **Socials**: [@vxwshxl](https://x.com/vxwshxl)
+- **Location**: India
 
 <div align="center">
-  <sub>Built with ❤️ by Veeshal</sub>
+  <sub>engineered with precision & crafted with passion</sub>
 </div>
