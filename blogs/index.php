@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'TCP vs UDP: When to Use What',
+                            'date' => '30 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ZPtAG6N2qQB_iIFzEtPP7Q.png',
+                            'link' => 'tcp-vs-udp'
+                        ],
+                        [
                             'title' => 'Understanding Network Devices',
                             'date' => '30 Jan 2026',
                             'category' => 'Software development',
