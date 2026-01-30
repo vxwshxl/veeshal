@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/vee-og.webp" alt="Veeshal Logo" width="500" />
+  <img src="assets/vee-og.webp" alt="Veeshal Logo" width="300" style="border-radius: 5%;" />
   <h1>Veeshal D. Bodosa</h1>
   <h3><code>Code & Cinema</code></h3>
   <p>
@@ -10,17 +10,17 @@
     <a href="https://veeshal.me"><strong>« veeshal.me »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/@vxwshxl">yt</a>
-    ·
-    <a href="https://www.instagram.com/vxwshxl">ig</a>
-    ·
-    <a href="https://github.com/vxwshxl">git</a>
-    ·
-    <a href="https://www.linkedin.com/in/vxwshxl">in</a>
-    ·
-    <a href="https://x.com/vxwshxl">x</a>
-    ·
-    <a href="https://www.facebook.com/vxwshxl">fb</a>
+    <a href="https://www.youtube.com/@vxwshxl"><img src="assets/socials/yt.svg" width="50" alt="yt" /></a>
+    &nbsp;
+    <a href="https://www.instagram.com/vxwshxl"><img src="assets/socials/ig.svg" width="50" alt="ig" /></a>
+    &nbsp;
+    <a href="https://github.com/vxwshxl"><img src="assets/socials/git.svg" width="50" alt="git" /></a>
+    &nbsp;
+    <a href="https://www.linkedin.com/in/vxwshxl"><img src="assets/socials/in.svg" width="50" alt="in" /></a>
+    &nbsp;
+    <a href="https://x.com/vxwshxl"><img src="assets/socials/x.svg" width="50" alt="x" /></a>
+    &nbsp;
+    <a href="https://www.facebook.com/vxwshxl"><img src="assets/socials/fb.svg" width="50" alt="fb" /></a>
   </p>
 </div>
 
