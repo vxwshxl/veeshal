@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'How a Browser Works: A Beginner-Friendly Guide',
+                            'date' => '30 Jan 2026',
+                            'category' => 'HTML & CSS',
+                            'image' => 'https://ineasysteps.com/wp-content/uploads/2021/11/How-to-web-browsers-work-image.jpg',
+                            'link' => 'how-a-browser-works'
+                        ],
+                        [
                             'title' => 'TCP Working: 3-Way Handshake & Reliable Communication',
                             'date' => '30 Jan 2026',
                             'category' => 'Software development',
