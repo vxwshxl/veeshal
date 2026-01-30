@@ -97,7 +97,6 @@ if ($envPath) {
                 <!-- Main Content -->
                 <main class="blog-content">
                     <?php
-                    // Mock Data - 11 Blog Posts
                     // Blog Posts Data
                     $all_posts = [
                         [
