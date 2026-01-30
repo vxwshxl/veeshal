@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://veeshal.me"><img src="assets/vee-og.webp" alt="Veeshal Logo" width="300" style="border-radius: 5%;" /></a>
+  <a href="https://veeshal.me" target="_blank"><img src="assets/vee-og.webp" alt="Veeshal Logo" width="300"/></a>
   <h1>Veeshal D. Bodosa</h1>
   <h3><code>Code & Cinema</code></h3>
   <p>
@@ -7,20 +7,20 @@
   </p>
 
   <p>
-    <a href="https://veeshal.me"><strong>« veeshal.me »</strong></a>
+    <a href="https://veeshal.me" target="_blank"><strong>« veeshal.me »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/@vxwshxl"><img src="assets/socials/yt.svg" width="50" alt="yt" /></a>
+    <a href="https://www.youtube.com/@vxwshxl" target="_blank"><img src="assets/socials/yt.svg" width="50" alt="yt" /></a>
     &nbsp;
-    <a href="https://www.instagram.com/vxwshxl"><img src="assets/socials/ig.svg" width="50" alt="ig" /></a>
+    <a href="https://www.instagram.com/vxwshxl" target="_blank"><img src="assets/socials/ig.svg" width="50" alt="ig" /></a>
     &nbsp;
-    <a href="https://github.com/vxwshxl"><img src="assets/socials/git.svg" width="50" alt="git" /></a>
+    <a href="https://github.com/vxwshxl" target="_blank"><img src="assets/socials/git.svg" width="50" alt="git" /></a>
     &nbsp;
-    <a href="https://www.linkedin.com/in/vxwshxl"><img src="assets/socials/in.svg" width="50" alt="in" /></a>
+    <a href="https://www.linkedin.com/in/vxwshxl" target="_blank"><img src="assets/socials/in.svg" width="50" alt="in" /></a>
     &nbsp;
-    <a href="https://x.com/vxwshxl"><img src="assets/socials/x.svg" width="50" alt="x" /></a>
+    <a href="https://x.com/vxwshxl" target="_blank"><img src="assets/socials/x.svg" width="50" alt="x" /></a>
     &nbsp;
-    <a href="https://www.facebook.com/vxwshxl"><img src="assets/socials/fb.svg" width="50" alt="fb" /></a>
+    <a href="https://www.facebook.com/vxwshxl" target="_blank"><img src="assets/socials/fb.svg" width="50" alt="fb" /></a>
   </p>
 </div>
 
@@ -63,27 +63,27 @@ Hi, I'm **Veeshal D. Bodosa**, a Creative Developer and Video Editor based in In
 
 | Project | Type | Category |
 | :--- | :--- | :--- |
-| **[Anglo-Bodo Dictionary](https://anglo-bodo-dictionary.com)** | 🛠 Tool | Web Development |
-| **[Kokrajhar University](https://kgc-app.in)** | 🎓 Education | Web & App Development |
-| **[Swrzee Enterprise](https://swrzee.in)** | 🏢 Enterprise | Web Development |
-| **[Trip to Darjeeling](https://www.youtube.com/watch?v=gNVz83QSoY4)** | 🎥 Travel | Video Editing |
-| **[Andaman & Nicobar Islands](https://www.youtube.com/watch?v=gBvocwLObFQ)** | 🎥 Travel | Video Editing |
-| **[GOOGLE DEV GROUP - 2025](https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4)** | 🎥 Event | Video Editing |
-| **[Open Mic RGU - 2025](https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4)** | 🎥 Event | Video Editing |
-| **[Badminton Tournament](assets/projects/8.webp)** | 🏸 Event | Banner Editing |
-| **[BODOअख्रां Pvt. Ltd. Logo](assets/projects/9.webp)** | 🛠 Tool | Logo Design |
-| **[My Tea](assets/projects/10.webp)** | 🍵 Local Shop | Banner Editing |
+| **<a href="https://anglo-bodo-dictionary.com" target="_blank">Anglo-Bodo Dictionary</a>** | 🛠 Tool | Web Development |
+| **<a href="https://kgc-app.in" target="_blank">Kokrajhar University</a>** | 🎓 Education | Web & App Development |
+| **<a href="https://swrzee.in" target="_blank">Swrzee Enterprise</a>** | 🏢 Enterprise | Web Development |
+| **<a href="https://www.youtube.com/watch?v=gNVz83QSoY4" target="_blank">Trip to Darjeeling</a>** | 🎥 Travel | Video Editing |
+| **<a href="https://www.youtube.com/watch?v=gBvocwLObFQ" target="_blank">Andaman & Nicobar Islands</a>** | 🎥 Travel | Video Editing |
+| **<a href="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4" target="_blank">GOOGLE DEV GROUP - 2025</a>** | 🎥 Event | Video Editing |
+| **<a href="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4" target="_blank">Open Mic RGU - 2025</a>** | 🎥 Event | Video Editing |
+| **<a href="https://veeshal.me/assets/projects/8.webp" target="_blank">Badminton Tournament</a>** | 🏸 Event | Banner Editing |
+| **<a href="https://veeshal.me/assets/projects/9.webp" target="_blank">BODOअख्रां Pvt. Ltd. Logo</a>** | 🛠 Tool | Logo Design |
+| **<a href="https://veeshal.me/assets/projects/10.webp" target="_blank">My Tea</a>** | 🍵 Local Shop | Banner Editing |
 
 ---
 
 ## ☕ ChaiCode Projects
 
 A dedicated section for coding challenges and experiments.
-- **[ChaiCode Projects](https://veeshal.me/chaicode)**
+- **<a href="https://veeshal.me/chaicode" target="_blank">ChaiCode Projects</a>**
 
 | Project | Type | Category |
 | :--- | :--- | :--- |
-| **[HTML Resume Page](https://veeshal.me/chaicode/resume.html)** | Assignment | Web Development |
+| **<a href="https://veeshal.me/chaicode/resume.html" target="_blank">HTML Resume Page</a>** | Assignment | Web Development |
 
 ---
 
