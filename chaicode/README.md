@@ -29,6 +29,7 @@ To run these projects locally:
 
 ### 1. HTML Resume Page
 **Description**: A semantic HTML-only resume page focusing on structure, accessibility, and clean markup without relying on external CSS frameworks.
+- **Live Demo**: [HTML Resume Page](https://veeshal.me/chaicode/resume.html)
 
 #### 📸 Screenshot
 <div align="center">
