@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'DNS Record Types Explained',
+                            'date' => '30 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => 'https://www.cloudflare.com/img/learning/dns/what-is-dns/dns-lookup-diagram.png',
+                            'link' => 'dns-record-types-explained'
+                        ],
+                        [
                             'title' => 'Why Version Control Exists: The Pendrive Problem',
                             'date' => '16 Jan 2026',
                             'category' => 'Software development',
