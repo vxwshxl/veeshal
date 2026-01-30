@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'TCP Working: 3-Way Handshake & Reliable Communication',
+                            'date' => '30 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => 'https://i.ytimg.com/vi/_inkLnDbia0/sddefault.jpg',
+                            'link' => 'tcp-working'
+                        ],
+                        [
                             'title' => 'TCP vs UDP: When to Use What',
                             'date' => '30 Jan 2026',
                             'category' => 'Software development',
