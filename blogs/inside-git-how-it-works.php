@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/inside-git-how-it-works">
     <meta property="og:title" content="Inside Git: How It Works and the Role of the .git Folder">
     <meta property="og:description" content="Dive deep into Git's architecture. Learn about the .git directory, how objects are stored, and the magic behind version control.">
-    <meta property="og:image" content="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/inside-git/structure.png">
+    <meta property="og:image" content="https://camo.githubusercontent.com/79c5248e3ba42801c55213b83f56bc8e0d39ebf6834498e56e9733f0fa87ccf4/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313430302f312a36536278616a4d6468536639365073507972545a47672e706e67">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/inside-git-how-it-works">
     <meta property="twitter:title" content="Inside Git: How It Works and the Role of the .git Folder">
     <meta property="twitter:description" content="Dive deep into Git's architecture. Learn about the .git directory, how objects are stored, and the magic behind version control.">
-    <meta property="twitter:image" content="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/inside-git/structure.png">
+    <meta property="twitter:image" content="https://camo.githubusercontent.com/79c5248e3ba42801c55213b83f56bc8e0d39ebf6834498e56e9733f0fa87ccf4/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313430302f312a36536278616a4d6468536639365073507972545a47672e706e67">
     
     <!-- Code Highlight Format (optional, creating simple styles below) -->
 </head>
@@ -99,7 +99,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/inside-git/structure.png" alt="Different Git Objects" class="blog-hero-image">
+                            <img src="https://camo.githubusercontent.com/79c5248e3ba42801c55213b83f56bc8e0d39ebf6834498e56e9733f0fa87ccf4/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313430302f312a36536278616a4d6468536639365073507972545a47672e706e67" alt="Different Git Objects" class="blog-hero-image">
                         </div>
 
                         <article class="article-content">
@@ -109,7 +109,7 @@ if ($envPath) {
                             <p>When you run <code>git init</code> in a directory, Git creates a hidden subfolder named <code>.git</code>. This folder contains everything that makes your project a Git repository. If you delete this folder, all your project's history is lost.</p>
                             
                             <div class="figure-container">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/inside-git/structure.png" alt="Structure of the .git directory" class="blog-diagram">
+                                <img src="https://camo.githubusercontent.com/79c5248e3ba42801c55213b83f56bc8e0d39ebf6834498e56e9733f0fa87ccf4/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313430302f312a36536278616a4d6468536639365073507972545a47672e706e67" alt="Structure of the .git directory" class="blog-diagram">
                                 <div class="diagram-caption">Fig 1. Inside the .git directory</div>
                             </div>
 

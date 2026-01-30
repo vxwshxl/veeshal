@@ -173,14 +173,14 @@ if ($envPath) {
                             'title' => 'Why Version Control Exists: The Pendrive Problem',
                             'date' => '16 Jan 2026',
                             'category' => 'Software development',
-                            'image' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/pendrive-vs-git.png',
+                            'image' => 'https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmjsud8ijzeytlosc6w49.png',
                             'link' => 'why-version-control-exists'
                         ],
                         [
                             'title' => 'Inside Git: How It Works and the Role of the .git Folder',
                             'date' => '16 Jan 2026',
                             'category' => 'Software development',
-                            'image' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/inside-git/structure.png',
+                            'image' => 'https://camo.githubusercontent.com/79c5248e3ba42801c55213b83f56bc8e0d39ebf6834498e56e9733f0fa87ccf4/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313430302f312a36536278616a4d6468536639365073507972545a47672e706e67',
                             'link' => 'inside-git-how-it-works'
                         ],
                         [

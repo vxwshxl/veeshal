@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/why-version-control-exists">
     <meta property="og:title" content="Why Version Control Exists: The Pendrive Problem">
     <meta property="og:description" content="From 'final_v2_really_final' folders to Git: The evolution of collaboration in software development.">
-    <meta property="og:image" content="https://veeshal.me/assets/blogs/why-version-control/pendrive-vs-git.png">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmjsud8ijzeytlosc6w49.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/why-version-control-exists">
     <meta property="twitter:title" content="Why Version Control Exists: The Pendrive Problem">
     <meta property="twitter:description" content="From 'final_v2_really_final' folders to Git: The evolution of collaboration in software development.">
-    <meta property="twitter:image" content="https://veeshal.me/assets/blogs/why-version-control/pendrive-vs-git.png">
+    <meta property="twitter:image" content="https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmjsud8ijzeytlosc6w49.png">
 </head>
 
 <body>
@@ -98,7 +98,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                             <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/blogs/why-version-control/pendrive-vs-git.png" alt="Pendrive vs Git Workflow" class="blog-hero-image">
+                             <img src="https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmjsud8ijzeytlosc6w49.png" alt="Pendrive vs Git Workflow" class="blog-hero-image">
                         </div>
 
                         <article class="article-content">
