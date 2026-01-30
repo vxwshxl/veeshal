@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="../css/blogsStyles.css">
 <link rel="stylesheet" href="../css/singleBlogStyles.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true, theme: 'neutral'});</script>
 
 <!-- Theme Color -->
 <meta name="theme-color" content="#000000">

@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Getting Started with cURL',
+                            'date' => '30 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => 'https://curl.se/logo/curl-logo.svg',
+                            'link' => 'getting-started-with-curl'
+                        ],
+                        [
                             'title' => 'DNS Record Types Explained',
                             'date' => '30 Jan 2026',
                             'category' => 'Software development',

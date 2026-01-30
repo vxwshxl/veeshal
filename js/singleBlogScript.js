@@ -22,6 +22,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 1.5 Copy to Clipboard
+    const codeBlocks = document.querySelectorAll('.code-block');
+    codeBlocks.forEach(block => {
+        // Create button
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+
+        // Add button to block
+        block.appendChild(btn);
+
+        // Click event
+        btn.addEventListener('click', () => {
+            const command = block.querySelector('.command') || block;
+            const textToCopy = command.innerText.trim();
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                btn.textContent = 'Error';
+            });
+        });
+    });
+
     // 2. Scroll Spy (Scroll Event based)
     // Works better for flat content (h2... p... h2...) where headings scroll off-screen
     const sections = Array.from(tocLinks).map(link => {

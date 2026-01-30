@@ -153,6 +153,7 @@ header.blog-header {
 
 /* Code blocks */
 .code-block {
+    position: relative;
     background-color: #1e1e1e;
     color: #ddd;
     padding: 24px;
@@ -163,6 +164,32 @@ header.blog-header {
     margin: 30px 0;
     border: 1px solid #333;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #aaa;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.copy-btn.copied {
+    color: #4cd964;
+    border-color: #4cd964;
 }
 
 .command {
@@ -444,4 +471,15 @@ header.blog-header {
     border-radius: 20px;
     display: inline-block;
     margin-left: -12px;
+}
+
+/* Mermaid Diagrams */
+.mermaid {
+    text-align: center;
+    margin: 30px 0;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    overflow-x: auto;
 }

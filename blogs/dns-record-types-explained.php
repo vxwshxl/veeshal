@@ -111,22 +111,64 @@ if ($envPath) {
                             <h2 id="what-is-dns">What is DNS?</h2>
                             <p>At its core, DNS maps names to numbers. When you visit <code>example.com</code>, DNS looks up the corresponding IP address so your browser can request the site's resources. Beyond simple address lookups, DNS manages email routing, domain verification, and service aliases through specific record types.</p>
                             
+                            <div class="mermaid">
+                            graph LR
+                                A[User] -->|Types google.com| B(Browser)
+                                B -->|Asks for IP| C(DNS Resolver)
+                                C -->|Returns 142.250.183.14| B
+                                B -->|Requests Content| D[Server]
+                                D -->|Sends Website| A
+                            </div>
+
                             <p>These records dictate how different types of traffic should be handled for a single domain name. Understanding them is essential for managing any web infrastructure.</p>
 
                             <h2 id="ns-record">1. NS Record (Name Server)</h2>
-                            <p>An NS record establishes authority. It indicates which specific server holds the master DNS records for a domain. Without an NS record, the global DNS network has no way of knowing where to look for your domain's details. It effectively delegates management of the zone to a specific provider.</p>
+                            <p>An NS record establishes authority as shown below:</p>
+                            
+                            <div class="mermaid">
+                            graph TD
+                                Root[.] --> TLD[.com]
+                                TLD --> Auth[NS: ns1.provider.com]
+                                Auth --> Domain[mycoolsite.com]
+                            </div>
+
+                            <p>It indicates which specific server holds the master DNS records for a domain. Without an NS record, the global DNS network has no way of knowing where to look for your domain's details. It effectively delegates management of the zone to a specific provider.</p>
 
                             <h2 id="a-record">2. A Record (Address)</h2>
-                            <p>The A record is the fundamental building block of DNS. It maps a domain name directly to an IPv4 address. For instance, it connects <code>example.com</code> to <code>93.184.216.34</code>. This is the primary record used to point a domain to a web server.</p>
+                            <p>The A record is the fundamental building block of DNS. It maps a domain name directly to an IPv4 address.</p>
+                            
+                            <div class="mermaid">
+                            graph LR
+                                A[example.com] -->|A Record| B[93.184.216.34]
+                            </div>
+
+                            <p>For instance, it connects <code>example.com</code> to <code>93.184.216.34</code>. This is the primary record used to point a domain to a web server.</p>
 
                             <h2 id="aaaa-record">3. AAAA Record</h2>
                             <p>As the number of connected devices outgrew the IPv4 protocol, IPv6 was introduced to provide a vastly larger address space. The AAAA record performs the same function as an A record but connects a domain to a 128-bit IPv6 address. It ensures compatibility with modern network infrastructure.</p>
 
                             <h2 id="cname-record">4. CNAME Record (Canonical Name)</h2>
-                            <p>A CNAME record acts as an alias. Instead of pointing to an IP address, it points one domain name to another. This is commonly used for subdomains; for example, <code>www.example.com</code> might point to <code>example.com</code>. If the underlying IP address of the main domain changes, the alias automatically resolves to the new address without requiring an update.</p>
+                            <p>A CNAME record acts as an alias. Instead of pointing to an IP address, it points one domain name to another.</p>
+
+                            <div class="mermaid">
+                            graph LR
+                                A[www.example.com] -->|CNAME| B[example.com]
+                                B -->|A Record| C[93.184.216.34]
+                            </div>
+
+                            <p>This is commonly used for subdomains; for example, <code>www.example.com</code> might point to <code>example.com</code>. If the underlying IP address of the main domain changes, the alias automatically resolves to the new address without requiring an update.</p>
 
                             <h2 id="mx-record">5. MX Record (Mail Exchange)</h2>
-                            <p>DNS handles more than just web traffic. The MX record directs email to the correct mail server. This separation allows you to host your website on one server while routing emails to a specialized service like Gmail or Outlook. You can define multiple MX records with varying priorities to establish backup mail servers.</p>
+                            <p>DNS handles more than just web traffic. The MX record directs email to the correct mail server.</p>
+
+                            <div class="mermaid">
+                            graph LR
+                                Sender -->|Sends Email| DNS
+                                DNS -->|Looks up MX| MX[smtp.google.com]
+                                MX -->|Delivers to| Inbox
+                            </div>
+
+                            <p>This separation allows you to host your website on one server while routing emails to a specialized service like Gmail or Outlook. You can define multiple MX records with varying priorities to establish backup mail servers.</p>
 
                             <h2 id="txt-record">6. TXT Record (Text)</h2>
                             <p>TXT records store arbitrary text data in a domain's DNS zone. While they do not affect how a website loads, they are critical for verification and security. Services like Google Search Console use them to verify ownership, and email protocols like SPF and DKIM use them to prevent spoofing.</p>
