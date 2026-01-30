@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'CSS Selectors 101: Targeting Elements with Precision',
+                            'date' => '30 Jan 2026',
+                            'category' => 'HTML & CSS',
+                            'image' => 'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fnl1rxl108tb77t4ch3g3.png',
+                            'link' => 'css-selectors-101'
+                        ],
+                        [
                             'title' => 'Understanding HTML Tags and Elements',
                             'date' => '30 Jan 2026',
                             'category' => 'HTML & CSS',
