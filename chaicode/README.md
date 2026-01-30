@@ -32,7 +32,7 @@ To run these projects locally:
 
 #### 📸 Screenshot
 <div align="center">
-  <img src="../assets/HTML-Resume-Page.webp" alt="HTML Resume Page Screenshot" width="100%" style="border-radius: 10px;"/>
+  <img src="assets/HTML-Resume-Page.webp" alt="HTML Resume Page Screenshot" width="100%" style="border-radius: 10px;"/>
 </div>
 
 #### ⚙️ Setup Steps
