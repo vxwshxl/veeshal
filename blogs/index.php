@@ -105,6 +105,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Understanding Network Devices',
+                            'date' => '30 Jan 2026',
+                            'category' => 'Software development',
+                            'image' => 'https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9uj3ypmyimbvite0dgu2.jpeg',
+                            'link' => 'understanding-network-devices'
+                        ],
+                        [
                             'title' => 'How DNS Resolution Works',
                             'date' => '30 Jan 2026',
                             'category' => 'Software development',
