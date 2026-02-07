@@ -167,6 +167,7 @@ nav {
 
 .logo {
     width: 6rem;
+    cursor: pointer;
 }
 
 .badge img {
@@ -790,7 +791,10 @@ footer {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
 
+.socials>div {
+    cursor: pointer;
 }
 
 .footer-content-grid {
@@ -814,17 +818,24 @@ footer {
 }
 
 .content-1 ul li {
-    padding: 0.6rem .5rem;
+    padding: 0.4rem 0.8rem;
     font-size: .9rem;
     border-radius: 2rem;
     cursor: pointer;
     text-transform: capitalize;
+    width: fit-content;
 }
 
 .content-1 ul li:hover {
-    background: #ffffff33;
-    padding: 0.6rem 1rem;
+    background: #ffffff0d;
     border-radius: 2rem;
+}
+
+.content-1 ul li.first,
+.content-1 ul li.first:hover {
+    cursor: default;
+    background: transparent;
+    padding: 0.4rem 0.8rem;
 }
 
 .first {
