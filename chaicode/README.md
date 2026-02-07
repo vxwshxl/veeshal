@@ -52,7 +52,7 @@ This project is a static HTML file and requires no complex installation.
 ### 2. Cursor Clone
 **Description**: A semantic HTML-only cursor clone page focusing on structure, accessibility, and clean markup without relying on external CSS frameworks.
 - **Live Demo**: [Cursor Clone](https://veeshal.me/chaicode/cursor)
-- **GitHub**: [GitHub](https://github.com/veeshal/chaicode/cursor)
+- **GitHub**: [GitHub](https://github.com/vxwshxl/veeshal/tree/main/chaicode/cursor)
 
 #### 📸 Screenshot
 <div align="center">
@@ -74,7 +74,7 @@ This project is a static HTML file and requires no complex installation.
 ### 3. Mintlify Clone
 **Description**: A semantic HTML-only mintlify clone page focusing on structure, accessibility, and clean markup without relying on external CSS frameworks.
 - **Live Demo**: [Mintlify Clone](https://veeshal.me/chaicode/mintlify)
-- **GitHub**: [GitHub](https://github.com/veeshal/chaicode/mintlify)
+- **GitHub**: [GitHub](https://github.com/vxwshxl/veeshal/tree/main/chaicode/mintlify)
 
 #### 📸 Screenshot
 <div align="center">

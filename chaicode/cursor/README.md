@@ -36,7 +36,8 @@ This project is a pixel-perfect clone of the [Cursor](https://veeshal.me/chaicod
 
 ---
 
-## � Preview
+## 📸 Preview
+- **Live Demo**: [Cursor Clone](https://veeshal.me/chaicode/cursor)
 <div align="center">
   <img src="assets/cursor.webp" alt="Cursor Preview" width="100%" style="border-radius: 10px; border: 1px solid #333;"/>
   <p><i>*Cursor preview*</i></p>

@@ -40,6 +40,7 @@ This project is a high-fidelity clone of the [Mintlify](https://veeshal.me/chaic
 ---
 
 ## 📸 Preview
+- **Live Demo**: [Mintlify Clone](https://veeshal.me/chaicode/mintlify)
 <div align="center">
   <img src="assets/mintlify.webp" alt="Mintlify Preview" width="100%" style="border-radius: 10px; border: 1px solid #333;"/>
   <p><i>*Mintlify preview*</i></p>
