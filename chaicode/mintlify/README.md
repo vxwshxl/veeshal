@@ -12,7 +12,7 @@
 <br />
 
 ## 📖 About
-This project is a high-fidelity clone of the [Mintlify](https://mintlify.com/) landing page. It demonstrates the implementation of a modern, dark-themed UI using **semantic HTML and Vanilla CSS**. The goal was to replicate the intricate details, including glassmorphism headers, gradient masks, grid layouts, and responsive typography without relying on external CSS frameworks.
+This project is a high-fidelity clone of the [Mintlify](https://veeshal.me/chaicode/mintlify) landing page. It demonstrates the implementation of a modern, dark-themed UI using **semantic HTML and Vanilla CSS**. The goal was to replicate the intricate details, including glassmorphism headers, gradient masks, grid layouts, and responsive typography without relying on external CSS frameworks.
 
 ---
 
@@ -41,8 +41,8 @@ This project is a high-fidelity clone of the [Mintlify](https://mintlify.com/) l
 
 ## 📸 Preview
 <div align="center">
-  <img src="assets/bg-dark.svg" alt="Hero Background Preview" width="100%" style="border-radius: 10px; border: 1px solid #333;"/>
-  <p><i>*Hero section background visualization*</i></p>
+  <img src="assets/mintlify.webp" alt="Mintlify Preview" width="100%" style="border-radius: 10px; border: 1px solid #333;"/>
+  <p><i>*Mintlify preview*</i></p>
 </div>
 
 ---

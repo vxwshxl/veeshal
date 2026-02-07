@@ -55,7 +55,7 @@ This project is a static HTML file and requires no complex installation.
 
 #### 📸 Screenshot
 <div align="center">
-  <img src="assets/Cursor-Clone.webp" alt="Cursor Clone Screenshot" width="100%" style="border-radius: 10px;"/>
+  <img src="cursor/assets/cursor.webp" alt="Cursor Clone Screenshot" width="100%" style="border-radius: 10px;"/>
 </div>
 
 #### ⚙️ Setup Steps
@@ -76,7 +76,7 @@ This project is a static HTML file and requires no complex installation.
 
 #### 📸 Screenshot
 <div align="center">
-  <img src="assets/Mintlify-Clone.webp" alt="Mintlify Clone Screenshot" width="100%" style="border-radius: 10px;"/>
+  <img src="mintlify/assets/mintlify.webp" alt="Mintlify Clone Screenshot" width="100%" style="border-radius: 10px;"/>
 </div>
 
 #### ⚙️ Setup Steps
