@@ -49,6 +49,49 @@ This project is a static HTML file and requires no complex installation.
 
 ---
 
+### 2. Cursor Clone
+**Description**: A semantic HTML-only cursor clone page focusing on structure, accessibility, and clean markup without relying on external CSS frameworks.
+- **Live Demo**: [Cursor Clone](https://veeshal.me/chaicode/cursor)
+
+#### 📸 Screenshot
+<div align="center">
+  <img src="assets/Cursor-Clone.webp" alt="Cursor Clone Screenshot" width="100%" style="border-radius: 10px;"/>
+</div>
+
+#### ⚙️ Setup Steps
+This project is a static HTML file and requires no complex installation.
+1.  Navigate to the `chaicode` directory.
+2.  Ensure `cursor.html` and the `assets` folder are present.
+3.  Open the file directly in a browser or serve it via localhost:
+    - **URL**: `http://localhost/veeshal/chaicode/cursor.html`
+
+#### 📖 Usage
+- **Navigation**: Click on the social icon links to visit external profiles.
+- **Evaluation**: Inspect the page source to review the use of proper semantic HTML5 tags (header, section, footer, etc.) and table structures.
+---
+
+### 3. Mintlify Clone
+**Description**: A semantic HTML-only mintlify clone page focusing on structure, accessibility, and clean markup without relying on external CSS frameworks.
+- **Live Demo**: [Mintlify Clone](https://veeshal.me/chaicode/mintlify)
+
+#### 📸 Screenshot
+<div align="center">
+  <img src="assets/Mintlify-Clone.webp" alt="Mintlify Clone Screenshot" width="100%" style="border-radius: 10px;"/>
+</div>
+
+#### ⚙️ Setup Steps
+This project is a static HTML file and requires no complex installation.
+1.  Navigate to the `chaicode` directory.
+2.  Ensure `mintlify.html` and the `assets` folder are present.
+3.  Open the file directly in a browser or serve it via localhost:
+    - **URL**: `http://localhost/veeshal/chaicode/mintlify.html`
+
+#### 📖 Usage
+- **Navigation**: Click on the social icon links to visit external profiles.
+- **Evaluation**: Inspect the page source to review the use of proper semantic HTML5 tags (header, section, footer, etc.) and table structures.
+
+---
+
 ## 📬 Contact
 
 - **Email**: veebodosa@gmail.com
