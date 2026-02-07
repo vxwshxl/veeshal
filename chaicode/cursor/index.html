@@ -1,240 +1,523 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursor - The AI Code Editor</title>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <!-- Top Navigation -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <!-- Simple SVG Logo Placeholder mostly matching Cursor's look -->
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                        fill="black" />
-                </svg>
-                Cursor
-            </a>
-            <nav class="nav-links">
-                <a href="#">Pricing</a>
-                <a href="#">Features</a>
-                <a href="#">Enterprise</a>
-                <a href="#">Blog</a>
-                <a href="#">Changelog</a>
-                <a href="#">Forum</a>
-            </nav>
-            <div class="nav-actions">
-                <a href="#" class="sign-in">Sign In</a>
-                <a href="#" class="btn btn-primary">Download</a>
-            </div>
-        </div>
+      <div class="navigation">
+        <nav id="navbar">
+          <div class="icon nav-options">
+            <img
+              src="./assets/LOCKUP_HORIZONTAL_2D_DARK.svg"
+              alt=""
+              class="cursor-logo"
+            />
+            <span class="icon-text"></span>
+          </div>
+          <div class="options nav-options">
+            <a href="" class="nav-link">Product</a
+            ><a href="" class="nav-link">Enterprise</a
+            ><a href="" class="nav-link">Pricing</a
+            ><a href="" class="nav-link">Resources</a>
+          </div>
+          <div class="cta nav-options">
+            <a href="" class="sign-in nav-btn">Sign in</a>
+            <a href="" class="download nav-btn">Download</a>
+          </div>
+        </nav>
+      </div>
     </header>
+    <main>
+      <div class="wrapped-content">
+        <div class="hero-section-1">
+          <h1 class="text">
+            Built to make you extraordinarily productive, <br />
+            Cursor is the best way to code with AI.
+          </h1>
+          <button class="cta">Download for Windows ⤓</button>
+          <img src="./assets/hs1img.png" alt="" class="img" />
+        </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Built to make you extraordinarily productive, Cursor is the best way to code with AI.</h1>
-            <p>Software creation is changing. We are a group of researchers, engineers, and technologists inventing at
-                the edge of what’s useful and possible.</p>
-            <div class="hero-actions">
-                <a href="#" class="btn btn-primary btn-lg">Download for macOS</a>
-                <a href="#" class="btn btn-secondary btn-lg">Read the manifest</a>
+        <div class="trusted-section">
+          <h2 class="line">
+            Trusted every day by millions of professional developers.
+          </h2>
+
+          <div class="trustedContainer">
+            <div class="card-1 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-beae7a1f5d7eb381a872.svg"
+                alt="card-1"
+                class="img"
+              />
             </div>
-        </div>
-        <div class="hero-image-wrapper">
-            <img src="https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fmisc%2Fasset-cc24ca462279ca23250c.jpg&w=3840&q=70"
-                alt="Cursor Editor Screenshot">
-        </div>
-    </section>
 
-    <!-- Trusted By / Logos -->
-    <section class="trusted-by">
+            <div class="card-2 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-53062f7690ae5b0cdbed.svg"
+                alt=""
+                class="img"
+              />
+            </div>
+
+            <div class="card-3 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-eb9e0a5931092d4db1dd.svg"
+                alt=""
+                class="img"
+              />
+            </div>
+
+            <div class="card-4 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-da55192921531e5fd2ba.svg"
+                alt=""
+                class="img"
+              />
+            </div>
+
+            <div class="card-5 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-e3678011b17782740f98.svg"
+                alt=""
+                class="img"
+              />
+            </div>
+
+            <div class="card-6 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-105275382af564c3ab7c.svg"
+                alt=""
+                class="img"
+              />
+            </div>
+
+            <div class="card-7 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-cf60827b1c3f341d19ef.svg"
+                alt=""
+                class="img"
+              />
+            </div>
+
+            <div class="card-8 card">
+              <img
+                src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/misc/asset-37d2d1a1edcce15ca38c.svg"
+                alt=""
+                class="img"
+              />
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="#"
+          class="feature-section-left-text-right-image feature-section-1"
+        >
+          <div class="text">
+            <div class="child child-1">
+              <h3>Agent turns ideas into code</h3>
+            </div>
+            <div class="child child-2">
+              <p>
+                A human-Al programmer, orders of magnitude more effective than
+                any developer alone.
+              </p>
+            </div>
+            <div class="child child-3"><p>Learn about Agent &#8594;</p></div>
+          </div>
+          <div class="child image">
+            <img src="./assets/feature-section-1.png" alt="image" />
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="feature-section-left-image-right-text feature-section-2"
+        >
+          <div class="child image">
+            <img src="./assets/feature-section-2.png" alt="image" />
+          </div>
+          <div class="text">
+            <div class="child child-1">
+              <h3>Magically accurate autocomplete</h3>
+            </div>
+            <div class="child child-2">
+              <p>
+                Our custom Tab model predicts your next action with striking
+                speed and precision.
+              </p>
+            </div>
+            <div class="child child-3"><p>Learn about Tab &#8594;</p></div>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="feature-section-left-text-right-image feature-section-1"
+        >
+          <div class="text">
+            <div class="child child-1">
+              <h3>Everywhere software gets built</h3>
+            </div>
+            <div class="child child-2">
+              <p>
+                Cursor is in GitHub reviewing your PRs, a teammate in Slack, and
+                anywhere else you work.
+              </p>
+            </div>
+            <div class="child child-3">
+              <p>Learn about Cursor's ecosystem &#8594;</p>
+            </div>
+          </div>
+          <div class="child image">
+            <img src="./assets/feature-section-3.png" alt="image" />
+          </div>
+        </a>
+
+        <div class="testimonials-card-section">
+          <div class="title-of-section">
+            <p>The new way to build software.</p>
+          </div>
+          <div class="testimonials-card-container">
+            <div class="testimonials-card card-1">
+              <div class="quote">
+                <p>
+                  It was night and day from one batch to another, adoption went
+                  from single digits to over 80%. It just spread like wildfire,
+                  all the best builders were using Cursor.
+                </p>
+              </div>
+              <div class="author">
+                <div class="author-image">
+                  <img src="./assets/diana-hu.png" alt="image" />
+                </div>
+                <div class="author-info">
+                  <p class="name">Diana Hu</p>
+                  <p class="role">General Partner, Y Combinator</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonials-card card-2">
+              <div class="quote">
+                <p>
+                  The most useful AI tool that I currently pay for, hands down,
+                  is Cursor. It's fast, autocompletes when and where you need it
+                  to, handles brackets properly, sensible keyboard shortcuts,
+                  bring-your-own-model... everything is well put together.
+                </p>
+              </div>
+              <div class="author">
+                <div class="author-image">
+                  <img src="./assets/shadcn.png" alt="" />
+                </div>
+                <div class="author-info">
+                  <p class="name">shadcn</p>
+                  <p class="role">Creator of shadcn/ui</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonials-card card-3">
+              <div class="quote">
+                <p>
+                  The best LLM applications have an autonomy slider: you control
+                  how much independence to give the AI. In Cursor, you can do
+                  Tab completion, Cmd+K for targeted edits, or you can let it
+                  rip with the full autonomy agentic version.
+                </p>
+              </div>
+              <div class="author">
+                <div class="author-image">
+                  <img src="./assets/andrej.png" alt="" />
+                </div>
+                <div class="author-info">
+                  <p class="name">Andrej Karpathy</p>
+                  <p class="role">CEO, Eureka Labs</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonials-card card-4">
+              <div class="quote">
+                <p>
+                  Cursor quickly grew from hundreds to thousands of extremely
+                  enthusiastic Stripe employees. We spend more on R&D and
+                  software creation than any other undertaking, and there's
+                  significant economic outcomes when making that process more
+                  efficient and productive.
+                </p>
+              </div>
+              <div class="author">
+                <div class="author-image">
+                  <img src="./assets/patrick.png" alt="" />
+                </div>
+                <div class="author-info">
+                  <p class="name">Patrick Collison</p>
+                  <p class="role">Co‑Founder & CEO, Stripe</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonials-card card-5">
+              <div class="quote">
+                <p>
+                  It's official. <br /><br />
+                  I hate vibe coding. <br />
+                  I love Cursor tab coding. <br /><br />
+                  It's wild.
+                </p>
+              </div>
+              <div class="author">
+                <div class="author-image">
+                  <img src="./assets/primeagen.png" alt="" />
+                </div>
+                <div class="author-info">
+                  <p class="name">ThePrimeagen</p>
+                  <p class="role">@ThePrimeagen</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonials-card card-6">
+              <div class="quote">
+                <p>
+                  It's definitely becoming more fun to be a programmer. It's
+                  less about digging through pages and more about what you want
+                  to happen. We are at the 1% of what's possible, and it's in
+                  interactive experiences like Cursor where models like GPT-5
+                  shine brightest.
+                </p>
+              </div>
+              <div class="author">
+                <div class="author-image">
+                  <img src="./assets/greg.png" alt="" />
+                </div>
+                <div class="author-info">
+                  <p class="name">Greg Brockman</p>
+                  <p class="role">President, OpenAI</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="usecase-section">
+          <h2 class="section-title">Stay on the frontier</h2>
+          <div class="usecases">
+            <a class="usecase usecase-1" href="#">
+              <div class="usecase-title">
+                <h2 class="title">Access the best models</h2>
+              </div>
+              <div class="usecase-info">
+                <p class="info">
+                  Choose between every cutting-edge model from OpenAl,
+                  Anthropic, Gemini, and xAl.
+                </p>
+              </div>
+              <div class="usecase-link">
+                <p class="link">Explore models &#8599;</p>
+              </div>
+              <div class="usecase-image">
+                <img src="./assets/usecase-1.png" alt="img" />
+              </div>
+            </a>
+
+            <a class="usecase usecase-2" href="#">
+              <div class="usecase-title">
+                <h2 class="title">Complete codebase understanding</h2>
+              </div>
+              <div class="usecase-info">
+                <p class="info">
+                  Cursor learns how your codebase works, no matter the scale or
+                  complexity.
+                </p>
+              </div>
+              <div class="usecase-link">
+                <p class="link">Learn about semantic search &#8599;</p>
+              </div>
+              <div class="usecase-image">
+                <img src="./assets/usecase-2.png" alt="img" />
+              </div>
+            </a>
+
+            <a class="usecase usecase-3" href="#">
+              <div class="usecase-title">
+                <h2 class="title">Develop enduring software</h2>
+              </div>
+              <div class="usecase-info">
+                <p class="info">
+                  Trusted by over half of the Fortune 500 to accelerate
+                  development, securely and at scale.
+                </p>
+              </div>
+              <div class="usecase-link">
+                <p class="link">Explore enterprise -></p>
+              </div>
+              <div class="usecase-image">
+                <img src="./assets/usecase-3.png" alt="img" />
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="change-log-section">
+          <h2 class="title">Changelog</h2>
+          <div class="cards">
+            <a class="card" href="#">
+              <div class="upper-section">
+                <p class="version">2.4</p>
+                <p class="date">Jan 22, 2026</p>
+              </div>
+              <div class="lower-section">
+                <p class="content">Subagents, Skills, and Image Generation</p>
+              </div>
+            </a>
+            <a class="card" href="#">
+              <div class="upper-section"><p class="date">Jan 16, 2026</p></div>
+              <div class="lower-section">
+                <p class="content">CLI Agent Modes and Cloud Handoff</p>
+              </div>
+            </a>
+            <a class="card" href="#">
+              <div class="upper-section"><p class="date">Jan 8, 2026</p></div>
+              <div class="lower-section">
+                <p class="content">
+                  New CLI Features and Improved CLI Performance
+                </p>
+              </div>
+            </a>
+            <a class="card" href="#">
+              <div class="upper-section">
+                <p class="version">2.3</p>
+                <p class="date">Dec 22, 2025</p>
+              </div>
+              <div class="lower-section">
+                <p class="content">
+                  Layout Customization and Stability Improvements
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div class="link">
+            <a href="#" class="link">See what's new in Cursor &#8594;</a>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2 class="title">
+            Cursor is an applied team focused<br />on building the future of
+            coding.
+          </h2>
+          <div class="btn">
+            <a href="#" class="cta">Join us &#8594;</a
+            ><img src="" alt="" class="about" />
+          </div>
+          <img src="./assets/about-image.webp" alt="image" />
+        </div>
+      </div>
+
+      <div class="recent-highlight-section">
         <div class="container">
-            <p>Trusted every day by teams that build world-class software</p>
-            <div class="logos-grid">
-                <img src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/logos/stripe-logo.svg"
-                    alt="Stripe">
-                <img src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/logos/openai-logo.svg"
-                    alt="OpenAI">
-                <img src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/logos/linear-logo.svg"
-                    alt="Linear">
-                <img src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/logos/datadog-logo.svg"
-                    alt="Datadog">
-                <img src="https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/logos/nvidia-logo.svg"
-                    alt="Nvidia">
-            </div>
+          <div class="line"><p class="textLine">Recent highlights</p></div>
+          <div class="highlights">
+            <a class="highlight" href="#"
+              ><p class="intro">Introducing Cursor 2.0 and Composer</p>
+              <p class="info">
+                A new interface and our first coding model, both purpose-built
+                for working with agents.
+              </p>
+              <p class="date">Product · Oct 29, 2025</p></a
+            >
+            <a class="highlight" href="#"
+              ><p class="intro">Improving Cursor Tab with online RL</p>
+              <p class="info">
+                Our new Tab model makes 21% fewer suggestions while having 28%
+                higher accept rate.
+              </p>
+              <p class="date">Research · Sep 12, 2025</p></a
+            >
+            <a class="highlight highlight-3" href="#"
+              ><p class="intro">
+                1.5x faster MoE training with custom MXFP8 kernels
+              </p>
+              <p class="info">
+                Achieving a 3.5x MoE layer speedup with a complete rebuild for
+                Blackwell GPUs.
+              </p>
+              <p class="date">Research · Aug 29, 2025</p></a
+            >
+            <div class="link"><a href="#">View more posts →</a></div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Feature Sections -->
-    <section class="feature-section">
-        <div class="container">
-            <!-- Feature 1: Image Left, Text Right -->
-            <div class="feature-block">
-                <div class="feature-image">
-                    <img src="https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Finternal-brand%2Finternal-brand-023-3291bb4c.jpg&w=3840&q=70"
-                        alt="Magically accurate autocomplete">
-                </div>
-                <div class="feature-content">
-                    <h2>Magically accurate autocomplete</h2>
-                    <p>Cursor predicts your next edit, not just your next word. It suggests entire diffs, fixing bugs
-                        and refactoring code as you type.</p>
-                </div>
-            </div>
-
-            <!-- Feature 2: Text Left, Image Right -->
-            <div class="feature-block reverse">
-                <div class="feature-image">
-                    <img src="https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fmisc%2Fasset-85923e7fafe00c9c0d1f.jpg&w=3840&q=70"
-                        alt="In every tool">
-                </div>
-                <div class="feature-content">
-                    <h2>In every tool, at every step</h2>
-                    <p>Chat with your codebase, edit with natural language, and let AI handle the tedious parts. Cursor
-                        is built to be your pair programmer.</p>
-                </div>
-            </div>
-
-            <!-- Feature 3: Image Left, Text Right -->
-            <div class="feature-block">
-                <div class="feature-image">
-                    <img src="https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fmisc%2Fasset-fd9b3b4cd7d670f9f7d8.png&w=3840&q=70"
-                        alt="Agents">
-                </div>
-                <div class="feature-content">
-                    <h2>Agents turn ideas into code</h2>
-                    <p>Give Cursor a high-level goal, and it will plan, write, and fix code to make it happen. You stay
-                        in control of the architecture and decisions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Feature Cards Section -->
-    <section class="feature-cards-section">
-        <div class="container">
-            <h2 class="section-title">Stay on the frontier</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                    <h3>Use the best model</h3>
-                    <p>Cursor offers a choice of models, including Claude 3.5 Sonnet, GPT-4o, and its own specialized
-                        small models.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                            <line x1="3" y1="9" x2="21" y2="9" />
-                            <line x1="9" y1="21" x2="9" y2="9" />
-                        </svg>
-                    </div>
-                    <h3>Complete codebase understanding</h3>
-                    <p>Cursor indexes your code so it knows exactly what you're talking about, providing relevant
-                        answers every time.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                    </div>
-                    <h3>Privacy first</h3>
-                    <p>With privacy mode, your code is never stored on our servers. You remain in complete control of
-                        your data.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team / About -->
-    <section class="team-section">
-        <div class="container">
-            <h2>Cursor is an applied research team focused on building the future of software development on all
-                platforms.</h2>
-            <div class="team-image-wrapper">
-                <img src="https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fhomepage%2Fhomepage-team-photo.jpg&w=1920&q=70"
-                    alt="Team Cursor">
-            </div>
-            <a href="#" class="btn btn-secondary">Read more about us</a>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta-section">
-        <div class="container">
-            <h2>Try Cursor now</h2>
-            <p style="margin-bottom: 32px; color: var(--text-secondary);">The editor for the next generation of coders.
-            </p>
-            <a href="#" class="btn btn-primary btn-lg">Download for macOS</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
+      <div class="final-cta">
+        <div class="tagline"><h2>Try Cursor now.</h2></div>
+        <div class="cta"><a href="#" class="cta">Download for Windows⤓</a></div>
+      </div>
+    </main>
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>Product</h3>
-                    <ul>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Enterprise</a></li>
-                        <li><a href="#">Changelog</a></li>
-                        <li><a href="#">Forum</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <!-- Spacers or other columns -->
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Discord</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>&copy; 2024 Anyspere Inc.</div>
-                <div>Designed to be cloned.</div>
-            </div>
+      <nav>
+        <div class="options-container">
+          <div class="options">
+            <p>Products</p>
+            <a href="#">Agents</a>
+            <a href="">Enterprise</a>
+            <a href="">Code Review</a>
+            <a href="">Tab</a>
+            <a href="">CLI</a>
+            <a href="">Cloud Agents</a>
+            <a href="">Pricing</a>
+          </div>
         </div>
+        <div class="options-container">
+          <div class="options">
+            <p>Resources</p>
+            <a href="#">Download</a>
+            <a href="">Changelog</a>
+            <a href="">Docs</a>
+            <a href="">Forum</a>
+            <a href="">Status</a>
+          </div>
+        </div>
+        <div class="options-container">
+          <div class="options">
+            <p>Company</p>
+            <a href="#">Careers</a>
+            <a href="">Community</a>
+            <a href="">Students</a>
+            <a href="">Brand</a>
+            <a href="">Anysphere</a>
+          </div>
+        </div>
+        <div class="options-container">
+          <div class="options">
+            <p>Legal</p>
+            <a href="#">Terms of Service</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Data Use</a>
+            <a href="">Brand</a>
+            <a href="">Security</a>
+          </div>
+        </div>
+        <div class="options-container">
+          <div class="options">
+            <p>Connect</p>
+            <a href="">X</a>
+            <a href="">Linkedln</a>
+            <a href="">YouTube</a>
+          </div>
+        </div>
+      </nav>
+      <div class="copyright">&copy; Cursor-clone made by pjn26</div>
     </footer>
-
-</body>
-
+  </body>
 </html>
