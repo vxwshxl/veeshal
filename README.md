@@ -84,6 +84,8 @@ A dedicated section for coding challenges and experiments.
 | Project | Type | Category |
 | :--- | :--- | :--- |
 | **<a href="https://veeshal.me/chaicode/resume.html" target="_blank">HTML Resume Page</a>** | Assignment | Web Development |
+| **<a href="https://veeshal.me/chaicode/cursor" target="_blank">Cursor Clone</a>** | Assignment | Web Development |
+| **<a href="https://veeshal.me/chaicode/mintlify" target="_blank">Mintlify Clone</a>** | Assignment | Web Development |
 
 ---
 
