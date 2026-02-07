@@ -108,14 +108,14 @@ if ($envPath) {
                             'title' => 'Mintlify - The Intelligent Documentation Platform',
                             'date' => '06 Feb 2026',
                             'category' => 'Web Development',
-                            'image' => 'https://veeshal.me/assets/vee-img.webp',
+                            'image' => 'https://github.com/vxwshxl/veeshal/raw/main/chaicode/mintlify/assets/mintlify.webp',
                             'link' => 'mintlify'
                         ],
                         [
                             'title' => 'Cursor',
                             'date' => '04 Feb 2026',
                             'category' => 'Web Development',
-                            'image' => 'https://veeshal.me/assets/vee-img.webp',
+                            'image' => 'https://github.com/vxwshxl/veeshal/raw/main/chaicode/cursor/assets/cursor.webp',
                             'link' => 'cursor'
                         ],
                         [
