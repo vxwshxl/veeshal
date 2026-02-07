@@ -83,11 +83,11 @@ if ($envPath) {
                         <li><a href="index" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
                         <?php
                         $categories = [
-                            'Product design',
-                            'Software development',
+                            'Web Development',
+                            'Software Development',
+                            'Full Stack Development',
                             'Product management',
                             'Productivity',
-                            'User research',
                             'Design inspiration'
                         ];
                         foreach ($categories as $cat) {
@@ -105,9 +105,23 @@ if ($envPath) {
                     // ChaiCode Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Mintlify - The Intelligent Documentation Platform',
+                            'date' => '06 Feb 2026',
+                            'category' => 'Web Development',
+                            'image' => 'https://veeshal.me/assets/vee-img.webp',
+                            'link' => 'mintlify'
+                        ],
+                        [
+                            'title' => 'Cursor',
+                            'date' => '04 Feb 2026',
+                            'category' => 'Web Development',
+                            'image' => 'https://veeshal.me/assets/vee-img.webp',
+                            'link' => 'cursor'
+                        ],
+                        [
                             'title' => 'HTML Resume Page Assignment',
                             'date' => '30 Jan 2026',
-                            'category' => 'Software development',
+                            'category' => 'Web Development',
                             'image' => 'https://veeshal.me/assets/vee-img.webp',
                             'link' => 'resume.html'
                         ],

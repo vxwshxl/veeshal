@@ -8,6 +8,10 @@
     color: #ffffff;
 }
 
+button {
+    cursor: pointer;
+}
+
 :root {
     --border-color: #93939426;
     --border-color: #93939440;
@@ -64,6 +68,7 @@ nav {
 
 .nav-links>li {
     padding: 6px 8px;
+    cursor: pointer;
 }
 
 .nav-links>li:hover {
@@ -210,6 +215,10 @@ nav {
     padding: 0 0 0 8px;
     font-size: 15px;
     outline: none
+}
+
+.email-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .input-container>button {
@@ -870,6 +879,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .theme-container div img {
