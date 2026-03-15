@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [Function Declaration vs Function Expression: What’s the Difference?](https://veeshal.me/blogs/function-declaration-vs-function-expression.php)
+![Function Declaration vs Function Expression: What’s the Difference?](https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png)
+
+<br />
+
 ### [JavaScript Arrays 101](https://veeshal.me/blogs/javascript-arrays-101.php)
 ![JavaScript Arrays 101](https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg)
 

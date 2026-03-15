@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Function Declaration vs Function Expression: What’s the Difference?',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png',
+                            'link' => 'function-declaration-vs-function-expression'
+                        ],
+                        [
                             'title' => 'JavaScript Arrays 101',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
