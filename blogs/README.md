@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [JavaScript Arrays 101](https://veeshal.me/blogs/javascript-arrays-101.php)
+![JavaScript Arrays 101](https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg)
+
+<br />
+
 ### [Understanding Object-Oriented Programming in JavaScript](https://veeshal.me/blogs/understanding-oop-in-javascript.php)
 ![Understanding Object-Oriented Programming in JavaScript](https://api.iconify.design/logos/javascript.svg)
 

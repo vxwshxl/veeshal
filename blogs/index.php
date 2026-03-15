@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'JavaScript Arrays 101',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg',
+                            'link' => 'javascript-arrays-101'
+                        ],
+                        [
                             'title' => 'Understanding Object-Oriented Programming in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
