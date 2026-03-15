@@ -298,7 +298,7 @@ if ($envPath) {
                     <p>Web & App Development</p>
                 </div>
             </div>
-            <div class="menu-item" data-url="https://swrzee.in" data-hover-src="./assets/projects/3.webp">
+            <!-- <div class="menu-item" data-url="https://swrzee.in" data-hover-src="./assets/projects/3.webp">
                 <div class="info">
                     <p>Enterprise</p>
                 </div>
@@ -308,7 +308,7 @@ if ($envPath) {
                 <div class="tag">
                     <p>Web Development</p>
                 </div>
-            </div>
+            </div> -->
             <div class="menu-item" data-url="https://www.youtube.com/watch?v=gNVz83QSoY4"
                 data-hover-src="./assets/projects/4.webp">
                 <div class="info">
