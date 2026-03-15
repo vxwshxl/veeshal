@@ -287,7 +287,7 @@ if ($envPath) {
                     <p>Web Development</p>
                 </div>
             </div>
-            <div class="menu-item" data-url="https://kgc-app.in" data-hover-src="./assets/projects/2.webp">
+            <div class="menu-item" data-url="https://ku-app.in" data-hover-src="./assets/projects/2.webp">
                 <div class="info">
                     <p>Education</p>
                 </div>
