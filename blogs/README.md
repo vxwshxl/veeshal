@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [JavaScript Operators: The Basics You Need to Know](https://veeshal.me/blogs/javascript-operators-basics.php)
+![JavaScript Operators: The Basics You Need to Know](https://upload.wikimedia.org/wikipedia/commons/9/96/Javascript_dot_js_logo.svg)
+
+<br />
+
 ### [The Magic of this, call(), apply(), and bind() in JavaScript](https://veeshal.me/blogs/the-magic-of-this-call-apply-bind-in-javascript.php)
 ![The Magic of this, call(), apply(), and bind() in JavaScript](https://www.svgrepo.com/show/353925/javascript.svg)
 

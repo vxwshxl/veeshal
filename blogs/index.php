@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'JavaScript Operators: The Basics You Need to Know',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/9/96/Javascript_dot_js_logo.svg',
+                            'link' => 'javascript-operators-basics'
+                        ],
+                        [
                             'title' => 'The Magic of this, call(), apply(), and bind() in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
