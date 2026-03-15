@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Understanding Object-Oriented Programming in JavaScript',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://api.iconify.design/logos/javascript.svg',
+                            'link' => 'understanding-oop-in-javascript'
+                        ],
+                        [
                             'title' => 'Understanding Objects in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',

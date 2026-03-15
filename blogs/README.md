@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [Understanding Object-Oriented Programming in JavaScript](https://veeshal.me/blogs/understanding-oop-in-javascript.php)
+![Understanding Object-Oriented Programming in JavaScript](https://api.iconify.design/logos/javascript.svg)
+
+<br />
+
 ### [Understanding Objects in JavaScript](https://veeshal.me/blogs/understanding-objects-in-javascript.php)
 ![Understanding Objects in JavaScript](https://cdn.worldvectorlogo.com/logos/javascript-1.svg)
 
