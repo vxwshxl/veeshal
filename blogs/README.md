@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [Understanding Variables and Data Types in JavaScript](https://veeshal.me/blogs/understanding-variables-and-data-types-in-javascript.php)
+![Understanding Variables and Data Types in JavaScript](https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg)
+
+<br />
+
 ### [Control Flow in JavaScript: If, Else, and Switch Explained](https://veeshal.me/blogs/control-flow-in-javascript.php)
 ![Control Flow in JavaScript: If, Else, and Switch Explained](https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg)
 

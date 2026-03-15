@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Understanding Variables and Data Types in JavaScript',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg',
+                            'link' => 'understanding-variables-and-data-types-in-javascript'
+                        ],
+                        [
                             'title' => 'Control Flow in JavaScript: If, Else, and Switch Explained',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
