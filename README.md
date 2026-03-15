@@ -64,7 +64,7 @@ Hi, I'm **Veeshal D. Bodosa**, a Creative Developer and Video Editor based in In
 | Project | Type | Category |
 | :--- | :--- | :--- |
 | **<a href="https://anglo-bodo-dictionary.com" target="_blank">Anglo-Bodo Dictionary</a>** | 🛠 Tool | Web Development |
-| **<a href="https://kgc-app.in" target="_blank">Kokrajhar University</a>** | 🎓 Education | Web & App Development |
+| **<a href="https://ku-app.in" target="_blank">Kokrajhar University</a>** | 🎓 Education | Web & App Development |
 | **<a href="https://swrzee.in" target="_blank">Swrzee Enterprise</a>** | 🏢 Enterprise | Web Development |
 | **<a href="https://www.youtube.com/watch?v=gNVz83QSoY4" target="_blank">Trip to Darjeeling</a>** | 🎥 Travel | Video Editing |
 | **<a href="https://www.youtube.com/watch?v=gBvocwLObFQ" target="_blank">Andaman & Nicobar Islands</a>** | 🎥 Travel | Video Editing |
