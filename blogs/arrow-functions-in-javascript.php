@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/arrow-functions-in-javascript">
     <meta property="og:title" content="Arrow Functions in JavaScript: A Simpler Way to Write Functions">
     <meta property="og:description" content="A beginner-friendly guide to writing shorter, cleaner JavaScript functions with arrow syntax.">
-    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+    <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*-OKyZav_Yo-3ZIrb">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/arrow-functions-in-javascript">
     <meta property="twitter:title" content="Arrow Functions in JavaScript: A Simpler Way to Write Functions">
     <meta property="twitter:description" content="A beginner-friendly guide to writing shorter, cleaner JavaScript functions with arrow syntax.">
-    <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+    <meta property="twitter:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*-OKyZav_Yo-3ZIrb">
 </head>
 
 <body>
@@ -97,7 +97,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Logo" class="blog-hero-image" style="background: linear-gradient(135deg, #fff7cc, #f7df1e); padding: 24px; object-fit: contain;">
+                            <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*-OKyZav_Yo-3ZIrb" alt="JavaScript Logo" class="blog-hero-image" style="background: linear-gradient(135deg, #fff7cc, #f7df1e); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

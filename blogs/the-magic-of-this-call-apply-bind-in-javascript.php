@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/the-magic-of-this-call-apply-bind-in-javascript">
     <meta property="og:title" content="The Magic of this, call(), apply(), and bind() in JavaScript">
     <meta property="og:description" content="A beginner-friendly guide to understanding this, call(), apply(), and bind() in JavaScript.">
-    <meta property="og:image" content="https://www.svgrepo.com/show/353925/javascript.svg">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2z8d8uo9p763mb5mc1rn.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/the-magic-of-this-call-apply-bind-in-javascript">
     <meta property="twitter:title" content="The Magic of this, call(), apply(), and bind() in JavaScript">
     <meta property="twitter:description" content="A beginner-friendly guide to understanding this, call(), apply(), and bind() in JavaScript.">
-    <meta property="twitter:image" content="https://www.svgrepo.com/show/353925/javascript.svg">
+    <meta property="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2z8d8uo9p763mb5mc1rn.webp">
 </head>
 
 <body>
@@ -98,7 +98,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://www.svgrepo.com/show/353925/javascript.svg" alt="JavaScript this call apply bind" class="blog-hero-image" style="background: linear-gradient(135deg, #fff9de, #edd250); padding: 24px; object-fit: contain;">
+                            <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2z8d8uo9p763mb5mc1rn.webp" alt="JavaScript this call apply bind" class="blog-hero-image" style="background: linear-gradient(135deg, #fff9de, #edd250); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

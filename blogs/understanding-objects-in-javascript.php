@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/understanding-objects-in-javascript">
     <meta property="og:title" content="Understanding Objects in JavaScript">
     <meta property="og:description" content="A beginner-friendly guide to JavaScript objects, property access, updates, and looping through keys.">
-    <meta property="og:image" content="https://cdn.worldvectorlogo.com/logos/javascript-1.svg">
+    <meta property="og:image" content="https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2F5e436a36-838c-42ca-8340-8fb929ad9fc8.png&w=3840&q=75">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/understanding-objects-in-javascript">
     <meta property="twitter:title" content="Understanding Objects in JavaScript">
     <meta property="twitter:description" content="A beginner-friendly guide to JavaScript objects, property access, updates, and looping through keys.">
-    <meta property="twitter:image" content="https://cdn.worldvectorlogo.com/logos/javascript-1.svg">
+    <meta property="twitter:image" content="https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2F5e436a36-838c-42ca-8340-8fb929ad9fc8.png&w=3840&q=75">
 </head>
 
 <body>
@@ -98,7 +98,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg" alt="JavaScript Objects" class="blog-hero-image" style="background: linear-gradient(135deg, #fff6d0, #f4d84f); padding: 24px; object-fit: contain;">
+                            <img src="https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2F5e436a36-838c-42ca-8340-8fb929ad9fc8.png&w=3840&q=75" alt="JavaScript Objects" class="blog-hero-image" style="background: linear-gradient(135deg, #fff6d0, #f4d84f); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

@@ -104,70 +104,70 @@ if ($envPath) {
                             'title' => 'JavaScript Operators: The Basics You Need to Know',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/9/96/Javascript_dot_js_logo.svg',
+                            'image' => 'https://blog.dhiraj.dev/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F69513de35d3cf3dcde6a6e95%2F4d329a4d-fbed-4bd6-8e18-70a174b094cb.png&w=3840&q=75',
                             'link' => 'javascript-operators-basics'
                         ],
                         [
                             'title' => 'The Magic of this, call(), apply(), and bind() in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://www.svgrepo.com/show/353925/javascript.svg',
+                            'image' => 'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2z8d8uo9p763mb5mc1rn.webp',
                             'link' => 'the-magic-of-this-call-apply-bind-in-javascript'
                         ],
                         [
                             'title' => 'Function Declaration vs Function Expression: What’s the Difference?',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png',
+                            'image' => 'https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2Fc896a9b8-0227-4b9a-9323-6d48e02e2427.png&w=3840&q=75',
                             'link' => 'function-declaration-vs-function-expression'
                         ],
                         [
                             'title' => 'JavaScript Arrays 101',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg',
+                            'image' => 'https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftqo1rab6eznma8tzwzcl.webp',
                             'link' => 'javascript-arrays-101'
                         ],
                         [
                             'title' => 'Understanding Object-Oriented Programming in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://api.iconify.design/logos/javascript.svg',
+                            'image' => 'https://miro.medium.com/0*wgDCQoZtprrPg272.jpg',
                             'link' => 'understanding-oop-in-javascript'
                         ],
                         [
                             'title' => 'Understanding Objects in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://cdn.worldvectorlogo.com/logos/javascript-1.svg',
+                            'image' => 'https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2F5e436a36-838c-42ca-8340-8fb929ad9fc8.png&w=3840&q=75',
                             'link' => 'understanding-objects-in-javascript'
                         ],
                         [
                             'title' => 'Understanding Variables and Data Types in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg',
+                            'image' => 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*qvAJkRLtYnnVFTScPjgWPA.jpeg',
                             'link' => 'understanding-variables-and-data-types-in-javascript'
                         ],
                         [
                             'title' => 'Control Flow in JavaScript: If, Else, and Switch Explained',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
+                            'image' => 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ej4NUhE3AOp0DVBJR3WA5w.png',
                             'link' => 'control-flow-in-javascript'
                         ],
                         [
                             'title' => 'Arrow Functions in JavaScript: A Simpler Way to Write Functions',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+                            'image' => 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*-OKyZav_Yo-3ZIrb',
                             'link' => 'arrow-functions-in-javascript'
                         ],
                         [
                             'title' => 'Array Methods You Must Know',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://cdn.simpleicons.org/javascript/F7DF1E',
+                            'image' => 'https://miro.medium.com/v2/resize:fit:1400/1*-1JKUVOs2X9xkmIb-KmKKA.jpeg',
                             'link' => 'array-methods-you-must-know'
                         ],
                         [

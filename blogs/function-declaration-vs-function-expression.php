@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/function-declaration-vs-function-expression">
     <meta property="og:title" content="Function Declaration vs Function Expression: What’s the Difference?">
     <meta property="og:description" content="A beginner-friendly comparison of JavaScript function declarations and function expressions.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png">
+    <meta property="og:image" content="https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2Fc896a9b8-0227-4b9a-9323-6d48e02e2427.png&w=3840&q=75">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/function-declaration-vs-function-expression">
     <meta property="twitter:title" content="Function Declaration vs Function Expression: What’s the Difference?">
     <meta property="twitter:description" content="A beginner-friendly comparison of JavaScript function declarations and function expressions.">
-    <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png">
+    <meta property="twitter:image" content="https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2Fc896a9b8-0227-4b9a-9323-6d48e02e2427.png&w=3840&q=75">
 </head>
 
 <body>
@@ -97,7 +97,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png" alt="JavaScript Functions" class="blog-hero-image" style="background: linear-gradient(135deg, #fff6cf, #f2d249); padding: 24px; object-fit: contain;">
+                            <img src="https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2Fc896a9b8-0227-4b9a-9323-6d48e02e2427.png&w=3840&q=75" alt="JavaScript Functions" class="blog-hero-image" style="background: linear-gradient(135deg, #fff6cf, #f2d249); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

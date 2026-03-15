@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/javascript-arrays-101">
     <meta property="og:title" content="JavaScript Arrays 101">
     <meta property="og:description" content="A beginner-friendly guide to JavaScript arrays, indexing, updates, length, and basic loops.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftqo1rab6eznma8tzwzcl.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/javascript-arrays-101">
     <meta property="twitter:title" content="JavaScript Arrays 101">
     <meta property="twitter:description" content="A beginner-friendly guide to JavaScript arrays, indexing, updates, length, and basic loops.">
-    <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg">
+    <meta property="twitter:image" content="https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftqo1rab6eznma8tzwzcl.webp">
 </head>
 
 <body>
@@ -97,7 +97,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg" alt="JavaScript Arrays" class="blog-hero-image" style="background: linear-gradient(135deg, #fff8db, #f0d44f); padding: 24px; object-fit: contain;">
+                            <img src="https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftqo1rab6eznma8tzwzcl.webp" alt="JavaScript Arrays" class="blog-hero-image" style="background: linear-gradient(135deg, #fff8db, #f0d44f); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

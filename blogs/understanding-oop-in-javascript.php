@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/understanding-oop-in-javascript">
     <meta property="og:title" content="Understanding Object-Oriented Programming in JavaScript">
     <meta property="og:description" content="A beginner-friendly guide to OOP in JavaScript using classes, objects, constructors, and methods.">
-    <meta property="og:image" content="https://api.iconify.design/logos/javascript.svg">
+    <meta property="og:image" content="https://miro.medium.com/0*wgDCQoZtprrPg272.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/understanding-oop-in-javascript">
     <meta property="twitter:title" content="Understanding Object-Oriented Programming in JavaScript">
     <meta property="twitter:description" content="A beginner-friendly guide to OOP in JavaScript using classes, objects, constructors, and methods.">
-    <meta property="twitter:image" content="https://api.iconify.design/logos/javascript.svg">
+    <meta property="twitter:image" content="https://miro.medium.com/0*wgDCQoZtprrPg272.jpg">
 </head>
 
 <body>
@@ -98,7 +98,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://api.iconify.design/logos/javascript.svg" alt="JavaScript OOP" class="blog-hero-image" style="background: linear-gradient(135deg, #fff9dc, #eed35a); padding: 24px; object-fit: contain;">
+                            <img src="https://miro.medium.com/0*wgDCQoZtprrPg272.jpg" alt="JavaScript OOP" class="blog-hero-image" style="background: linear-gradient(135deg, #fff9dc, #eed35a); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

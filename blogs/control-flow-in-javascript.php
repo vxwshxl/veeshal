@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/control-flow-in-javascript">
     <meta property="og:title" content="Control Flow in JavaScript: If, Else, and Switch Explained">
     <meta property="og:description" content="A beginner-friendly guide to how JavaScript makes decisions using if, else, else if, and switch.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg">
+    <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ej4NUhE3AOp0DVBJR3WA5w.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/control-flow-in-javascript">
     <meta property="twitter:title" content="Control Flow in JavaScript: If, Else, and Switch Explained">
     <meta property="twitter:description" content="A beginner-friendly guide to how JavaScript makes decisions using if, else, else if, and switch.">
-    <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg">
+    <meta property="twitter:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ej4NUhE3AOp0DVBJR3WA5w.png">
 </head>
 
 <body>
@@ -97,7 +97,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript Control Flow Graphic" class="blog-hero-image" style="background: linear-gradient(135deg, #fff1c2, #f2d24c); padding: 24px; object-fit: contain;">
+                            <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ej4NUhE3AOp0DVBJR3WA5w.png" alt="JavaScript Control Flow Graphic" class="blog-hero-image" style="background: linear-gradient(135deg, #fff1c2, #f2d24c); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

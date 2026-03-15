@@ -11,52 +11,52 @@
 ## 📝 Blogs
 
 ### [JavaScript Operators: The Basics You Need to Know](https://veeshal.me/blogs/javascript-operators-basics.php)
-![JavaScript Operators: The Basics You Need to Know](https://upload.wikimedia.org/wikipedia/commons/9/96/Javascript_dot_js_logo.svg)
+![JavaScript Operators: The Basics You Need to Know](https://blog.dhiraj.dev/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F69513de35d3cf3dcde6a6e95%2F4d329a4d-fbed-4bd6-8e18-70a174b094cb.png&w=3840&q=75)
 
 <br />
 
 ### [The Magic of this, call(), apply(), and bind() in JavaScript](https://veeshal.me/blogs/the-magic-of-this-call-apply-bind-in-javascript.php)
-![The Magic of this, call(), apply(), and bind() in JavaScript](https://www.svgrepo.com/show/353925/javascript.svg)
+![The Magic of this, call(), apply(), and bind() in JavaScript](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2z8d8uo9p763mb5mc1rn.webp)
 
 <br />
 
 ### [Function Declaration vs Function Expression: What’s the Difference?](https://veeshal.me/blogs/function-declaration-vs-function-expression.php)
-![Function Declaration vs Function Expression: What’s the Difference?](https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png)
+![Function Declaration vs Function Expression: What’s the Difference?](https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2Fc896a9b8-0227-4b9a-9323-6d48e02e2427.png&w=3840&q=75)
 
 <br />
 
 ### [JavaScript Arrays 101](https://veeshal.me/blogs/javascript-arrays-101.php)
-![JavaScript Arrays 101](https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg)
+![JavaScript Arrays 101](https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftqo1rab6eznma8tzwzcl.webp)
 
 <br />
 
 ### [Understanding Object-Oriented Programming in JavaScript](https://veeshal.me/blogs/understanding-oop-in-javascript.php)
-![Understanding Object-Oriented Programming in JavaScript](https://api.iconify.design/logos/javascript.svg)
+![Understanding Object-Oriented Programming in JavaScript](https://miro.medium.com/0*wgDCQoZtprrPg272.jpg)
 
 <br />
 
 ### [Understanding Objects in JavaScript](https://veeshal.me/blogs/understanding-objects-in-javascript.php)
-![Understanding Objects in JavaScript](https://cdn.worldvectorlogo.com/logos/javascript-1.svg)
+![Understanding Objects in JavaScript](https://blog.thitainfo.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F6185effafd5d634d0169926f%2F5e436a36-838c-42ca-8340-8fb929ad9fc8.png&w=3840&q=75)
 
 <br />
 
 ### [Understanding Variables and Data Types in JavaScript](https://veeshal.me/blogs/understanding-variables-and-data-types-in-javascript.php)
-![Understanding Variables and Data Types in JavaScript](https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg)
+![Understanding Variables and Data Types in JavaScript](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*qvAJkRLtYnnVFTScPjgWPA.jpeg)
 
 <br />
 
 ### [Control Flow in JavaScript: If, Else, and Switch Explained](https://veeshal.me/blogs/control-flow-in-javascript.php)
-![Control Flow in JavaScript: If, Else, and Switch Explained](https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg)
+![Control Flow in JavaScript: If, Else, and Switch Explained](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ej4NUhE3AOp0DVBJR3WA5w.png)
 
 <br />
 
 ### [Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://veeshal.me/blogs/arrow-functions-in-javascript.php)
-![Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg)
+![Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*-OKyZav_Yo-3ZIrb)
 
 <br />
 
 ### [Array Methods You Must Know](https://veeshal.me/blogs/array-methods-you-must-know.php)
-![Array Methods You Must Know](https://cdn.simpleicons.org/javascript/F7DF1E)
+![Array Methods You Must Know](https://miro.medium.com/v2/resize:fit:1400/1*-1JKUVOs2X9xkmIb-KmKKA.jpeg)
 
 <br />
 

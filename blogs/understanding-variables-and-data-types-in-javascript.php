@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/understanding-variables-and-data-types-in-javascript">
     <meta property="og:title" content="Understanding Variables and Data Types in JavaScript">
     <meta property="og:description" content="A beginner-friendly guide to storing values in JavaScript with var, let, const, primitive types, and simple scope examples.">
-    <meta property="og:image" content="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg">
+    <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*qvAJkRLtYnnVFTScPjgWPA.jpeg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/understanding-variables-and-data-types-in-javascript">
     <meta property="twitter:title" content="Understanding Variables and Data Types in JavaScript">
     <meta property="twitter:description" content="A beginner-friendly guide to storing values in JavaScript with var, let, const, primitive types, and simple scope examples.">
-    <meta property="twitter:image" content="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg">
+    <meta property="twitter:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*qvAJkRLtYnnVFTScPjgWPA.jpeg">
 </head>
 
 <body>
@@ -96,7 +96,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript Variables and Data Types" class="blog-hero-image" style="background: linear-gradient(135deg, #fff8d5, #f6de63); padding: 24px; object-fit: contain;">
+                            <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*qvAJkRLtYnnVFTScPjgWPA.jpeg" alt="JavaScript Variables and Data Types" class="blog-hero-image" style="background: linear-gradient(135deg, #fff8d5, #f6de63); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">
