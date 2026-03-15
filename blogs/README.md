@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [Array Methods You Must Know](https://veeshal.me/blogs/array-methods-you-must-know.php)
+![Array Methods You Must Know](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)
+
+<br />
+
 ### [Emmet for HTML: A Beginner’s Guide to Writing Faster Markup](https://veeshal.me/blogs/emmet-for-html.php)
 ![Emmet for HTML: A Beginner’s Guide to Writing Faster Markup](https://www.alphr.com/wp-content/uploads/2023/10/emmet-nedir-ve-ne-ise-yarar-1280x720.jpg)
 

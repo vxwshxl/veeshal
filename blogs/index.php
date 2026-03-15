@@ -84,6 +84,7 @@ if ($envPath) {
                         <?php
                         $categories = [
                             'HTML & CSS',
+                            'JavaScript',
                             'Software development',
                         ];
                         foreach ($categories as $cat) {
@@ -99,6 +100,13 @@ if ($envPath) {
                     <?php
                     // Blog Posts Data
                     $all_posts = [
+                        [
+                            'title' => 'Array Methods You Must Know',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+                            'link' => 'array-methods-you-must-know'
+                        ],
                         [
                             'title' => 'Emmet for HTML: A Beginner’s Guide to Writing Faster Markup',
                             'date' => '27 Jan 2026',
