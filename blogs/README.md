@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [Understanding Objects in JavaScript](https://veeshal.me/blogs/understanding-objects-in-javascript.php)
+![Understanding Objects in JavaScript](https://cdn.worldvectorlogo.com/logos/javascript-1.svg)
+
+<br />
+
 ### [Understanding Variables and Data Types in JavaScript](https://veeshal.me/blogs/understanding-variables-and-data-types-in-javascript.php)
 ![Understanding Variables and Data Types in JavaScript](https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg)
 

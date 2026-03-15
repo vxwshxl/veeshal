@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Understanding Objects in JavaScript',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://cdn.worldvectorlogo.com/logos/javascript-1.svg',
+                            'link' => 'understanding-objects-in-javascript'
+                        ],
+                        [
                             'title' => 'Understanding Variables and Data Types in JavaScript',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
