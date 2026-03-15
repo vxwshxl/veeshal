@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'The Magic of this, call(), apply(), and bind() in JavaScript',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://www.svgrepo.com/show/353925/javascript.svg',
+                            'link' => 'the-magic-of-this-call-apply-bind-in-javascript'
+                        ],
+                        [
                             'title' => 'Function Declaration vs Function Expression: What’s the Difference?',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',

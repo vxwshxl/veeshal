@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [The Magic of this, call(), apply(), and bind() in JavaScript](https://veeshal.me/blogs/the-magic-of-this-call-apply-bind-in-javascript.php)
+![The Magic of this, call(), apply(), and bind() in JavaScript](https://www.svgrepo.com/show/353925/javascript.svg)
+
+<br />
+
 ### [Function Declaration vs Function Expression: What’s the Difference?](https://veeshal.me/blogs/function-declaration-vs-function-expression.php)
 ![Function Declaration vs Function Expression: What’s the Difference?](https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png)
 
