@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/arrow-functions-in-javascript">
     <meta property="og:title" content="Arrow Functions in JavaScript: A Simpler Way to Write Functions">
     <meta property="og:description" content="A beginner-friendly guide to writing shorter, cleaner JavaScript functions with arrow syntax.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/arrow-functions-in-javascript">
     <meta property="twitter:title" content="Arrow Functions in JavaScript: A Simpler Way to Write Functions">
     <meta property="twitter:description" content="A beginner-friendly guide to writing shorter, cleaner JavaScript functions with arrow syntax.">
-    <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+    <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
 </head>
 
 <body>
@@ -97,7 +97,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" class="blog-hero-image" style="background: #f7df1e; padding: 24px; object-fit: contain;">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Logo" class="blog-hero-image" style="background: linear-gradient(135deg, #fff7cc, #f7df1e); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">
@@ -121,10 +121,10 @@ const greetArrow = (name) => {
                             <p>Both functions do the same job. The arrow version simply removes some extra syntax.</p>
 
                             <div class="mermaid">
-                            graph LR
-                                A[function greet(name) { return name; }] --> B[Remove function keyword]
-                                B --> C[Add =&gt; between parameters and body]
-                                C --> D[const greet = (name) =&gt; { return name; }]
+                            flowchart LR
+                                A["Normal function"] --> B["Remove function keyword"]
+                                B --> C["Add arrow syntax"]
+                                C --> D["Arrow function version"]
                             </div>
 
                             <h2 id="basic-syntax">2. Basic Arrow Function Syntax</h2>
@@ -146,10 +146,10 @@ const functionName = (parameters) => {
                             </ul>
 
                             <div class="mermaid">
-                            graph TD
-                                A[const add] --> B[(a, b)]
-                                B --> C[=&gt;]
-                                C --> D[{ return a + b; }]
+                            flowchart TD
+                                A["const add"] --> B["(a, b)"]
+                                B --> C["=>"]
+                                C --> D["return a + b"]
                             </div>
 
                             <h2 id="one-parameter">3. Arrow Functions with One Parameter</h2>

@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/array-methods-you-must-know">
     <meta property="og:title" content="Array Methods You Must Know">
     <meta property="og:description" content="A beginner-friendly guide to the JavaScript array methods you will use again and again.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+    <meta property="og:image" content="https://cdn.simpleicons.org/javascript/F7DF1E">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/array-methods-you-must-know">
     <meta property="twitter:title" content="Array Methods You Must Know">
     <meta property="twitter:description" content="A beginner-friendly guide to the JavaScript array methods you will use again and again.">
-    <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+    <meta property="twitter:image" content="https://cdn.simpleicons.org/javascript/F7DF1E">
 </head>
 
 <body>
@@ -98,7 +98,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" class="blog-hero-image" style="background: #f7df1e; padding: 24px; object-fit: contain;">
+                            <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript Logo" class="blog-hero-image" style="background: linear-gradient(135deg, #fff4b8, #ffd447); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">

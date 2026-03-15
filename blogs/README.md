@@ -10,13 +10,18 @@
 
 ## 📝 Blogs
 
+### [Control Flow in JavaScript: If, Else, and Switch Explained](https://veeshal.me/blogs/control-flow-in-javascript.php)
+![Control Flow in JavaScript: If, Else, and Switch Explained](https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg)
+
+<br />
+
 ### [Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://veeshal.me/blogs/arrow-functions-in-javascript.php)
-![Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)
+![Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg)
 
 <br />
 
 ### [Array Methods You Must Know](https://veeshal.me/blogs/array-methods-you-must-know.php)
-![Array Methods You Must Know](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)
+![Array Methods You Must Know](https://cdn.simpleicons.org/javascript/F7DF1E)
 
 <br />
 

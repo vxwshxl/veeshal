@@ -101,17 +101,24 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Control Flow in JavaScript: If, Else, and Switch Explained',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
+                            'link' => 'control-flow-in-javascript'
+                        ],
+                        [
                             'title' => 'Arrow Functions in JavaScript: A Simpler Way to Write Functions',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+                            'image' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
                             'link' => 'arrow-functions-in-javascript'
                         ],
                         [
                             'title' => 'Array Methods You Must Know',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
-                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+                            'image' => 'https://cdn.simpleicons.org/javascript/F7DF1E',
                             'link' => 'array-methods-you-must-know'
                         ],
                         [
