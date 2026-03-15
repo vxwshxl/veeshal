@@ -37,14 +37,14 @@ if ($envPath) {
     <meta property="og:url" content="https://veeshal.me/blogs/javascript-operators-basics">
     <meta property="og:title" content="JavaScript Operators: The Basics You Need to Know">
     <meta property="og:description" content="A beginner-friendly guide to JavaScript operators with practical examples and clear comparisons.">
-    <meta property="og:image" content="https://blog.dhiraj.dev/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F69513de35d3cf3dcde6a6e95%2F4d329a4d-fbed-4bd6-8e18-70a174b094cb.png&w=3840&q=75">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgd13jf7crx0nffnb0szj.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://veeshal.me/blogs/javascript-operators-basics">
     <meta property="twitter:title" content="JavaScript Operators: The Basics You Need to Know">
     <meta property="twitter:description" content="A beginner-friendly guide to JavaScript operators with practical examples and clear comparisons.">
-    <meta property="twitter:image" content="https://blog.dhiraj.dev/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F69513de35d3cf3dcde6a6e95%2F4d329a4d-fbed-4bd6-8e18-70a174b094cb.png&w=3840&q=75">
+    <meta property="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgd13jf7crx0nffnb0szj.jpg">
 </head>
 
 <body>
@@ -96,7 +96,7 @@ if ($envPath) {
                         </header>
 
                         <div class="blog-hero-image-wrapper">
-                            <img src="https://blog.dhiraj.dev/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fuploads%2Fcovers%2F69513de35d3cf3dcde6a6e95%2F4d329a4d-fbed-4bd6-8e18-70a174b094cb.png&w=3840&q=75" alt="JavaScript Operators" class="blog-hero-image" style="background: linear-gradient(135deg, #fff8da, #eed14d); padding: 24px; object-fit: contain;">
+                            <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgd13jf7crx0nffnb0szj.jpg" alt="JavaScript Operators" class="blog-hero-image" style="background: linear-gradient(135deg, #fff8da, #eed14d); padding: 24px; object-fit: contain;">
                         </div>
 
                         <article class="article-content">
