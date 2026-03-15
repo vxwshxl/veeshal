@@ -10,6 +10,11 @@
 
 ## 📝 Blogs
 
+### [Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://veeshal.me/blogs/arrow-functions-in-javascript.php)
+![Arrow Functions in JavaScript: A Simpler Way to Write Functions](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)
+
+<br />
+
 ### [Array Methods You Must Know](https://veeshal.me/blogs/array-methods-you-must-know.php)
 ![Array Methods You Must Know](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)
 

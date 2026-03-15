@@ -101,6 +101,13 @@ if ($envPath) {
                     // Blog Posts Data
                     $all_posts = [
                         [
+                            'title' => 'Arrow Functions in JavaScript: A Simpler Way to Write Functions',
+                            'date' => '15 Mar 2026',
+                            'category' => 'JavaScript',
+                            'image' => 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+                            'link' => 'arrow-functions-in-javascript'
+                        ],
+                        [
                             'title' => 'Array Methods You Must Know',
                             'date' => '15 Mar 2026',
                             'category' => 'JavaScript',
