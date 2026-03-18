@@ -53,6 +53,7 @@
   gap: 100px;
   /* Reduced gap for better density */
   padding-right: 100px;
+  /* Maintain equal gap between sets */
   align-items: center;
 }
 
