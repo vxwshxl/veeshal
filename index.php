@@ -128,8 +128,8 @@ if ($envPath) {
                         <ul>
                             <li><a href="#home">Home</a></li>
                             <li><a href="#intro"><span class="highlight">Intro</span></a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#project">Projects</a></li>
+                            <li><a href="hackathons">Hackathons</a></li>
                             <li><a href="chaicode">ChaiCode</a></li>
                             <li><a href="blogs">Blogs</a></li>
                             <li><a href="#contact">Contact</a></li>
@@ -547,8 +547,8 @@ if ($envPath) {
                         <ul>
                             <li><a href="#home">Home</a></li>
                             <li><a href="#intro"><span class="highlight">Intro</span></a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#project">Projects</a></li>
+                            <li><a href="hackathons">Hackathons</a></li>
                             <li><a href="chaicode">ChaiCode</a></li>
                             <li><a href="blogs">Blogs</a></li>
                             <li><a href="#contact">Contact</a></li>
