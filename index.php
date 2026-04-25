@@ -191,9 +191,9 @@ if ($envPath) {
                         <div class="stat-item">
                             <h2>+50k</h2>
                             <p>Monthly Visitors for<br>
-                                <a href="https://anglo-bodo-dictionary.com" target="_blank"
+                                <a href="https://bodookhrang.com" target="_blank"
                                     style="font-weight:bold; color: #F9B646; cursor: pointer;">
-                                    Anglo-Bodo Dictionary
+                                    Bodo Okhrang
                                 </a>
                             </p>
                         </div>
