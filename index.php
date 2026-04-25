@@ -275,18 +275,18 @@ if ($envPath) {
             <div class="preview-img preview-img-2"></div>
         </div>
         <div class="menu">
-            <!-- <div class="menu-item" data-url="https://anglo-bodo-dictionary.com"
+            <div class="menu-item" data-url="https://bodookhrang.com"
                 data-hover-src="./assets/projects/1.webp">
                 <div class="info">
                     <p>Tool</p>
                 </div>
                 <div class="name">
-                    <p>Anglo-Bodo Dictionary</p>
+                    <p>Bodo Okhrang</p>
                 </div>
                 <div class="tag">
                     <p>Web Development</p>
                 </div>
-            </div> -->
+            </div>
             <div class="menu-item" data-url="https://ku-app.in" data-hover-src="./assets/projects/2.webp">
                 <div class="info">
                     <p>Education</p>
