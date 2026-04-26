@@ -11,8 +11,10 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
+    padding-top: 20vh;
+    padding-bottom: 10vh;
 }
 
 .menu {

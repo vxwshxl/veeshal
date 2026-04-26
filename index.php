@@ -278,13 +278,25 @@ if ($envPath) {
             <div class="menu-item" data-url="https://bodookhrang.com"
                 data-hover-src="./assets/projects/1.webp">
                 <div class="info">
-                    <p>Tool</p>
+                    <p>A.I. Tool</p>
                 </div>
                 <div class="name">
                     <p>Bodo Okhrang</p>
                 </div>
                 <div class="tag">
                     <p>Web Development</p>
+                </div>
+            </div>
+            <div class="menu-item" data-url="https://crewspace-ai.vercel.app"
+                data-hover-src="./assets/projects/11.webp">
+                <div class="info">
+                    <p>A.I. Tool</p>
+                </div>
+                <div class="name">
+                    <p>CrewSpace AI</p>
+                </div>
+                <div class="tag">
+                    <p>Extension</p>
                 </div>
             </div>
             <div class="menu-item" data-url="https://ku-app.in" data-hover-src="./assets/projects/2.webp">
