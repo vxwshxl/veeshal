@@ -13,7 +13,7 @@
                         <li><a href="../index">Home</a></li>
                         <li><a href="../index#intro">Intro</a></li>
                         <li><a href="../index#project">Projects</a></li>
-                        <li><a href="../hackathons">Hackathons</a></li>
+                        <li><a href="../timeline">Timeline</a></li>
                         <li><a href="index"><span class="highlight">ChaiCode</span></a></li>
                         <li><a href="../blogs">Blogs</a></li>
                         <li><a href="../index#contact">Contact</a></li>

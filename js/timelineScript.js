@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Image Popup Modal Logic
-    const modal = document.getElementById("hackathonModal");
-    const modalImg = document.getElementById("hackathonPopupImg");
+    const modal = document.getElementById("timelineModal");
+    const modalImg = document.getElementById("timelinePopupImg");
     const closeBtn = document.querySelector(".close-modal");
     const zoomImages = document.querySelectorAll(".zoom-img");
 

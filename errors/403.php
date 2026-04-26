@@ -4,14 +4,14 @@ http_response_code(403);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include '../hackathons/includes/head_resources.php'; ?>
+    <?php include '../timeline/includes/head_resources.php'; ?>
     <link rel="stylesheet" href="../css/errorStyles.css">
     <title>403 Forbidden - Veeshal D. Bodosa</title>
 </head>
 <body>
     <div id="home" class="home">
         <div class="homeContainer">
-            <?php include '../hackathons/includes/header.php'; ?>
+            <?php include '../timeline/includes/header.php'; ?>
 
             <div class="error-container">
                 <div class="error-code">4<span class="error-highlight">0</span>3</div>
@@ -23,9 +23,9 @@ http_response_code(403);
             </div>
         </div>
         
-        <?php include '../hackathons/includes/footer.php'; ?>
+        <?php include '../timeline/includes/footer.php'; ?>
     </div>
     
-    <?php include '../hackathons/includes/footer_resources.php'; ?>
+    <?php include '../timeline/includes/footer_resources.php'; ?>
 </body>
 </html>

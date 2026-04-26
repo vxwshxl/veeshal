@@ -1,6 +1,6 @@
-/* Hackathons Styles */
+/* Timeline Styles */
 
-.hackathons-container {
+.timeline-container {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -9,12 +9,12 @@
     min-height: 100vh;
 }
 
-.hackathons-title {
+.timeline-title {
     text-align: center;
     margin-bottom: 80px;
 }
 
-.hackathons-title .highlight-bg {
+.timeline-title .highlight-bg {
     background: #F9B646;
     color: #000;
     padding: 5px 15px;
@@ -27,7 +27,7 @@
     letter-spacing: 1px;
 }
 
-.hackathons-title h1 {
+.timeline-title h1 {
     font-size: 80px;
     line-height: 0.9;
     font-weight: 900;
@@ -174,7 +174,7 @@
 }
 
 /* Fullscreen Modal */
-.hackathon-modal {
+.timeline-modal {
     display: none;
     position: fixed;
     z-index: 2000;
@@ -190,18 +190,18 @@
     transition: opacity 0.3s ease;
 }
 
-.hackathon-modal.active {
+.timeline-modal.active {
     display: flex;
     opacity: 1;
 }
 
-.hackathon-modal-content {
+.timeline-modal-content {
     position: relative;
     max-width: 90%;
     max-height: 90vh;
 }
 
-.hackathon-modal-content img {
+.timeline-modal-content img {
     width: auto;
     max-width: 100%;
     max-height: 90vh;
@@ -251,7 +251,7 @@
         top: 30px;
     }
     
-    .hackathons-title h1 {
+    .timeline-title h1 {
         font-size: 50px;
     }
     
@@ -261,11 +261,11 @@
 }
 
 @media (max-width: 768px) {
-    .hackathons-container {
+    .timeline-container {
         padding-top: 20vh;
     }
     
-    .hackathons-title h1 {
+    .timeline-title h1 {
         font-size: 40px;
     }
     

@@ -3,11 +3,11 @@
 $env = [];
 $envPath = null;
 
-// Check for .env in parent directory (Localhost relative to hackathons/)
+// Check for .env in parent directory (Localhost relative to timeline/)
 if (file_exists(__DIR__ . '/../.env')) {
     $envPath = __DIR__ . '/../.env';
 } 
-// Check for .env in config directory (Hostinger/Production relative to hackathons/)
+// Check for .env in config directory (Hostinger/Production relative to timeline/)
 elseif (file_exists(__DIR__ . '/../../config/.env')) {
     $envPath = __DIR__ . '/../../config/.env';
 }
@@ -33,25 +33,25 @@ if ($envPath) {
 
 <head>
     <?php include 'includes/head_resources.php'; ?>
-    <link rel="stylesheet" href="../css/hackathonsStyles.css">
+    <link rel="stylesheet" href="../css/timelineStyles.css">
     
-    <title>Hackathons - Veeshal D. Bodosa</title>
-    <meta name="description" content="Hackathons - Veeshal D. Bodosa - A creative developer and video editor blending code and cinematics to craft immersive digital experiences.">
-    <meta name="keywords" content="Veeshal D. Bodosa, Web Developer, Video Editor, Portfolio, React Native, Flutter, Cinematics, Creative Developer, India, Hackathons">
+    <title>Timeline - Veeshal D. Bodosa</title>
+    <meta name="description" content="Timeline - Veeshal D. Bodosa - A creative developer and video editor blending code and cinematics to craft immersive digital experiences.">
+    <meta name="keywords" content="Veeshal D. Bodosa, Web Developer, Video Editor, Portfolio, React Native, Flutter, Cinematics, Creative Developer, India, Timeline">
     <meta name="author" content="Veeshal D. Bodosa">
-    <link rel="canonical" href="https://veeshal.me/hackathons/">
+    <link rel="canonical" href="https://veeshal.me/timeline/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://veeshal.me/hackathons/">
-    <meta property="og:title" content="Hackathons - Veeshal D. Bodosa">
+    <meta property="og:url" content="https://veeshal.me/timeline/">
+    <meta property="og:title" content="Timeline - Veeshal D. Bodosa">
     <meta property="og:description" content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
     <meta property="og:image" content="https://veeshal.me/assets/vee-og.svg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://veeshal.me/hackathons/">
-    <meta property="twitter:title" content="Hackathons - Veeshal D. Bodosa">
+    <meta property="twitter:url" content="https://veeshal.me/timeline/">
+    <meta property="twitter:title" content="Timeline - Veeshal D. Bodosa">
     <meta property="twitter:description" content="Welcome to a visual journey that blends code & creativity, and every edit tells a story. Engineered with precision & crafted with passion.">
     <meta property="twitter:image" content="https://veeshal.me/assets/vee-og.svg">
     
@@ -75,9 +75,9 @@ if ($envPath) {
         <div class="homeContainer">
             <?php include 'includes/header.php'; ?>
 
-            <!-- Hackathons Layout -->
-            <div class="hackathons-container">
-                <div class="hackathons-title">
+            <!-- Timeline Layout -->
+            <div class="timeline-container">
+                <div class="timeline-title">
                     <span class="highlight-bg">The Ship Log</span>
                     <h1>Mission<br>Progress.</h1>
                 </div>
@@ -126,8 +126,8 @@ if ($envPath) {
                                 <span class="tag">Winner</span>
                                 <span class="date">2026</span>
                             </div>
-                            <h2>Prajukti 2026 GCU Hackathon</h2>
-                            <p>Prajukti 2026 GCU Hackathon held during GCU Varsity Week: EUPHUISM 2026 (Roots and Resilience) from 11th to 14th March, 2026.</p>
+                            <h2>Prajukti 2026 GCU Timeline</h2>
+                            <p>Prajukti 2026 GCU Timeline held during GCU Varsity Week: EUPHUISM 2026 (Roots and Resilience) from 11th to 14th March, 2026.</p>
                         </div>
                         <div class="timeline-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
@@ -145,7 +145,7 @@ if ($envPath) {
                                 <span class="date">Feb 2026</span>
                             </div>
                             <h2>Codestellation, under Codewar 7.0 at AEC</h2>
-                            <p>This Hackathon was held by Assam Engineering College (AEC) under CodeWar 7.0 part of Pyrokinesis 2026 organised by Coding Club, AEC named as Codestellation on 26 Feb 2026.</p>
+                            <p>This Timeline was held by Assam Engineering College (AEC) under CodeWar 7.0 part of Pyrokinesis 2026 organised by Coding Club, AEC named as Codestellation on 26 Feb 2026.</p>
                         </div>
                         <div class="timeline-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
@@ -158,10 +158,10 @@ if ($envPath) {
             </div>
 
             <!-- Fullscreen Image Modal -->
-            <div id="hackathonModal" class="hackathon-modal">
-                <div class="hackathon-modal-content">
+            <div id="timelineModal" class="timeline-modal">
+                <div class="timeline-modal-content">
                     <span class="close-modal">&times;</span>
-                    <img id="hackathonPopupImg" src="" alt="Fullscreen Certificate">
+                    <img id="timelinePopupImg" src="" alt="Fullscreen Certificate">
                 </div>
             </div>
         </div>
@@ -172,6 +172,6 @@ if ($envPath) {
 
     <!-- Toast Notification Container -->
     <?php include 'includes/footer_resources.php'; ?>
-    <script src="../js/hackathonsScript.js"></script>
+    <script src="../js/timelineScript.js"></script>
 </body>
 </html>

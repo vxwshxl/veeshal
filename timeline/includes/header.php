@@ -11,7 +11,7 @@
                 <li><a href="../index">Home</a></li>
                 <li><a href="../index#intro">Intro</a></li>
                 <li><a href="../index#project">Projects</a></li>
-                <li><a href="hackathons"><span class="highlight">Hackathons</span></a></li>
+                <li><a href="timeline"><span class="highlight">Timeline</span></a></li>
                 <li><a href="../chaicode">ChaiCode</a></li>
                 <li><a href="../blogs">Blogs</a></li>
                 <li><a href="../index#contact">Contact</a></li>
