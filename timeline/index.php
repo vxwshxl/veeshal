@@ -126,7 +126,7 @@ if ($envPath) {
                     </div>
 
                     <!-- ===== Item 2 (Right) : Prajukti 2026 GCU Hackathon ===== -->
-                    <div class="timeline-item right" data-images='["https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/Achievements/Prajukti%202026%20-%201st.jpg","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/Achievements/CodeWar%20-%201.jpg","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/Achievements/CodeWar%20-%202.jpg"]'>
+                    <div class="timeline-item right" data-images='["https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/Achievements/Prajukti%202026%20-%201st.jpg","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/Achievements/Prajukti%20-%201.jpg","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/Achievements/Prajukti%20-%202.jpg"]'>
                         <div class="timeline-content">
                             <div class="tag-row">
                                 <span class="tag">Winner</span>

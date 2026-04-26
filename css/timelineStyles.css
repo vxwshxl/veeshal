@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 15vh 24px 10vh 24px;
+    padding: 40px 24px 60px 24px;  /* was 15vh — now flat px */
     position: relative;
     min-height: 100vh;
 }
@@ -115,12 +115,11 @@
 /* Right item: image on left, text-card on right */
 .timeline-item.right { flex-direction: row-reverse; }
 
-/* ---- Icon on the snake line ---- */
-/* For left items the icon sits closer to right-center of page  (~58% of item)
-   For right items it sits closer to left-center (~40% of item)
-   This creates the zigzag the snake SVG passes through            */
+/* ---- Icon on the snake line — in-flow flex item so it never overlaps cards ---- */
 .timeline-icon {
-    position: absolute;
+    /* NOT absolute — sits naturally between content and image in the flex row */
+    position: relative;
+    flex-shrink: 0;
     width: 44px;
     height: 44px;
     background-color: #F9B646;
@@ -130,23 +129,17 @@
     justify-content: center;
     align-items: center;
     box-shadow: 4px 4px 0px #000;
-    top: 50%;
-    transform: translateY(-50%);
+    align-self: center;   /* vertically centred in the flex row */
 }
 
-/* Left item icon: placed at ~58% across the full item width */
-.timeline-item.left .timeline-icon {
-    left: 58%;
-    transform: translate(-50%, -50%);
-    top: 50%;
-}
+/* Left item: DOM order → content | icon | image  (row)
+   icon x ≈ 60% of item → left side of snake zigzag */
+.timeline-item.left .timeline-icon  { /* in-flow, no override needed */ }
 
-/* Right item icon: placed at ~42% across the full item width */
-.timeline-item.right .timeline-icon {
-    left: 42%;
-    transform: translate(-50%, -50%);
-    top: 50%;
-}
+/* Right item: DOM order → content | icon | image  (row-reverse)
+   Visual order → image | icon | content
+   icon x ≈ 40% of item → right side of snake zigzag */
+.timeline-item.right .timeline-icon { /* in-flow, no override needed */ }
 
 .timeline-icon svg {
     width: 20px;
@@ -426,12 +419,10 @@
         gap: 0;
     }
 
-    .timeline-icon,
-    .timeline-item.left .timeline-icon,
-    .timeline-item.right .timeline-icon {
-        left: 20px;
-        top: -22px;
-        transform: none;
+    /* On mobile the icon stacks after the content card */
+    .timeline-icon {
+        align-self: flex-start;
+        margin: 12px 0 0 16px;
     }
 
     .img-slider {
@@ -443,7 +434,7 @@
 }
 
 @media (max-width: 768px) {
-    .timeline-container { padding-top: 20vh; }
+    .timeline-container { padding-top: 30px; }
     .timeline-title h1 { font-size: 40px; }
     .timeline-content { padding: 25px; }
 
@@ -451,5 +442,44 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+
+    /* Modal: arrows overlay the image so they don't need horizontal space */
+    .timeline-modal-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        max-width: 98vw;
+        position: relative;
+    }
+
+    .timeline-modal-content img {
+        max-width: 95vw;
+        max-height: 62vh;
+        width: 95vw;
+        height: auto;
+    }
+
+    .modal-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 20;
+        width: 38px;
+        height: 38px;
+        font-size: 26px;
+        background: rgba(0,0,0,0.65);
+    }
+
+    .modal-prev { left: 6px; right: auto; }
+    .modal-next { right: 6px; left: auto; }
+
+    .modal-dots {
+        bottom: -28px;
+    }
+
+    .close-modal {
+        top: -36px;
+        font-size: 30px;
     }
 }
