@@ -33,6 +33,7 @@ if ($envPath) {
 
 <head>
     <?php include 'includes/head_resources.php'; ?>
+    <link rel="stylesheet" href="../css/hackathonsStyles.css">
     
     <title>Hackathons - Veeshal D. Bodosa</title>
     <meta name="description" content="Hackathons - Veeshal D. Bodosa - A creative developer and video editor blending code and cinematics to craft immersive digital experiences.">
@@ -76,7 +77,92 @@ if ($envPath) {
 
             <!-- Hackathons Layout -->
             <div class="hackathons-container">
-            
+                <div class="hackathons-title">
+                    <span class="highlight-bg">The Ship Log</span>
+                    <h1>Mission<br>Progress.</h1>
+                </div>
+
+                <div class="timeline">
+                    <!-- Item 1 (Left) -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <div class="tag-row">
+                                <span class="tag">Topper</span>
+                                <span class="date">2025</span>
+                            </div>
+                            <h2>Even Semester Topper 2025</h2>
+                            <p>Academic Performance In Even Semester-End Examination 2024-2025.</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
+                        </div>
+                        <div class="timeline-image">
+                            <img src="../assets/hitr.jpg" alt="Certificate 1" class="zoom-img">
+                        </div>
+                    </div>
+
+                    <!-- Item 2 (Right) -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <div class="tag-row">
+                                <span class="tag">Winner</span>
+                                <span class="date">2026</span>
+                            </div>
+                            <h2>AI & Innovation at NEGC 2026, USTM</h2>
+                            <p>AI & Innovation... Awarded competition conducted during North East Graduate Congress-2026 held at University of Science & Technology Meghalaya from 26th-28th March, 2026.</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        </div>
+                        <div class="timeline-image">
+                            <img src="../assets/portfolio/1.webp" alt="Certificate 2" class="zoom-img">
+                        </div>
+                    </div>
+
+                    <!-- Item 3 (Left) -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <div class="tag-row">
+                                <span class="tag">Winner</span>
+                                <span class="date">2026</span>
+                            </div>
+                            <h2>Prajukti 2026 GCU Hackathon</h2>
+                            <p>Prajukti 2026 GCU Hackathon held during GCU Varsity Week: EUPHUISM 2026 (Roots and Resilience) from 11th to 14th March, 2026.</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        </div>
+                        <div class="timeline-image">
+                            <img src="../assets/portfolio/2.webp" alt="Certificate 3" class="zoom-img">
+                        </div>
+                    </div>
+
+                    <!-- Item 4 (Right) -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <div class="tag-row">
+                                <span class="tag">First Runner Up</span>
+                                <span class="date">Feb 2026</span>
+                            </div>
+                            <h2>Codestellation, under Codewar 7.0 at AEC</h2>
+                            <p>This Hackathon was held by Assam Engineering College (AEC) under CodeWar 7.0 part of Pyrokinesis 2026 organised by Coding Club, AEC named as Codestellation on 26 Feb 2026.</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        </div>
+                        <div class="timeline-image">
+                            <img src="../assets/portfolio/3.webp" alt="Certificate 4" class="zoom-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fullscreen Image Modal -->
+            <div id="hackathonModal" class="hackathon-modal">
+                <div class="hackathon-modal-content">
+                    <span class="close-modal">&times;</span>
+                    <img id="hackathonPopupImg" src="" alt="Fullscreen Certificate">
+                </div>
             </div>
         </div>
         
