@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 15vh 20px 10vh 20px;
+    padding: 15vh 24px 10vh 24px;
     position: relative;
     min-height: 100vh;
 }
@@ -35,8 +35,8 @@
 }
 
 /* Colour coding for the label tokens */
-.code-fn   { color: #89d5f5; }
-.code-dot  { color: #fff; }
+.code-fn     { color: #89d5f5; }
+.code-dot    { color: #fff; }
 .code-method { color: #dcdcaa; }
 .code-paren  { color: #ffd700; }
 .code-var    { color: #9cdcfe; }
@@ -88,7 +88,7 @@
 }
 
 /* ============================================================
-   TIMELINE ITEMS
+   TIMELINE ITEMS — Full width, left/right via flex-direction
    ============================================================ */
 .timeline {
     position: relative;
@@ -100,35 +100,32 @@
 .timeline-item {
     padding: 10px 0;
     position: relative;
-    width: 50%;
+    width: 96%;           /* almost full page width */
+    margin: 0 auto 80px auto;
+    left: 0;              /* reset — no longer offset by 50% */
     display: flex;
     align-items: stretch;
-    justify-content: space-between;
-    opacity: 0; /* GSAP animates in */
-    margin-bottom: 80px;
-    gap: 30px;
+    gap: 32px;
+    opacity: 0;           /* GSAP animates in */
 }
 
-.timeline-item.left {
-    left: 0;
-    flex-direction: row;
-    padding-right: 60px; /* space for icon on the line */
-}
+/* Left item: text-card on left, image on right */
+.timeline-item.left  { flex-direction: row; }
 
-.timeline-item.right {
-    left: 50%;
-    flex-direction: row-reverse;
-    padding-left: 60px;
-}
+/* Right item: image on left, text-card on right */
+.timeline-item.right { flex-direction: row-reverse; }
 
-/* ---- Icon on the centre line ---- */
+/* ---- Icon on the snake line ---- */
+/* For left items the icon sits closer to right-center of page  (~58% of item)
+   For right items it sits closer to left-center (~40% of item)
+   This creates the zigzag the snake SVG passes through            */
 .timeline-icon {
     position: absolute;
     width: 44px;
     height: 44px;
     background-color: #F9B646;
     border: 2px solid #000;
-    z-index: 10;           /* ABOVE the SVG line */
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,12 +134,18 @@
     transform: translateY(-50%);
 }
 
+/* Left item icon: placed at ~58% across the full item width */
 .timeline-item.left .timeline-icon {
-    right: -22px;          /* sits exactly on the centre line */
+    left: 58%;
+    transform: translate(-50%, -50%);
+    top: 50%;
 }
 
+/* Right item icon: placed at ~42% across the full item width */
 .timeline-item.right .timeline-icon {
-    left: -22px;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    top: 50%;
 }
 
 .timeline-icon svg {
@@ -152,7 +155,7 @@
 
 /* ---- Content block ---- */
 .timeline-content {
-    flex: 1.5;
+    flex: 1.4;
     background: #fff;
     padding: 40px;
     border: 2px solid #000;
@@ -162,34 +165,55 @@
 }
 
 /* ============================================================
-   IMAGE SLIDER
+   IMAGE SLIDER  — 4:3 ratio + slide-in-from-right animation
    ============================================================ */
 .timeline-image {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
+/* Slider container holds all images via absolute positioning */
 .img-slider {
     position: relative;
     width: 100%;
+    /* 4:3 aspect ratio */
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     border: 2px solid #000;
     box-shadow: 8px 8px 0px rgba(0,0,0,0.15);
     cursor: pointer;
     background: #111;
+    align-self: stretch;   /* stretch to fill .timeline-image height */
 }
 
+/* All images sit stacked on top of each other */
 .img-slider .slider-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
-    display: none;
-    transition: opacity 0.4s ease;
+    /* Default: waiting off-screen to the RIGHT */
+    transform: translateX(100%);
+    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
+/* Active image is in view */
 .img-slider .slider-img.active {
-    display: block;
+    transform: translateX(0);
+}
+
+/* Exiting image slides out to the LEFT */
+.img-slider .slider-img.slide-out {
+    transform: translateX(-100%);
+}
+
+/* When going prev: incoming enters from LEFT */
+.img-slider .slider-img.from-left {
+    transform: translateX(-100%);
 }
 
 /* Arrow buttons inside slider */
@@ -197,13 +221,13 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.55);
     color: #fff;
     border: none;
-    font-size: 26px;
+    font-size: 28px;
     line-height: 1;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -218,13 +242,13 @@
     color: #000;
 }
 
-.slider-prev { left: 4px; }
-.slider-next { right: 4px; }
+.slider-prev { left: 6px; }
+.slider-next { right: 6px; }
 
 /* Dot indicators */
 .slider-dots {
     position: absolute;
-    bottom: 6px;
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -241,19 +265,12 @@
     cursor: pointer;
 }
 
-.dot.active {
-    background: #F9B646;
-}
+.dot.active { background: #F9B646; }
 
-/* Single-image slider: hide arrows/dots */
+/* Single-image: hide arrows/dots */
 .img-slider.single .slider-btn,
 .img-slider.single .slider-dots {
     display: none;
-}
-
-/* Hover scale only on img */
-.img-slider:hover .slider-img {
-    opacity: 0.92;
 }
 
 /* ---- Tag / Date ---- */
@@ -281,7 +298,7 @@
 }
 
 .timeline-content h2 {
-    font-size: 36px;
+    font-size: 34px;
     font-weight: 900;
     margin-bottom: 15px;
     line-height: 1.1;
@@ -395,39 +412,34 @@
     background: rgba(255,255,255,0.4);
 }
 
-.modal-dots .dot.active {
-    background: #F9B646;
-}
+.modal-dots .dot.active { background: #F9B646; }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
     .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 0 !important;
+        width: 98%;
         flex-direction: column !important;
         align-items: stretch;
         margin-bottom: 60px;
-    }
-
-    .timeline-item.right {
-        left: 0;
-        padding-left: 70px;
+        gap: 0;
     }
 
     .timeline-icon,
     .timeline-item.left .timeline-icon,
     .timeline-item.right .timeline-icon {
-        left: 10px;
-        right: auto;
-        top: 40px;
+        left: 20px;
+        top: -22px;
         transform: none;
     }
 
+    .img-slider {
+        aspect-ratio: 4 / 3;
+    }
+
     .timeline-title h1 { font-size: 50px; }
-    .timeline-content h2 { font-size: 28px; }
+    .timeline-content h2 { font-size: 26px; }
 }
 
 @media (max-width: 768px) {
@@ -439,9 +451,5 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-    }
-
-    .img-slider .slider-img {
-        height: 160px;
     }
 }

@@ -34,15 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2.  SNAKE SVG PATH
     //     Build a zigzag path through the icon centres
     // ──────────────────────────────────────────────────────────
-    const wrapper     = document.getElementById("timelineProgressWrapper");
-    const svg         = document.getElementById("snakeSvg");
-    const pathBase    = document.getElementById("snakePathBase");
-    const pathFill    = document.getElementById("snakePathFill");
-    const container   = document.querySelector(".timeline-container");
+    const wrapper   = document.getElementById("timelineProgressWrapper");
+    const pathBase  = document.getElementById("snakePathBase");
+    const pathFill  = document.getElementById("snakePathFill");
 
     function buildSnakePath() {
         const icons = document.querySelectorAll(".timeline-icon");
-        if (!icons.length) return;
+        if (!icons.length) return null;
 
         const wrapRect = wrapper.getBoundingClientRect();
 
@@ -56,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // Build a smooth SVG path through the points (cubic bezier)
+        // Build smooth SVG path through the points (cubic bezier)
         let d = `M ${pts[0].x} ${pts[0].y}`;
         for (let i = 1; i < pts.length; i++) {
             const prev = pts[i - 1];
@@ -68,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         pathBase.setAttribute("d", d);
         pathFill.setAttribute("d", d);
 
-        // Stroke-dasharray = total path length
         const totalLen = pathFill.getTotalLength();
         pathFill.style.strokeDasharray  = totalLen;
         pathFill.style.strokeDashoffset = totalLen; // starts empty
@@ -88,18 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const icons = document.querySelectorAll(".timeline-icon");
         if (!icons.length) return;
 
-        const wrapRect = wrapper.getBoundingClientRect();
-
-        // First icon top → last icon bottom = scroll range
         const firstIcon = icons[0].getBoundingClientRect();
         const lastIcon  = icons[icons.length - 1].getBoundingClientRect();
 
         const scrollStart = firstIcon.top  + window.scrollY - window.innerHeight * 0.5;
         const scrollEnd   = lastIcon.bottom + window.scrollY - window.innerHeight * 0.5;
 
-        const scrolled = window.scrollY;
         const progress = Math.min(1, Math.max(0,
-            (scrolled - scrollStart) / (scrollEnd - scrollStart)
+            (window.scrollY - scrollStart) / (scrollEnd - scrollStart)
         ));
 
         pathFill.style.strokeDashoffset = totalLen * (1 - progress);
@@ -107,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", updateScrollFill, { passive: true });
 
-    // Rebuild on resize
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
@@ -117,65 +109,117 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 200);
     });
 
-    // Initial call after a tick (icons need to be laid out)
     setTimeout(() => {
         snakeData = buildSnakePath();
         updateScrollFill();
     }, 100);
 
     // ──────────────────────────────────────────────────────────
-    // 4.  IMAGE SLIDER (per timeline item)
+    // 4.  IMAGE SLIDER
+    //     - 5 second auto-advance
+    //     - Directional slide: current exits LEFT, next enters RIGHT
+    //       (and vice versa when going backward)
     // ──────────────────────────────────────────────────────────
-    const AUTO_SLIDE_INTERVAL = 2000; // 2 seconds
+    const AUTO_SLIDE_INTERVAL = 5000; // 5 seconds
 
     document.querySelectorAll(".img-slider").forEach(slider => {
-        if (slider.classList.contains("single")) return; // skip single-image
+        if (slider.classList.contains("single")) return;
 
-        const imgs  = slider.querySelectorAll(".slider-img");
-        const dots  = slider.querySelectorAll(".dot");
+        const imgs    = Array.from(slider.querySelectorAll(".slider-img"));
+        const dots    = Array.from(slider.querySelectorAll(".dot"));
         const prevBtn = slider.querySelector(".slider-prev");
         const nextBtn = slider.querySelector(".slider-next");
-        let current = 0;
-        let autoTimer;
 
-        function goTo(idx) {
-            imgs[current].classList.remove("active");
-            dots[current]?.classList.remove("active");
-            current = (idx + imgs.length) % imgs.length;
-            imgs[current].classList.add("active");
-            dots[current]?.classList.add("active");
+        let current     = 0;
+        let autoTimer   = null;
+        let isAnimating = false;
+
+        // On init: make first image "active" (translateX 0), rest wait off-right
+        imgs.forEach((img, i) => {
+            img.style.transition = "none";
+            img.style.transform  = i === 0 ? "translateX(0)" : "translateX(100%)";
+            img.classList.toggle("active", i === 0);
+        });
+
+        /**
+         * goTo(newIdx, direction)
+         *   direction: 'next'  → current exits left,  incoming from right
+         *              'prev'  → current exits right, incoming from left
+         */
+        function goTo(newIdx, direction = "next") {
+            if (isAnimating) return;
+            newIdx = (newIdx + imgs.length) % imgs.length;
+            if (newIdx === current) return;
+
+            isAnimating = true;
+
+            const outImg = imgs[current];
+            const inImg  = imgs[newIdx];
+
+            const outTarget = direction === "next" ? "-100%" : "100%";
+            const inStart   = direction === "next" ?  "100%" : "-100%";
+
+            // Position incoming off-screen instantly (no transition)
+            inImg.style.transition = "none";
+            inImg.style.transform  = `translateX(${inStart})`;
+            inImg.classList.add("active");
+
+            // Force reflow so transition applies
+            inImg.offsetWidth;
+
+            // Animate both simultaneously
+            const ease = "transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)";
+            inImg.style.transition  = ease;
+            inImg.style.transform   = "translateX(0)";
+
+            outImg.style.transition = ease;
+            outImg.style.transform  = `translateX(${outTarget})`;
+
+            current = newIdx;
+
+            // Update dots
+            dots.forEach((d, i) => d.classList.toggle("active", i === current));
+
+            setTimeout(() => {
+                // Clean up: reset outgoing image back to off-right, remove active
+                outImg.classList.remove("active");
+                outImg.style.transition = "none";
+                outImg.style.transform  = "translateX(100%)";
+                isAnimating = false;
+            }, 670);
         }
 
         function startAuto() {
             clearInterval(autoTimer);
-            autoTimer = setInterval(() => goTo(current + 1), AUTO_SLIDE_INTERVAL);
+            autoTimer = setInterval(() => goTo(current + 1, "next"), AUTO_SLIDE_INTERVAL);
         }
 
         function stopAuto() { clearInterval(autoTimer); }
 
         prevBtn?.addEventListener("click", (e) => {
             e.stopPropagation();
-            goTo(current - 1);
+            goTo(current - 1, "prev");
             stopAuto(); startAuto();
         });
 
         nextBtn?.addEventListener("click", (e) => {
             e.stopPropagation();
-            goTo(current + 1);
+            goTo(current + 1, "next");
             stopAuto(); startAuto();
         });
 
         dots.forEach((dot, i) => {
             dot.addEventListener("click", (e) => {
                 e.stopPropagation();
-                goTo(i);
+                const dir = i > current ? "next" : "prev";
+                goTo(i, dir);
                 stopAuto(); startAuto();
             });
         });
 
         startAuto();
 
-        // Open modal on image click (pass all images from data-images attr on parent item)
+        // Open modal on slider click
         slider.addEventListener("click", () => {
             const item   = slider.closest(".timeline-item");
             const images = JSON.parse(item.dataset.images || "[]");
@@ -183,8 +227,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Single-image sliders also open modal
+    // Single-image sliders open modal too
     document.querySelectorAll(".img-slider.single").forEach(slider => {
+        // Make the single image visible (translateX 0)
+        const singleImg = slider.querySelector(".slider-img");
+        if (singleImg) {
+            singleImg.style.transition = "none";
+            singleImg.style.transform  = "translateX(0)";
+            singleImg.classList.add("active");
+        }
+
         slider.addEventListener("click", () => {
             const item   = slider.closest(".timeline-item");
             const images = JSON.parse(item.dataset.images || "[]");
@@ -195,9 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ──────────────────────────────────────────────────────────
     // 5.  FULLSCREEN MODAL WITH SLIDER
     // ──────────────────────────────────────────────────────────
-    const modal    = document.getElementById("timelineModal");
-    const modalImg = document.getElementById("timelinePopupImg");
-    const closeBtn = document.querySelector(".close-modal");
+    const modal     = document.getElementById("timelineModal");
+    const modalImg  = document.getElementById("timelinePopupImg");
+    const closeBtn  = document.querySelector(".close-modal");
     const modalPrev = document.querySelector(".modal-prev");
     const modalNext = document.querySelector(".modal-next");
     const modalDots = document.getElementById("modalDots");
@@ -215,7 +267,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderModal() {
         modalImg.src = modalImages[modalCurrent];
 
-        // Dots
         modalDots.innerHTML = "";
         if (modalImages.length > 1) {
             modalImages.forEach((_, i) => {
@@ -226,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Arrows
         modalPrev.classList.toggle("hidden", modalImages.length <= 1);
         modalNext.classList.toggle("hidden", modalImages.length <= 1);
     }
@@ -243,7 +293,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderModal();
     });
 
-    // Keyboard navigation
     document.addEventListener("keydown", (e) => {
         if (!modal.classList.contains("active")) return;
         if (e.key === "ArrowLeft")  { modalCurrent = (modalCurrent - 1 + modalImages.length) % modalImages.length; renderModal(); }
