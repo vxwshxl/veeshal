@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 24px 60px 24px;  /* was 15vh — now flat px */
+    padding: 0;
     position: relative;
     min-height: 100vh;
 }
@@ -434,7 +434,7 @@
 }
 
 @media (max-width: 768px) {
-    .timeline-container { padding-top: 30px; }
+    .timeline-container { padding: 0; }
     .timeline-title h1 { font-size: 40px; }
     .timeline-content { padding: 25px; }
 

@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     trigger: item,
                     start: "top 85%",
                     toggleActions: "play none none none"
+                },
+                // Rebuild path after item lands so the line stays accurate
+                onComplete: () => {
+                    snakeData = buildSnakePath();
+                    updateScrollFill();
                 }
             }
         );
@@ -37,24 +42,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const wrapper   = document.getElementById("timelineProgressWrapper");
     const pathBase  = document.getElementById("snakePathBase");
     const pathFill  = document.getElementById("snakePathFill");
+    const container = document.querySelector(".timeline-container");
+
+    /**
+     * getIconCenter — uses offsetLeft/offsetTop (unaffected by CSS transforms)
+     * so GSAP's initial x/y offsets don't corrupt the path coordinates.
+     * Walks the offsetParent chain up to .timeline-container.
+     */
+    function getIconCenter(icon) {
+        let x = icon.offsetLeft + icon.offsetWidth  / 2;
+        let y = icon.offsetTop  + icon.offsetHeight / 2;
+        let el = icon.offsetParent;
+        while (el && el !== container) {
+            x += el.offsetLeft;
+            y += el.offsetTop;
+            el = el.offsetParent;
+        }
+        // wrapper is position:absolute top:0 left:0 inside container
+        // so SVG (0,0) == container top-left == offsetLeft/Top reference origin
+        return { x, y };
+    }
 
     function buildSnakePath() {
         const icons = document.querySelectorAll(".timeline-icon");
         if (!icons.length) return null;
 
-        const wrapRect = wrapper.getBoundingClientRect();
-
-        // Collect icon centre points relative to the wrapper
         const pts = [];
-        icons.forEach(icon => {
-            const r = icon.getBoundingClientRect();
-            pts.push({
-                x: r.left + r.width  / 2 - wrapRect.left,
-                y: r.top  + r.height / 2 - wrapRect.top
-            });
-        });
+        icons.forEach(icon => pts.push(getIconCenter(icon)));
 
-        // Build smooth SVG path through the points (cubic bezier)
+        // Build smooth SVG path (cubic bezier through each icon centre)
         let d = `M ${pts[0].x} ${pts[0].y}`;
         for (let i = 1; i < pts.length; i++) {
             const prev = pts[i - 1];
@@ -68,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const totalLen = pathFill.getTotalLength();
         pathFill.style.strokeDasharray  = totalLen;
-        pathFill.style.strokeDashoffset = totalLen; // starts empty
+        pathFill.style.strokeDashoffset = totalLen;
 
         return { pts, totalLen };
     }
@@ -76,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ──────────────────────────────────────────────────────────
     // 3.  SCROLL-DRIVEN FILL (yellow line grows as you scroll)
     // ──────────────────────────────────────────────────────────
-    let snakeData = buildSnakePath();
+    let snakeData = null;
 
     function updateScrollFill() {
         if (!snakeData) return;
@@ -85,11 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const icons = document.querySelectorAll(".timeline-icon");
         if (!icons.length) return;
 
-        const firstIcon = icons[0].getBoundingClientRect();
-        const lastIcon  = icons[icons.length - 1].getBoundingClientRect();
+        // Use offsetTop-based positions for scroll range too
+        const firstCenter = getIconCenter(icons[0]);
+        const lastCenter  = getIconCenter(icons[icons.length - 1]);
 
-        const scrollStart = firstIcon.top  + window.scrollY - window.innerHeight * 0.5;
-        const scrollEnd   = lastIcon.bottom + window.scrollY - window.innerHeight * 0.5;
+        // Convert layout y (relative to container) to absolute page y
+        const containerTop = container.getBoundingClientRect().top + window.scrollY;
+        const scrollStart  = containerTop + firstCenter.y - window.innerHeight * 0.6;
+        const scrollEnd    = containerTop + lastCenter.y  - window.innerHeight * 0.4;
 
         const progress = Math.min(1, Math.max(0,
             (window.scrollY - scrollStart) / (scrollEnd - scrollStart)
@@ -109,10 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 200);
     });
 
-    setTimeout(() => {
-        snakeData = buildSnakePath();
-        updateScrollFill();
-    }, 100);
+    // Build after layout settles (images loaded can shift heights)
+    setTimeout(() => { snakeData = buildSnakePath(); updateScrollFill(); }, 50);
+    setTimeout(() => { snakeData = buildSnakePath(); updateScrollFill(); }, 500);
+    window.addEventListener("load",   () => { snakeData = buildSnakePath(); updateScrollFill(); });
 
     // ──────────────────────────────────────────────────────────
     // 4.  IMAGE SLIDER
