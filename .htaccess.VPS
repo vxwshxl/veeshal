@@ -1,0 +1,56 @@
+server {
+    server_name veeshal.me www.veeshal.me;
+
+    root /var/www/veeshal;
+    index index.php index.html;
+
+    # --- 1. Custom Error Pages ---
+    error_page 400 /errors/400.php;
+    error_page 403 /errors/403.php;
+    error_page 404 /errors/404.php;
+    error_page 500 /errors/500.php;
+    error_page 503 /errors/503.php;
+
+    # --- 2. Handle standard routes & extensionless PHP ---
+    location / {
+        # Try the exact URL, then directory, then jump to the @extensionless block
+        try_files $uri $uri/ @extensionless-php;
+    }
+
+    # --- 3. Internal Rewrite for extensionless URLs ---
+    location @extensionless-php {
+        rewrite ^(.*)$ $1.php last;
+    }
+
+    # --- 4. PHP Execution & Removing .php from URLs ---
+    location ~ \.php$ {
+        # If someone visits a URL with .php directly, 301 redirect them to remove it
+        if ($request_uri ~ ^/([^?]*)\.php(\?.*)?$) {
+            return 301 /$1$2;
+        }
+        
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php-fpm.sock;
+    }
+
+    # --- Certbot SSL Settings ---
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/veeshal.me/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/veeshal.me/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+    if ($host = www.veeshal.me) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    if ($host = veeshal.me) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    server_name veeshal.me www.veeshal.me;
+    return 404; # managed by Certbot
+}
