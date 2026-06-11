@@ -287,6 +287,18 @@ if ($envPath) {
                     <p>Web Development</p>
                 </div>
             </div>
+            <div class="menu-item" data-url="https://flopshop.vercel.app"
+                data-hover-src="./assets/projects/12.webp">
+                <div class="info">
+                    <p>E-COMMERCE Tool</p>
+                </div>
+                <div class="name">
+                    <p>FlopShop</p>
+                </div>
+                <div class="tag">
+                    <p>Web Development/PWA</p>
+                </div>
+            </div>
             <div class="menu-item" data-url="https://crewspace-ai.vercel.app"
                 data-hover-src="./assets/projects/11.webp">
                 <div class="info">
