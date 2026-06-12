@@ -144,6 +144,13 @@ body.is-ready .footer {
     transform: scale(1.07) !important;
 }
 
+.blog-info,
+.chaicode-info {
+    padding: 0 20px 24px !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+}
+
 .blog-title,
 .chaicode-title {
     font-weight: 600 !important;
