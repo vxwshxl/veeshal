@@ -124,8 +124,21 @@ window.scrollTo(0, 0);
     // ---- outbound transition: ink panel wipes down, then navigate ------
     const out = document.createElement('div');
     out.className = 'page-out';
+    // Critical inline styles — guarantees correct rendering even with stale CSS cache
+    Object.assign(out.style, {
+        position: 'fixed',
+        inset: '0',
+        zIndex: '9991',
+        background: '#111110',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        clipPath: 'inset(0% 0% 100% 0%)',
+        opacity: '0',
+        pointerEvents: 'none',
+    });
     out.innerHTML =
-        '<svg viewBox="0 0 100 100">' +
+        '<svg viewBox="0 0 100 100" style="width:84px;height:84px">' +
         '<circle cx="50" cy="50" r="42" fill="none" stroke="#2a2a2e" stroke-width="8"/>' +
         '<circle cx="50" cy="50" r="42" fill="none" stroke="#F9B646" stroke-width="8" stroke-dasharray="58 206" stroke-linecap="round"/>' +
         '<circle cx="50" cy="50" r="9" fill="#F9B646"/>' +

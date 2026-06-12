@@ -241,7 +241,7 @@ if (!$skills) {
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 16L7 11H10V4H14V11H17L12 16ZM6 18V20H18V18H6Z" fill="currentColor" />
                             </svg>
-                            download resume
+                            resume
                         </a>
                         <a href="projects" class="btn-pill cta-secondary">see the work <span class="arr">→</span></a>
                     </div>
