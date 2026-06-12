@@ -1,13 +1,17 @@
-# Credentials
+# dependencies / build
+/node_modules
+/.next
+/out
+next-env.d.ts
+
+# env / secrets
 .env
-vps.md
+.env*.local
 
-# Large files
-assets/HITR.mp4
-assets/open-mic.mp4
-
-# OS Files
+# OS
 .DS_Store
 
-# Supabase response cache
-lib/cache/
+# large local videos (the site streams these from R2, not from /public)
+/public/assets/GDG.mp4
+/public/assets/HITR.mp4
+/public/assets/open-mic.mp4

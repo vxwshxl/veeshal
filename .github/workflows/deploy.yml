@@ -1,4 +1,4 @@
-name: Deploy PHP site to VPS
+name: Deploy Next.js site to VPS
 
 on:
   push:
@@ -19,5 +19,6 @@ jobs:
           script: |
             cd ${{ secrets.VPS_PATH }}
             git pull origin main
-            sudo chown -R www-data:www-data .
-            sudo chmod -R 755 .
+            npm ci
+            npm run build
+            sudo systemctl restart veeshal-next
