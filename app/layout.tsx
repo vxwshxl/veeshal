@@ -42,6 +42,15 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap"
           rel="stylesheet"
         />
+        {/* Critical anti-FOUC: the dark loader covers the screen from the very
+            first paint, so a navigation never flashes white before the main
+            stylesheet finishes loading. */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              '.loader{position:fixed;inset:0;z-index:9990;background:#111110;display:flex;align-items:center;justify-content:center}html{background:#111110}',
+          }}
+        />
         <noscript>
           {/* eslint-disable-next-line react/no-danger */}
           <style

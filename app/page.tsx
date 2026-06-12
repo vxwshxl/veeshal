@@ -337,10 +337,10 @@ export default async function Home() {
               <div className="media-content">
                 <span id="closeMedia" className="close-btn">&times;</span>
                 <video id="popupVideo" controls>
-                  <source src="" type="video/mp4" />
+                  <source type="video/mp4" />
                   Your browser does not support HTML5 video.
                 </video>
-                <img id="popupImage" src="" alt="Popup Image" />
+                <img id="popupImage" alt="Popup Image" />
               </div>
             </div>
           </div>

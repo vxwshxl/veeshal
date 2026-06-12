@@ -4,7 +4,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener("DOMContentLoaded", () => {
+(function(__run){ if (document.readyState !== 'loading') __run(); else document.addEventListener("DOMContentLoaded", __run); })(() => {
 
     // ──────────────────────────────────────────────────────────
     // 1.  GSAP ITEM ANIMATIONS

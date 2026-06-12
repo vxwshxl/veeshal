@@ -151,7 +151,7 @@ window.scrollTo(0, 0);
         if (leaving) return;
         leaving = true;
         out.style.pointerEvents = 'auto';
-        gsap.to(out.querySelector('svg'), { rotation: 720, duration: 0.7, ease: 'power2.in' });
+        gsap.to(out.querySelector('svg'), { rotation: '+=360', duration: 0.8, repeat: -1, ease: 'none' });
         gsap.fromTo(out,
             { clipPath: 'inset(0% 0% 100% 0%)', autoAlpha: 1 },
             {

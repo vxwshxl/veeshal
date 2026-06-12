@@ -985,6 +985,27 @@ body.is-ready .scroll-wheel {
     }
 }
 
+/* mobile/tablet: while the film plays, glide the control to the top-right
+   so it stops covering the frame (mirrors the desktop behaviour) */
+@media (max-width: 1024px) {
+    .reel-frame.is-playing .play-pause-btn {
+        top: 16px;
+        left: calc(100% - 16px);
+        width: 46px;
+        height: 46px;
+        transform: translate(-100%, 0);
+    }
+
+    .reel-frame.is-playing .play-pause-btn:hover {
+        transform: translate(-100%, 0) scale(1.1);
+    }
+
+    .reel-frame.is-playing .play-pause-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
 /* ------------------------------------------------------------
    PORTFOLIO GRID
    ------------------------------------------------------------ */

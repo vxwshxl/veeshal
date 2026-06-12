@@ -4,9 +4,13 @@ import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
 
 /**
- * The shared subpage skeleton used by timeline / blogs / chaicode / errors:
- * #home.home > .homeContainer { loader + chrome + site_header + content }, then
- * site_footer inside #home (mirrors blogs/includes/header.php + footer.php).
+ * The shared subpage skeleton used by timeline / blogs / chaicode / errors.
+ *
+ * Loader + Chrome are kept OUTSIDE #home on purpose: the subpage CSS hides
+ * `.home` with `opacity: 0` until `.is-ready`, and opacity inherits to fixed
+ * children — so a loader nested inside .home would itself be invisible during
+ * load (blank screen, then a snap). Outside .home it stays visible and the
+ * reveal is as smooth as the projects page.
  */
 export default function SubShell({
   active = '',
@@ -17,10 +21,10 @@ export default function SubShell({
 }) {
   return (
     <>
+      <Loader />
+      <Chrome />
       <div id="home" className="home">
         <div className="homeContainer">
-          <Loader />
-          <Chrome />
           <SiteHeader active={active} base="/" />
           {children}
         </div>

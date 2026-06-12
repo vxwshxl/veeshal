@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', () => {
+(function(__run){ if (document.readyState !== 'loading') __run(); else document.addEventListener('DOMContentLoaded', __run); })(() => {
     // 1. Smooth Scroll
     const tocLinks = document.querySelectorAll('.toc-link');
 

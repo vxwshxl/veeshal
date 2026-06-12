@@ -93,7 +93,7 @@ export default async function Timeline() {
           <div className="timeline-modal-content">
             <span className="close-modal">&times;</span>
             <button className="modal-arrow modal-prev" aria-label="Previous">&#8249;</button>
-            <img id="timelinePopupImg" src="" alt="Fullscreen Certificate" />
+            <img id="timelinePopupImg" alt="Fullscreen Certificate" />
             <button className="modal-arrow modal-next" aria-label="Next">&#8250;</button>
             <div className="modal-dots" id="modalDots"></div>
           </div>

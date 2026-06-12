@@ -49,10 +49,25 @@ function extractMeta(html) {
   };
 }
 
+// The PHP include puts the loader + chrome INSIDE #home.home, but the subpage
+// CSS hides `.home` with opacity:0 until `.is-ready` and opacity inherits to
+// fixed children — so a nested loader is itself invisible during load (blank
+// screen, then a snap). Hoist the loader + chrome out to before #home so the
+// reveal stays smooth (matches the projects page + SubShell).
+function hoistLoader(body) {
+  const headerIdx = body.indexOf('<header class="site-header"');
+  const marker = '<div class="homeContainer">';
+  const cOpen = body.indexOf(marker);
+  if (headerIdx < 0 || cOpen < 0 || cOpen > headerIdx) return body;
+  const cEnd = cOpen + marker.length;
+  const loaderChrome = body.slice(cEnd, headerIdx).trim();
+  return loaderChrome + '\n' + body.slice(0, cEnd) + body.slice(headerIdx);
+}
+
 function extractBody(html) {
   let body = pick(/<body[^>]*>([\s\S]*?)<\/body>/i, html);
   body = body.replace(/<script[\s\S]*?<\/script>/gi, ''); // Next re-adds scripts
-  return fixPaths(body).trim();
+  return fixPaths(hoistLoader(body)).trim();
 }
 
 // ---- static blog posts ----

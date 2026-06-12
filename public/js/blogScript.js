@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+(function(__run){ if (document.readyState !== 'loading') __run(); else document.addEventListener('DOMContentLoaded', __run); })(() => {
     // State
     const state = {
         posts: typeof allPosts !== 'undefined' ? allPosts : [],
