@@ -7,8 +7,13 @@ sudo systemctl restart veeshal-next
 # Deploying the Next.js site to the VPS (nginx)
 
 The repo is now a pure Next.js app at its root (the PHP files were removed).
-We run Next on an internal port (`127.0.0.1:3000`) and point nginx at it via a
+We run Next on an internal port (`127.0.0.1:3002`) and point nginx at it via a
 reverse proxy.
+
+> **Port note:** this box already runs other Next apps — `3000`
+> (anglo-bodo-dictionary / bodookhrang), `3001` (ku-app), `8000` (supabase).
+> veeshal uses **3002** to avoid an `EADDRINUSE` collision. If you change it,
+> change it in both the systemd unit (`PORT=`) and the nginx `proxy_pass`.
 
 > **Before you pull on the VPS:** the old PHP is gone from the repo, so the next
 > `git pull` will remove the PHP files from the server. Do steps 1–5 in one
@@ -68,11 +73,11 @@ After=network.target
 Type=simple
 User=www-data
 WorkingDirectory=/var/www/veeshal
-# next start serves the production build on 127.0.0.1:3000
+# next start serves the production build on 127.0.0.1:3002
 ExecStart=/usr/bin/npm run start
 Restart=always
 Environment=NODE_ENV=production
-Environment=PORT=3000
+Environment=PORT=3002
 
 [Install]
 WantedBy=multi-user.target
@@ -84,7 +89,7 @@ Enable + start it:
 sudo systemctl daemon-reload
 sudo systemctl enable --now veeshal-next
 sudo systemctl status veeshal-next      # active (running)
-wget -qO- http://127.0.0.1:3000 | head  # Next is responding
+wget -qO- http://127.0.0.1:3002 | head  # Next is responding
 ```
 
 ## 5. Point nginx at Next
@@ -98,13 +103,13 @@ server {
 
     # Static files Next serves with content hashes (immutable, cached hard)
     location /_next/static/ {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://127.0.0.1:3002;
         add_header Cache-Control "public, max-age=31536000, immutable";
     }
 
     # Everything else → Next.js
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://127.0.0.1:3002;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
