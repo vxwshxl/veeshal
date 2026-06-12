@@ -4,7 +4,7 @@ $base = isset($base) ? $base : '';
 ?>
 <footer class="site-footer">
     <div class="footer-top">
-        <a class="brand" href="<?php echo $base; ?>"><img src="<?php echo $base; ?>assets/logo.svg" alt="vee logo"></a>
+        <a class="brand" href="<?php echo $base; ?>"><img src="<?php echo $base; ?>assets/vee-logo-white.svg" alt="vee logo" onerror="this.src='<?php echo $base; ?>assets/logo.svg'"></a>
         <nav>
             <ul>
                 <li><a href="<?php echo $base; ?>">Home</a></li>

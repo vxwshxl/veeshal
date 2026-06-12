@@ -540,7 +540,7 @@ body.is-ready .scroll-wheel {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 .social-icon {
@@ -568,7 +568,7 @@ body.is-ready .scroll-wheel {
     align-items: center;
     flex-wrap: wrap;
     gap: 14px;
-    margin-bottom: clamp(26px, 4vh, 44px);
+    margin-bottom: clamp(36px, 6vh, 64px);
 }
 
 .cta-row .btn-pill.cta-secondary {
@@ -1754,11 +1754,13 @@ body.is-ready .scroll-wheel {
     }
 
     .stats {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         gap: 24px;
     }
 
-    .social-row { justify-content: flex-start; }
+    .social-row { justify-content: center; }
 
     .cta-row {
         flex-direction: column;
