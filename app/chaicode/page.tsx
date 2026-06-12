@@ -33,10 +33,15 @@ export default async function Chaicode({
   const sbItems = await sbFetch<any>('chaicode_items', 'select=*&visible=eq.true&order=sort');
 
   let allPosts = fallbackPosts as any[];
+  allPosts = allPosts.map(p => ({
+    ...p,
+    link: p.link.startsWith('/') || p.link.startsWith('http') ? p.link : '/chaicode/' + p.link
+  }));
+
   if (sbItems) {
     allPosts = sbItems.map((r) => ({
       title: r.title, date: r.date_label, category: r.category,
-      image: sbAsset(r.image), link: r.link,
+      image: sbAsset(r.image), link: r.link.startsWith('/') || r.link.startsWith('http') ? r.link : '/chaicode/' + r.link,
     }));
   }
 

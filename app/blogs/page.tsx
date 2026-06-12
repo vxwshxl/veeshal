@@ -34,13 +34,18 @@ export default async function Blogs({
   const sbPosts = await sbFetch<any>('blogs', 'select=*&published=eq.true&order=sort');
 
   let allPosts = fallbackPosts as any[];
+  allPosts = allPosts.map(p => ({
+    ...p,
+    link: p.link.startsWith('/') ? p.link : '/blogs/' + p.link
+  }));
+
   if (sbPosts) {
     allPosts = sbPosts.map((r) => ({
       title: r.title,
       date: r.date_label,
       category: r.category,
       image: sbAsset(r.image),
-      link: r.is_static ? r.slug : 'post?slug=' + encodeURIComponent(r.slug),
+      link: r.is_static ? '/blogs/' + r.slug : '/blogs/post?slug=' + encodeURIComponent(r.slug),
     }));
   }
 
