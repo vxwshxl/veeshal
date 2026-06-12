@@ -344,7 +344,6 @@ if (!$skills) {
                     <div class="card<?php echo $gi === $gCount - 1 ? ' last-card' : ''; ?>"><img src="<?php echo htmlspecialchars(sb_asset($g['image_url'])); ?>" alt="<?php echo htmlspecialchars(isset($g['alt']) && $g['alt'] !== null ? $g['alt'] : 'Portfolio'); ?>"></div>
                     <?php endforeach; ?>
                 </div>
-                </div>
                 <h2 class="portfolio-title">portfolio</h2>
             </div>
         </section>

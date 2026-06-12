@@ -281,7 +281,7 @@ if (!prefersReducedMotion) {
             scrollTrigger: {
                 trigger: '.footer-giant',
                 start: 'top 95%',
-                end: 'top 45%',
+                end: 'bottom bottom',
                 scrub: 1,
             },
         });

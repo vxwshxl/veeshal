@@ -397,6 +397,7 @@ body.is-ready .scroll-wheel {
 .site-footer nav ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
     gap: 4px;
 }
@@ -1564,9 +1565,9 @@ body.is-ready .scroll-wheel {
 
 .site-footer .footer-top {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 18px;
     padding-bottom: 24px;
     border-bottom: 1px solid var(--line-dark);
