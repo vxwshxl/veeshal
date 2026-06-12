@@ -1,3 +1,9 @@
+cd /var/www/veeshal
+git pull origin main
+npm ci
+npm run build
+sudo systemctl restart veeshal-next
+
 # Deploying the Next.js site to the VPS (nginx)
 
 The repo is now a pure Next.js app at its root (the PHP files were removed).
