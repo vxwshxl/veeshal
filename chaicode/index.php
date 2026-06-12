@@ -27,6 +27,10 @@ if ($envPath) {
         }
     }
 }
+
+// ---------- Supabase content (static fallbacks below) ----------
+require_once __DIR__ . '/../lib/supabase.php';
+$sb_items = sb_fetch('chaicode_items', 'select=*&visible=eq.true&order=sort');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +78,13 @@ if ($envPath) {
         <div class="homeContainer">
             <?php include 'includes/header.php'; ?>
 
+            <!-- v2 sub-hero -->
+            <section class="sub-hero">
+                <p class="section-kicker"><span class="idx">//</span> brewed builds</p>
+                <h1>chai<span class="amber">code.</span></h1>
+                <p class="sub-note">Coding challenges, assignments and experiments — one cup of chai at a time.</p>
+            </section>
+
             <!-- ChaiCode Layout -->
             <div class="chaicode-container">
                 <!-- Sidebar -->
@@ -82,14 +93,9 @@ if ($envPath) {
                     <ul class="chaicode-categories">
                         <li><a href="index" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
                         <?php
-                        $categories = [
-                            'Web Development',
-                            'Software Development',
-                            'Full Stack Development',
-                            'Product management',
-                            'Productivity',
-                            'Design inspiration'
-                        ];
+                        $categories = $sb_items
+                            ? array_values(array_unique(array_filter(array_column($sb_items, 'category'))))
+                            : ['Web Development', 'Software Development', 'Full Stack Development', 'Product management', 'Productivity', 'Design inspiration'];
                         foreach ($categories as $cat) {
                             $isActive = isset($_GET['category']) && $_GET['category'] === $cat ? 'active' : '';
                             echo "<li><a href=\"?category=" . urlencode($cat) . "\" class=\"$isActive\">$cat</a></li>";
@@ -126,6 +132,20 @@ if ($envPath) {
                             'link' => 'resume.html'
                         ],
                     ];
+
+                    // Supabase override (static list above is the fallback)
+                    if ($sb_items) {
+                        $all_posts = array_map(function ($r) {
+                            return [
+                                'title' => $r['title'],
+                                'date' => $r['date_label'],
+                                'category' => $r['category'],
+                                'image' => sb_asset($r['image'], '../'),
+                                'link' => $r['link'],
+                            ];
+                        }, $sb_items);
+                    }
+
                     ?>
                     
                     <!-- Inject Data for JS -->

@@ -1,49 +1,22 @@
 /* ============================================================
    VEESHAL.ME — /projects engine
-   curtain transition · case reveals · filters · media modal
+   case reveals · filters · media modal
+   (loader + transitions live in js/loader.js)
    ============================================================ */
-
-window.history.scrollRestoration = 'manual';
-window.scrollTo(0, 0);
 
 gsap.registerPlugin(ScrollTrigger);
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-/* ------------------------------------------------------------
-   curtain in — quick wheel spin-up, then wipe
-   ------------------------------------------------------------ */
-const curtain = document.querySelector('.pt-curtain');
-
-function pageIn() {
-    document.body.classList.remove('is-loading');
-    document.body.classList.add('is-ready');
-
+/* page entrance plays when the shared loader lifts the curtain */
+document.addEventListener('page:reveal', () => {
+    if (prefersReducedMotion) return;
     const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
     tl.from('.site-header', { yPercent: -120, duration: 0.6 })
         .from('.garage-title .word', { yPercent: 120, duration: 0.8, stagger: 0.07 }, 0.05)
         .from('.garage-sub, .filter-bar', { y: 24, autoAlpha: 0, duration: 0.5, stagger: 0.08 }, 0.3);
-}
-
-if (curtain && !prefersReducedMotion) {
-    document.body.classList.add('is-loading');
-    gsap.to(curtain, {
-        clipPath: 'inset(0% 0% 100% 0%)',
-        duration: 0.7,
-        delay: 0.55,
-        ease: 'power4.inOut',
-        onStart: pageIn,
-        onComplete: () => {
-            curtain.style.display = 'none';
-            ScrollTrigger.refresh();
-        },
-    });
-} else {
-    if (curtain) curtain.style.display = 'none';
-    document.body.classList.remove('is-loading');
-    document.body.classList.add('is-ready');
-}
+});
 
 /* ------------------------------------------------------------
    custom cursor (same as home)

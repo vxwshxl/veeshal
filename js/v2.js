@@ -1,28 +1,13 @@
 /* ============================================================
-   VEESHAL.ME — v2 engine
-   loader sequence · scroll effects · cursor · marquees
+   VEESHAL.ME — v2 home engine
+   scroll effects · cursor · marquees
+   (loader + transitions live in js/loader.js)
    ============================================================ */
-
-window.history.scrollRestoration = 'manual';
-window.scrollTo(0, 0);
 
 gsap.registerPlugin(ScrollTrigger);
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isFinePointer = window.matchMedia('(pointer: fine)').matches;
-
-/* ------------------------------------------------------------
-   LOADER — wheel burst + speedometer
-   ------------------------------------------------------------ */
-const loader = document.querySelector('.loader');
-const counterEl = document.getElementById('loaderCounter');
-
-function finishLoad() {
-    document.body.classList.remove('is-loading');
-    document.body.classList.add('is-ready');
-    if (loader) loader.style.display = 'none';
-    ScrollTrigger.refresh();
-}
 
 function heroIntro() {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -35,7 +20,7 @@ function heroIntro() {
             ease: 'power4.out',
         }, 0.1)
         .from('.hero-eyebrow, .hero-copy', { y: 24, autoAlpha: 0, duration: 0.6, stagger: 0.1 }, 0.35)
-        .from('.social-row > *', { y: 18, autoAlpha: 0, duration: 0.4, stagger: 0.045 }, 0.5)
+        .from('.social-row > *, .cta-row > *', { y: 18, autoAlpha: 0, duration: 0.4, stagger: 0.045 }, 0.5)
         .from('.stats .stat-item', { y: 24, autoAlpha: 0, duration: 0.5, stagger: 0.1 }, 0.65)
         .from('.portrait-card', {
             clipPath: 'inset(100% 0% 0% 0%)',
@@ -55,107 +40,10 @@ function heroIntro() {
     return tl;
 }
 
-function runLoader() {
-    if (!loader || prefersReducedMotion) {
-        if (counterEl) counterEl.textContent = '100';
-        finishLoad();
-        if (!prefersReducedMotion) heroIntro();
-        return;
-    }
-
-    document.body.classList.add('is-loading');
-
-    // speed streaks flying past the wheel
-    const streakBox = document.getElementById('loaderStreaks');
-    const streaks = [];
-    for (let i = 0; i < 16; i++) {
-        const s = document.createElement('div');
-        s.className = 'streak' + (i % 3 === 0 ? ' white' : '');
-        s.style.top = (8 + Math.random() * 84) + '%';
-        streakBox.appendChild(s);
-        streaks.push(s);
-    }
-
-    streaks.forEach((s, i) => {
-        gsap.fromTo(s,
-            { x: '110vw', opacity: 0 },
-            {
-                x: '-40vw',
-                opacity: () => 0.25 + Math.random() * 0.75,
-                duration: 0.45 + Math.random() * 0.5,
-                repeat: -1,
-                delay: Math.random() * 0.8,
-                ease: 'none',
-            }
-        );
-    });
-
-    // wheel spins flat-out the whole time (rotor only — caliper stays put)
-    const spin = gsap.to('#lwRotor', {
-        rotation: '+=360',
-        svgOrigin: '200 200',
-        duration: 0.35,
-        repeat: -1,
-        ease: 'none',
-    });
-
-    // speedometer 0 → 100
-    const speed = { v: 0 };
-    gsap.to(speed, {
-        v: 100,
-        duration: 1.7,
-        ease: 'power2.inOut',
-        onUpdate: () => {
-            counterEl.textContent = String(Math.round(speed.v)).padStart(3, '0');
-        },
-    });
-
-    gsap.to('.loader-line i', { scaleX: 1, duration: 1.7, ease: 'power2.inOut' });
-
-    // master sequence
-    const tl = gsap.timeline();
-
-    tl.fromTo('.loader-wheel-wrap',
-        { x: '-130vw' },
-        { x: 0, duration: 1.05, ease: 'power3.out' }
-    )
-        // arrival shake — the wheel "lands"
-        .to('.loader-wheel-wrap', { y: -14, duration: 0.12, ease: 'power1.out' }, 1.0)
-        .to('.loader-wheel-wrap', { y: 0, duration: 0.3, ease: 'bounce.out' }, 1.12)
-        // hold at full speed while the counter maxes out
-        .add(() => {
-            spin.timeScale(2.2); // final burst
-            gsap.to(streaks, { opacity: 0, duration: 0.3, stagger: 0.012 });
-        }, 1.7)
-        // launch off-screen right like a drag start
-        .to('.loader-wheel-wrap', {
-            x: '130vw',
-            duration: 0.55,
-            ease: 'power4.in',
-        }, 1.85)
-        .to('.loader-meta, .loader-speedo, .loader-line, .loader-road', {
-            autoAlpha: 0,
-            duration: 0.3,
-        }, 2.05)
-        // curtain wipes up, revealing the page already in place
-        .add(() => {
-            document.body.classList.remove('is-loading');
-            document.body.classList.add('is-ready');
-            heroIntro();
-        }, 2.15)
-        .to(loader, {
-            clipPath: 'inset(0% 0% 100% 0%)',
-            duration: 0.75,
-            ease: 'power4.inOut',
-        }, 2.15)
-        .add(() => {
-            spin.kill();
-            loader.style.display = 'none';
-            ScrollTrigger.refresh();
-        });
-}
-
-runLoader();
+/* hero entrance plays when the shared loader lifts the curtain */
+document.addEventListener('page:reveal', () => {
+    if (!prefersReducedMotion) heroIntro();
+});
 
 /* ------------------------------------------------------------
    CUSTOM CURSOR
@@ -308,12 +196,6 @@ if (!prefersReducedMotion) {
             ease: 'power3.out',
             scrollTrigger: { trigger: card, start: 'top 92%' },
         });
-
-        gsap.to(card, {
-            y: i % 2 ? -28 : 18,
-            ease: 'none',
-            scrollTrigger: { trigger: '.portfolio-grid', start: 'top bottom', end: 'bottom top', scrub: true },
-        });
     });
 
     const pTitle = document.querySelector('.portfolio-title');
@@ -404,6 +286,18 @@ if (!prefersReducedMotion) {
             },
         });
     });
+}
+
+/* ------------------------------------------------------------
+   SHOWREEL: glide the control to the top-right while playing
+   ------------------------------------------------------------ */
+const introVideoEl = document.getElementById('introVideo');
+const reelFrameEl = document.querySelector('.reel-frame');
+
+if (introVideoEl && reelFrameEl) {
+    introVideoEl.addEventListener('play', () => reelFrameEl.classList.add('is-playing'));
+    introVideoEl.addEventListener('pause', () => reelFrameEl.classList.remove('is-playing'));
+    introVideoEl.addEventListener('ended', () => reelFrameEl.classList.remove('is-playing'));
 }
 
 /* ------------------------------------------------------------

@@ -27,6 +27,18 @@ if ($envPath) {
         }
     }
 }
+
+// ---------- Supabase content (static fallback below) ----------
+require_once __DIR__ . '/../lib/supabase.php';
+$timeline_items = sb_fetch('timeline_events', 'select=*&visible=eq.true&order=sort');
+if (!$timeline_items) {
+    $timeline_items = [
+        ['title' => 'AI & Innovation at NEGC 2026, USTM', 'description' => 'AI & Innovation... Awarded competition conducted during North East Graduate Congress-2026 held at University of Science & Technology Meghalaya from 26th–28th March, 2026.', 'tag' => 'Winner', 'date_label' => '26-28 Mar 2026', 'images' => ['https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%202026%20-%201st.webp', 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%20-%201.webp', 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%20-%202.webp']],
+        ['title' => 'Prajukti 2026 GCU Hackathon', 'description' => 'Prajukti 2026 GCU Hackathon held during GCU Varsity Week: EUPHUISM 2026 (Roots and Resilience) from 11th to 14th March, 2026.', 'tag' => 'Winner', 'date_label' => '11-14 Mar 2026', 'images' => ['https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%202026%20-%201st.webp', 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%20-%201.webp', 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%20-%202.webp']],
+        ['title' => 'Codestellation, under CodeWar 7.0 at AEC', 'description' => 'This Hackathon was held by Assam Engineering College (AEC) under CodeWar 7.0 part of Pyrokinesis 2026 organised by Coding Club, AEC named as Codestellation on 26 Feb 2026.', 'tag' => 'First Runner Up', 'date_label' => '26 Feb 2026', 'images' => ['https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%202026%20-%202nd.webp', 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%20-%201.webp', 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%20-%202.webp']],
+        ['title' => 'Ideathon — Where Ideas Compile', 'description' => 'First place at the Ideathon competition — a stage where raw ideas meet real execution. Pitched a solution that stood out from the crowd and brought home the win. The beginning of the grind.', 'tag' => 'Winner', 'date_label' => '27 NOV 2024', 'images' => ['https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Idea%20Comp%202024%20-%201st.webp']],
+    ];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,112 +108,39 @@ if ($envPath) {
 
                 <div class="timeline" id="timelineItems">
 
-                    <!-- ===== Item 1 — Latest (Left) : AI & Innovation at NEGC 2026 ===== -->
-                    <div class="timeline-item left" data-images='["https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%202026%20-%201st.webp","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%20-%201.webp","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%20-%202.webp"]'>
+                    <?php foreach ($timeline_items as $ti => $ev):
+                        $side = $ti % 2 === 0 ? 'left' : 'right';
+                        $imgs = is_array($ev['images']) ? $ev['images'] : json_decode($ev['images'], true);
+                        if (!is_array($imgs)) $imgs = [];
+                    ?>
+                    <div class="timeline-item <?php echo $side; ?>" data-images='<?php echo htmlspecialchars(json_encode($imgs, JSON_UNESCAPED_SLASHES | JSON_HEX_APOS), ENT_QUOTES); ?>'>
                         <div class="timeline-content">
                             <div class="tag-row">
-                                <span class="tag">Winner</span>
-                                <span class="date">26-28 Mar 2026</span>
+                                <span class="tag"><?php echo htmlspecialchars($ev['tag']); ?></span>
+                                <span class="date"><?php echo htmlspecialchars($ev['date_label']); ?></span>
                             </div>
-                            <h2>AI &amp; Innovation at NEGC 2026, USTM</h2>
-                            <p>AI &amp; Innovation... Awarded competition conducted during North East Graduate Congress-2026 held at University of Science &amp; Technology Meghalaya from 26th–28th March, 2026.</p>
+                            <h2><?php echo htmlspecialchars($ev['title']); ?></h2>
+                            <p><?php echo htmlspecialchars($ev['description']); ?></p>
                         </div>
                         <div class="timeline-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
                         </div>
                         <div class="timeline-image">
-                            <div class="img-slider">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%202026%20-%201st.webp" alt="AI &amp; Innovation 1st Place" class="slider-img active">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%20-%201.webp" alt="AI &amp; Innovation Moment 1" class="slider-img">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/AI%20%26%20Inno%20-%202.webp" alt="AI &amp; Innovation Moment 2" class="slider-img">
+                            <div class="img-slider<?php echo count($imgs) < 2 ? ' single' : ''; ?>">
+                                <?php foreach ($imgs as $ii => $iu): ?>
+                                <img src="<?php echo htmlspecialchars($iu); ?>" alt="<?php echo htmlspecialchars($ev['title']); ?>" class="slider-img<?php echo $ii === 0 ? ' active' : ''; ?>">
+                                <?php endforeach; ?>
                                 <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
                                 <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
                                 <div class="slider-dots">
-                                    <span class="dot active"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
+                                    <?php foreach ($imgs as $ii => $iu): ?>
+                                    <span class="dot<?php echo $ii === 0 ? ' active' : ''; ?>"></span>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- ===== Item 2 (Right) : Prajukti 2026 GCU Hackathon ===== -->
-                    <div class="timeline-item right" data-images='["https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%202026%20-%201st.webp","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%20-%201.webp","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%20-%202.webp"]'>
-                        <div class="timeline-content">
-                            <div class="tag-row">
-                                <span class="tag">Winner</span>
-                                <span class="date">11-14 Mar 2026</span>
-                            </div>
-                            <h2>Prajukti 2026 GCU Hackathon</h2>
-                            <p>Prajukti 2026 GCU Hackathon held during GCU Varsity Week: EUPHUISM 2026 (Roots and Resilience) from 11th to 14th March, 2026.</p>
-                        </div>
-                        <div class="timeline-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                        </div>
-                        <div class="timeline-image">
-                            <div class="img-slider">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%202026%20-%201st.webp" alt="Prajukti 2026 1st Place" class="slider-img active">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%20-%201.webp" alt="CodeWar Moment 1" class="slider-img">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Prajukti%20-%202.webp" alt="CodeWar Moment 2" class="slider-img">
-                                <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
-                                <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
-                                <div class="slider-dots">
-                                    <span class="dot active"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===== Item 3 (Left) : Codestellation, CodeWar 7.0 at AEC ===== -->
-                    <div class="timeline-item left" data-images='["https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%202026%20-%202nd.webp","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%20-%201.webp","https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%20-%202.webp"]'>
-                        <div class="timeline-content">
-                            <div class="tag-row">
-                                <span class="tag">First Runner Up</span>
-                                <span class="date">26 Feb 2026</span>
-                            </div>
-                            <h2>Codestellation, under CodeWar 7.0 at AEC</h2>
-                            <p>This Hackathon was held by Assam Engineering College (AEC) under CodeWar 7.0 part of Pyrokinesis 2026 organised by Coding Club, AEC named as Codestellation on 26 Feb 2026.</p>
-                        </div>
-                        <div class="timeline-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                        </div>
-                        <div class="timeline-image">
-                            <div class="img-slider">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%202026%20-%202nd.webp" alt="Codestellation 2nd Place" class="slider-img active">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%20-%201.webp" alt="CodeWar Moment 1" class="slider-img">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/CodeWar%20-%202.webp" alt="CodeWar Moment 2" class="slider-img">
-                                <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
-                                <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
-                                <div class="slider-dots">
-                                    <span class="dot active"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===== Item 4 — Oldest (Right) : Ideathon 2024 ===== -->
-                    <div class="timeline-item right" data-images='["https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Idea%20Comp%202024%20-%201st.webp"]'>
-                        <div class="timeline-content">
-                            <div class="tag-row">
-                                <span class="tag">Winner</span>
-                                <span class="date">27 NOV 2024</span>
-                            </div>
-                            <h2>Ideathon &mdash; Where Ideas Compile</h2>
-                            <p>First place at the Ideathon competition &mdash; a stage where raw ideas meet real execution. Pitched a solution that stood out from the crowd and brought home the win. The beginning of the grind.</p>
-                        </div>
-                        <div class="timeline-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2.5 6-4 7.5V18H9v-1.5C7.5 15 5 12.5 5 9a7 7 0 0 1 7-7z"></path><line x1="9" y1="22" x2="15" y2="22"></line><line x1="10" y1="18" x2="14" y2="18"></line></svg>
-                        </div>
-                        <div class="timeline-image">
-                            <div class="img-slider single">
-                                <img src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Idea%20Comp%202024%20-%201st.webp" alt="Ideathon 2024 Winner" class="slider-img active">
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div><!-- /.timeline -->
             </div><!-- /.timeline-container -->

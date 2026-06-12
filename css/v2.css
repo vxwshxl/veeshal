@@ -314,6 +314,25 @@ body.cursor-hover .cursor-ring {
     transform-origin: left;
 }
 
+/* outbound page transition curtain */
+.page-out {
+    position: fixed;
+    inset: 0;
+    z-index: 9991;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: inset(0% 0% 100% 0%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.page-out svg {
+    width: 84px;
+    height: 84px;
+}
+
 /* ------------------------------------------------------------
    Scroll progress wheel (fixed, bottom-left)
    ------------------------------------------------------------ */
@@ -521,7 +540,7 @@ body.is-ready .scroll-wheel {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: clamp(26px, 4vh, 44px);
+    margin-bottom: 16px;
 }
 
 .social-icon {
@@ -544,13 +563,27 @@ body.is-ready .scroll-wheel {
     transform: translateY(-4px) rotate(-8deg);
 }
 
+.cta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: clamp(26px, 4vh, 44px);
+}
+
+.cta-row .btn-pill.cta-secondary {
+    height: 50px;
+    padding: 0 28px;
+    box-sizing: border-box;
+}
+
 .resume-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    height: 46px;
-    padding: 0 26px;
-    margin-left: 8px;
+    height: 50px;
+    padding: 0 30px;
     border-radius: 99px;
     background: var(--ink);
     color: var(--paper);
@@ -559,6 +592,7 @@ body.is-ready .scroll-wheel {
     font-family: var(--font-mono);
     font-size: 12px;
     letter-spacing: 0.12em;
+    text-transform: uppercase;
     transition: background 0.25s ease, color 0.25s ease;
 }
 
@@ -848,6 +882,16 @@ body.is-ready .scroll-wheel {
     will-change: transform;
 }
 
+/* desktop: don't crop the film — give it a real cinema height */
+@media (min-width: 1025px) {
+    .reel-frame img,
+    .reel-frame video {
+        aspect-ratio: auto;
+        height: 86vh;
+        max-height: 90vh;
+    }
+}
+
 .reel-bar {
     position: absolute;
     left: 0;
@@ -903,13 +947,41 @@ body.is-ready .scroll-wheel {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition:
+        top 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        left 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 .play-pause-btn:hover {
     transform: translate(-50%, -50%) scale(1.1);
     background: var(--amber);
     color: var(--ink);
+}
+
+/* desktop: while the film plays, the control glides up to the top-right
+   so it stops covering the frame */
+@media (min-width: 1025px) {
+    .reel-frame.is-playing .play-pause-btn {
+        top: 24px;
+        left: calc(100% - 24px);
+        width: 56px;
+        height: 56px;
+        transform: translate(-100%, 0);
+    }
+
+    .reel-frame.is-playing .play-pause-btn:hover {
+        transform: translate(-100%, 0) scale(1.1);
+    }
+
+    .reel-frame.is-playing .play-pause-btn svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 /* ------------------------------------------------------------
@@ -1433,9 +1505,15 @@ body.is-ready .scroll-wheel {
     align-items: center;
 }
 
+.logo-set {
+    flex-shrink: 0;
+}
+
 .marqueeInner img {
     height: clamp(44px, 6vw, 72px);
     width: auto;
+    max-width: clamp(90px, 12vw, 150px);
+    flex-shrink: 0;
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.55;

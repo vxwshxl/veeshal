@@ -147,6 +147,29 @@ $projects = [
     ],
 ];
 
+
+// ---------- Supabase override (static fallback above) ----------
+require_once __DIR__ . '/../lib/supabase.php';
+$sb_rows = sb_fetch('projects', 'select=*&visible=eq.true&order=sort');
+if ($sb_rows) {
+    $projects = array_map(function ($r) {
+        return [
+            'title' => $r['title'],
+            'cat' => $r['cat'],
+            'cat_label' => $r['cat_label'],
+            'img' => sb_asset($r['img'], '../'),
+            'desc' => $r['description'],
+            'role' => $r['role'],
+            'stack' => $r['stack'],
+            'year' => $r['year'],
+            'action' => $r['action'],
+            'url' => $r['url'],
+            'video' => $r['video'],
+            'image' => $r['image'] ? sb_asset($r['image'], '../') : null,
+        ];
+    }, $sb_rows);
+}
+
 $counts = ['all' => count($projects), 'development' => 0, 'video' => 0, 'design' => 0];
 foreach ($projects as $p) $counts[$p['cat']]++;
 ?>
@@ -182,7 +205,7 @@ foreach ($projects as $p) $counts[$p['cat']]++;
     <noscript>
         <style>
             .page { opacity: 1 !important; }
-            .pt-curtain, .cursor-dot, .cursor-ring { display: none !important; }
+            .loader, .cursor-dot, .cursor-ring { display: none !important; }
             body.is-loading { overflow: auto; height: auto; }
         </style>
     </noscript>
@@ -190,20 +213,7 @@ foreach ($projects as $p) $counts[$p['cat']]++;
 
 <body class="is-loading">
 
-    <!-- quick wheel-spin curtain -->
-    <div class="pt-curtain" aria-hidden="true">
-        <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="44" fill="none" stroke="#2a2a2e" stroke-width="9" />
-            <circle cx="50" cy="50" r="44" fill="none" stroke="#F9B646" stroke-width="9"
-                stroke-dasharray="60 216" stroke-linecap="round" />
-            <line x1="50" y1="50" x2="50" y2="14" stroke="#3c3c41" stroke-width="5" />
-            <line x1="50" y1="50" x2="84" y2="61" stroke="#3c3c41" stroke-width="5" />
-            <line x1="50" y1="50" x2="29" y2="79" stroke="#3c3c41" stroke-width="5" />
-            <line x1="50" y1="50" x2="16" y2="39" stroke="#3c3c41" stroke-width="5" />
-            <line x1="50" y1="50" x2="71" y2="21" stroke="#3c3c41" stroke-width="5" />
-            <circle cx="50" cy="50" r="10" fill="#F9B646" />
-        </svg>
-    </div>
+    <?php include __DIR__ . '/../partials/loader.php'; ?>
 
     <div class="grain" aria-hidden="true"></div>
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -358,6 +368,7 @@ foreach ($projects as $p) $counts[$p['cat']]++;
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="../js/loader.js"></script>
     <script src="../js/projectsPage.js"></script>
 </body>
 

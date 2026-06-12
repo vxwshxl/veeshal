@@ -27,6 +27,10 @@ if ($envPath) {
         }
     }
 }
+
+// ---------- Supabase content (static fallbacks below) ----------
+require_once __DIR__ . '/../lib/supabase.php';
+$sb_posts = sb_fetch('blogs', 'select=*&published=eq.true&order=sort');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +78,13 @@ if ($envPath) {
         <div class="homeContainer">
             <?php include 'includes/header.php'; ?>
 
+            <!-- v2 sub-hero -->
+            <section class="sub-hero">
+                <p class="section-kicker"><span class="idx">//</span> the notebook</p>
+                <h1>thoughts in <span class="amber">ink.</span></h1>
+                <p class="sub-note">Notes on JavaScript, the web and how things work under the hood — written while learning, published while it still hurts.</p>
+            </section>
+
             <!-- Blogs Layout -->
             <div class="blog-container">
                 <!-- Sidebar -->
@@ -82,11 +93,9 @@ if ($envPath) {
                     <ul class="blog-categories">
                         <li><a href="index" class="<?php echo !isset($_GET['category']) ? 'active' : ''; ?>">View all</a></li>
                         <?php
-                        $categories = [
-                            'HTML & CSS',
-                            'JavaScript',
-                            'Software development',
-                        ];
+                        $categories = $sb_posts
+                            ? array_values(array_unique(array_filter(array_column($sb_posts, 'category'))))
+                            : ['HTML & CSS', 'JavaScript', 'Software development'];
                         foreach ($categories as $cat) {
                             $isActive = isset($_GET['category']) && $_GET['category'] === $cat ? 'active' : '';
                             echo "<li><a href=\"?category=" . urlencode($cat) . "\" class=\"$isActive\">$cat</a></li>";
@@ -262,6 +271,20 @@ if ($envPath) {
                             'link' => 'git-for-beginners'
                         ]
                     ];
+
+                    // Supabase override (static list above is the fallback)
+                    if ($sb_posts) {
+                        $all_posts = array_map(function ($r) {
+                            return [
+                                'title' => $r['title'],
+                                'date' => $r['date_label'],
+                                'category' => $r['category'],
+                                'image' => sb_asset($r['image'], '../'),
+                                'link' => $r['is_static'] ? $r['slug'] : 'post?slug=' . rawurlencode($r['slug']),
+                            ];
+                        }, $sb_posts);
+                    }
+
                     ?>
                     
                     <!-- Inject Data for JS -->

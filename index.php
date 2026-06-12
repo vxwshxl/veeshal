@@ -27,6 +27,70 @@ if ($envPath) {
         }
     }
 }
+
+// ---------- Supabase-backed content (static fallbacks below) ----------
+require_once __DIR__ . '/lib/supabase.php';
+
+$socials = sb_fetch('social_links', 'select=*&visible=eq.true&order=sort');
+if (!$socials) {
+    $socials = [
+        ['label' => 'yt', 'url' => 'https://www.youtube.com/@vxwshxl'],
+        ['label' => 'ig', 'url' => 'https://www.instagram.com/vxwshxl'],
+        ['label' => 'git', 'url' => 'https://github.com/vxwshxl'],
+        ['label' => 'in', 'url' => 'https://www.linkedin.com/in/vxwshxl'],
+        ['label' => 'x', 'url' => 'https://x.com/vxwshxl'],
+        ['label' => 'fb', 'url' => 'https://www.facebook.com/vxwshxl'],
+    ];
+}
+
+$resumeUrl = sb_setting('resume_url', 'RESUME - VEESHAL.pdf');
+if (!is_string($resumeUrl)) $resumeUrl = 'RESUME - VEESHAL.pdf';
+
+$heroCfg = sb_setting('hero', []);
+if (!is_array($heroCfg)) $heroCfg = [];
+$heroT1 = isset($heroCfg['title_1']) ? $heroCfg['title_1'] : 'code';
+$heroT2 = isset($heroCfg['title_2']) ? $heroCfg['title_2'] : 'cinema';
+$heroEyebrow = isset($heroCfg['eyebrow']) ? $heroCfg['eyebrow'] : 'creative developer — video editor';
+$heroCopy = isset($heroCfg['copy']) ? $heroCfg['copy'] : 'Welcome to a visual journey that blends code & creativity, where every edit tells a story. Engineered with precision & crafted with passion.';
+
+$stats = sb_setting('stats', null);
+if (!is_array($stats) || !$stats) {
+    $stats = [
+        ['value' => 5, 'suffix' => '', 'label' => 'Developed Live', 'link_text' => 'Coding Projects', 'link' => 'projects'],
+        ['value' => 15, 'suffix' => '', 'label' => 'Edited High-Quality', 'link_text' => 'Video Projects', 'link' => 'projects'],
+        ['value' => 50, 'suffix' => 'k', 'label' => 'Monthly Visitors for', 'link_text' => 'Bodo Okhrang', 'link' => 'https://bodookhrang.com'],
+    ];
+}
+
+$featured = sb_fetch('featured_projects', 'select=*&visible=eq.true&order=sort');
+if (!$featured) {
+    $featured = [
+        ['info' => 'A.I. Tool', 'name' => 'Bodo Okhrang', 'tag' => 'Web Development', 'url' => 'https://bodookhrang.com', 'video' => null, 'image' => null, 'hover_src' => 'assets/projects/1.webp'],
+        ['info' => 'E-COMMERCE Tool', 'name' => 'FlopShop', 'tag' => 'Web Development/PWA', 'url' => 'https://flopshop.vercel.app', 'video' => null, 'image' => null, 'hover_src' => 'assets/projects/12.webp'],
+        ['info' => 'A.I. Tool', 'name' => 'CrewSpace AI', 'tag' => 'Extension', 'url' => 'https://crewspace-ai.vercel.app', 'video' => null, 'image' => null, 'hover_src' => 'assets/projects/11.webp'],
+        ['info' => 'Education', 'name' => 'Kokrajhar University', 'tag' => 'Web & App Development', 'url' => 'https://ku-app.in', 'video' => null, 'image' => null, 'hover_src' => 'assets/projects/2.webp'],
+        ['info' => 'Travel', 'name' => 'Trip to Darjeeling', 'tag' => 'Video Editing', 'url' => 'https://www.youtube.com/watch?v=gNVz83QSoY4', 'video' => null, 'image' => null, 'hover_src' => 'assets/projects/4.webp'],
+        ['info' => 'Travel', 'name' => 'Andaman & Nicobar Islands', 'tag' => 'Video Editing', 'url' => 'https://www.youtube.com/watch?v=gBvocwLObFQ', 'video' => null, 'image' => null, 'hover_src' => 'assets/projects/5.webp'],
+        ['info' => 'Event', 'name' => 'GOOGLE DEV GROUP - 2025', 'tag' => 'Video Editing', 'url' => null, 'video' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4', 'image' => null, 'hover_src' => 'assets/projects/6.webp'],
+        ['info' => 'Event', 'name' => 'Open Mic RGU - 2025', 'tag' => 'Video Editing', 'url' => null, 'video' => 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4', 'image' => null, 'hover_src' => 'assets/projects/7.webp'],
+        ['info' => 'Event', 'name' => 'Badminton Tournament', 'tag' => 'Banner Editing', 'url' => null, 'video' => null, 'image' => 'assets/projects/8.webp', 'hover_src' => 'assets/projects/8.webp'],
+        ['info' => 'Tool', 'name' => 'BODOअख्रां Pvt. Ltd. Logo', 'tag' => 'Logo Design', 'url' => null, 'video' => null, 'image' => 'assets/projects/9.webp', 'hover_src' => 'assets/projects/9.webp'],
+        ['info' => 'Local Shop', 'name' => 'My Tea', 'tag' => 'Banner Editing', 'url' => null, 'video' => null, 'image' => 'assets/projects/10.webp', 'hover_src' => 'assets/projects/10.webp'],
+    ];
+}
+
+$gallery = sb_fetch('gallery', 'select=*&visible=eq.true&order=sort');
+if (!$gallery) {
+    $gallery = [];
+    for ($gi = 1; $gi <= 6; $gi++) $gallery[] = ['image_url' => "assets/portfolio/$gi.webp", 'alt' => "Portfolio $gi"];
+}
+
+$skills = sb_fetch('skills', 'select=*&visible=eq.true&order=sort');
+if (!$skills) {
+    $skillFiles = ['React Native' => 'react-native', 'Flutter' => 'flutter', 'Tailwind CSS' => 'tailwind', 'Expo' => 'expo', 'PHP' => 'php', 'MySQL' => 'mysql', 'PostgreSQL' => 'postgreSQL', 'Adobe Premiere' => 'premiere', 'DaVinci Resolve' => 'davinci', 'CapCut' => 'capcut', 'Figma' => 'figma', 'Krita' => 'krita', 'Canva' => 'canva', 'Jitter' => 'jitter'];
+    $skills = [];
+    foreach ($skillFiles as $sn => $sf) $skills[] = ['name' => $sn, 'icon_url' => "assets/skills/$sf.png"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,100 +154,9 @@ if ($envPath) {
     </script>
 </head>
 
-<body class="is-loading">
+<body class="is-loading" data-loader="full">
 
-    <!-- ===================== LOADER — pit-lane wheel burst ===================== -->
-    <div class="loader" aria-hidden="true">
-        <div class="loader-road"></div>
-        <div class="loader-streaks" id="loaderStreaks"></div>
-
-        <div class="loader-wheel-wrap">
-            <!-- motion-blur ghost (live mirror of the wheel below) -->
-            <svg class="loader-wheel loader-wheel-ghost" viewBox="0 0 400 400">
-                <use href="#lwWheel"></use>
-            </svg>
-
-            <svg class="loader-wheel" viewBox="0 0 400 400">
-                <defs>
-                    <radialGradient id="lwRimGrad" cx="35%" cy="32%" r="80%">
-                        <stop offset="0%" stop-color="#45454b" />
-                        <stop offset="55%" stop-color="#26262a" />
-                        <stop offset="100%" stop-color="#121214" />
-                    </radialGradient>
-                    <linearGradient id="lwSpokeGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#4e4e54" />
-                        <stop offset="100%" stop-color="#1b1b1e" />
-                    </linearGradient>
-                    <radialGradient id="lwDiscGrad" cx="50%" cy="50%" r="50%">
-                        <stop offset="50%" stop-color="#2c2c2f" />
-                        <stop offset="82%" stop-color="#404045" />
-                        <stop offset="100%" stop-color="#232326" />
-                    </radialGradient>
-                    <!-- one twin-blade spoke, stamped 5x -->
-                    <g id="lwSpoke">
-                        <path d="M191 178 L177 78 Q186 70 195 73 L198 178 Z" fill="url(#lwSpokeGrad)" />
-                        <path d="M209 178 L223 78 Q214 70 205 73 L202 178 Z" fill="url(#lwSpokeGrad)" />
-                    </g>
-                </defs>
-
-                <g id="lwWheel">
-                    <!-- static layer: brake disc + amber caliper, seen through the spokes -->
-                    <circle cx="200" cy="200" r="118" fill="url(#lwDiscGrad)" />
-                    <circle cx="200" cy="200" r="106" fill="none" stroke="#1c1c1f" stroke-width="3"
-                        stroke-dasharray="2 11" />
-                    <circle cx="200" cy="200" r="86" fill="none" stroke="#1c1c1f" stroke-width="3"
-                        stroke-dasharray="2 9" />
-                    <path d="M319.6 144.2 A132 132 0 0 1 319.6 255.8 L290.6 242.3 A100 100 0 0 0 290.6 157.7 Z"
-                        fill="#F9B646" />
-
-                    <!-- rotor: tire + rim + spokes (this part spins) -->
-                    <g id="lwRotor">
-                        <!-- tire -->
-                        <circle cx="200" cy="200" r="174" fill="none" stroke="#141414" stroke-width="46" />
-                        <circle cx="200" cy="200" r="192" fill="none" stroke="#060606" stroke-width="8"
-                            stroke-dasharray="15 11" />
-                        <circle cx="200" cy="200" r="160" fill="none" stroke="#0b0b0b" stroke-width="12" />
-                        <!-- race-tire paint marker -->
-                        <circle cx="200" cy="42" r="5" fill="#F9B646" />
-
-                        <!-- rim -->
-                        <circle cx="200" cy="200" r="152" fill="none" stroke="#4d4d53" stroke-width="2.5" />
-                        <circle cx="200" cy="200" r="141" fill="none" stroke="url(#lwRimGrad)" stroke-width="21" />
-
-                        <!-- 5 twin spokes -->
-                        <use href="#lwSpoke" />
-                        <use href="#lwSpoke" transform="rotate(72 200 200)" />
-                        <use href="#lwSpoke" transform="rotate(144 200 200)" />
-                        <use href="#lwSpoke" transform="rotate(216 200 200)" />
-                        <use href="#lwSpoke" transform="rotate(288 200 200)" />
-
-                        <!-- hub, lug nuts, centre cap -->
-                        <circle cx="200" cy="200" r="58" fill="#19191b" stroke="#2c2c30" stroke-width="2" />
-                        <circle cx="200" cy="166" r="6" fill="#8e8e96" />
-                        <circle cx="232.3" cy="189.5" r="6" fill="#8e8e96" />
-                        <circle cx="220" cy="227.5" r="6" fill="#8e8e96" />
-                        <circle cx="180" cy="227.5" r="6" fill="#8e8e96" />
-                        <circle cx="167.7" cy="189.5" r="6" fill="#8e8e96" />
-                        <circle cx="200" cy="200" r="29" fill="#111110" stroke="#F9B646" stroke-width="2" />
-                        <text x="200" y="212" text-anchor="middle" font-family="'Clash Display', sans-serif"
-                            font-size="34" font-weight="700" fill="#F9B646">V</text>
-                    </g>
-                </g>
-            </svg>
-        </div>
-
-        <div class="loader-meta">
-            <span class="loader-brand">vee<span class="amber">.</span></span>
-            <span class="loader-tag">code &amp; cinema — '26</span>
-        </div>
-
-        <div class="loader-line"><i></i></div>
-
-        <div class="loader-speedo">
-            <span class="loader-counter" id="loaderCounter">000</span>
-            <span class="loader-unit">ignition / km·h</span>
-        </div>
-    </div>
+    <?php include __DIR__ . '/partials/loader.php'; ?>
 
     <!-- film grain + custom cursor -->
     <div class="grain" aria-hidden="true"></div>
@@ -232,51 +205,42 @@ if ($envPath) {
 
             <div class="hero-inner">
                 <div class="hero-left">
-                    <p class="hero-eyebrow mono">creative developer — video editor</p>
+                    <p class="hero-eyebrow mono"><?php echo htmlspecialchars($heroEyebrow); ?></p>
 
                     <h1 class="hero-title">
-                        <span class="line"><span class="word">code</span></span>
-                        <span class="line"><span class="word amp">&amp;</span>&nbsp;<span class="word">cinema</span></span>
+                        <span class="line"><span class="word"><?php echo htmlspecialchars($heroT1); ?></span></span>
+                        <span class="line"><span class="word amp">&amp;</span>&nbsp;<span class="word"><?php echo htmlspecialchars($heroT2); ?></span></span>
                     </h1>
 
                     <svg class="hero-swoosh" viewBox="0 0 420 40" aria-hidden="true">
                         <path d="M6 30 C 110 6, 240 6, 300 22 S 400 30, 414 14" />
                     </svg>
 
-                    <p class="hero-copy">
-                        Welcome to a visual journey that blends <strong>code &amp; creativity</strong>,
-                        where every edit tells a story. Engineered with precision &amp;
-                        crafted with passion.
-                    </p>
+                    <p class="hero-copy"><?php echo nl2br(htmlspecialchars($heroCopy)); ?></p>
 
                     <div class="social-row">
-                        <a href="https://www.youtube.com/@vxwshxl" target="_blank" class="social-icon">yt</a>
-                        <a href="https://www.instagram.com/vxwshxl" target="_blank" class="social-icon">ig</a>
-                        <a href="https://github.com/vxwshxl" target="_blank" class="social-icon">git</a>
-                        <a href="https://www.linkedin.com/in/vxwshxl" target="_blank" class="social-icon">in</a>
-                        <a href="https://x.com/vxwshxl" target="_blank" class="social-icon">x</a>
-                        <a href="https://www.facebook.com/vxwshxl" target="_blank" class="social-icon">fb</a>
-                        <a href="RESUME - VEESHAL.pdf" target="_blank" class="resume-btn">
+                        <?php foreach ($socials as $so): ?>
+                        <a href="<?php echo htmlspecialchars($so['url']); ?>" target="_blank" class="social-icon"><?php echo htmlspecialchars($so['label']); ?></a>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <div class="cta-row">
+                        <a href="<?php echo htmlspecialchars($resumeUrl); ?>" target="_blank" class="resume-btn" data-resume-link>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 16L7 11H10V4H14V11H17L12 16ZM6 18V20H18V18H6Z" fill="currentColor" />
                             </svg>
-                            resume
+                            download resume
                         </a>
+                        <a href="projects" class="btn-pill cta-secondary">see the work <span class="arr">→</span></a>
                     </div>
 
                     <div class="stats">
+                        <?php foreach ($stats as $st): ?>
                         <div class="stat-item">
-                            <h2><span class="plus">+</span><span class="count" data-target="5">5</span></h2>
-                            <p>Developed Live<br><a href="projects">Coding Projects</a></p>
+                            <h2><span class="plus">+</span><span class="count" data-target="<?php echo (int) $st['value']; ?>"><?php echo (int) $st['value']; ?></span><?php echo htmlspecialchars(isset($st['suffix']) ? $st['suffix'] : ''); ?></h2>
+                            <p><?php echo htmlspecialchars($st['label']); ?><br><a href="<?php echo htmlspecialchars($st['link']); ?>"<?php if (preg_match('#^https?://#', $st['link'])) echo ' target="_blank"'; ?>><?php echo htmlspecialchars($st['link_text']); ?></a></p>
                         </div>
-                        <div class="stat-item">
-                            <h2><span class="plus">+</span><span class="count" data-target="15">15</span></h2>
-                            <p>Edited High-Quality<br><a href="projects">Video Projects</a></p>
-                        </div>
-                        <div class="stat-item">
-                            <h2><span class="plus">+</span><span class="count" data-target="50">50</span>k</h2>
-                            <p>Monthly Visitors for<br><a href="https://bodookhrang.com" target="_blank">Bodo Okhrang</a></p>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
@@ -364,12 +328,10 @@ if ($envPath) {
 
             <div class="portfolio">
                 <div class="portfolio-grid">
-                    <div class="card"><img src="assets/portfolio/1.webp" alt="Portfolio 1"></div>
-                    <div class="card"><img src="assets/portfolio/2.webp" alt="Portfolio 2"></div>
-                    <div class="card"><img src="assets/portfolio/3.webp" alt="Portfolio 3"></div>
-                    <div class="card"><img src="assets/portfolio/4.webp" alt="Portfolio 4"></div>
-                    <div class="card"><img src="assets/portfolio/5.webp" alt="Portfolio 5"></div>
-                    <div class="card last-card"><img src="assets/portfolio/6.webp" alt="Portfolio 6"></div>
+                    <?php $gCount = count($gallery); foreach ($gallery as $gi => $g): ?>
+                    <div class="card<?php echo $gi === $gCount - 1 ? ' last-card' : ''; ?>"><img src="<?php echo htmlspecialchars(sb_asset($g['image_url'])); ?>" alt="<?php echo htmlspecialchars(isset($g['alt']) && $g['alt'] !== null ? $g['alt'] : 'Portfolio'); ?>"></div>
+                    <?php endforeach; ?>
+                </div>
                 </div>
                 <h2 class="portfolio-title">portfolio</h2>
             </div>
@@ -410,131 +372,24 @@ if ($envPath) {
                 <div class="preview-img preview-img-2"></div>
             </div>
             <div class="menu">
-                <div class="menu-item" data-url="https://bodookhrang.com" data-hover-src="./assets/projects/1.webp">
+                <?php foreach ($featured as $fp):
+                    $attrs = '';
+                    if (!empty($fp['url'])) $attrs = ' data-url="' . htmlspecialchars($fp['url']) . '"';
+                    elseif (!empty($fp['video'])) $attrs = ' data-video="' . htmlspecialchars($fp['video']) . '"';
+                    elseif (!empty($fp['image'])) $attrs = ' data-image="' . htmlspecialchars(sb_asset($fp['image'])) . '"';
+                ?>
+                <div class="menu-item"<?php echo $attrs; ?> data-hover-src="<?php echo htmlspecialchars(sb_asset($fp['hover_src'])); ?>">
                     <div class="info">
-                        <p>A.I. Tool</p>
+                        <p><?php echo htmlspecialchars($fp['info']); ?></p>
                     </div>
                     <div class="name">
-                        <p>Bodo Okhrang</p>
+                        <p><?php echo htmlspecialchars($fp['name']); ?></p>
                     </div>
                     <div class="tag">
-                        <p>Web Development</p>
+                        <p><?php echo htmlspecialchars($fp['tag']); ?></p>
                     </div>
                 </div>
-                <div class="menu-item" data-url="https://flopshop.vercel.app" data-hover-src="./assets/projects/12.webp">
-                    <div class="info">
-                        <p>E-COMMERCE Tool</p>
-                    </div>
-                    <div class="name">
-                        <p>FlopShop</p>
-                    </div>
-                    <div class="tag">
-                        <p>Web Development/PWA</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-url="https://crewspace-ai.vercel.app" data-hover-src="./assets/projects/11.webp">
-                    <div class="info">
-                        <p>A.I. Tool</p>
-                    </div>
-                    <div class="name">
-                        <p>CrewSpace AI</p>
-                    </div>
-                    <div class="tag">
-                        <p>Extension</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-url="https://ku-app.in" data-hover-src="./assets/projects/2.webp">
-                    <div class="info">
-                        <p>Education</p>
-                    </div>
-                    <div class="name">
-                        <p>Kokrajhar University</p>
-                    </div>
-                    <div class="tag">
-                        <p>Web &amp; App Development</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-url="https://www.youtube.com/watch?v=gNVz83QSoY4"
-                    data-hover-src="./assets/projects/4.webp">
-                    <div class="info">
-                        <p>Travel</p>
-                    </div>
-                    <div class="name">
-                        <p>Trip to Darjeeling</p>
-                    </div>
-                    <div class="tag">
-                        <p>Video Editing</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-url="https://www.youtube.com/watch?v=gBvocwLObFQ"
-                    data-hover-src="./assets/projects/5.webp">
-                    <div class="info">
-                        <p>Travel</p>
-                    </div>
-                    <div class="name">
-                        <p>Andaman &amp; Nicobar Islands</p>
-                    </div>
-                    <div class="tag">
-                        <p>Video Editing</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4"
-                    data-hover-src="./assets/projects/6.webp">
-                    <div class="info">
-                        <p>Event</p>
-                    </div>
-                    <div class="name">
-                        <p>GOOGLE DEV GROUP - 2025</p>
-                    </div>
-                    <div class="tag">
-                        <p>Video Editing</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-video="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4"
-                    data-hover-src="./assets/projects/7.webp">
-                    <div class="info">
-                        <p>Event</p>
-                    </div>
-                    <div class="name">
-                        <p>Open Mic RGU - 2025</p>
-                    </div>
-                    <div class="tag">
-                        <p>Video Editing</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-image="assets/projects/8.webp" data-hover-src="./assets/projects/8.webp">
-                    <div class="info">
-                        <p>Event</p>
-                    </div>
-                    <div class="name">
-                        <p>Badminton Tournament</p>
-                    </div>
-                    <div class="tag">
-                        <p>Banner Editing</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-image="assets/projects/9.webp" data-hover-src="./assets/projects/9.webp">
-                    <div class="info">
-                        <p>Tool</p>
-                    </div>
-                    <div class="name">
-                        <p>BODOअख्रां Pvt. Ltd. Logo</p>
-                    </div>
-                    <div class="tag">
-                        <p>Logo Design</p>
-                    </div>
-                </div>
-                <div class="menu-item" data-image="assets/projects/10.webp" data-hover-src="./assets/projects/10.webp">
-                    <div class="info">
-                        <p>Local Shop</p>
-                    </div>
-                    <div class="name">
-                        <p>My Tea</p>
-                    </div>
-                    <div class="tag">
-                        <p>Banner Editing</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
 
                 <!-- Popup Modal (supports both video and image) -->
                 <div id="mediaModal" class="media-modal">
@@ -654,41 +509,13 @@ if ($envPath) {
             <!-- Logo Marquee -->
             <div class="logoMarquee">
                 <div class="marqueeInner">
-                    <!-- Set 1 -->
+                    <?php for ($rep = 0; $rep < 2; $rep++): ?>
                     <div class="logo-set">
-                        <img src="assets/skills/react-native.png" alt="React Native" />
-                        <img src="assets/skills/flutter.png" alt="Flutter" />
-                        <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
-                        <img src="assets/skills/expo.png" alt="Expo" />
-                        <img src="assets/skills/php.png" alt="PHP" />
-                        <img src="assets/skills/mysql.png" alt="MySQL" />
-                        <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
-                        <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
-                        <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
-                        <img src="assets/skills/capcut.png" alt="CapCut" />
-                        <img src="assets/skills/figma.png" alt="Figma" />
-                        <img src="assets/skills/krita.png" alt="Krita" />
-                        <img src="assets/skills/canva.png" alt="Canva" />
-                        <img src="assets/skills/jitter.png" alt="Jitter" />
+                        <?php foreach ($skills as $sk): ?>
+                        <img src="<?php echo htmlspecialchars(sb_asset($sk['icon_url'])); ?>" alt="<?php echo htmlspecialchars($sk['name']); ?>" />
+                        <?php endforeach; ?>
                     </div>
-
-                    <!-- Set 2 (Duplicate for loop) -->
-                    <div class="logo-set">
-                        <img src="assets/skills/react-native.png" alt="React Native" />
-                        <img src="assets/skills/flutter.png" alt="Flutter" />
-                        <img src="assets/skills/tailwind.png" alt="Tailwind CSS" />
-                        <img src="assets/skills/expo.png" alt="Expo" />
-                        <img src="assets/skills/php.png" alt="PHP" />
-                        <img src="assets/skills/mysql.png" alt="MySQL" />
-                        <img src="assets/skills/postgreSQL.png" alt="PostgreSQL" />
-                        <img src="assets/skills/premiere.png" alt="Adobe Premiere" />
-                        <img src="assets/skills/davinci.png" alt="DaVinci Resolve" />
-                        <img src="assets/skills/capcut.png" alt="CapCut" />
-                        <img src="assets/skills/figma.png" alt="Figma" />
-                        <img src="assets/skills/krita.png" alt="Krita" />
-                        <img src="assets/skills/canva.png" alt="Canva" />
-                        <img src="assets/skills/jitter.png" alt="Jitter" />
-                    </div>
+                    <?php endfor; ?>
                 </div>
             </div>
 
@@ -737,6 +564,7 @@ if ($envPath) {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/loader.js"></script>
     <script src="js/v2.js"></script>
     <script src="js/introScript.js"></script>
     <script src="js/projectScript.js"></script>
