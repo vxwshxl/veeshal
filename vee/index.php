@@ -37,6 +37,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             --ink-3: #242422;
             --amber: #F9B646;
             --coral: #ff5f6d;
+            --green: #3ddc84;
             --line: rgba(248, 247, 243, 0.12);
             --muted: #a3a094;
             --mono: 'JetBrains Mono', monospace;
@@ -59,6 +60,8 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
         .amber { color: var(--amber); }
 
         button { font-family: var(--mono); cursor: pointer; }
+
+        svg.ic { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
 
         /* ---------- login ---------- */
         .login-wrap {
@@ -100,7 +103,8 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             margin-bottom: 7px;
         }
 
-        .field input, .field textarea, .field select {
+        .field input, .field textarea, .field select,
+        .tbl input, .tbl select {
             width: 100%;
             background: var(--ink);
             border: 1px solid var(--line);
@@ -116,7 +120,8 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
         .field textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
         .field textarea.big { min-height: 220px; font-family: var(--mono); font-size: 12.5px; }
 
-        .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--amber); }
+        .field input:focus, .field textarea:focus, .field select:focus,
+        .tbl input:focus, .tbl select:focus { border-color: var(--amber); }
 
         .btn {
             display: inline-flex;
@@ -137,8 +142,6 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
         .btn:hover { background: transparent; color: var(--amber); }
         .btn.ghost { background: transparent; color: var(--paper); border-color: var(--line); }
         .btn.ghost:hover { border-color: var(--amber); color: var(--amber); }
-        .btn.danger { background: transparent; color: var(--coral); border-color: rgba(255, 95, 109, 0.4); }
-        .btn.danger:hover { background: var(--coral); color: var(--ink); border-color: var(--coral); }
         .btn.sm { padding: 7px 14px; font-size: 10px; }
         .btn:disabled { opacity: 0.5; cursor: wait; }
 
@@ -154,7 +157,6 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             background: var(--ink-2);
             display: flex;
             flex-direction: column;
-            gap: 4px;
             position: sticky;
             top: 0;
             height: 100vh;
@@ -168,7 +170,11 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             padding: 0 10px 18px;
         }
 
+        #navBtns { display: flex; flex-direction: column; gap: 4px; }
+
         aside .nav-btn {
+            display: block;
+            width: 100%;
             text-align: left;
             background: transparent;
             border: none;
@@ -186,7 +192,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
 
         aside .foot { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
 
-        main { padding: 30px clamp(18px, 3vw, 44px); max-width: 1100px; }
+        main { padding: 30px clamp(18px, 3vw, 44px); max-width: 1200px; }
 
         .page-head {
             display: flex;
@@ -194,7 +200,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             align-items: center;
             gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 24px;
+            margin-bottom: 10px;
         }
 
         .page-head h2 {
@@ -204,38 +210,97 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             text-transform: lowercase;
         }
 
-        .hint { color: var(--muted); font-size: 12.5px; margin-bottom: 18px; }
+        .page-head .head-right { display: flex; align-items: center; gap: 16px; }
 
-        /* ---------- rows ---------- */
-        .rows { display: flex; flex-direction: column; gap: 10px; }
+        .hint { color: var(--muted); font-size: 12.5px; margin-bottom: 20px; }
 
-        .row {
-            display: flex;
+        .live-dot {
+            display: inline-flex;
             align-items: center;
-            gap: 14px;
+            gap: 7px;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .live-dot::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 1.6s ease infinite;
+        }
+
+        @keyframes pulse { 50% { opacity: 0.3; } }
+
+        /* ---------- data table ---------- */
+        .tbl-wrap {
             border: 1px solid var(--line);
             border-radius: 14px;
-            padding: 12px 16px;
+            overflow-x: auto;
             background: var(--ink-2);
         }
 
-        .row.hidden-row { opacity: 0.45; }
+        table.tbl { width: 100%; border-collapse: collapse; }
 
-        .row .thumb {
-            width: 56px;
-            height: 42px;
-            border-radius: 8px;
-            object-fit: cover;
-            background: var(--ink-3);
-            flex-shrink: 0;
+        .tbl th {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: left;
+            padding: 13px 14px;
+            border-bottom: 1px solid var(--line);
+            white-space: nowrap;
         }
 
-        .row .meta { flex: 1; min-width: 0; }
+        .tbl td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--line);
+            font-size: 13.5px;
+            vertical-align: middle;
+        }
 
-        .row .title { font-weight: 600; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .row .sub { color: var(--muted); font-size: 11.5px; font-family: var(--mono); }
+        .tbl tbody tr:last-child td { border-bottom: none; }
+        .tbl tbody tr:hover td { background: rgba(248, 247, 243, 0.025); }
+        .tbl tr.hidden-row td { opacity: 0.45; }
 
-        .row .acts { display: flex; gap: 6px; flex-shrink: 0; }
+        .tbl .thumb {
+            width: 52px;
+            height: 38px;
+            border-radius: 7px;
+            object-fit: cover;
+            background: var(--ink-3);
+            display: block;
+        }
+
+        .tbl .t-title { font-weight: 600; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tbl .t-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tbl .t-num { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 99px;
+            padding: 4px 12px;
+            white-space: nowrap;
+        }
+
+        .status.on { color: var(--green); border-color: rgba(61, 220, 132, 0.35); }
+        .status.on::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+        .acts { display: flex; gap: 6px; justify-content: flex-end; }
 
         .icon-btn {
             background: var(--ink-3);
@@ -244,7 +309,6 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             width: 30px;
             height: 30px;
             border-radius: 8px;
-            font-size: 13px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -253,6 +317,39 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
 
         .icon-btn:hover { border-color: var(--amber); color: var(--amber); }
         .icon-btn.del:hover { border-color: var(--coral); color: var(--coral); }
+        .icon-btn:disabled { opacity: 0.3; cursor: default; }
+        .icon-btn:disabled:hover { border-color: var(--line); color: var(--paper); }
+
+        /* pagination */
+        .pager {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .pager .pg-info { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-right: auto; }
+
+        .pager button {
+            background: var(--ink-2);
+            border: 1px solid var(--line);
+            color: var(--paper);
+            min-width: 32px;
+            height: 32px;
+            padding: 0 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+
+        .pager button:hover { border-color: var(--amber); color: var(--amber); }
+        .pager button.on { background: var(--amber); color: var(--ink); border-color: var(--amber); font-weight: 700; }
+        .pager button:disabled { opacity: 0.3; cursor: default; }
 
         /* ---------- modal ---------- */
         .modal {
@@ -299,6 +396,10 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
         .check input { width: 18px; height: 18px; accent-color: var(--amber); }
         .check span { font-size: 13px; color: var(--muted); }
 
+        /* stats editor table */
+        .tbl td input { padding: 8px 10px; font-size: 13px; border-radius: 8px; min-width: 70px; }
+        .tbl td.w-sm input { max-width: 80px; }
+
         /* ---------- toast ---------- */
         #toast {
             position: fixed;
@@ -324,33 +425,12 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
 
         @keyframes tin { from { transform: translateY(10px); opacity: 0; } }
 
-        .live-dot {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
-        .live-dot::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #3ddc84;
-            animation: pulse 1.6s ease infinite;
-        }
-
-        @keyframes pulse { 50% { opacity: 0.3; } }
-
         @media (max-width: 860px) {
             .shell.on { grid-template-columns: 1fr; }
-            aside { position: relative; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; }
-            aside .brand { padding: 0 10px 0 0; font-size: 20px; }
-            aside .foot { margin: 0 0 0 auto; padding: 0; border: none; }
+            aside { position: relative; height: auto; }
+            #navBtns { flex-direction: row; flex-wrap: wrap; }
+            aside .nav-btn { width: auto; }
+            aside .foot { margin-top: 14px; }
         }
     </style>
 </head>
@@ -381,15 +461,17 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             <div class="brand">vee<span class="amber">.</span></div>
             <div id="navBtns"></div>
             <div class="foot">
-                <span class="live-dot" id="liveDot">realtime</span>
-                <button class="btn ghost sm" id="logoutBtn" style="margin-top:12px;">logout</button>
+                <button class="btn ghost sm" id="logoutBtn">logout</button>
             </div>
         </aside>
 
         <main>
             <div class="page-head">
                 <h2 id="secTitle">settings</h2>
-                <button class="btn sm" id="addBtn" style="display:none;">+ add new</button>
+                <div class="head-right">
+                    <span class="live-dot">realtime</span>
+                    <button class="btn sm" id="addBtn" style="display:none;">+ add new</button>
+                </div>
             </div>
             <p class="hint" id="secHint"></p>
             <div id="content"></div>
@@ -415,6 +497,24 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
         const SB_URL = "<?php echo $SB_URL; ?>";
         const SB_ANON = "<?php echo $SB_ANON; ?>";
         const sb = window.supabase.createClient(SB_URL, SB_ANON);
+
+        const PAGE_SIZE = 20;
+
+        /* ------------------------------------------------------------
+           professional inline SVG icons (no emojis)
+           ------------------------------------------------------------ */
+        const ICONS = {
+            up: '<svg class="ic" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>',
+            down: '<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>',
+            eye: '<svg class="ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+            eyeOff: '<svg class="ic" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/></svg>',
+            edit: '<svg class="ic" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+            trash: '<svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>',
+            prev: '<svg class="ic" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>',
+            next: '<svg class="ic" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>',
+            plus: '<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>',
+            upload: '<svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>',
+        };
 
         /* ------------------------------------------------------------
            table configs — drive the whole CRUD UI
@@ -483,6 +583,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
         let session = null;
         let current = 'settings';
         let rows = [];
+        let page = 1;
         let channel = null;
 
         function toast(msg, bad = false) {
@@ -531,6 +632,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
 
         function openSection(key) {
             current = key;
+            page = 1;
             buildNav();
             const cfg = TABLES[key];
             $('#secTitle').textContent = cfg.label.toLowerCase();
@@ -551,44 +653,118 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
                 .subscribe();
         }
 
-        /* ---------- generic list ---------- */
+        /* ---------- generic table list ---------- */
         async function loadRows() {
             const { data, error } = await sb.from(current).select('*').order('sort', { ascending: true }).order('id');
             if (error) return toast(error.message, true);
             rows = data;
-            const cfg = TABLES[current];
-            const wrap = document.createElement('div');
-            wrap.className = 'rows';
+            renderTable();
+        }
 
-            rows.forEach((r, idx) => {
-                const div = document.createElement('div');
-                div.className = 'row' + ((r.visible === false || r.published === false) ? ' hidden-row' : '');
-                const img = cfg.imgKey && r[cfg.imgKey]
-                    ? `<img class="thumb" src="${pub(r[cfg.imgKey])}" alt="" onerror="this.style.visibility='hidden'">`
+        function renderTable() {
+            const cfg = TABLES[current];
+            const totalPages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+            if (page > totalPages) page = totalPages;
+            const slice = rows.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+            const wrap = document.createElement('div');
+
+            if (!rows.length) {
+                wrap.innerHTML = '<p class="hint">nothing here yet — add the first one.</p>';
+                $('#content').replaceChildren(wrap);
+                return;
+            }
+
+            const tblWrap = document.createElement('div');
+            tblWrap.className = 'tbl-wrap';
+            const table = document.createElement('table');
+            table.className = 'tbl';
+
+            const hasImg = !!cfg.imgKey;
+            table.innerHTML = `<thead><tr>
+                <th style="width:40px">#</th>
+                ${hasImg ? '<th style="width:64px">Preview</th>' : ''}
+                <th>${cfg.titleKey.replace(/_/g, ' ')}</th>
+                <th>Details</th>
+                <th style="width:60px">Sort</th>
+                <th style="width:90px">Status</th>
+                <th style="width:190px;text-align:right">Actions</th>
+            </tr></thead>`;
+
+            const tbody = document.createElement('tbody');
+
+            slice.forEach((r, li) => {
+                const idx = (page - 1) * PAGE_SIZE + li;
+                const off = r.visible === false || r.published === false;
+                const tr = document.createElement('tr');
+                if (off) tr.className = 'hidden-row';
+
+                const imgCell = hasImg
+                    ? `<td>${r[cfg.imgKey] ? `<img class="thumb" src="${pub(r[cfg.imgKey])}" alt="" onerror="this.style.visibility='hidden'">` : ''}</td>`
                     : '';
                 const sub = (cfg.subKeys || []).map((k) => r[k]).filter(Boolean).join(' — ');
-                div.innerHTML = `${img}
-                    <div class="meta">
-                        <div class="title">${escapeHtml(String(r[cfg.titleKey] || r.id))}</div>
-                        <div class="sub">${escapeHtml(sub)}</div>
-                    </div>
-                    <div class="acts">
-                        <button type="button" class="icon-btn" title="move up">↑</button>
-                        <button type="button" class="icon-btn" title="move down">↓</button>
-                        <button type="button" class="icon-btn" title="show/hide">${(r.visible === false || r.published === false) ? '🚫' : '👁'}</button>
-                        <button type="button" class="icon-btn" title="edit">✏️</button>
-                        <button type="button" class="icon-btn del" title="delete">✕</button>
-                    </div>`;
-                const [up, down, vis, edit, del] = div.querySelectorAll('.icon-btn');
+
+                tr.innerHTML = `
+                    <td class="t-num">${idx + 1}</td>
+                    ${imgCell}
+                    <td><div class="t-title">${escapeHtml(String(r[cfg.titleKey] || r.id))}</div></td>
+                    <td><div class="t-sub">${escapeHtml(sub)}</div></td>
+                    <td class="t-num">${r.sort ?? ''}</td>
+                    <td><span class="status${off ? '' : ' on'}">${off ? 'hidden' : 'live'}</span></td>
+                    <td><div class="acts">
+                        <button type="button" class="icon-btn" title="Move up" ${idx === 0 ? 'disabled' : ''}>${ICONS.up}</button>
+                        <button type="button" class="icon-btn" title="Move down" ${idx === rows.length - 1 ? 'disabled' : ''}>${ICONS.down}</button>
+                        <button type="button" class="icon-btn" title="${off ? 'Show' : 'Hide'}">${off ? ICONS.eyeOff : ICONS.eye}</button>
+                        <button type="button" class="icon-btn" title="Edit">${ICONS.edit}</button>
+                        <button type="button" class="icon-btn del" title="Delete">${ICONS.trash}</button>
+                    </div></td>`;
+
+                const [up, down, vis, edit, del] = tr.querySelectorAll('.icon-btn');
                 up.onclick = () => move(idx, -1);
                 down.onclick = () => move(idx, 1);
                 vis.onclick = () => toggleVisible(r);
                 edit.onclick = () => openModal(r);
                 del.onclick = () => removeRow(r);
-                wrap.appendChild(div);
+                tbody.appendChild(tr);
             });
 
-            if (!rows.length) wrap.innerHTML = '<p class="hint">nothing here yet — add the first one.</p>';
+            table.appendChild(tbody);
+            tblWrap.appendChild(table);
+            wrap.appendChild(tblWrap);
+
+            // pagination — 20 rows per page
+            if (rows.length > PAGE_SIZE) {
+                const pager = document.createElement('div');
+                pager.className = 'pager';
+
+                const info = document.createElement('span');
+                info.className = 'pg-info';
+                info.textContent = `${(page - 1) * PAGE_SIZE + 1}–${Math.min(page * PAGE_SIZE, rows.length)} of ${rows.length}`;
+                pager.appendChild(info);
+
+                const prev = document.createElement('button');
+                prev.innerHTML = ICONS.prev;
+                prev.disabled = page === 1;
+                prev.onclick = () => { page--; renderTable(); };
+                pager.appendChild(prev);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const b = document.createElement('button');
+                    b.textContent = i;
+                    if (i === page) b.className = 'on';
+                    b.onclick = () => { page = i; renderTable(); };
+                    pager.appendChild(b);
+                }
+
+                const next = document.createElement('button');
+                next.innerHTML = ICONS.next;
+                next.disabled = page === totalPages;
+                next.onclick = () => { page++; renderTable(); };
+                pager.appendChild(next);
+
+                wrap.appendChild(pager);
+            }
+
             $('#content').replaceChildren(wrap);
         }
 
@@ -615,7 +791,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
 
         async function toggleVisible(r) {
             const key = ('published' in r) ? 'published' : 'visible';
-            const { error } = await sb.from(current).update({ [key]: !(r[key] !== false) ? true : false }).eq('id', r.id);
+            const { error } = await sb.from(current).update({ [key]: r[key] === false }).eq('id', r.id);
             if (error) toast(error.message, true);
             loadRows();
         }
@@ -651,7 +827,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
                 return `<div class="field" style="grid-column:1/-1"><label for="${id}">${f.label}</label>
                     <div class="upload-row">
                         <input id="${id}" type="text" value="${escapeHtml(String(v))}" placeholder="URL or assets/… path">
-                        <button type="button" class="btn ghost sm" onclick="uploadInto('${id}')">upload</button>
+                        <button type="button" class="btn ghost sm" onclick="uploadInto('${id}')">${ICONS.upload} upload</button>
                     </div></div>`;
             }
             if (f.t === 'number') return `<div class="field"><label for="${id}">${f.label}</label><input id="${id}" type="number" value="${v === '' ? 0 : v}"></div>`;
@@ -670,7 +846,7 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
                 if (error) return toast(error.message, true);
                 const { data } = sb.storage.from('media').getPublicUrl(path);
                 document.getElementById(inputId).value = data.publicUrl;
-                toast('uploaded ✓');
+                toast('uploaded');
             };
             picker.click();
         }
@@ -707,23 +883,25 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
             $('#modalSave').disabled = false;
             if (error) return toast(error.message, true);
             $('#modal').classList.remove('on');
-            toast('saved ✓');
+            toast('saved');
             loadRows();
         });
 
-        /* ---------- settings (key/value) ---------- */
+        /* ---------- settings (key/value + stats table editor) ---------- */
         async function renderSettings() {
             const { data, error } = await sb.from('site_settings').select('*');
             if (error) return toast(error.message, true);
             const map = Object.fromEntries(data.map((r) => [r.key, r.value]));
             const hero = map.hero || {};
+            const stats = Array.isArray(map.stats) ? map.stats : [];
+
             const el = document.createElement('div');
             el.innerHTML = `
                 <div class="grid2">
                     <div class="field" style="grid-column:1/-1"><label>resume url</label>
                         <div class="upload-row">
                             <input id="s_resume" type="text" value="${escapeHtml(String(map.resume_url || ''))}">
-                            <button type="button" class="btn ghost sm" onclick="uploadInto('s_resume')">upload pdf</button>
+                            <button type="button" class="btn ghost sm" onclick="uploadInto('s_resume')">${ICONS.upload} upload pdf</button>
                         </div>
                     </div>
                     <div class="field"><label>contact email</label><input id="s_email" type="email" value="${escapeHtml(String(map.contact_email || ''))}"></div>
@@ -731,26 +909,69 @@ $SB_ANON = isset($env['NEXT_PUBLIC_SUPABASE_ANON_KEY']) ? $env['NEXT_PUBLIC_SUPA
                     <div class="field"><label>hero title — line 1</label><input id="s_t1" value="${escapeHtml(String(hero.title_1 || ''))}"></div>
                     <div class="field"><label>hero title — line 2</label><input id="s_t2" value="${escapeHtml(String(hero.title_2 || ''))}"></div>
                     <div class="field" style="grid-column:1/-1"><label>hero copy</label><textarea id="s_copy">${escapeHtml(String(hero.copy || ''))}</textarea></div>
-                    <div class="field" style="grid-column:1/-1"><label>stats (JSON array)</label><textarea id="s_stats" class="big" style="min-height:140px">${escapeHtml(JSON.stringify(map.stats || [], null, 2))}</textarea></div>
                 </div>
+
+                <div class="field"><label>home-page stats</label></div>
+                <div class="tbl-wrap" style="margin-bottom:12px">
+                    <table class="tbl" id="statsTbl">
+                        <thead><tr>
+                            <th style="width:90px">Value</th>
+                            <th style="width:90px">Suffix</th>
+                            <th>Label</th>
+                            <th>Link text</th>
+                            <th>Link</th>
+                            <th style="width:52px"></th>
+                        </tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div style="display:flex;gap:10px;margin-bottom:26px">
+                    <button type="button" class="btn ghost sm" id="addStat">${ICONS.plus} add stat</button>
+                </div>
+
                 <button class="btn" id="saveSettings">save settings</button>`;
             $('#content').replaceChildren(el);
 
-            $('#saveSettings').onclick = async () => {
-                let stats;
-                try { stats = JSON.parse($('#s_stats').value); }
-                catch { return toast('stats: invalid JSON', true); }
+            const tbody = el.querySelector('#statsTbl tbody');
+
+            function statRow(s = {}) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="w-sm"><input type="number" data-k="value" value="${s.value ?? 0}"></td>
+                    <td class="w-sm"><input type="text" data-k="suffix" value="${escapeHtml(String(s.suffix ?? ''))}"></td>
+                    <td><input type="text" data-k="label" value="${escapeHtml(String(s.label ?? ''))}"></td>
+                    <td><input type="text" data-k="link_text" value="${escapeHtml(String(s.link_text ?? ''))}"></td>
+                    <td><input type="text" data-k="link" value="${escapeHtml(String(s.link ?? ''))}"></td>
+                    <td><div class="acts"><button type="button" class="icon-btn del" title="Remove">${ICONS.trash}</button></div></td>`;
+                tr.querySelector('.del').onclick = () => tr.remove();
+                tbody.appendChild(tr);
+            }
+
+            stats.forEach(statRow);
+            el.querySelector('#addStat').onclick = () => statRow();
+
+            el.querySelector('#saveSettings').onclick = async () => {
+                const newStats = [...tbody.querySelectorAll('tr')].map((tr) => {
+                    const get = (k) => tr.querySelector(`[data-k="${k}"]`).value;
+                    return {
+                        value: Number(get('value') || 0),
+                        suffix: get('suffix').trim(),
+                        label: get('label').trim(),
+                        link_text: get('link_text').trim(),
+                        link: get('link').trim(),
+                    };
+                });
                 const updates = [
                     { key: 'resume_url', value: $('#s_resume').value.trim() },
                     { key: 'contact_email', value: $('#s_email').value.trim() },
                     { key: 'hero', value: { eyebrow: $('#s_eyebrow').value, title_1: $('#s_t1').value, title_2: $('#s_t2').value, copy: $('#s_copy').value } },
-                    { key: 'stats', value: stats },
+                    { key: 'stats', value: newStats },
                 ];
                 for (const u of updates) {
                     const { error } = await sb.from('site_settings').upsert({ key: u.key, value: u.value, updated_at: new Date().toISOString() });
                     if (error) return toast(error.message, true);
                 }
-                toast('settings saved ✓');
+                toast('settings saved');
             };
         }
     </script>

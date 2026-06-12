@@ -31,6 +31,15 @@ if ($envPath) {
 // ---------- Supabase-backed content (static fallbacks below) ----------
 require_once __DIR__ . '/lib/supabase.php';
 
+// refresh everything this page needs in one parallel round trip
+sb_prefetch([
+    ['social_links', 'select=*&visible=eq.true&order=sort'],
+    ['site_settings', 'select=key,value'],
+    ['featured_projects', 'select=*&visible=eq.true&order=sort'],
+    ['gallery', 'select=*&visible=eq.true&order=sort'],
+    ['skills', 'select=*&visible=eq.true&order=sort'],
+]);
+
 $socials = sb_fetch('social_links', 'select=*&visible=eq.true&order=sort');
 if (!$socials) {
     $socials = [
@@ -45,6 +54,9 @@ if (!$socials) {
 
 $resumeUrl = sb_setting('resume_url', 'RESUME - VEESHAL.pdf');
 if (!is_string($resumeUrl)) $resumeUrl = 'RESUME - VEESHAL.pdf';
+
+$contactEmail = sb_setting('contact_email', 'work@veeshal.me');
+if (!is_string($contactEmail) || !$contactEmail) $contactEmail = 'work@veeshal.me';
 
 $heroCfg = sb_setting('hero', []);
 if (!is_array($heroCfg)) $heroCfg = [];
@@ -450,7 +462,7 @@ if (!$skills) {
 
                 <!-- Right Column: Form -->
                 <div class="contact-content">
-                    <h3 class="gmailTxt">drop a line — <a href="mailto:veebodosa@gmail.com">veebodosa@gmail.com</a></h3>
+                    <h3 class="gmailTxt">drop a line — <a href="mailto:<?php echo htmlspecialchars($contactEmail); ?>"><?php echo htmlspecialchars($contactEmail); ?></a></h3>
 
                     <form id="contactForm">
                         <div class="form-row">
@@ -553,7 +565,7 @@ if (!$skills) {
             <div class="footer-bottom">
                 <span>© 2026 veeshal d. bodosa</span>
                 <span>engineered with precision — crafted with passion</span>
-                <span><a href="mailto:veebodosa@gmail.com">veebodosa@gmail.com</a></span>
+                <span><a href="mailto:<?php echo htmlspecialchars($contactEmail); ?>"><?php echo htmlspecialchars($contactEmail); ?></a></span>
             </div>
         </footer>
 

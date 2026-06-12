@@ -27,6 +27,6 @@ $base = isset($base) ? $base : '';
     <div class="footer-bottom">
         <span>© 2026 veeshal d. bodosa</span>
         <span>engineered with precision — crafted with passion</span>
-        <span><a href="mailto:veebodosa@gmail.com">veebodosa@gmail.com</a></span>
+        <span><a href="mailto:work@veeshal.me">work@veeshal.me</a></span>
     </div>
 </footer>

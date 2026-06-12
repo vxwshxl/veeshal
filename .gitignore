@@ -8,3 +8,6 @@ assets/open-mic.mp4
 
 # OS Files
 .DS_Store
+
+# Supabase response cache
+lib/cache/

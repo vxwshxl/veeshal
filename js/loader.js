@@ -43,7 +43,7 @@ window.scrollTo(0, 0);
         ease: 'none',
     });
 
-    const countDur = fullMode ? 1.7 : 0.75;
+    const countDur = fullMode ? 1.7 : 0.5;
     const speed = { v: 0 };
     gsap.to(speed, {
         v: 100,
@@ -107,17 +107,17 @@ window.scrollTo(0, 0);
         // quick mode: wheel spins up in place, short and seamless
         tl.fromTo('.loader-wheel-wrap',
             { scale: 0.82, autoAlpha: 0 },
-            { scale: 1, autoAlpha: 1, duration: 0.45, ease: 'power3.out' }
+            { scale: 1, autoAlpha: 1, duration: 0.3, ease: 'power3.out' }
         )
-            .add(() => { spin.timeScale(1.8); }, 0.55)
-            .to('.loader-wheel-wrap', { scale: 0.9, autoAlpha: 0, duration: 0.4, ease: 'power3.in' }, 0.85)
-            .to('.loader-meta, .loader-speedo, .loader-line, .loader-road', { autoAlpha: 0, duration: 0.25 }, 0.9)
-            .add(reveal, 1.0)
+            .add(() => { spin.timeScale(1.8); }, 0.35)
+            .to('.loader-wheel-wrap', { scale: 0.9, autoAlpha: 0, duration: 0.3, ease: 'power3.in' }, 0.5)
+            .to('.loader-meta, .loader-speedo, .loader-line, .loader-road', { autoAlpha: 0, duration: 0.2 }, 0.5)
+            .add(reveal, 0.62)
             .to(loader, {
                 clipPath: 'inset(0% 0% 100% 0%)',
-                duration: 0.65,
+                duration: 0.55,
                 ease: 'power4.inOut',
-            }, 1.0)
+            }, 0.62)
             .add(() => { spin.kill(); killLoader(); });
     }
 
