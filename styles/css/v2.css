@@ -338,7 +338,7 @@ body.cursor-hover .cursor-ring {
    ------------------------------------------------------------ */
 .scroll-wheel {
     position: fixed;
-    left: 22px;
+    right: 22px;
     bottom: 22px;
     width: 52px;
     height: 52px;
@@ -463,9 +463,9 @@ body.is-ready .scroll-wheel {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: clamp(24px, 4vw, 64px);
-    padding: clamp(28px, 5vh, 64px) var(--gutter) clamp(48px, 8vh, 96px);
+    padding: clamp(16px, 2.5vh, 36px) var(--gutter) clamp(20px, 3vh, 44px);
     align-items: center;
-    min-height: calc(100svh - 90px);
+    min-height: calc(100svh - 88px);
 }
 
 .hero-eyebrow {
@@ -486,11 +486,11 @@ body.is-ready .scroll-wheel {
 .hero-title {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(64px, 11vw, 170px);
+    font-size: clamp(52px, min(9.5vw, 13vh), 150px);
     line-height: 0.92;
     letter-spacing: -0.03em;
     text-transform: lowercase;
-    margin-bottom: clamp(18px, 3vh, 30px);
+    margin-bottom: clamp(10px, 1.6vh, 22px);
 }
 
 .hero-title .line {
@@ -528,7 +528,7 @@ body.is-ready .scroll-wheel {
     font-weight: 500;
     color: var(--muted);
     max-width: 46ch;
-    margin-bottom: clamp(22px, 3.5vh, 36px);
+    margin-bottom: clamp(16px, 2.2vh, 26px);
 }
 
 .hero-copy strong {
@@ -541,7 +541,7 @@ body.is-ready .scroll-wheel {
     align-items: center;
     flex-wrap: wrap;
     gap: 0;
-    margin-bottom: 24px;
+    margin-bottom: clamp(14px, 1.8vh, 22px);
 }
 
 .social-icon {
@@ -577,7 +577,7 @@ body.is-ready .scroll-wheel {
     align-items: center;
     flex-wrap: wrap;
     gap: 14px;
-    margin-bottom: clamp(36px, 6vh, 64px);
+    margin-bottom: clamp(16px, 2.4vh, 30px);
 }
 
 .cta-row .btn-pill.cta-secondary {
@@ -616,13 +616,13 @@ body.is-ready .scroll-wheel {
     display: flex;
     gap: clamp(24px, 4vw, 64px);
     border-top: 1px solid var(--line);
-    padding-top: clamp(18px, 2.5vh, 28px);
+    padding-top: clamp(12px, 1.8vh, 20px);
 }
 
 .stat-item h2 {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(34px, 4vw, 58px);
+    font-size: clamp(30px, 3.4vw, 50px);
     line-height: 1;
 }
 
@@ -657,10 +657,13 @@ body.is-ready .scroll-wheel {
     transform: rotate(2deg);
     box-shadow: 24px 24px 0 -6px var(--amber);
     will-change: transform;
+    /* keep the portrait within the viewport on desktop so the hero fits 100vh */
+    max-height: calc(100svh - 150px);
 }
 
 .portrait-card img {
     width: 100%;
+    height: 100%;
     aspect-ratio: 1 / 1.08;
     object-fit: cover;
     transform: scale(1.12);
@@ -1704,6 +1707,7 @@ body.is-ready .scroll-wheel {
 
     .portrait-card {
         max-width: 480px;
+        max-height: none;
         margin: 0 auto;
         box-shadow: 14px 14px 0 -4px var(--amber);
     }
