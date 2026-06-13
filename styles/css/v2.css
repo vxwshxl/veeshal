@@ -540,11 +540,12 @@ body.is-ready .scroll-wheel {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 0;
     margin-bottom: 24px;
 }
 
 .social-icon {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -555,12 +556,19 @@ body.is-ready .scroll-wheel {
     text-decoration: none;
     font-family: var(--font-mono);
     font-size: 12px;
-    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, z-index 0s;
+}
+
+/* overlap each icon onto its neighbour to form the crossed-circle chain */
+.social-icon + .social-icon {
+    margin-left: -5px;
 }
 
 .social-icon:hover {
     background: var(--ink);
     color: var(--amber);
+    z-index: 3;
     transform: translateY(-4px) rotate(-8deg);
 }
 
@@ -1011,15 +1019,15 @@ body.is-ready .scroll-wheel {
    ------------------------------------------------------------ */
 .portfolio {
     position: relative;
-    padding: 0 var(--gutter) clamp(56px, 9vh, 110px);
+    padding: 0 var(--gutter) clamp(32px, 5vh, 64px);
 }
 
 .portfolio-grid {
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: clamp(12px, 1.6vw, 24px);
-    max-width: 1280px;
+    gap: clamp(10px, 1.4vw, 20px);
+    max-width: 1080px;
     margin: 0 auto;
 }
 
@@ -1032,10 +1040,11 @@ body.is-ready .scroll-wheel {
     will-change: transform;
 }
 
+/* uniform, compact image cards — every card the same height, no stagger */
 .portfolio .card img {
+    display: block;
     width: 100%;
-    height: 100%;
-    aspect-ratio: 4 / 4.6;
+    height: clamp(150px, 27vh, 290px);
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease;
 }
@@ -1045,26 +1054,24 @@ body.is-ready .scroll-wheel {
     filter: saturate(1.15);
 }
 
-.portfolio .card:nth-child(even) {
-    margin-top: clamp(24px, 4vw, 56px);
-}
-
 .portfolio-title {
     position: absolute;
-    top: 44%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: clamp(64px, 13vw, 210px);
+    line-height: 0.9;
     color: var(--amber);
     text-transform: lowercase;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     pointer-events: none;
     z-index: 2;
     white-space: nowrap;
-    mix-blend-mode: hard-light;
-    text-shadow: 0 10px 60px rgba(17, 17, 16, 0.25);
+    text-shadow: 0 14px 70px rgba(17, 17, 16, 0.28);
 }
 
 .portfolio .card.last-card {
@@ -1796,12 +1803,21 @@ body.is-ready .scroll-wheel {
         text-align: center;
     }
 
+    /* keep the same 3-column format on phone/tablet, just smaller */
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
     }
 
-    .portfolio .card:nth-child(even) { margin-top: 0; }
-    .portfolio .card:nth-child(odd) { margin-top: clamp(16px, 5vw, 32px); }
+    .portfolio .card img {
+        height: clamp(96px, 19vh, 150px);
+    }
+
+    .portfolio-title {
+        top: 47%;
+        font-size: clamp(40px, 13vw, 96px);
+        letter-spacing: -0.04em;
+    }
 
     .close-btn { top: 8px; right: 8px; }
 
