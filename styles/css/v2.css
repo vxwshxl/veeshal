@@ -1640,6 +1640,8 @@ body.is-ready .scroll-wheel {
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
+    /* keep the email clear of the fixed bottom-right scroll-to-top wheel */
+    padding-right: 64px;
     padding-top: 20px;
     border-top: 1px solid var(--line-dark);
     font-family: var(--font-mono);
@@ -1725,6 +1727,9 @@ body.is-ready .scroll-wheel {
     }
 
     .scroll-cue { display: none; }
+
+    /* wheel is hidden at this width, so the email can use full width */
+    .footer-bottom { padding-right: 0; }
 
     .section-head {
         flex-direction: column;

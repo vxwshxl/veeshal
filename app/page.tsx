@@ -207,15 +207,6 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="scroll-cue mono">
-            scroll
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="12" x2="12" y2="3" />
-              <line x1="12" y1="12" x2="19" y2="16" />
-              <line x1="12" y1="12" x2="5" y2="16" />
-            </svg>
-          </div>
         </section>
 
         {/* ===================== SHOWREEL ===================== */}
