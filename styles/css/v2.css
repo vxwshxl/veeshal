@@ -541,7 +541,7 @@ body.is-ready .scroll-wheel {
     align-items: center;
     flex-wrap: wrap;
     gap: 0;
-    margin-bottom: clamp(14px, 1.8vh, 22px);
+    margin-bottom: clamp(16px, 2vh, 24px);
 }
 
 .social-icon {
