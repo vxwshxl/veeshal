@@ -7,13 +7,6 @@ NODE_OPTIONS="--max-old-space-size=4096" pnpm build
 pm2 restart veeshal --update-env
 ```
 
-
-cd /var/www/veeshal
-git pull origin main
-pnpm install --frozen-lockfile
-pnpm build
-pm2 reload veeshal --update-env
-
 # Deploying the Next.js site to the VPS (nginx)
 
 The repo is now a pure Next.js app at its root (the PHP files were removed).
