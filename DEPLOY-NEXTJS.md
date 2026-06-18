@@ -1,8 +1,8 @@
 cd /var/www/veeshal
 git pull origin main
-npm ci
-npm run build
-sudo systemctl restart veeshal-next
+pnpm install --frozen-lockfile
+pnpm build
+pm2 reload veeshal --update-env
 
 # Deploying the Next.js site to the VPS (nginx)
 
@@ -13,7 +13,8 @@ reverse proxy.
 > **Port note:** this box already runs other Next apps — `3000`
 > (anglo-bodo-dictionary / bodookhrang), `3001` (ku-app), `8000` (supabase).
 > veeshal uses **3002** to avoid an `EADDRINUSE` collision. If you change it,
-> change it in both the systemd unit (`PORT=`) and the nginx `proxy_pass`.
+> change it in both the `PORT=` of the `pm2 start` command (delete + recreate the
+> process) and the nginx `proxy_pass`.
 
 > **Before you pull on the VPS:** the old PHP is gone from the repo, so the next
 > `git pull` will remove the PHP files from the server. Do steps 1–5 in one
@@ -23,12 +24,18 @@ reverse proxy.
 
 ---
 
-## 1. One-time: install Node 22 LTS on the VPS
+## 1. One-time: install Node 22 LTS + pnpm on the VPS
 
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt install -y nodejs
 node -v   # should print v22.x
+
+# Enable pnpm via Corepack (ships with Node 22; respects the
+# "packageManager" field in package.json, so versions stay in sync)
+sudo corepack enable
+corepack prepare pnpm@10.26.2 --activate
+pnpm -v   # should print 10.26.2
 ```
 
 ## 2. One-time: env file on the VPS
@@ -55,41 +62,40 @@ EMAILJS_PUBLIC_KEY=...
 
 ```bash
 cd /var/www/veeshal
-git pull origin main    # removes PHP, brings the Next app to the root
-npm ci                  # clean install from package-lock.json
-npm run build
+git pull origin main            # removes PHP, brings the Next app to the root
+pnpm install --frozen-lockfile  # clean install from pnpm-lock.yaml
+pnpm build                      # sharp builds via pnpm.onlyBuiltDependencies in package.json
 ```
 
-## 4. One-time: run Next as a systemd service
+## 4. One-time: run Next under PM2
 
-Create `/etc/systemd/system/veeshal-next.service`:
-
-```ini
-[Unit]
-Description=veeshal.me Next.js
-After=network.target
-
-[Service]
-Type=simple
-User=www-data
-WorkingDirectory=/var/www/veeshal
-# next start serves the production build on 127.0.0.1:3002
-ExecStart=/usr/bin/npm run start
-Restart=always
-Environment=NODE_ENV=production
-Environment=PORT=3002
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Enable + start it:
+Create a new PM2 process named `veeshal`, running Next directly via node on
+`127.0.0.1:3002` — the same way the other apps on this box (`bodo`, `ku`) are
+managed by PM2.
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl enable --now veeshal-next
-sudo systemctl status veeshal-next      # active (running)
+cd /var/www/veeshal
+PORT=3002 pm2 start node_modules/next/dist/bin/next --name veeshal -- start
+pm2 save                                # persist so it survives reboots
+pm2 list                                # veeshal should be "online"
 wget -qO- http://127.0.0.1:3002 | head  # Next is responding
+```
+
+After this, every deploy just reloads it: `pm2 reload veeshal --update-env`.
+
+> If PM2 isn't yet set to launch on boot, run `pm2 startup` once and follow the
+> printed command (you likely already did this for `bodo`/`ku`).
+
+### Migrating off the old systemd service (one-time, if it exists)
+
+veeshal previously ran under systemd. Remove it so the two don't fight over the
+port:
+
+```bash
+sudo systemctl stop veeshal-next
+sudo systemctl disable veeshal-next
+sudo rm /etc/systemd/system/veeshal-next.service
+sudo systemctl daemon-reload
 ```
 
 ## 5. Point nginx at Next
@@ -161,17 +167,15 @@ sudo systemctl restart php8.4-fpm
 ```yaml
 cd ${{ secrets.VPS_PATH }}
 git pull origin main
-npm ci
-npm run build
-sudo systemctl restart veeshal-next
+pnpm install --frozen-lockfile
+pnpm build
+pm2 reload veeshal --update-env
 ```
 
-Give the deploy user passwordless restart rights for just this unit
-(`sudo visudo`, add):
-
-```
-www-data ALL=(ALL) NOPASSWD: /bin/systemctl restart veeshal-next
-```
+No `sudo` is needed — PM2 runs as the deploy user (`VPS_USER`), so make sure the
+SSH deploy user is the **same user that owns the PM2 daemon** running `bodo`/`ku`
+(on this box that's `root`). The old `systemctl` sudoers line is no longer
+required and can be removed from `sudo visudo`.
 
 Once Next is live you can `sudo systemctl disable --now php8.4-fpm` and
 `sudo apt remove php8.4-fpm` if nothing else on the box uses PHP.

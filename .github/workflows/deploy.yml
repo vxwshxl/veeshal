@@ -20,6 +20,6 @@ jobs:
           script: |
             cd ${{ secrets.VPS_PATH }}
             git pull origin main
-            npm ci
-            npm run build
-            sudo systemctl restart veeshal-next
+            pnpm install --frozen-lockfile
+            pnpm build
+            pm2 reload veeshal --update-env
