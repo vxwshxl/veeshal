@@ -15,3 +15,6 @@ next-env.d.ts
 /public/assets/GDG.mp4
 /public/assets/HITR.mp4
 /public/assets/open-mic.mp4
+
+# supabase cli state
+supabase/.temp/
