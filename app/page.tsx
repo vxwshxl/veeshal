@@ -91,6 +91,7 @@ export default async function Home() {
       { info: 'Travel', name: 'Andaman & Nicobar Islands', tag: 'Video Editing', url: 'https://www.youtube.com/watch?v=gBvocwLObFQ', video: null, image: null, hover_src: 'assets/projects/5.webp' },
       { info: 'Event', name: 'GOOGLE DEV GROUP - 2025', tag: 'Video Editing', url: null, video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4', image: null, hover_src: 'assets/projects/6.webp' },
       { info: 'Event', name: 'Open Mic RGU - 2025', tag: 'Video Editing', url: null, video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4', image: null, hover_src: 'assets/projects/7.webp' },
+      { info: 'Music Video', name: 'Jery Brahma - That’s What You Face', tag: 'Video Editing', url: 'https://www.youtube.com/watch?v=AQIcq3OWTNs', video: null, image: null, hover_src: 'assets/projects/13.webp' },
       { info: 'Event', name: 'Badminton Tournament', tag: 'Banner Editing', url: null, video: null, image: 'assets/projects/8.webp', hover_src: 'assets/projects/8.webp' },
       { info: 'Tool', name: 'BODOअख्रां Pvt. Ltd. Logo', tag: 'Logo Design', url: null, video: null, image: 'assets/projects/9.webp', hover_src: 'assets/projects/9.webp' },
       { info: 'Local Shop', name: 'My Tea', tag: 'Banner Editing', url: null, video: null, image: 'assets/projects/10.webp', hover_src: 'assets/projects/10.webp' },
