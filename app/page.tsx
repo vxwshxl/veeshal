@@ -76,7 +76,7 @@ export default async function Home() {
     stats = [
       { value: 5, suffix: '', label: 'Developed Live', link_text: 'Coding Projects', link: 'projects' },
       { value: 15, suffix: '', label: 'Edited High-Quality', link_text: 'Video Projects', link: 'projects' },
-      { value: 50, suffix: 'k', label: 'Monthly Visitors for', link_text: 'Bodo Okhrang', link: 'https://bodookhrang.com' },
+      { value: 5, suffix: 'k', label: 'Monthly Visitors for', link_text: 'Bodo Okhrang', link: 'https://bodookhrang.com' },
     ];
   }
 
@@ -108,8 +108,8 @@ export default async function Home() {
   if (!skills) {
     const skillFiles: Record<string, string> = {
       'React Native': 'react-native', Flutter: 'flutter', 'Tailwind CSS': 'tailwind', Expo: 'expo',
-      PHP: 'php', MySQL: 'mysql', PostgreSQL: 'postgreSQL', 'Adobe Premiere': 'premiere',
-      'DaVinci Resolve': 'davinci', CapCut: 'capcut', Figma: 'figma', Krita: 'krita', Canva: 'canva', Jitter: 'jitter',
+      PHP: 'php', MySQL: 'mysql', PostgreSQL: 'postgreSQL', Supabase: 'supabase',
+      'Final Cut Pro': 'final-cut-pro', CapCut: 'capcut', Figma: 'figma', Krita: 'krita', Canva: 'canva', Jitter: 'jitter',
     };
     skills = Object.entries(skillFiles).map(([name, sf]) => ({ name, icon_url: `assets/skills/${sf}.png` }));
   }
