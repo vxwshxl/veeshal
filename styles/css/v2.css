@@ -865,9 +865,12 @@ body.is-ready .scroll-wheel {
     pointer-events: none;
 }
 
+/* padding, not margin: the gap has to stay inside the section so the
+   transport row lands on the dark ground instead of being clipped away */
 .reel-stagewrap {
     position: relative;
-    margin: 0 var(--gutter) clamp(64px, 10vh, 120px);
+    margin: 0 var(--gutter);
+    padding-bottom: clamp(24px, 5vh, 58px);
 }
 
 .reel-frame {
@@ -999,13 +1002,11 @@ body.reel-playing .grain { opacity: 0; }
 /* the transport bar — lives in the gap under the frame and only shows
    itself while a film is playing */
 .reel-controls {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
     display: flex;
     align-items: center;
     gap: 16px;
+    /* the row always holds its space, so hitting play shifts nothing */
+    min-height: 62px;
     padding-top: 18px;
     opacity: 0;
     visibility: hidden;
@@ -1208,30 +1209,36 @@ body.reel-playing .grain { opacity: 0; }
 }
 
 /* film picker — reads like a timeline; the active bar counts down the hold */
+/* spans the frame so the row centres on the film, not on half of it;
+   the strip itself is click-through so the poster underneath stays hot */
 .reel-picker {
     position: absolute;
     top: clamp(14px, 1.6vw, 24px);
-    right: clamp(14px, 1.6vw, 24px);
+    left: 0;
+    right: 0;
     z-index: 5;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
+    padding: 0 16px;
+    pointer-events: none;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .reel-frame.is-playing .reel-picker {
     opacity: 0;
     transform: translateY(-8px);
-    pointer-events: none;
 }
 
 .reel-chip {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    min-height: 44px;
-    padding: 0 16px;
+    min-height: 32px;
+    padding: 0 14px;
     border: 1px solid var(--line-dark);
     border-radius: 999px;
     background: rgba(17, 17, 16, 0.45);
@@ -1242,7 +1249,14 @@ body.reel-playing .grain { opacity: 0; }
     letter-spacing: 0.18em;
     text-transform: uppercase;
     cursor: pointer;
+    pointer-events: auto;
     transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.reel-chip::after {
+    content: "";
+    position: absolute;
+    inset: -6px 0;
 }
 
 .reel-chip:hover {
@@ -1302,22 +1316,16 @@ body.reel-playing .grain { opacity: 0; }
 }
 
 @media (max-width: 640px) {
-    /* small frames: lay the picker along the top so it clears the
-       right-rail control */
-    .reel-picker {
-        flex-direction: row;
-        align-items: center;
-        left: clamp(14px, 1.6vw, 24px);
-        right: auto;
-    }
+    .reel-picker { gap: 6px; }
 
     .reel-chip {
-        padding: 0 12px;
-        letter-spacing: 0.12em;
+        padding: 0 10px;
+        gap: 8px;
+        letter-spacing: 0.1em;
     }
 
     .reel-chip .bar {
-        width: 28px;
+        width: 22px;
     }
 }
 

@@ -266,7 +266,7 @@ export default async function Home() {
               </div>
 
               <div id="videoContainer" style={{ position: 'relative', display: 'none' }}>
-                <video id="introVideo" muted playsInline preload="none" style={{ width: '100%', height: '100%', objectFit: 'cover' }}></video>
+                <video id="introVideo" muted playsInline preload="none"></video>
               </div>
 
               <div className="reel-picker" role="group" aria-label="Choose a film">

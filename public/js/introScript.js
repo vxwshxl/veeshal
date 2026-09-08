@@ -23,15 +23,18 @@
 
     let current = Math.max(0, slides.findIndex((s) => s.classList.contains('is-active')));
     let timer = null;
-    let isPlaying = false;
     let held = false;      // pointer/focus is on the frame — hold this poster
     let inView = true;     // the reel is on screen
     let tabVisible = !document.hidden;
 
     /* ---------------- poster loop ---------------- */
 
+    function playing() {
+        return !video.paused && !video.ended;
+    }
+
     function canCycle() {
-        return !reduceMotion && !isPlaying && !held && inView && tabVisible && slides.length > 1;
+        return !reduceMotion && !playing() && !held && inView && tabVisible && slides.length > 1;
     }
 
     function stopTimer() {
@@ -45,7 +48,7 @@
     }
 
     function syncVideoSrc() {
-        if (isPlaying) return; // never yank the source out from under a playing film
+        if (playing()) return; // never yank the source out from under a playing film
         const src = slides[current].dataset.video || '';
         if (src && video.getAttribute('src') !== src) {
             video.setAttribute('src', src); // preload="none", so this costs nothing yet
@@ -85,8 +88,9 @@
     /* ---------------- playback ---------------- */
 
     function updateButtonIcon() {
-        if (playIcon) playIcon.style.display = isPlaying ? 'none' : 'block';
-        if (pauseIcon) pauseIcon.style.display = isPlaying ? 'block' : 'none';
+        const on = playing();
+        if (playIcon) playIcon.style.display = on ? 'none' : 'block';
+        if (pauseIcon) pauseIcon.style.display = on ? 'block' : 'none';
     }
 
     function showVideo() {
@@ -101,7 +105,7 @@
 
     // plays whichever film is on screen right now
     function playVideo() {
-        if (isPlaying) return;
+        if (playing()) return;
         stopTimer();
         syncVideoSrc();
         if (!video.getAttribute('src')) return;
@@ -113,7 +117,6 @@
             // autoplay policy blocked the unmuted start — fall back to muted
             video.muted = true;
             video.play().catch(() => {
-                isPlaying = false;
                 updateButtonIcon();
                 showThumbnail();
                 document.body.classList.remove('reel-playing');
@@ -127,7 +130,7 @@
     }
 
     function togglePlayPause() {
-        if (isPlaying) pauseVideo();
+        if (playing()) pauseVideo();
         else playVideo();
     }
 
@@ -148,7 +151,6 @@
     });
 
     video.addEventListener('play', () => {
-        isPlaying = true;
         stopTimer();
         updateButtonIcon();
         showVideo();
@@ -156,7 +158,6 @@
     });
 
     video.addEventListener('pause', () => {
-        isPlaying = false;
         updateButtonIcon();
         showThumbnail();
         document.body.classList.remove('reel-playing');
@@ -164,7 +165,6 @@
     });
 
     video.addEventListener('ended', () => {
-        isPlaying = false;
         video.currentTime = 0;
         updateButtonIcon();
         showThumbnail();
