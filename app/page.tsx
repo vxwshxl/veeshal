@@ -226,7 +226,7 @@ export default async function Home() {
 
           <div className="reel-frame">
             <div id="imageContainer" style={{ position: 'relative', display: 'block' }}>
-              <img id="introImage" src="/assets/hitr.jpg" style={{ display: 'block', cursor: 'pointer' }} alt="Video Thumbnail" />
+              <img id="introImage" src="/assets/hitr.webp" style={{ display: 'block', cursor: 'pointer' }} alt="Video Thumbnail" />
               <button id="playBtn" className="play-pause-btn" aria-label="Play showreel">
                 <svg id="playIcon" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <polygon points="5,3 19,12 5,21" fill="currentColor" />
