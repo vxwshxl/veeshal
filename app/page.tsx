@@ -37,6 +37,26 @@ type Featured = {
 type Gallery = { image_url: string; alt?: string | null };
 type Skill = { name: string; icon_url: string };
 
+// Showreel: the films that cross-cut on the poster loop until one is played.
+const REELS = [
+  {
+    slug: 'hitr',
+    name: 'hitr',
+    title: "hitr — showreel '26",
+    poster: '/assets/hitr.webp',
+    alt: 'Hunt in the Rain — showreel thumbnail',
+    video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4',
+  },
+  {
+    slug: 'treasures',
+    name: 'treasures',
+    title: "treasures — showreel '26",
+    poster: '/assets/treasures.webp',
+    alt: "Treasures — how's your little hobby going? — showreel thumbnail",
+    video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/treasures.mp4',
+  },
+];
+
 // Internal "projects"/"timeline" → "/projects"; external http(s) passes through.
 function navHref(link: string): { href: string; external: boolean } {
   const external = /^https?:\/\//.test(link);
@@ -224,30 +244,68 @@ export default async function Home() {
             <p className="section-note">hit play — sound on for the full ride.</p>
           </div>
 
-          <div className="reel-frame">
-            <div id="imageContainer" style={{ position: 'relative', display: 'block' }}>
-              <img id="introImage" src="/assets/hitr.webp" style={{ display: 'block', cursor: 'pointer' }} alt="Video Thumbnail" />
-              <button id="playBtn" className="play-pause-btn" aria-label="Play showreel">
-                <svg id="playIcon" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <polygon points="5,3 19,12 5,21" fill="currentColor" />
-                </svg>
-              </button>
+          <div className="reel-stagewrap">
+            <div className="reel-frame">
+              <div id="imageContainer" className="reel-stage">
+                {REELS.map((r, i) => (
+                  <div
+                    key={r.slug}
+                    className={'reel-slide' + (i === 0 ? ' is-active' : '')}
+                    data-video={r.video}
+                    data-title={r.title}
+                  >
+                    <img src={r.poster} alt={r.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+                  </div>
+                ))}
+                <span className="reel-wipe" aria-hidden="true"></span>
+                <button id="playBtn" className="play-pause-btn" aria-label="Play showreel">
+                  <svg id="playIcon" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="5,3 19,12 5,21" fill="currentColor" />
+                  </svg>
+                </button>
+              </div>
+
+              <div id="videoContainer" style={{ position: 'relative', display: 'none' }}>
+                <video id="introVideo" muted playsInline preload="none" style={{ width: '100%', height: '100%', objectFit: 'cover' }}></video>
+              </div>
+
+              <div className="reel-picker" role="group" aria-label="Choose a film">
+                {REELS.map((r, i) => (
+                  <button
+                    key={r.slug}
+                    type="button"
+                    className={'reel-chip' + (i === 0 ? ' is-active' : '')}
+                    data-reel-go={i}
+                    aria-label={`Show ${r.name}`}
+                  >
+                    <span className="n">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="t">{r.name}</span>
+                    <span className="bar" aria-hidden="true"><i></i></span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="reel-bar">
+                <span className="rec">rec</span>
+                <span data-reel-slug>{REELS[0].title}</span>
+                <span>16:9 / 4k</span>
+              </div>
             </div>
 
-            <div id="videoContainer" style={{ position: 'relative', display: 'none' }}>
-              <video id="introVideo" src="https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4" loop muted playsInline preload="auto" style={{ width: '100%', height: '100%', objectFit: 'cover' }}></video>
-              <button id="pauseBtn" className="play-pause-btn" aria-label="Pause showreel">
-                <svg id="pauseIcon" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
+            {/* while a film plays nothing sits on top of it — the controls
+                and the slate drop down here instead */}
+            <div className="reel-controls">
+              <button id="pauseBtn" className="reel-ctrl" aria-label="Pause showreel">
+                <svg id="pauseIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
                   <rect x="6" y="4" width="4" height="16" fill="currentColor" />
                   <rect x="14" y="4" width="4" height="16" fill="currentColor" />
                 </svg>
               </button>
-            </div>
-
-            <div className="reel-bar">
-              <span className="rec">rec</span>
-              <span>hitr — showreel &apos;26</span>
-              <span>16:9 / 4k</span>
+              <span className="reel-ctrl-slate">
+                <span className="rec">rec</span>
+                <span data-reel-slug>{REELS[0].title}</span>
+              </span>
+              <span className="reel-ctrl-spec">16:9 / 4k</span>
             </div>
           </div>
         </section>

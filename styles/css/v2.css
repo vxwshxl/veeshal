@@ -865,9 +865,13 @@ body.is-ready .scroll-wheel {
     pointer-events: none;
 }
 
-.reel-frame {
+.reel-stagewrap {
     position: relative;
     margin: 0 var(--gutter) clamp(64px, 10vh, 120px);
+}
+
+.reel-frame {
+    position: relative;
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--line-dark);
@@ -879,10 +883,20 @@ body.is-ready .scroll-wheel {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 2;
     background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 4px);
     pointer-events: none;
     opacity: 0.5;
+    transition: opacity 0.35s ease;
 }
+
+/* nothing sits on the film while it plays: no scanlines, no slate,
+   no zoom left over from the scroll reveal */
+.reel-frame.is-playing::after { opacity: 0; }
+
+.reel-frame.is-playing video { transform: none !important; }
+
+body.reel-playing .grain { opacity: 0; }
 
 .reel-frame img,
 .reel-frame video {
@@ -906,6 +920,7 @@ body.is-ready .scroll-wheel {
 
 .reel-bar {
     position: absolute;
+    transition: opacity 0.35s ease;
     left: 0;
     right: 0;
     bottom: 0;
@@ -921,6 +936,12 @@ body.is-ready .scroll-wheel {
     color: var(--paper);
     background: linear-gradient(transparent, rgba(17, 17, 16, 0.85));
     pointer-events: none;
+}
+
+.reel-frame.is-playing .reel-bar {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
 }
 
 .reel-bar .rec {
@@ -945,8 +966,8 @@ body.is-ready .scroll-wheel {
 .play-pause-btn {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: clamp(20px, 4vw, 72px);
+    transform: translateY(-50%);
     z-index: 4;
     width: clamp(72px, 9vw, 110px);
     height: clamp(72px, 9vw, 110px);
@@ -961,7 +982,7 @@ body.is-ready .scroll-wheel {
     cursor: pointer;
     transition:
         top 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-        left 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        right 0.6s cubic-bezier(0.22, 1, 0.36, 1),
         width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
         height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
         transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
@@ -970,50 +991,333 @@ body.is-ready .scroll-wheel {
 }
 
 .play-pause-btn:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1);
     background: var(--amber);
     color: var(--ink);
 }
 
-/* desktop: while the film plays, the control glides up to the top-right
-   so it stops covering the frame */
+/* the transport bar — lives in the gap under the frame and only shows
+   itself while a film is playing */
+.reel-controls {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.reel-frame.is-playing ~ .reel-controls {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s, visibility 0s;
+}
+
+.reel-ctrl {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(248, 247, 243, 0.35);
+    background: transparent;
+    color: var(--amber);
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.reel-ctrl:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--ink);
+}
+
+.reel-ctrl:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+}
+
+.reel-ctrl-slate,
+.reel-ctrl-spec {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(248, 247, 243, 0.75);
+}
+
+.reel-ctrl-spec {
+    margin-left: auto;
+    color: rgba(248, 247, 243, 0.45);
+}
+
+.reel-ctrl-slate .rec {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reel-ctrl-slate .rec::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--coral);
+    animation: blink 1.2s steps(2) infinite;
+}
+
+@media (max-width: 640px) {
+    .reel-ctrl-spec { display: none; }
+}
+
+/* ------------------------------------------------------------
+   SHOWREEL SWITCHER
+   two films cross-cut on the poster loop; click the one on screen
+   ------------------------------------------------------------ */
+.reel-frame {
+    --reel-dwell: 4600ms;
+    --reel-cut: 900ms;
+}
+
+.reel-stage {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--ink-2);
+}
+
 @media (min-width: 1025px) {
-    .reel-frame.is-playing .play-pause-btn {
-        top: 24px;
-        left: calc(100% - 24px);
-        width: 56px;
-        height: 56px;
-        transform: translate(-100%, 0);
-    }
-
-    .reel-frame.is-playing .play-pause-btn:hover {
-        transform: translate(-100%, 0) scale(1.1);
-    }
-
-    .reel-frame.is-playing .play-pause-btn svg {
-        width: 18px;
-        height: 18px;
+    .reel-stage {
+        aspect-ratio: auto;
+        height: 86vh;
+        max-height: 90vh;
     }
 }
 
-/* mobile/tablet: while the film plays, glide the control to the top-right
-   so it stops covering the frame (mirrors the desktop behaviour) */
-@media (max-width: 1024px) {
-    .reel-frame.is-playing .play-pause-btn {
-        top: 16px;
-        left: calc(100% - 16px);
-        width: 46px;
-        height: 46px;
-        transform: translate(-100%, 0);
+.reel-slide {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* the stacked posters fill the stage — the frame-wide sizing rules
+   above are for the single-image layout this replaced */
+.reel-frame .reel-slide img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+
+.reel-slide.is-active {
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+    animation:
+        reelCutIn var(--reel-cut) cubic-bezier(0.22, 1, 0.36, 1) both,
+        reelDrift calc(var(--reel-dwell) + var(--reel-cut)) linear var(--reel-cut) forwards;
+}
+
+.reel-slide.is-leaving {
+    z-index: 1;
+    visibility: visible;
+    animation: reelCutOut var(--reel-cut) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes reelCutIn {
+    0% {
+        clip-path: polygon(107% 0, 107% 0, 100% 100%, 100% 100%);
+        filter: brightness(1.75) saturate(0.25) contrast(1.1);
+    }
+    55% {
+        filter: brightness(1.06) saturate(0.9) contrast(1);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, -7% 100%);
+        filter: none;
+    }
+}
+
+@keyframes reelCutOut {
+    0% {
+        opacity: 1;
+        filter: none;
+        transform: scale(1.03);
+    }
+    100% {
+        opacity: 0.25;
+        filter: brightness(0.5) saturate(0.4);
+        transform: scale(1.06);
+    }
+}
+
+/* slow push-in while a poster holds the frame */
+@keyframes reelDrift {
+    from { transform: scale(1); }
+    to   { transform: scale(1.045); }
+}
+
+/* the splice: an amber light bar that rides the cut edge */
+.reel-wipe {
+    position: absolute;
+    top: -8%;
+    bottom: -8%;
+    left: 0;
+    width: 16%;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-120%) skewX(-7deg);
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(249, 182, 70, 0.12) 35%,
+        rgba(255, 255, 255, 0.85) 60%,
+        rgba(249, 182, 70, 0.35) 72%,
+        transparent);
+    mix-blend-mode: screen;
+    filter: blur(1px);
+}
+
+.reel-wipe.is-sweeping {
+    animation: reelSplice var(--reel-cut) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes reelSplice {
+    0%   { opacity: 0;   transform: translateX(560%) skewX(-7deg); }
+    12%  { opacity: 0.9; }
+    88%  { opacity: 0.7; }
+    100% { opacity: 0;   transform: translateX(-120%) skewX(-7deg); }
+}
+
+/* film picker — reads like a timeline; the active bar counts down the hold */
+.reel-picker {
+    position: absolute;
+    top: clamp(14px, 1.6vw, 24px);
+    right: clamp(14px, 1.6vw, 24px);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reel-frame.is-playing .reel-picker {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+}
+
+.reel-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--line-dark);
+    border-radius: 999px;
+    background: rgba(17, 17, 16, 0.45);
+    backdrop-filter: blur(10px);
+    color: rgba(248, 247, 243, 0.55);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.reel-chip:hover {
+    color: var(--paper);
+    border-color: rgba(248, 247, 243, 0.4);
+    background: rgba(17, 17, 16, 0.7);
+}
+
+.reel-chip:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+}
+
+.reel-chip.is-active {
+    color: var(--paper);
+    border-color: rgba(249, 182, 70, 0.5);
+}
+
+.reel-chip .n {
+    color: var(--amber);
+}
+
+.reel-chip .bar {
+    position: relative;
+    width: 44px;
+    height: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    background: rgba(248, 247, 243, 0.2);
+}
+
+.reel-chip .bar i {
+    position: absolute;
+    inset: 0;
+    background: var(--amber);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.reel-chip.is-active .bar i {
+    animation: reelHold var(--reel-dwell, 4600ms) linear both;
+}
+
+/* the hold pauses while the viewer is reading the frame */
+.reel-frame.is-held .reel-chip.is-active .bar i {
+    animation-play-state: paused;
+}
+
+.reel-frame.is-playing .reel-chip.is-active .bar i {
+    animation: none;
+    transform: scaleX(0);
+}
+
+@keyframes reelHold {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+@media (max-width: 640px) {
+    /* small frames: lay the picker along the top so it clears the
+       right-rail control */
+    .reel-picker {
+        flex-direction: row;
+        align-items: center;
+        left: clamp(14px, 1.6vw, 24px);
+        right: auto;
     }
 
-    .reel-frame.is-playing .play-pause-btn:hover {
-        transform: translate(-100%, 0) scale(1.1);
+    .reel-chip {
+        padding: 0 12px;
+        letter-spacing: 0.12em;
     }
 
-    .reel-frame.is-playing .play-pause-btn svg {
-        width: 16px;
-        height: 16px;
+    .reel-chip .bar {
+        width: 28px;
     }
 }
 
@@ -1853,4 +2157,12 @@ body.is-ready .scroll-wheel {
     .scroll-cue svg { animation: none; }
 
     .about-statement .w { opacity: 1; }
+
+    .reel-slide.is-active,
+    .reel-slide.is-leaving,
+    .reel-chip.is-active .bar i { animation: none; }
+
+    .reel-slide.is-active { clip-path: none; opacity: 1; }
+    .reel-slide.is-leaving { opacity: 0; }
+    .reel-wipe { display: none; }
 }

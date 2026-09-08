@@ -1,86 +1,211 @@
 (function(__run){ if (document.readyState !== 'loading') __run(); else document.addEventListener('DOMContentLoaded', __run); })(function() {
-    const image = document.getElementById('imageContainer');
+    const frame = document.querySelector('.reel-frame');
+    const stage = document.getElementById('imageContainer');
     const video = document.getElementById('introVideo');
     const videoContainer = document.getElementById('videoContainer');
-    const playBtn = document.getElementById('pauseBtn');
+    const playBtn = document.getElementById('playBtn');
     const pauseBtn = document.getElementById('pauseBtn');
     const playIcon = document.getElementById('playIcon');
     const pauseIcon = document.getElementById('pauseIcon');
-    
-    let videoLoaded = false;
-    let isPlaying = false;
 
-    // Show video and hide thumbnail
+    if (!frame || !stage || !video || !videoContainer) return;
+
+    const slides = Array.from(stage.querySelectorAll('.reel-slide'));
+    if (!slides.length) return;
+
+    const wipe = stage.querySelector('.reel-wipe');
+    const slugEls = Array.from(document.querySelectorAll('[data-reel-slug]'));
+    const chips = Array.from(frame.querySelectorAll('.reel-chip'));
+
+    // must match --reel-dwell in v2.css so the chip countdown lands on the cut
+    const DWELL = 4600;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let current = Math.max(0, slides.findIndex((s) => s.classList.contains('is-active')));
+    let timer = null;
+    let isPlaying = false;
+    let held = false;      // pointer/focus is on the frame — hold this poster
+    let inView = true;     // the reel is on screen
+    let tabVisible = !document.hidden;
+
+    /* ---------------- poster loop ---------------- */
+
+    function canCycle() {
+        return !reduceMotion && !isPlaying && !held && inView && tabVisible && slides.length > 1;
+    }
+
+    function stopTimer() {
+        clearTimeout(timer);
+        timer = null;
+    }
+
+    function restartTimer() {
+        stopTimer();
+        if (canCycle()) timer = setTimeout(() => goTo(current + 1), DWELL);
+    }
+
+    function syncVideoSrc() {
+        if (isPlaying) return; // never yank the source out from under a playing film
+        const src = slides[current].dataset.video || '';
+        if (src && video.getAttribute('src') !== src) {
+            video.setAttribute('src', src); // preload="none", so this costs nothing yet
+        }
+    }
+
+    function paintMeta() {
+        const title = slides[current].dataset.title;
+        if (title) slugEls.forEach((el) => { el.textContent = title; });
+        chips.forEach((chip, i) => {
+            const active = i === current;
+            chip.classList.toggle('is-active', active);
+            chip.setAttribute('aria-current', active ? 'true' : 'false');
+        });
+    }
+
+    function goTo(index) {
+        const next = ((index % slides.length) + slides.length) % slides.length;
+        const prev = current;
+        current = next;
+
+        // drop every state class, flush, then re-apply so the CSS cuts restart
+        slides.forEach((s) => s.classList.remove('is-active', 'is-leaving'));
+        chips.forEach((c) => c.classList.remove('is-active'));
+        if (wipe) wipe.classList.remove('is-sweeping');
+        void stage.offsetWidth;
+
+        if (prev !== next) slides[prev].classList.add('is-leaving');
+        slides[next].classList.add('is-active');
+        if (wipe && !reduceMotion && prev !== next) wipe.classList.add('is-sweeping');
+
+        paintMeta();
+        syncVideoSrc();
+        restartTimer();
+    }
+
+    /* ---------------- playback ---------------- */
+
+    function updateButtonIcon() {
+        if (playIcon) playIcon.style.display = isPlaying ? 'none' : 'block';
+        if (pauseIcon) pauseIcon.style.display = isPlaying ? 'block' : 'none';
+    }
+
     function showVideo() {
-        image.style.display = 'none';
+        stage.style.display = 'none';
         videoContainer.style.display = 'block';
     }
 
-    // Show thumbnail and hide video
     function showThumbnail() {
-        image.style.display = 'block';
+        stage.style.display = 'block';
         videoContainer.style.display = 'none';
     }
 
-    // Update button icons
-    function updateButtonIcon() {
-        playIcon.style.display = isPlaying ? 'none' : 'block';
-        pauseIcon.style.display = isPlaying ? 'block' : 'none';
-    }
-
-    // Play video
+    // plays whichever film is on screen right now
     function playVideo() {
-        if (!videoLoaded) {
-            videoLoaded = true;
-            showVideo();
-        }
+        if (isPlaying) return;
+        stopTimer();
+        syncVideoSrc();
+        if (!video.getAttribute('src')) return;
+        showVideo();
         video.muted = false;
-        video.play().then(() => {
-            isPlaying = true;
-            updateButtonIcon();
-        }).catch(() => {
+        const attempt = video.play();
+        if (!attempt || !attempt.catch) return;
+        attempt.catch(() => {
+            // autoplay policy blocked the unmuted start — fall back to muted
             video.muted = true;
-            video.play().then(() => {
-                isPlaying = true;
+            video.play().catch(() => {
+                isPlaying = false;
                 updateButtonIcon();
+                showThumbnail();
+                document.body.classList.remove('reel-playing');
+                restartTimer();
             });
         });
     }
 
-    // Pause video
     function pauseVideo() {
         video.pause();
-        isPlaying = false;
-        updateButtonIcon();
-        showThumbnail();
     }
 
-    // Toggle play/pause
     function togglePlayPause() {
-        if (isPlaying) {
-            pauseVideo();
-        } else {
-            playVideo();
-        }
+        if (isPlaying) pauseVideo();
+        else playVideo();
     }
 
-    // Event listeners
-    playBtn.addEventListener('click', togglePlayPause);
-    pauseBtn.addEventListener('click', togglePlayPause);
-    image.addEventListener('click', playVideo);
+    /* ---------------- wiring ---------------- */
+
+    if (playBtn) playBtn.addEventListener('click', (e) => { e.stopPropagation(); playVideo(); });
+    if (pauseBtn) pauseBtn.addEventListener('click', togglePlayPause);
+    stage.addEventListener('click', playVideo);
     video.addEventListener('click', togglePlayPause);
+
+    chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+            const target = Number(chip.dataset.reelGo);
+            if (Number.isNaN(target)) return;
+            if (target === current) { playVideo(); return; }
+            goTo(target);
+        });
+    });
 
     video.addEventListener('play', () => {
         isPlaying = true;
+        stopTimer();
         updateButtonIcon();
         showVideo();
+        document.body.classList.add('reel-playing');
     });
 
     video.addEventListener('pause', () => {
         isPlaying = false;
         updateButtonIcon();
         showThumbnail();
+        document.body.classList.remove('reel-playing');
+        restartTimer(); // the poster loop picks back up where it left off
     });
 
-    video.addEventListener('ended', pauseVideo);
+    video.addEventListener('ended', () => {
+        isPlaying = false;
+        video.currentTime = 0;
+        updateButtonIcon();
+        showThumbnail();
+        document.body.classList.remove('reel-playing');
+        goTo(current + 1); // film's over — hand the loop to the next one
+    });
+
+    // the picker doubles as the pause control: hovering or tabbing into it
+    // holds the current poster. The frame itself keeps cutting, so a mouse
+    // resting on the film still gets the loop.
+    const picker = frame.querySelector('.reel-picker');
+
+    function hold(on) {
+        held = on;
+        frame.classList.toggle('is-held', on);
+        if (on) stopTimer();
+        else restartTimer();
+    }
+
+    if (picker) {
+        picker.addEventListener('pointerenter', () => hold(true));
+        picker.addEventListener('pointerleave', () => hold(false));
+        picker.addEventListener('focusin', () => hold(true));
+        picker.addEventListener('focusout', () => hold(false));
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        tabVisible = !document.hidden;
+        if (tabVisible) restartTimer();
+        else stopTimer();
+    });
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+            inView = entries[0].isIntersecting;
+            if (inView) restartTimer();
+            else stopTimer();
+        }, { threshold: 0.15 }).observe(frame);
+    }
+
+    paintMeta();
+    syncVideoSrc();
+    restartTimer();
 });
