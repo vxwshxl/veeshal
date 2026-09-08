@@ -42,7 +42,7 @@ const REELS = [
   {
     slug: 'hitr',
     name: 'hitr',
-    title: "hitr — showreel '26",
+    title: "showreel '26",
     poster: '/assets/hitr.webp',
     alt: 'Hunt in the Rain — showreel thumbnail',
     video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4',
@@ -50,7 +50,7 @@ const REELS = [
   {
     slug: 'treasures',
     name: 'treasures',
-    title: "treasures — showreel '26",
+    title: "showreel '26",
     poster: '/assets/treasures.webp',
     alt: "Treasures — how's your little hobby going? — showreel thumbnail",
     video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/treasures.mp4',
