@@ -32,11 +32,11 @@ where not exists (
 
 insert into public.projects (title, cat, cat_label, img, description, role, stack, year, action, url, video, image, sort, visible)
 select
-  'Hunt in the Rain',
+  'Highest in the Room',
   'video',
   'Showreel — Video Editing',
   'assets/hitr.webp',
-  'A <strong>rain-soaked cinematic short</strong> — cut in wet light, with the tension carried by the edit and the grade rather than the dialogue. <strong>Edited and colour graded</strong> end to end, and the second film opening the <strong>’26 showreel</strong>.',
+  'A <strong>cinematic short cut to the track it is named for</strong> — pacing locked to the beat, <strong>edited and colour graded</strong> end to end so one tone carries from the first frame to the last. The second film opening the <strong>’26 showreel</strong>.',
   'Editor & Colorist',
   'Final Cut Pro',
   '2026',
@@ -60,7 +60,7 @@ from (values
   ('Kokrajhar University',                3),
   ('Swrzee Enterprise',                   4),
   ('Treasures',                           5),
-  ('Hunt in the Rain',                    6),
+  ('Highest in the Room',                    6),
   ('Jery Brahma — That’s What You Face',  7),
   ('Trip to Darjeeling',                  8),
   ('Andaman & Nicobar Islands',           9),

@@ -44,7 +44,7 @@ const REELS = [
     name: 'hitr',
     title: "showreel '26",
     poster: '/assets/hitr.webp',
-    alt: 'Hunt in the Rain — showreel thumbnail',
+    alt: 'Highest in the Room — showreel thumbnail',
     video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4',
   },
   {
