@@ -112,31 +112,54 @@ function bindCaseAnimations() {
 bindCaseAnimations();
 
 /* ------------------------------------------------------------
-   filters
+   filters — mirrored in the URL hash, so /projects#video is a
+   shareable, reload-safe link into a single category
    ------------------------------------------------------------ */
 const filterBtns = document.querySelectorAll('.filter-btn');
 const caseEls = document.querySelectorAll('.case');
+const FILTERS = ['all', 'development', 'video', 'design'];
 
-filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
+/* hash -> filter name; anything unrecognised (or no hash at all) means "all" */
+function filterFromHash() {
+    const f = decodeURIComponent(location.hash.replace(/^#/, '')).trim().toLowerCase();
+    return FILTERS.includes(f) ? f : 'all';
+}
 
-        const f = btn.dataset.filter;
-        caseEls.forEach((c) => {
-            const show = f === 'all' || c.dataset.cat === f;
-            c.classList.toggle('is-hidden', !show);
-        });
+function applyFilter(f, animate) {
+    filterBtns.forEach((b) => b.classList.toggle('active', b.dataset.filter === f));
 
+    caseEls.forEach((c) => {
+        const show = f === 'all' || c.dataset.cat === f;
+        c.classList.toggle('is-hidden', !show);
+    });
+
+    if (animate && !prefersReducedMotion) {
         const visible = document.querySelectorAll('.case:not(.is-hidden)');
         gsap.fromTo(visible,
             { y: 30, autoAlpha: 0 },
             { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.06, ease: 'power3.out', overwrite: 'auto' }
         );
+    }
 
-        ScrollTrigger.refresh();
+    ScrollTrigger.refresh();
+}
+
+filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        if (f === filterFromHash() && location.hash) return;
+        /* replaceState instead of `location.hash = f`: the URL stays shareable
+           without the browser trying to scroll to an element named "video" */
+        history.replaceState(null, '', `${location.pathname}${location.search}#${f}`);
+        applyFilter(f, true);
     });
 });
+
+/* someone pasted /projects#design, edited the hash, or hit back/forward */
+window.addEventListener('hashchange', () => applyFilter(filterFromHash(), true));
+
+/* honour the incoming hash on load — silently, the loader is still up */
+applyFilter(filterFromHash(), false);
 
 /* ------------------------------------------------------------
    media modal (videos & stills open in-page)
