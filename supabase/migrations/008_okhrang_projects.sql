@@ -17,7 +17,7 @@ update public.projects set
   img         = 'assets/projects/15.webp',
   description = 'An <strong>AI language platform for Northeast India</strong> — translate, chat and look words up in <strong>Bodo, Assamese, Manipuri, Khasi, Nepali, Bengali, Hindi and English</strong>. OkhranGPT, the OkhranGTR translator, the OkhranGSB Bodo dictionary and OkhranGTA text to speech, in one place.',
   role        = 'Full-stack Developer',
-  stack       = 'Next.js · Supabase · Gemini',
+  stack       = 'Next.js · Supabase · Sarvam',
   year        = '2024 — live',
   url         = 'https://okhrang.com'
 where title = 'Bodo Okhrang';
@@ -31,7 +31,7 @@ select
   'The company site for <strong>Bodo Okhrang Tech Pvt. Ltd.</strong> — a software company from Kokrajhar building <strong>language A.I., ERPs and apps for Northeast India</strong>. One home for Okhrang, SchoolERP, the Kokrajhar University LMS and the client work behind them.',
   'Founder & Developer',
   'Next.js · Tailwind',
-  '2025 — live',
+  '2024 — live',
   'visit live site',
   'https://bodookhrang.com',
   null,
