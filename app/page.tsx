@@ -103,7 +103,9 @@ export default async function Home() {
   let featured = await sbFetch<Featured>('featured_projects', 'select=*&visible=eq.true&order=sort');
   if (!featured) {
     featured = [
-      { info: 'A.I. Tool', name: 'Bodo Okhrang', tag: 'Web Development', url: 'https://bodookhrang.com', video: null, image: null, hover_src: 'assets/projects/1.webp' },
+      { info: 'Company', name: 'Bodo Okhrang Tech Pvt. Ltd.', tag: 'Web Development', url: 'https://bodookhrang.com', video: null, image: null, hover_src: 'assets/projects/14.webp' },
+      { info: 'A.I. Tool', name: 'Okhrang', tag: 'Web Development', url: 'https://okhrang.com', video: null, image: null, hover_src: 'assets/projects/15.webp' },
+      { info: 'Education', name: 'SchoolERP by Bodo Okhrang', tag: 'Web & App Development', url: 'https://schoolerp.okhrang.com', video: null, image: null, hover_src: 'assets/projects/16.webp' },
       { info: 'E-COMMERCE Tool', name: 'FlopShop', tag: 'Web Development/PWA', url: 'https://flopshop.vercel.app', video: null, image: null, hover_src: 'assets/projects/12.webp' },
       { info: 'A.I. Tool', name: 'CrewSpace AI', tag: 'Extension', url: 'https://crewspace-ai.vercel.app', video: null, image: null, hover_src: 'assets/projects/11.webp' },
       { info: 'Education', name: 'Kokrajhar University', tag: 'Web & App Development', url: 'https://ku-app.in', video: null, image: null, hover_src: 'assets/projects/2.webp' },
