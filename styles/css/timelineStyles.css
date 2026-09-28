@@ -84,7 +84,6 @@
     stroke-linecap: round;
     stroke-dasharray: 0;
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 0.1s linear;
 }
 
 /* ============================================================
@@ -191,7 +190,6 @@
     /* Default: waiting off-screen to the RIGHT */
     transform: translateX(100%);
     transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
 }
 
 /* Active image is in view */

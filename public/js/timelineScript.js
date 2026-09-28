@@ -27,10 +27,7 @@ gsap.registerPlugin(ScrollTrigger);
                     toggleActions: "play none none none"
                 },
                 // Rebuild path after item lands so the line stays accurate
-                onComplete: () => {
-                    snakeData = buildSnakePath();
-                    updateScrollFill();
-                }
+                onComplete: rebuild
             }
         );
     });
@@ -94,21 +91,19 @@ gsap.registerPlugin(ScrollTrigger);
     // ──────────────────────────────────────────────────────────
     let snakeData = null;
 
+    // Scroll range is measured once per path build, so the scroll handler
+    // never touches layout.
+    function measureScrollRange() {
+        if (!snakeData) return;
+        const { pts } = snakeData;
+        const containerTop = container.getBoundingClientRect().top + window.scrollY;
+        snakeData.scrollStart = containerTop + pts[0].y - window.innerHeight * 0.6;
+        snakeData.scrollEnd   = containerTop + pts[pts.length - 1].y - window.innerHeight * 0.4;
+    }
+
     function updateScrollFill() {
         if (!snakeData) return;
-
-        const { totalLen } = snakeData;
-        const icons = document.querySelectorAll(".timeline-icon");
-        if (!icons.length) return;
-
-        // Use offsetTop-based positions for scroll range too
-        const firstCenter = getIconCenter(icons[0]);
-        const lastCenter  = getIconCenter(icons[icons.length - 1]);
-
-        // Convert layout y (relative to container) to absolute page y
-        const containerTop = container.getBoundingClientRect().top + window.scrollY;
-        const scrollStart  = containerTop + firstCenter.y - window.innerHeight * 0.6;
-        const scrollEnd    = containerTop + lastCenter.y  - window.innerHeight * 0.4;
+        const { totalLen, scrollStart, scrollEnd } = snakeData;
 
         const progress = Math.min(1, Math.max(0,
             (window.scrollY - scrollStart) / (scrollEnd - scrollStart)
@@ -117,21 +112,29 @@ gsap.registerPlugin(ScrollTrigger);
         pathFill.style.strokeDashoffset = totalLen * (1 - progress);
     }
 
-    window.addEventListener("scroll", updateScrollFill, { passive: true });
+    function rebuild() {
+        snakeData = buildSnakePath();
+        measureScrollRange();
+        updateScrollFill();
+    }
+
+    let fillQueued = false;
+    window.addEventListener("scroll", () => {
+        if (fillQueued) return;
+        fillQueued = true;
+        requestAnimationFrame(() => { fillQueued = false; updateScrollFill(); });
+    }, { passive: true });
 
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            snakeData = buildSnakePath();
-            updateScrollFill();
-        }, 200);
+        resizeTimer = setTimeout(rebuild, 200);
     });
 
     // Build after layout settles (images loaded can shift heights)
-    setTimeout(() => { snakeData = buildSnakePath(); updateScrollFill(); }, 50);
-    setTimeout(() => { snakeData = buildSnakePath(); updateScrollFill(); }, 500);
-    window.addEventListener("load",   () => { snakeData = buildSnakePath(); updateScrollFill(); });
+    setTimeout(rebuild, 50);
+    setTimeout(rebuild, 500);
+    window.addEventListener("load", rebuild);
 
     // ──────────────────────────────────────────────────────────
     // 4.  IMAGE SLIDER
@@ -152,6 +155,7 @@ gsap.registerPlugin(ScrollTrigger);
         let current     = 0;
         let autoTimer   = null;
         let isAnimating = false;
+        let inView      = false;
 
         // On init: make first image "active" (translateX 0), rest wait off-right
         imgs.forEach((img, i) => {
@@ -210,6 +214,7 @@ gsap.registerPlugin(ScrollTrigger);
 
         function startAuto() {
             clearInterval(autoTimer);
+            if (!inView) return;
             autoTimer = setInterval(() => goTo(current + 1, "next"), AUTO_SLIDE_INTERVAL);
         }
 
@@ -236,7 +241,11 @@ gsap.registerPlugin(ScrollTrigger);
             });
         });
 
-        startAuto();
+        // Only auto-advance while the slider is on screen
+        new IntersectionObserver(([entry]) => {
+            inView = entry.isIntersecting;
+            inView ? startAuto() : stopAuto();
+        }).observe(slider);
 
         // Open modal on slider click
         slider.addEventListener("click", () => {

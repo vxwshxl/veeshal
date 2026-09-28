@@ -31,9 +31,28 @@ const FALLBACK: Ev[] = [
   { title: 'Ideathon — Where Ideas Compile', description: 'First place at the Ideathon competition — a stage where raw ideas meet real execution. Pitched a solution that stood out from the crowd and brought home the win. The beginning of the grind.', tag: 'Winner', date_label: '27 NOV 2024', images: ['https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/achievement/Idea%20Comp%202024%20-%201st.webp'] },
 ];
 
+// Web-sized copies uploaded to R2 by scripts/optimize-achievements.mjs, under
+// achievement/web/. Some originals are 150MP camera exports that stall the main
+// thread while decoding, so serve the copy whenever it exists.
+function parseImages(images: Ev['images']): string[] {
+  if (Array.isArray(images)) return images;
+  try { const v = JSON.parse(images); return Array.isArray(v) ? v : []; } catch { return []; }
+}
+
+async function webCopies(srcs: string[]) {
+  const map = new Map<string, string>();
+  await Promise.all(srcs.map(async (src) => {
+    const web = src.replace('/achievement/', '/achievement/web/');
+    if (web === src) return;
+    try { if ((await fetch(web, { method: 'HEAD' })).ok) map.set(src, web); } catch {}
+  }));
+  return map;
+}
+
 export default async function Timeline() {
   let items = await sbFetch<Ev>('timeline_events', 'select=*&visible=eq.true&order=sort');
   if (!items) items = FALLBACK;
+  const web = await webCopies([...new Set(items.flatMap((ev) => parseImages(ev.images)))]);
 
   return (
     <>
@@ -56,9 +75,7 @@ export default async function Timeline() {
           <div className="timeline" id="timelineItems">
             {items.map((ev, ti) => {
               const side = ti % 2 === 0 ? 'left' : 'right';
-              const imgs: string[] = Array.isArray(ev.images)
-                ? ev.images
-                : (() => { try { const v = JSON.parse(ev.images as string); return Array.isArray(v) ? v : []; } catch { return []; } })();
+              const imgs = parseImages(ev.images).map((src) => web.get(src) ?? src);
               return (
                 <div className={`timeline-item ${side}`} data-images={JSON.stringify(imgs)} key={ti}>
                   <div className="timeline-content">
@@ -75,7 +92,7 @@ export default async function Timeline() {
                   <div className="timeline-image">
                     <div className={'img-slider' + (imgs.length < 2 ? ' single' : '')}>
                       {imgs.map((iu, ii) => (
-                        <img src={iu} alt={ev.title} className={'slider-img' + (ii === 0 ? ' active' : '')} key={ii} />
+                        <img src={iu} alt={ev.title} className={'slider-img' + (ii === 0 ? ' active' : '')} loading={ii === 0 ? 'lazy' : 'eager'} decoding="async" key={ii} />
                       ))}
                       <button className="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
                       <button className="slider-btn slider-next" aria-label="Next">&#8250;</button>
