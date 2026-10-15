@@ -1792,6 +1792,224 @@ body.reel-playing .grain { opacity: 0; }
 }
 
 /* ------------------------------------------------------------
+   TECH STACK
+   Two logo bands drift apart as the section crosses the screen,
+   then each tool rises into its card. Scroll-driven CSS only —
+   browsers without animation-timeline just get the static layout.
+   ------------------------------------------------------------ */
+.stack {
+    padding-bottom: clamp(56px, 9vh, 110px);
+    overflow-x: clip;
+    border-top: 1px solid var(--line);
+}
+
+.stack-bands {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: clamp(36px, 6vh, 64px);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.stack-band {
+    display: flex;
+    gap: 14px;
+    width: max-content;
+}
+
+.stack-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    height: 60px;
+    padding: 0 24px 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    background: #fff;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(16px, 1.4vw, 19px);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+.stack-pill-logo,
+.stack-tool-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--ink);
+}
+
+.stack-pill-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--paper-dim);
+}
+
+.stack-pill-logo svg,
+.stack-pill-logo img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: clamp(14px, 1.6vw, 22px);
+    padding: 0 var(--gutter);
+}
+
+.stack-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+    padding: clamp(18px, 2vw, 26px);
+}
+
+.stack-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.stack-card h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(20px, 1.8vw, 26px);
+    letter-spacing: -0.015em;
+    text-transform: lowercase;
+}
+
+.stack-count {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--amber-deep);
+    font-variant-numeric: tabular-nums;
+}
+
+.stack-card ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.stack-card li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: var(--paper);
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.stack-tool-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(17, 17, 16, 0.08);
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stack-tool-logo svg,
+.stack-tool-logo img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.stack-tool-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.stack-tool-name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stack-tool-note {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .stack-card li:hover {
+        border-color: var(--amber);
+        background: #fff8ea;
+    }
+
+    .stack-card li:hover .stack-tool-logo {
+        transform: rotate(-6deg) scale(1.1);
+    }
+}
+
+@media (max-width: 640px) {
+    .stack-pill { height: 52px; padding-right: 18px; }
+    .stack-pill-logo { width: 38px; height: 38px; }
+}
+
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        .drift-left,
+        .drift-right {
+            animation: drift-left linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 100%;
+        }
+
+        .drift-right { animation-name: drift-right; }
+
+        @keyframes drift-left {
+            from { transform: translate3d(0, 0, 0); }
+            to { transform: translate3d(-25%, 0, 0); }
+        }
+
+        @keyframes drift-right {
+            from { transform: translate3d(-25%, 0, 0); }
+            to { transform: translate3d(0, 0, 0); }
+        }
+
+        .tool-in {
+            animation: tool-in linear both;
+            animation-timeline: view();
+            animation-range: entry calc(var(--i) * 6%) entry calc(60% + var(--i) * 6%);
+        }
+
+        @keyframes tool-in {
+            from { opacity: 0; transform: translateY(16px) scale(0.92); }
+            to { opacity: 1; transform: none; }
+        }
+    }
+}
+
+/* ------------------------------------------------------------
    ABOUT
    ------------------------------------------------------------ */
 .about {
@@ -1853,18 +2071,21 @@ body.reel-playing .grain { opacity: 0; }
     flex-shrink: 0;
 }
 
-.marqueeInner img {
+.marqueeInner img,
+.marqueeInner svg {
     height: clamp(44px, 6vw, 72px);
     width: auto;
     max-width: clamp(90px, 12vw, 150px);
     flex-shrink: 0;
+    color: var(--ink);
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.55;
     transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
-.marqueeInner img:hover {
+.marqueeInner img:hover,
+.marqueeInner svg:hover {
     filter: grayscale(0%);
     opacity: 1;
     transform: scale(1.15);
@@ -1894,6 +2115,62 @@ body.reel-playing .grain { opacity: 0; }
 }
 
 .about-quote .accent { color: var(--coral); }
+
+/* Copy on the left, portrait on the right; stacks on tablets/phones. */
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: end;
+    gap: clamp(32px, 5vw, 80px);
+}
+
+.about-photo {
+    position: relative;
+    margin: 0;
+    align-self: stretch;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Amber disc behind the cut-out ties the photo to the palette. */
+.about-photo::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 6%;
+    width: 82%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--amber);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.about-photo img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    /* the cut-out ends at the hem — fade it out instead of a hard edge */
+    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+}
+
+@media (max-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+        order: -1;
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
 
 /* ------------------------------------------------------------
    FOOTER

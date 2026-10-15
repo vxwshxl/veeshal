@@ -5,6 +5,7 @@ import { ASSET_VERSION } from '@/lib/version';
 import Scripts from './Scripts';
 import Loader from './components/Loader';
 import Chrome from './components/Chrome';
+import TechStack, { STACK_TOOLS, ToolLogo, type Tool } from './components/TechStack';
 
 // Home re-checks Supabase every 120s (mirrors the PHP disk-cache TTL).
 export const revalidate = 120;
@@ -136,6 +137,12 @@ export default async function Home() {
     };
     skills = Object.entries(skillFiles).map(([name, sf]) => ({ name, icon_url: `assets/skills/${sf}.png` }));
   }
+  // The about marquee shows every skill plus each tech-stack tool it doesn't already have.
+  const skillNames = new Set(skills.map((sk) => sk.name.toLowerCase()));
+  const marqueeLogos: (Skill | Tool)[] = [
+    ...skills,
+    ...STACK_TOOLS.filter((t) => !skillNames.has(t.name.toLowerCase())),
+  ];
 
   const gCount = gallery.length;
   const emailGlobals =
@@ -403,6 +410,9 @@ export default async function Home() {
           </div>
         </section>
 
+        {/* ===================== TECH STACK ===================== */}
+        <TechStack />
+
         {/* marquee band */}
         <div className="band band-light" aria-hidden="true">
           <div className="band-track">
@@ -423,7 +433,7 @@ export default async function Home() {
         <section id="contact" className="contact" data-nav-section>
           <div className="section-head on-dark">
             <div>
-              <p className="section-kicker"><span className="idx">04</span> contact</p>
+              <p className="section-kicker"><span className="idx">05</span> contact</p>
               <h2 className="section-title">
                 <span className="word">let&apos;s</span> <span className="word">build</span>
                 <span className="word amber">something<span className="coral">.</span></span>
@@ -476,41 +486,52 @@ export default async function Home() {
 
         {/* ===================== ABOUT ===================== */}
         <section id="about" className="about" data-nav-section>
-          <p className="section-kicker"><span className="idx">05</span> about</p>
+          <p className="section-kicker"><span className="idx">06</span> about</p>
 
-          <h2 className="about-statement">
-            <span className="w accent">vee</span> <span className="w">aka</span>
-            <span className="w accent">Veeshal</span> <span className="w accent">D.</span> <span className="w accent">Bodosa,</span>
-            <span className="w">a</span> <span className="w">coder</span> <span className="w">&amp;</span>
-            <span className="w">cinematic</span> <span className="w">storyteller.</span>
-            <span className="w">I</span> <span className="w">craft</span>
-            <span className="w highlight">web</span> <span className="w highlight">experiences,</span>
-            <span className="w">design</span> <span className="w">seamless</span> <span className="w highlight">apps,</span>
-            <span className="w">&amp;</span> <span className="w">bring</span> <span className="w">visions</span>
-            <span className="w">to</span> <span className="w">life</span> <span className="w">through</span>
-            <span className="w highlight">cinematics.</span>
-            <span className="w">Blending</span> <span className="w">code</span> <span className="w">&amp;</span>
-            <span className="w">creativity</span> <span className="w">is</span> <span className="w">where</span>
-            <span className="w">I</span> <span className="w">thrive.</span>
-          </h2>
+          <div className="about-grid">
+            <div className="about-copy">
+              <h2 className="about-statement">
+                <span className="w accent">vee</span> <span className="w">aka</span>{' '}
+                <span className="w accent">Veeshal</span> <span className="w accent">D.</span> <span className="w accent">Bodosa,</span>{' '}
+                <span className="w">a</span> <span className="w">coder</span> <span className="w">&amp;</span>{' '}
+                <span className="w">cinematic</span> <span className="w">storyteller.</span>{' '}
+                <span className="w">I</span> <span className="w">craft</span>{' '}
+                <span className="w highlight">web</span> <span className="w highlight">experiences,</span>{' '}
+                <span className="w">design</span> <span className="w">seamless</span> <span className="w highlight">apps,</span>{' '}
+                <span className="w">&amp;</span> <span className="w">bring</span> <span className="w">visions</span>{' '}
+                <span className="w">to</span> <span className="w">life</span> <span className="w">through</span>{' '}
+                <span className="w highlight">cinematics.</span>{' '}
+                <span className="w">Blending</span> <span className="w">code</span> <span className="w">&amp;</span>{' '}
+                <span className="w">creativity</span> <span className="w">is</span> <span className="w">where</span>{' '}
+                <span className="w">I</span> <span className="w">thrive.</span>
+              </h2>
+
+              <p className="about-quote">
+                When things <span className="accent">fall</span>,<br />
+                Don&apos;t quit —<br />
+                Instead <span className="highlight">redesign</span>..!
+              </p>
+            </div>
+
+            <figure className="about-photo">
+              <img src="/assets/vee-about.webp" alt="Veeshal D. Bodosa" width={1200} height={1314} loading="lazy" decoding="async" />
+            </figure>
+          </div>
 
           <div className="logoMarquee">
-            <div className="marqueeInner">
+            {/* ~2.6s per logo keeps the scroll speed steady however many there are */}
+            <div className="marqueeInner" style={{ animationDuration: `${marqueeLogos.length * 2.6}s` }}>
               {[0, 1].map((rep) => (
                 <div className="logo-set" key={rep}>
-                  {skills.map((sk, i) => (
-                    <img key={i} src={sbAsset(sk.icon_url)} alt={sk.name} />
-                  ))}
+                  {marqueeLogos.map((logo, i) =>
+                    'icon_url' in logo
+                      ? <img key={i} src={sbAsset(logo.icon_url)} alt={logo.name} />
+                      : <ToolLogo key={i} tool={logo} labelled />
+                  )}
                 </div>
               ))}
             </div>
           </div>
-
-          <p className="about-quote">
-            When things <span className="accent">fall</span>,<br />
-            Don&apos;t quit —<br />
-            Instead <span className="highlight">redesign</span>..!
-          </p>
         </section>
 
         {/* ===================== FOOTER ===================== */}

@@ -17,6 +17,9 @@ importers:
       react-dom:
         specifier: 19.2.8
         version: 19.2.8(react@19.2.8)
+      simple-icons:
+        specifier: 16.31.0
+        version: 16.31.0
     devDependencies:
       '@types/node':
         specifier: 22.19.4
@@ -319,6 +322,10 @@ packages:
       '@types/node':
         optional: true
 
+  simple-icons@16.31.0:
+    resolution: {integrity: sha512-dDEqvQrmxL7ZnqQtGHGjCNW6CfiwzAif+83Hol9JXAnAB6wh2zsZD7Sc1kWT0O/RRAKt7xfG8W6UZhYBPD+GAA==}
+    engines: {node: '>=0.12.18'}
+
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -591,6 +598,8 @@ snapshots:
       '@img/sharp-win32-x64': 0.35.4
       '@types/node': 22.19.4
     optional: true
+
+  simple-icons@16.31.0: {}
 
   source-map-js@1.2.1: {}
 
