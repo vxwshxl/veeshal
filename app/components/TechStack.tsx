@@ -1,5 +1,6 @@
 import {
   siAndroid,
+  siClaude,
   siApple,
   siCloudflare,
   siDocker,
@@ -84,6 +85,7 @@ export const STACK: { title: string; tools: Tool[] }[] = [
       { name: 'PyTorch', icon: siPytorch },
       { name: 'Hugging Face', icon: siHuggingface },
       { name: 'Sarvam AI' },
+      { name: 'Claude Code', icon: siClaude },
     ],
   },
   {
@@ -108,6 +110,7 @@ export const STACK: { title: string; tools: Tool[] }[] = [
       { name: 'Jitter', img: 'assets/skills/jitter.png' },
       { name: 'Final Cut Pro', img: 'assets/skills/final-cut-pro.png' },
       { name: 'CapCut', img: 'assets/skills/capcut.png' },
+      { name: 'Remotion', img: 'assets/skills/remotion.svg' },
     ],
   },
 ];
