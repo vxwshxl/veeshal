@@ -76,9 +76,10 @@
 .garage-sub p { max-width: 52ch; }
 
 .garage-count {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -104,9 +105,10 @@
 }
 
 .filter-bar .lbl {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
     margin-right: 10px;
@@ -116,9 +118,10 @@
     border: 1px solid var(--line);
     background: transparent;
     color: var(--ink);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 9px 20px;
     border-radius: 99px;
@@ -169,7 +172,7 @@
     position: absolute;
     top: clamp(18px, 3vh, 36px);
     right: var(--gutter);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-style: italic;
     font-size: clamp(40px, 6vw, 88px);
     font-weight: 500;
@@ -212,9 +215,10 @@
     background: rgba(17, 17, 16, 0.85);
     color: var(--amber);
     backdrop-filter: blur(6px);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 8px 16px;
     border-radius: 99px;
@@ -224,9 +228,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 16px;
@@ -269,9 +274,10 @@
 }
 
 .case-meta dt {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 4px;

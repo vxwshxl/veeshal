@@ -8,7 +8,8 @@
             --green: #3ddc84;
             --line: rgba(248, 247, 243, 0.12);
             --muted: #a3a094;
-            --mono: 'JetBrains Mono', monospace;
+            --mono: 'General Sans', sans-serif;
+            --code: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
             --display: 'Clash Display', sans-serif;
             --body: 'General Sans', sans-serif;
         }
@@ -24,7 +25,7 @@
 
         ::selection { background: var(--amber); color: var(--ink); }
 
-        .mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+        .mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
         .amber { color: var(--amber); }
 
         button { font-family: var(--mono); cursor: pointer; }
@@ -65,7 +66,7 @@
             display: block;
             font-family: var(--mono);
             font-size: 10px;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--muted);
             margin-bottom: 7px;
@@ -86,7 +87,7 @@
         }
 
         .field textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
-        .field textarea.big { min-height: 220px; font-family: var(--mono); font-size: 12.5px; }
+        .field textarea.big { min-height: 220px; font-family: var(--code); font-size: 12.5px; }
 
         .field input:focus, .field textarea:focus, .field select:focus,
         .tbl input:focus, .tbl select:focus { border-color: var(--amber); }
@@ -188,7 +189,7 @@
             gap: 7px;
             font-family: var(--mono);
             font-size: 10px;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--muted);
         }
@@ -217,7 +218,7 @@
         .tbl th {
             font-family: var(--mono);
             font-size: 10px;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--muted);
             text-align: left;
@@ -256,7 +257,7 @@
             gap: 6px;
             font-family: var(--mono);
             font-size: 10px;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--muted);
             border: 1px solid var(--line);

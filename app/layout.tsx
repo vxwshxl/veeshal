@@ -38,10 +38,6 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600,700&display=swap"
           rel="stylesheet"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap"
-          rel="stylesheet"
-        />
         {/* Critical anti-FOUC: the dark loader covers the screen from the very
             first paint, so a navigation never flashes white before the main
             stylesheet finishes loading. */}

@@ -45,8 +45,8 @@ const POST_STYLES = `
 .post-body p{margin-bottom:1.1em;}
 .post-body a{color:var(--amber-deep);}
 .post-body img{max-width:100%;border-radius:12px;}
-.post-body pre{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px;overflow-x:auto;font-family:var(--font-mono);font-size:13.5px;}
-.post-body code{font-family:var(--font-mono);font-size:0.92em;}
+.post-body pre{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px;overflow-x:auto;font-family:var(--font-code);font-size:13.5px;}
+.post-body code{font-family:var(--font-code);font-size:0.92em;}
 .post-body blockquote{border-left:3px solid var(--amber);padding-left:18px;color:var(--muted);font-style:italic;margin:1.2em 0;}
 .post-404{text-align:center;padding:16vh var(--gutter);}
 .post-404 h1{font-family:var(--font-display);font-size:clamp(40px,8vw,100px);}

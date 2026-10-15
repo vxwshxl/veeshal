@@ -20,7 +20,10 @@
 
     --font-display: 'Clash Display', 'Arial Black', sans-serif;
     --font-body: 'General Sans', 'Helvetica Neue', sans-serif;
-    --font-mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
+    /* labels, kickers, nav, buttons — the body face, set small and tracked */
+    --font-label: 'General Sans', 'Helvetica Neue', sans-serif;
+    /* real code only (blog / chaicode snippets) */
+    --font-code: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
     --gutter: clamp(20px, 4vw, 64px);
     --radius: 24px;
@@ -87,9 +90,10 @@ a {
 }
 
 .mono {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
@@ -256,9 +260,10 @@ body.cursor-hover .cursor-ring {
 }
 
 .loader-tag {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted-dark);
 }
@@ -271,7 +276,7 @@ body.cursor-hover .cursor-ring {
 }
 
 .loader-counter {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-weight: 500;
     font-style: italic;
     font-size: clamp(72px, 14vw, 168px);
@@ -287,9 +292,10 @@ body.cursor-hover .cursor-ring {
 }
 
 .loader-unit {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted-dark);
     display: block;
@@ -404,9 +410,10 @@ body.is-ready .scroll-wheel {
 
 .site-header nav a,
 .site-footer nav a {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 8px 12px;
@@ -554,7 +561,8 @@ body.is-ready .scroll-wheel {
     border: 1.5px solid var(--ink);
     border-radius: 50%;
     text-decoration: none;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
     z-index: 1;
     transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, z-index 0s;
@@ -598,9 +606,10 @@ body.is-ready .scroll-wheel {
     color: var(--paper);
     border: 1.5px solid var(--ink);
     text-decoration: none;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: background 0.25s ease, color 0.25s ease;
 }
@@ -680,9 +689,10 @@ body.is-ready .scroll-wheel {
     border: 1px solid rgba(248, 247, 243, 0.18);
     border-radius: 99px;
     padding: 9px 18px;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
@@ -783,9 +793,10 @@ body.is-ready .scroll-wheel {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 14px;
@@ -932,9 +943,10 @@ body.reel-playing .grain { opacity: 0; }
     justify-content: space-between;
     align-items: center;
     padding: 14px 20px;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--paper);
     background: linear-gradient(transparent, rgba(17, 17, 16, 0.85));
@@ -1052,9 +1064,10 @@ body.reel-playing .grain { opacity: 0; }
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba(248, 247, 243, 0.75);
 }
@@ -1244,9 +1257,10 @@ body.reel-playing .grain { opacity: 0; }
     background: rgba(17, 17, 16, 0.45);
     backdrop-filter: blur(10px);
     color: rgba(248, 247, 243, 0.55);
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     cursor: pointer;
     pointer-events: auto;
@@ -1445,8 +1459,9 @@ body.reel-playing .grain { opacity: 0; }
     flex: 1;
     height: 14px;
     font-size: 12px;
-    font-family: var(--font-mono);
-    letter-spacing: 0.1em;
+    font-family: var(--font-label);
+    font-weight: 500;
+    letter-spacing: 0.08em;
     color: var(--muted);
 }
 
@@ -1526,9 +1541,10 @@ body.reel-playing .grain { opacity: 0; }
     background: transparent;
     color: var(--ink);
     text-decoration: none;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 13px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: background 0.3s ease, color 0.3s ease, gap 0.3s ease;
 }
@@ -1641,7 +1657,7 @@ body.reel-playing .grain { opacity: 0; }
 }
 
 .gmailTxt {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-weight: 400;
     font-size: 14px;
     letter-spacing: 0.06em;
@@ -1697,7 +1713,8 @@ body.reel-playing .grain { opacity: 0; }
     position: absolute;
     top: 12px;
     left: 0;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 13px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1726,9 +1743,10 @@ body.reel-playing .grain { opacity: 0; }
 
 .selection-group label {
     display: block;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted-dark);
     margin-bottom: 14px;
@@ -1771,9 +1789,9 @@ body.reel-playing .grain { opacity: 0; }
     color: var(--ink);
     padding: 16px 48px;
     border-radius: 99px;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: 13px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
@@ -1891,9 +1909,10 @@ body.reel-playing .grain { opacity: 0; }
 }
 
 .stack-count {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: var(--amber-deep);
     font-variant-numeric: tabular-nums;
 }
@@ -1949,7 +1968,8 @@ body.reel-playing .grain { opacity: 0; }
 }
 
 .stack-tool-note {
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
+    font-weight: 500;
     font-size: 10.5px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
