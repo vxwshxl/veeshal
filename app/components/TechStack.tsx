@@ -64,7 +64,7 @@ export const STACK: { title: string; tools: Tool[] }[] = [
     ],
   },
   {
-    title: 'Backend & data',
+    title: 'Backend & services',
     tools: [
       { name: 'Supabase', icon: siSupabase, note: 'Self-hosted' },
       { name: 'PostgreSQL', icon: siPostgresql },
@@ -72,6 +72,9 @@ export const STACK: { title: string; tools: Tool[] }[] = [
       { name: 'Prisma', icon: siPrisma },
       { name: 'Node.js', icon: siNodedotjs },
       { name: 'Cloudflare', icon: siCloudflare, note: 'R2 storage' },
+      { name: 'ZeptoMail', icon: siZoho, note: 'by Zoho' },
+      { name: 'Razorpay', icon: siRazorpay },
+      { name: 'Leaflet', icon: siLeaflet },
     ],
   },
   {
@@ -94,14 +97,6 @@ export const STACK: { title: string; tools: Tool[] }[] = [
       { name: 'pnpm', icon: siPnpm },
       { name: 'Git', icon: siGit },
       { name: 'GitHub', icon: siGithub },
-    ],
-  },
-  {
-    title: 'Services',
-    tools: [
-      { name: 'ZeptoMail', icon: siZoho, note: 'by Zoho' },
-      { name: 'Razorpay', icon: siRazorpay },
-      { name: 'Leaflet', icon: siLeaflet },
     ],
   },
   {

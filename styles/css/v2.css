@@ -1860,7 +1860,7 @@ body.reel-playing .grain { opacity: 0; }
 
 .stack-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(14px, 1.6vw, 22px);
     padding: 0 var(--gutter);
 }
@@ -1970,7 +1970,12 @@ body.reel-playing .grain { opacity: 0; }
     }
 }
 
+@media (max-width: 1024px) {
+    .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 640px) {
+    .stack-grid { grid-template-columns: 1fr; }
     .stack-pill { height: 52px; padding-right: 18px; }
     .stack-pill-logo { width: 38px; height: 38px; }
 }
@@ -2124,39 +2129,28 @@ body.reel-playing .grain { opacity: 0; }
     gap: clamp(32px, 5vw, 80px);
 }
 
+/* Amber arch frames the cut-out; the photo is cropped clean at its base. */
 .about-photo {
     position: relative;
     margin: 0;
-    align-self: stretch;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-/* Amber disc behind the cut-out ties the photo to the palette. */
-.about-photo::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 6%;
-    width: 82%;
-    aspect-ratio: 1;
-    border-radius: 50%;
+    width: 100%;
+    max-width: 500px;
+    justify-self: end;
+    aspect-ratio: 4 / 5;
+    border-radius: 999px 999px var(--radius) var(--radius);
     background: var(--amber);
-    transform: translateX(-50%);
-    z-index: 0;
+    overflow: hidden;
 }
 
 .about-photo img {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
     display: block;
-    width: 100%;
-    max-width: 560px;
+    width: 108%;
+    max-width: none;
     height: auto;
-    /* the cut-out ends at the hem — fade it out instead of a hard edge */
-    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+    transform: translateX(-50%);
 }
 
 @media (max-width: 1024px) {
@@ -2166,9 +2160,8 @@ body.reel-playing .grain { opacity: 0; }
 
     .about-photo {
         order: -1;
-        max-width: 440px;
-        width: 100%;
-        margin: 0 auto;
+        max-width: 400px;
+        justify-self: center;
     }
 }
 
@@ -2233,11 +2226,20 @@ body.reel-playing .grain { opacity: 0; }
     padding-right: 64px;
     padding-top: 20px;
     border-top: 1px solid var(--line-dark);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
     color: var(--muted-dark);
+}
+
+.footer-bottom .footer-sign {
+    color: var(--paper);
+}
+
+.footer-bottom .footer-sign em {
+    font-style: normal;
+    color: var(--amber);
 }
 
 .footer-bottom a {

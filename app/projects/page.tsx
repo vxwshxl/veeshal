@@ -147,7 +147,7 @@ export default async function Projects() {
         <footer className="site-footer">
           <div className="footer-bottom" style={{ borderTop: 'none', paddingTop: 0 }}>
             <span>© 2026 veeshal d. bodosa</span>
-            <span>engineered with precision — crafted with passion</span>
+            <span className="footer-sign">engineered with <em>precision</em>, crafted with <em>passion</em>.</span>
             <span><a href="/">back to home →</a></span>
           </div>
         </footer>

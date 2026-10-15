@@ -26,7 +26,7 @@ export default function SiteFooter({ base = '/' }: { base?: string }) {
 
       <div className="footer-bottom">
         <span>© 2026 veeshal d. bodosa</span>
-        <span>engineered with precision — crafted with passion</span>
+        <span className="footer-sign">engineered with <em>precision</em>, crafted with <em>passion</em>.</span>
         <span><a href="mailto:work@veeshal.me">work@veeshal.me</a></span>
       </div>
     </footer>

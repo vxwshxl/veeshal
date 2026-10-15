@@ -559,7 +559,7 @@ export default async function Home() {
 
           <div className="footer-bottom">
             <span>© 2026 veeshal d. bodosa</span>
-            <span>engineered with precision — crafted with passion</span>
+            <span className="footer-sign">engineered with <em>precision</em>, crafted with <em>passion</em>.</span>
             <span><a href={`mailto:${contactEmail}`}>{contactEmail}</a></span>
           </div>
         </footer>
