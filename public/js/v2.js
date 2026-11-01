@@ -63,7 +63,7 @@ if (isFinePointer && !prefersReducedMotion) {
             ringX(e.clientX); ringY(e.clientY);
         });
 
-        document.querySelectorAll('a, button, .menu-item, .card, .pill-btn').forEach((el) => {
+        document.querySelectorAll('a, button, .card, .pill-btn').forEach((el) => {
             el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
         });
@@ -211,13 +211,13 @@ if (!prefersReducedMotion) {
         );
     }
 
-    /* featured menu rows slide in */
-    gsap.utils.toArray('.menu-item').forEach((item, i) => {
+    /* featured project cards rise in, a row at a time */
+    gsap.utils.toArray('.work-item').forEach((item, i) => {
         gsap.from(item, {
             y: 44,
             autoAlpha: 0,
             duration: 0.7,
-            delay: (i % 4) * 0.05,
+            delay: (i % 3) * 0.07,
             ease: 'power3.out',
             scrollTrigger: { trigger: item, start: 'top 94%' },
         });

@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import '@/styles/css/v2.css';
+import '@/styles/css/work.css';
 import { sbFetch, sbSetting, sbAsset } from '@/lib/supabase';
 import { ASSET_VERSION } from '@/lib/version';
 import Scripts from './Scripts';
 import Loader from './components/Loader';
 import Chrome from './components/Chrome';
 import TechStack, { STACK_TOOLS, ToolLogo, type Tool } from './components/TechStack';
+import { WorkGrid } from './components/Work';
+import { featuredWork } from '@/lib/projects';
 
 // Home re-checks Supabase every 120s (mirrors the PHP disk-cache TTL).
 export const revalidate = 120;
@@ -31,10 +34,6 @@ export const metadata: Metadata = {
 
 type Social = { label: string; url: string };
 type Stat = { value: number; suffix?: string; label: string; link_text: string; link: string };
-type Featured = {
-  info: string; name: string; tag: string;
-  url?: string | null; video?: string | null; image?: string | null; hover_src: string;
-};
 type Gallery = { image_url: string; alt?: string | null };
 type Skill = { name: string; icon_url: string };
 
@@ -101,26 +100,7 @@ export default async function Home() {
     ];
   }
 
-  let featured = await sbFetch<Featured>('featured_projects', 'select=*&visible=eq.true&order=sort');
-  if (!featured) {
-    featured = [
-      { info: 'Company', name: 'Bodo Okhrang Tech Pvt. Ltd.', tag: 'Web Development', url: 'https://bodookhrang.com', video: null, image: null, hover_src: 'assets/projects/14.webp' },
-      { info: 'A.I. Tool', name: 'Okhrang', tag: 'Web Development', url: 'https://okhrang.com', video: null, image: null, hover_src: 'assets/projects/15.webp' },
-      { info: 'Education', name: 'SchoolERP by Bodo Okhrang', tag: 'Web & App Development', url: 'https://schoolerp.okhrang.com', video: null, image: null, hover_src: 'assets/projects/16.webp' },
-      { info: 'E-COMMERCE Tool', name: 'FlopShop', tag: 'Web Development/PWA', url: 'https://flopshop.vercel.app', video: null, image: null, hover_src: 'assets/projects/12.webp' },
-      { info: 'A.I. Tool', name: 'CrewSpace AI', tag: 'Extension', url: 'https://crewspace-ai.vercel.app', video: null, image: null, hover_src: 'assets/projects/11.webp' },
-      { info: 'Education', name: 'Kokrajhar University', tag: 'Web & App Development', url: 'https://ku-app.in', video: null, image: null, hover_src: 'assets/projects/2.webp' },
-      { info: 'Music Video', name: 'Jery Brahma - That’s What You Face', tag: 'Video Editing', url: 'https://www.youtube.com/watch?v=AQIcq3OWTNs', video: null, image: null, hover_src: 'assets/projects/13.webp' },
-      { info: 'Event', name: 'Design with A.I. - GDG Aftermovie', tag: 'Video Editing', url: null, video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/design-with-ai-aftermovie.mp4', image: null, hover_src: 'assets/projects/17.webp' },
-      { info: 'Travel', name: 'Trip to Darjeeling', tag: 'Video Editing', url: 'https://www.youtube.com/watch?v=gNVz83QSoY4', video: null, image: null, hover_src: 'assets/projects/4.webp' },
-      { info: 'Event', name: 'GOOGLE DEV GROUP - 2025', tag: 'Video Editing', url: null, video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4', image: null, hover_src: 'assets/projects/6.webp' },
-      { info: 'Event', name: 'Open Mic RGU - 2025', tag: 'Video Editing', url: null, video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4', image: null, hover_src: 'assets/projects/7.webp' },
-      { info: 'Event', name: 'Badminton Tournament', tag: 'Banner Editing', url: null, video: null, image: 'assets/projects/8.webp', hover_src: 'assets/projects/8.webp' },
-      { info: 'Tool', name: 'BODOअख्रां Pvt. Ltd. Logo', tag: 'Logo Design', url: null, video: null, image: 'assets/projects/9.webp', hover_src: 'assets/projects/9.webp' },
-      { info: 'Local Shop', name: 'My Tea', tag: 'Banner Editing', url: null, video: null, image: 'assets/projects/10.webp', hover_src: 'assets/projects/10.webp' },
-      { info: 'Travel', name: 'Andaman & Nicobar Islands', tag: 'Video Editing', url: 'https://www.youtube.com/watch?v=gBvocwLObFQ', video: null, image: null, hover_src: 'assets/projects/5.webp' },
-    ];
-  }
+  const featured = await featuredWork();
 
   let gallery = await sbFetch<Gallery>('gallery', 'select=*&visible=eq.true&order=sort');
   if (!gallery) {
@@ -371,39 +351,10 @@ export default async function Home() {
                 <span className="word">featured</span> <span className="word amber">projects</span>
               </h2>
             </div>
-            <p className="section-note">hover a row for a live preview — click to open.</p>
+            <p className="section-note">tap a card for the full story — what it does &amp; what it’s built with.</p>
           </div>
 
-          <div className="preview">
-            <div className="preview-img preview-img-1"></div>
-            <div className="preview-img preview-img-2"></div>
-          </div>
-          <div className="menu">
-            {featured.map((fp, i) => {
-              const dataAttrs: Record<string, string> = {};
-              if (fp.url) dataAttrs['data-url'] = fp.url;
-              else if (fp.video) dataAttrs['data-video'] = fp.video;
-              else if (fp.image) dataAttrs['data-image'] = sbAsset(fp.image);
-              return (
-                <div className="menu-item" key={i} {...dataAttrs} data-hover-src={sbAsset(fp.hover_src)}>
-                  <div className="info"><p>{fp.info}</p></div>
-                  <div className="name"><p>{fp.name}</p></div>
-                  <div className="tag"><p>{fp.tag}</p></div>
-                </div>
-              );
-            })}
-
-            <div id="mediaModal" className="media-modal">
-              <div className="media-content">
-                <span id="closeMedia" className="close-btn">&times;</span>
-                <video id="popupVideo" controls>
-                  <source type="video/mp4" />
-                  Your browser does not support HTML5 video.
-                </video>
-                <img id="popupImage" alt="Popup Image" />
-              </div>
-            </div>
-          </div>
+          <WorkGrid items={featured} />
 
           <div className="project-cta">
             <a href="/projects" className="btn-pill">view all projects, in detail <span className="arr">→</span></a>
@@ -575,7 +526,7 @@ export default async function Home() {
           '/js/loader.js',
           '/js/v2.js',
           '/js/introScript.js',
-          '/js/projectScript.js',
+          '/js/workDialogs.js',
           '/js/contactScript.js',
         ]}
         version={ASSET_VERSION}

@@ -1,6 +1,6 @@
 /* ============================================================
    VEESHAL.ME — /projects engine
-   case reveals · filters · media modal
+   case reveals · filters (popups: js/workDialogs.js)
    (loader + transitions live in js/loader.js)
    ============================================================ */
 
@@ -161,59 +161,4 @@ window.addEventListener('hashchange', () => applyFilter(filterFromHash(), true))
 /* honour the incoming hash on load — silently, the loader is still up */
 applyFilter(filterFromHash(), false);
 
-/* ------------------------------------------------------------
-   media modal (videos & stills open in-page)
-   ------------------------------------------------------------ */
-const mediaModal = document.getElementById('mediaModal');
-const popupVideo = document.getElementById('popupVideo');
-const popupImage = document.getElementById('popupImage');
-const closeMedia = document.getElementById('closeMedia');
-
-function openCase(el) {
-    const url = el.dataset.url;
-    const videoSrc = el.dataset.video;
-    const imageSrc = el.dataset.image;
-
-    if (url) {
-        window.open(url, '_blank');
-        return;
-    }
-    if (!videoSrc && !imageSrc) return;
-
-    popupVideo.style.display = 'none';
-    popupImage.style.display = 'none';
-    popupVideo.pause();
-
-    if (videoSrc) {
-        popupVideo.querySelector('source').setAttribute('src', videoSrc);
-        popupVideo.load();
-        popupVideo.play();
-        popupVideo.style.display = 'block';
-    } else if (imageSrc) {
-        popupImage.setAttribute('src', imageSrc);
-        popupImage.style.display = 'block';
-    }
-
-    mediaModal.style.display = 'flex';
-}
-
-document.querySelectorAll('[data-open-case]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-        e.preventDefault();
-        openCase(el);
-    });
-});
-
-if (closeMedia) {
-    closeMedia.addEventListener('click', () => {
-        mediaModal.style.display = 'none';
-        popupVideo.pause();
-    });
-
-    mediaModal.addEventListener('click', (e) => {
-        if (e.target === mediaModal) {
-            mediaModal.style.display = 'none';
-            popupVideo.pause();
-        }
-    });
-}
+/* the popups behind each case live in js/workDialogs.js */

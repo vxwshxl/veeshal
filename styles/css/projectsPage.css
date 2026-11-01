@@ -184,6 +184,11 @@
 
 .case-media {
     position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    font: inherit;
     border-radius: var(--radius);
     overflow: hidden;
     background: var(--paper-dim);
@@ -191,37 +196,35 @@
     cursor: pointer;
 }
 
+.case-media:focus-visible {
+    outline: 2px solid var(--amber-deep);
+    outline-offset: 4px;
+}
+
+.case-media.is-contain { background: var(--ink); }
+
 .case:nth-child(even) .case-media {
     box-shadow: -18px 18px 0 -5px var(--ink);
 }
 
 .case-media img {
+    display: block;
     width: 100%;
-    aspect-ratio: 16 / 10.5;
+    aspect-ratio: 1200 / 630;
     object-fit: cover;
-    transform: scale(1.08);
+    transform: scale(1.02);
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
 }
 
 .case-media:hover img {
-    transform: scale(1.15);
+    transform: scale(1.07);
 }
 
-.case-media .case-chip {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    background: rgba(17, 17, 16, 0.85);
-    color: var(--amber);
-    backdrop-filter: blur(6px);
-    font-family: var(--font-label);
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 99px;
+.case-media.is-contain img,
+.case-media.is-contain:hover img {
+    object-fit: contain;
+    transform: none;
 }
 
 .case-body .case-kicker {
@@ -287,6 +290,56 @@
     font-size: 14px;
     font-weight: 600;
     margin: 0;
+}
+
+/* toolkit as logos; the popup has the full stack */
+.case-tools {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: -10px 0 28px;
+}
+
+.case-tools li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px 4px 4px;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.case-tool-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.case-tool-logo svg,
+.case-tool-logo img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+.case-tools .case-tools-more {
+    padding: 4px 12px;
+    color: var(--muted);
+    background: transparent;
+}
+
+.btn-ghost {
+    border-color: var(--line);
+    cursor: pointer;
 }
 
 .case-actions {

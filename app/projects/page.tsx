@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import '@/styles/css/v2.css';
 import '@/styles/css/projectsPage.css';
-import { sbFetch, sbAsset } from '@/lib/supabase';
+import '@/styles/css/work.css';
+import { allWork, type WorkItem } from '@/lib/projects';
 import { ASSET_VERSION } from '@/lib/version';
 import Scripts from '../Scripts';
 import Loader from '../components/Loader';
 import Chrome from '../components/Chrome';
 import SiteHeader from '../components/SiteHeader';
+import { ToolLogo } from '../components/TechStack';
+import { WorkDialog } from '../components/Work';
 
 export const revalidate = 120;
 
@@ -24,45 +27,10 @@ export const metadata: Metadata = {
   },
 };
 
-type Project = {
-  title: string; cat: string; cat_label: string; img: string; desc: string;
-  role: string; stack: string; year: string; action: string;
-  url?: string | null; video?: string | null; image?: string | null;
-};
-
-const FALLBACK: Project[] = [
-  { title: 'Bodo Okhrang Tech Pvt. Ltd.', cat: 'development', cat_label: 'Company — Web Development', img: '/assets/projects/14.webp', desc: 'The company site for <strong>Bodo Okhrang Tech Pvt. Ltd.</strong> — a software company from Kokrajhar building <strong>language A.I., ERPs and apps for Northeast India</strong>. One home for Okhrang, SchoolERP, the Kokrajhar University LMS and the client work behind them.', role: 'Founder & Developer', stack: 'Next.js · Tailwind', year: '2024 — live', action: 'visit live site', url: 'https://bodookhrang.com' },
-  { title: 'Okhrang', cat: 'development', cat_label: 'A.I. Tool — Language Platform', img: '/assets/projects/15.webp', desc: 'An <strong>AI language platform for Northeast India</strong> — translate, chat and look words up in <strong>Bodo, Assamese, Manipuri, Khasi, Nepali, Bengali, Hindi and English</strong>. OkhranGPT, the OkhranGTR translator, the OkhranGSB Bodo dictionary and OkhranGTA text to speech, in one place.', role: 'Full-stack Developer', stack: 'Next.js · Supabase · Sarvam', year: '2024 — live', action: 'visit live site', url: 'https://okhrang.com' },
-  { title: 'SchoolERP', cat: 'development', cat_label: 'Education — ERP · Web & App', img: '/assets/projects/16.webp', desc: '<strong>SchoolERP by Bodo Okhrang</strong> — a school’s own management system, branded and secured as theirs. <strong>24 modules</strong> across admissions, academics, attendance, examinations, fees, bus tracking and communication, on the web and in a companion app.', role: 'Full-stack Developer', stack: 'Next.js · Expo · Supabase', year: '2026 — live', action: 'visit live site', url: 'https://schoolerp.okhrang.com' },
-  { title: 'FlopShop', cat: 'development', cat_label: 'E-commerce — PWA', img: '/assets/projects/12.webp', desc: 'A modern <strong>e-commerce progressive web app</strong> — installable, offline-friendly and fast on any device. Snappy product browsing, cart flow and a checkout experience that feels native.', role: 'Designer & Developer', stack: 'React · PWA · Vercel', year: '2025 — live', action: 'visit live site', url: 'https://flopshop.vercel.app' },
-  { title: 'CrewSpace AI', cat: 'development', cat_label: 'A.I. Tool — Browser Extension', img: '/assets/projects/11.webp', desc: 'A <strong>browser extension</strong> that brings AI assistance straight into your workspace — summarise, draft and organise without ever leaving the tab you are working in.', role: 'Creator & Developer', stack: 'JS · Extension APIs · AI', year: '2025 — live', action: 'visit live site', url: 'https://crewspace-ai.vercel.app' },
-  { title: 'Kokrajhar University', cat: 'development', cat_label: 'Education — Web & App', img: '/assets/projects/2.webp', desc: 'The digital front door for <strong>Kokrajhar University</strong> — a website and companion app giving students notices, resources and campus information in one organised, mobile-first place.', role: 'Web & App Developer', stack: 'React · PWA · Supabase', year: '2024 — live', action: 'visit live site', url: 'https://ku-app.in' },
-  { title: 'Swrzee Enterprise', cat: 'development', cat_label: 'Enterprise — Web Development', img: '/assets/projects/3.webp', desc: 'A clean, credible <strong>business website</strong> for Swrzee Enterprise — product showcase, company story and contact flows designed to convert visitors into customers.', role: 'Designer & Developer', stack: 'PHP · CSS · JS', year: '2024 — live', action: 'visit live site', url: 'https://swrzee.in' },
-  { title: 'Treasures', cat: 'video', cat_label: 'Showreel — Video Editing', img: '/assets/treasures.webp', desc: 'A <strong>quiet cinematic short</strong> that runs on a single question — <em>how’s your little hobby going?</em> — cut for mood rather than pace, with a grade that lets the slow moments breathe. One of the two films opening the <strong>’26 showreel</strong>.', role: 'Editor & Colorist', stack: 'Final Cut Pro', year: '2026', action: 'watch the film', video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/treasures.mp4' },
-  { title: 'Highest in the Room', cat: 'video', cat_label: 'Showreel — Video Editing', img: '/assets/hitr.webp', desc: 'A <strong>cinematic short cut to the track it is named for</strong> — pacing locked to the beat, <strong>edited and colour graded</strong> end to end so one tone carries from the first frame to the last. The second film opening the <strong>’26 showreel</strong>.', role: 'Editor & Colorist', stack: 'Final Cut Pro', year: '2026', action: 'watch the film', video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4' },
-  { title: 'Jery Brahma — That’s What You Face', cat: 'video', cat_label: 'Music Video — Video Editing', img: '/assets/projects/13.webp', desc: 'The <strong>official music video</strong> for Jery Brahma’s <em>That’s What You Face</em> (ft. Loyal B) — <strong>edited and colour graded</strong> end to end, cut to the rhythm of the track with a grade that holds one mood from the first frame to the last.', role: 'Editor & Colorist', stack: 'Premiere · DaVinci', year: '2026', action: 'watch the video', url: 'https://www.youtube.com/watch?v=AQIcq3OWTNs' },
-  { title: 'Design with A.I. — GDG Aftermovie', cat: 'video', cat_label: 'Event Aftermovie — Video Editing', img: '/assets/projects/17.webp', desc: 'Official <strong>aftermovie for <em>Design with A.I.</em></strong> — the GDG on Campus session at Assam Royal Global University on <em>thinking like a designer and building with A.I.</em> <strong>Shot on the day and cut end to end</strong>: drone passes over campus, a packed seminar hall, Gemini and Stitch up on the big screen and quick-fire interviews with the people in the room, closed on the group photo.', role: 'Shooter & Editor', stack: 'Final Cut Pro', year: '2026', action: 'watch the film', video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/design-with-ai-aftermovie.mp4' },
-  { title: 'Trip to Darjeeling', cat: 'video', cat_label: 'Travel Film — Video Editing', img: '/assets/projects/4.webp', desc: 'A <strong>cinematic travel film</strong> through the hills of Darjeeling — tea gardens, toy trains and misty ridgelines, cut to rhythm with colour grading that keeps the mountain mood intact.', role: 'Editor & Colorist', stack: 'Premiere · DaVinci', year: '2024', action: 'watch the film', url: 'https://www.youtube.com/watch?v=gNVz83QSoY4' },
-  { title: 'Google Dev Group — 2025', cat: 'video', cat_label: 'Event — Video Editing', img: '/assets/projects/6.webp', desc: 'Official <strong>aftermovie for the Google Developer Group 2025</strong> event — talks, crowd energy and behind-the-scenes moments compressed into a tight, high-energy recap.', role: 'Editor', stack: 'Premiere · CapCut', year: '2025', action: 'watch the film', video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/GDG.mp4' },
-  { title: 'Open Mic RGU — 2025', cat: 'video', cat_label: 'Event — Video Editing', img: '/assets/projects/7.webp', desc: 'An <strong>event recap</strong> of Open Mic at RGU — raw performances, audience reactions and stage lights, edited to keep the live-room feeling on screen.', role: 'Editor', stack: 'Premiere · CapCut', year: '2025', action: 'watch the film', video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/open-mic.mp4' },
-  { title: 'Badminton Tournament', cat: 'design', cat_label: 'Event — Banner Design', img: '/assets/projects/8.webp', desc: 'A bold <strong>tournament banner</strong> — strong type hierarchy, action photography and a layout that reads clearly from across a hall or in a feed.', role: 'Designer', stack: 'Figma · Canva', year: '2024', action: 'view the design', image: '/assets/projects/8.webp' },
-  { title: 'BODOअख्रां Pvt. Ltd. Logo', cat: 'design', cat_label: 'Brand — Logo Design', img: '/assets/projects/9.webp', desc: 'Identity work for <strong>BODOअख्रां Pvt. Ltd.</strong> — a mark that blends Devanagari character with a modern wordmark, built to hold up from favicon to billboard.', role: 'Brand Designer', stack: 'Figma · Krita', year: '2024', action: 'view the design', image: '/assets/projects/9.webp' },
-  { title: 'My Tea', cat: 'design', cat_label: 'Local Shop — Banner Design', img: '/assets/projects/10.webp', desc: 'A warm, appetising <strong>storefront banner</strong> for a local tea shop — friendly type, rich colour and a layout that makes you want a cup immediately.', role: 'Designer', stack: 'Canva · Krita', year: '2024', action: 'view the design', image: '/assets/projects/10.webp' },
-  { title: 'Andaman & Nicobar Islands', cat: 'video', cat_label: 'Travel Film — Video Editing', img: '/assets/projects/5.webp', desc: 'Island hopping, turquoise water and slow sunsets — a <strong>travel edit</strong> built around pacing: fast cuts on the boats, long breaths on the beaches.', role: 'Editor & Colorist', stack: 'Premiere · DaVinci', year: '2024', action: 'watch the film', url: 'https://www.youtube.com/watch?v=gBvocwLObFQ' },
-];
-
 const pad2 = (n: number) => String(n).padStart(2, '0');
 
 export default async function Projects() {
-  let projects = FALLBACK;
-  const rows = await sbFetch<any>('projects', 'select=*&visible=eq.true&order=sort');
-  if (rows) {
-    projects = rows.map((r) => ({
-      title: r.title, cat: r.cat, cat_label: r.cat_label, img: sbAsset(r.img),
-      desc: r.description, role: r.role, stack: r.stack, year: r.year, action: r.action,
-      url: r.url, video: r.video, image: r.image ? sbAsset(r.image) : null,
-    }));
-  }
+  const projects = await allWork();
 
   const counts: Record<string, number> = { all: projects.length, development: 0, video: 0, design: 0 };
   for (const p of projects) counts[p.cat]++;
@@ -104,39 +72,9 @@ export default async function Projects() {
         </div>
 
         <div className="cases">
-          {projects.map((p, i) => {
-            const num = pad2(i + 1);
-            const dataAttrs: Record<string, string> = {};
-            if (p.url) dataAttrs['data-url'] = p.url;
-            else if (p.video) dataAttrs['data-video'] = p.video;
-            else if (p.image) dataAttrs['data-image'] = p.image;
-            return (
-              <article className="case" data-cat={p.cat} key={i}>
-                <span className="case-num">{num}</span>
-                <div className="case-media" data-open-case="" {...dataAttrs}>
-                  <img src={p.img} alt={p.title} loading="lazy" />
-                  <span className="case-chip" dangerouslySetInnerHTML={{ __html: p.cat_label }} />
-                </div>
-                <div className="case-body">
-                  <p className="case-kicker">{num} / {p.cat}</p>
-                  <h2 className="case-title" dangerouslySetInnerHTML={{ __html: p.title }} />
-                  <p className="case-desc" dangerouslySetInnerHTML={{ __html: p.desc }} />
-                  <dl className="case-meta">
-                    <div><dt>role</dt><dd dangerouslySetInnerHTML={{ __html: p.role }} /></div>
-                    <div><dt>toolkit</dt><dd dangerouslySetInnerHTML={{ __html: p.stack }} /></div>
-                    <div><dt>year</dt><dd dangerouslySetInnerHTML={{ __html: p.year }} /></div>
-                  </dl>
-                  <div className="case-actions">
-                    {p.url ? (
-                      <a href={p.url} target="_blank" className="btn-pill" dangerouslySetInnerHTML={{ __html: `${p.action} <span class="arr">→</span>` }} />
-                    ) : (
-                      <button className="btn-pill" data-open-case="" {...dataAttrs} dangerouslySetInnerHTML={{ __html: `${p.action} <span class="arr">→</span>` }} />
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+          {projects.map((p, i) => (
+            <Case key={p.id} item={p} num={pad2(i + 1)} />
+          ))}
         </div>
 
         <section className="garage-outro">
@@ -153,18 +91,56 @@ export default async function Projects() {
         </footer>
       </div>
 
-      <div id="mediaModal" className="media-modal">
-        <div className="media-content">
-          <span id="closeMedia" className="close-btn">&times;</span>
-          <video id="popupVideo" controls>
-            <source type="video/mp4" />
-            Your browser does not support HTML5 video.
-          </video>
-          <img id="popupImage" alt="Popup Image" />
+      {projects.map((p) => <WorkDialog key={p.id} item={p} />)}
+
+      <Scripts src={['/js/loader.js', '/js/projectsPage.js', '/js/workDialogs.js']} version={ASSET_VERSION} />
+    </>
+  );
+}
+
+/** Up to this many logos in a case's toolkit row; the popup lists them all. */
+const TOOLKIT_MAX = 6;
+
+function Case({ item, num }: { item: WorkItem; num: string }) {
+  const tools = [...new Map(item.stack.flatMap((g) => g.tools).map((t) => [t.name, t])).values()];
+  const more = tools.length - TOOLKIT_MAX;
+  const play = item.video ? { 'data-work-play': '' } : {};
+
+  return (
+    <article className="case" data-cat={item.cat}>
+      <span className="case-num">{num}</span>
+      <button type="button" className={'case-media' + (item.contain ? ' is-contain' : '')} data-work-open={item.id} aria-haspopup="dialog" aria-label={`${item.name}: details`} {...play}>
+        <img src={item.media} alt="" loading="lazy" />
+      </button>
+      <div className="case-body">
+        {/* The label sits here, not on the banner, which carries its own brand. */}
+        <p className="case-kicker"><span>{num} / <span dangerouslySetInnerHTML={{ __html: item.label }} /></span></p>
+        <h2 className="case-title" dangerouslySetInnerHTML={{ __html: item.name }} />
+        {item.desc ? <p className="case-desc" dangerouslySetInnerHTML={{ __html: item.desc }} /> : null}
+        <dl className="case-meta">
+          {item.role ? <div><dt>role</dt><dd dangerouslySetInnerHTML={{ __html: item.role }} /></div> : null}
+          {item.platforms.length ? <div><dt>ships as</dt><dd>{item.platforms.join(' · ')}</dd></div> : null}
+          {item.year ? <div><dt>year</dt><dd dangerouslySetInnerHTML={{ __html: item.year }} /></div> : null}
+        </dl>
+        {tools.length ? (
+          <ul className="case-tools" aria-label="Toolkit">
+            {tools.slice(0, TOOLKIT_MAX).map((t) => (
+              <li key={t.name}><span className="case-tool-logo"><ToolLogo tool={t} /></span>{t.name}</li>
+            ))}
+            {more > 0 ? <li className="case-tools-more">+{more} more</li> : null}
+          </ul>
+        ) : null}
+        <div className="case-actions">
+          {item.url ? (
+            <>
+              <a href={item.url} target="_blank" rel="noreferrer" className="btn-pill">{item.action} <span className="arr">→</span></a>
+              <button type="button" className="btn-pill btn-ghost" data-work-open={item.id}>details &amp; stack</button>
+            </>
+          ) : (
+            <button type="button" className="btn-pill" data-work-open={item.id} {...play}>{item.action} <span className="arr">→</span></button>
+          )}
         </div>
       </div>
-
-      <Scripts src={['/js/loader.js', '/js/projectsPage.js']} version={ASSET_VERSION} />
-    </>
+    </article>
   );
 }

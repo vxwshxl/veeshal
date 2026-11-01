@@ -1,0 +1,591 @@
+/* ============================================================
+   PROJECT CARDS + POPUPS (home "featured projects", /projects)
+   Markup: app/components/Work.tsx · behaviour: js/workDialogs.js
+   Cards are each project's 1200×630 share card on top, then the
+   icon, category, name and host. A card opens its <dialog>.
+   ============================================================ */
+
+.work-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(14px, 1.6vw, 24px);
+    padding: 0 var(--gutter);
+}
+
+@media (min-width: 700px) {
+    .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1280px) {
+    .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.work-item { display: flex; }
+
+.work-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(17, 17, 16, 0.04), 0 8px 24px -12px rgba(17, 17, 16, 0.12);
+    transition: translate 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.work-card:focus-visible {
+    outline: 2px solid var(--amber-deep);
+    outline-offset: 3px;
+}
+
+/* 24px card − 8px padding = 16px inner radius */
+.work-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 1200 / 630;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    background: var(--paper-dim);
+}
+
+.work-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* posters and portrait designs: whole, on ink */
+.work-media.is-contain,
+.wd-media.is-contain {
+    background: var(--ink);
+}
+
+.work-media.is-contain img,
+.wd-media.is-contain img {
+    object-fit: contain;
+}
+
+.work-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 8px 6px;
+}
+
+.work-icon,
+.wd-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.work-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+}
+
+.work-icon img,
+.wd-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.work-icon svg { width: 20px; height: 20px; }
+
+.work-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.work-kicker {
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.work-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(17px, 1.35vw, 20px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.work-sub {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.work-go {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--ink);
+    transition: background-color 0.3s ease, color 0.3s ease, rotate 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-go svg { width: 16px; height: 16px; }
+
+@media (hover: hover) and (pointer: fine) {
+    .work-card:hover {
+        translate: 0 -4px;
+        border-color: #d6d1c3;
+        box-shadow: 0 2px 4px rgba(17, 17, 16, 0.05), 0 22px 40px -18px rgba(17, 17, 16, 0.28);
+    }
+
+    .work-card:hover .work-media img { scale: 1.03; }
+
+    .work-card:hover .work-go {
+        background: var(--ink);
+        color: var(--amber);
+    }
+}
+
+.work-card:active { translate: 0 -1px; }
+
+/* ------------------------------------------------------------
+   popup
+   ------------------------------------------------------------ */
+html:has(dialog.work-dialog[open]) { overflow: hidden; }
+
+/* the custom cursor sits under the top layer; hide it while a popup is up */
+html:has(dialog.work-dialog[open]) :is(.cursor-dot, .cursor-ring) { display: none; }
+
+.work-dialog {
+    width: min(1040px, calc(100vw - 32px));
+    max-width: none;
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 28px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    overflow: visible;
+    opacity: 0;
+    translate: 0 24px;
+    scale: 0.98;
+    transition:
+        opacity 0.25s ease,
+        translate 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        scale 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        overlay 0.4s allow-discrete,
+        display 0.4s allow-discrete;
+}
+
+.work-dialog[open] {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+}
+
+@starting-style {
+    .work-dialog[open] {
+        opacity: 0;
+        translate: 0 24px;
+        scale: 0.98;
+    }
+}
+
+.work-dialog::backdrop {
+    background: rgba(17, 17, 16, 0);
+    backdrop-filter: blur(0);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, overlay 0.4s allow-discrete, display 0.4s allow-discrete;
+}
+
+.work-dialog[open]::backdrop {
+    background: rgba(17, 17, 16, 0.72);
+    backdrop-filter: blur(6px);
+}
+
+@starting-style {
+    .work-dialog[open]::backdrop {
+        background: rgba(17, 17, 16, 0);
+        backdrop-filter: blur(0);
+    }
+}
+
+/* not position:relative — the close button pins to the dialog, not the scroll */
+.wd-sheet {
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    border-radius: 28px;
+    background: var(--paper);
+}
+
+.wd-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--ink);
+    cursor: pointer;
+    box-shadow: 0 6px 18px -6px rgba(17, 17, 16, 0.45);
+    transition: rotate 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease, color 0.25s ease;
+}
+
+.wd-close svg { width: 18px; height: 18px; }
+
+.wd-close:hover {
+    rotate: 90deg;
+    background: var(--ink);
+    color: var(--amber);
+}
+
+.wd-media {
+    margin: 10px 10px 0;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: var(--paper-dim);
+}
+
+/* the whole image, at its own shape: no crop in the popup */
+.wd-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 72dvh;
+    object-fit: contain;
+}
+
+.wd-media.is-contain img {
+    aspect-ratio: auto;
+    max-height: 72dvh;
+    margin: 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+
+.wd-media video {
+    display: block;
+    width: 100%;
+    max-height: 72dvh;
+    background: var(--ink);
+}
+
+.wd-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: clamp(22px, 3vw, 40px);
+}
+
+@media (min-width: 900px) {
+    .wd-body:has(.wd-stack) {
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        gap: clamp(28px, 3.4vw, 52px);
+    }
+}
+
+.wd-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.wd-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.wd-icon svg { width: 24px; height: 24px; }
+
+.wd-head-text { min-width: 0; }
+
+.wd-kicker {
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.wd-title {
+    margin: 4px 0 6px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 3.4vw, 46px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.wd-host {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-deep);
+    text-decoration: none;
+}
+
+.wd-host:hover { text-decoration: underline; }
+
+.wd-desc {
+    font-size: 15.5px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.wd-desc strong { color: var(--ink); }
+
+.wd-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px clamp(24px, 3vw, 40px);
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+}
+
+.wd-meta-wide { flex-basis: 100%; }
+
+.wd-meta dt,
+.wd-label,
+.wd-group h4 {
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.wd-meta dt { margin-bottom: 4px; }
+
+.wd-meta dd {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.wd-platforms {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.wd-platforms li {
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.wd-section { margin-top: 26px; }
+
+.wd-stack { margin-top: 0; }
+
+.wd-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 11.5px;
+    color: var(--ink);
+}
+
+.wd-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+}
+
+.wd-count {
+    order: 2;
+    color: var(--amber-deep);
+    font-variant-numeric: tabular-nums;
+}
+
+.wd-features {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.wd-features li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.wd-features li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.45em;
+    width: 12px;
+    height: 7px;
+    border-left: 2px solid var(--amber-deep);
+    border-bottom: 2px solid var(--amber-deep);
+    rotate: -45deg;
+}
+
+.wd-group + .wd-group { margin-top: 16px; }
+
+.wd-group h4 { margin-bottom: 8px; }
+
+.wd-group ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.wd-group li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.wd-actions {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px clamp(22px, 3vw, 40px);
+    border-top: 1px solid var(--line);
+    background: rgba(248, 247, 243, 0.92);
+    backdrop-filter: blur(10px);
+}
+
+.wd-actions .wd-primary {
+    padding: 14px 28px;
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+}
+
+.wd-actions .wd-primary:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--ink);
+}
+
+.wd-dismiss {
+    margin-left: auto;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 99px;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.wd-dismiss:hover { color: var(--ink); background: var(--paper-dim); }
+
+/* phones: a sheet from the bottom */
+@media (max-width: 640px) {
+    .work-dialog {
+        width: 100vw;
+        max-height: 94dvh;
+        margin: auto 0 0;
+        border-radius: 24px 24px 0 0;
+        translate: 0 48px;
+        scale: 1;
+    }
+
+    @starting-style {
+        .work-dialog[open] { translate: 0 48px; scale: 1; }
+    }
+
+    .wd-sheet {
+        max-height: 94dvh;
+        border-radius: 24px 24px 0 0;
+    }
+
+    .wd-close { top: 16px; right: 16px; width: 38px; height: 38px; }
+
+    .wd-media { border-radius: 16px; }
+
+    .wd-head { gap: 12px; }
+
+    .wd-icon { width: 48px; height: 48px; border-radius: 13px; }
+
+    .wd-group ul { gap: 6px; }
+
+    .wd-actions { padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+
+    .wd-actions .wd-primary { flex: 1; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-card,
+    .work-media img,
+    .work-dialog,
+    .work-dialog::backdrop {
+        transition: none;
+    }
+}
+
+button.btn-pill { cursor: pointer; }
