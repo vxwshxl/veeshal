@@ -243,7 +243,6 @@ html:has(dialog.work-dialog[open]) :is(.cursor-dot, .cursor-ring) { display: non
     }
 }
 
-/* not position:relative — the close button pins to the dialog, not the scroll */
 .wd-sheet {
     max-height: calc(100dvh - 32px);
     overflow-y: auto;
@@ -253,14 +252,74 @@ html:has(dialog.work-dialog[open]) :is(.cursor-dot, .cursor-ring) { display: non
     background: var(--paper);
 }
 
-.wd-close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
+.wd-bar {
+    position: sticky;
+    top: 0;
     z-index: 2;
     display: flex;
     align-items: center;
+    gap: 10px;
+    padding: 10px 12px 10px 14px;
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+}
+
+.wd-bar-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.wd-bar-icon {
+    display: flex;
+    align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+}
+
+.wd-bar-icon img { width: 100%; height: 100%; object-fit: contain; padding: 3px; }
+.wd-bar-icon svg { width: 16px; height: 16px; }
+
+.wd-bar-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wd-bar .wd-primary {
+    flex-shrink: 0;
+    padding: 11px 20px;
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.wd-bar .wd-primary:hover {
+    gap: 16px;
+    border-color: var(--amber);
+    background: var(--amber);
+    color: var(--ink);
+}
+
+.wd-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     width: 42px;
     height: 42px;
     border: 0;
@@ -268,7 +327,6 @@ html:has(dialog.work-dialog[open]) :is(.cursor-dot, .cursor-ring) { display: non
     background: var(--amber);
     color: var(--ink);
     cursor: pointer;
-    box-shadow: 0 6px 18px -6px rgba(17, 17, 16, 0.45);
     transition: rotate 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -500,49 +558,6 @@ html:has(dialog.work-dialog[open]) :is(.cursor-dot, .cursor-ring) { display: non
     background: #fff;
 }
 
-.wd-actions {
-    position: sticky;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 14px clamp(22px, 3vw, 40px);
-    border-top: 1px solid var(--line);
-    background: rgba(248, 247, 243, 0.92);
-    backdrop-filter: blur(10px);
-}
-
-.wd-actions .wd-primary {
-    padding: 14px 28px;
-    border-color: var(--ink);
-    background: var(--ink);
-    color: var(--paper);
-    cursor: pointer;
-}
-
-.wd-actions .wd-primary:hover {
-    background: var(--amber);
-    border-color: var(--amber);
-    color: var(--ink);
-}
-
-.wd-dismiss {
-    margin-left: auto;
-    padding: 12px 18px;
-    border: 0;
-    border-radius: 99px;
-    background: transparent;
-    color: var(--muted);
-    font-family: var(--font-label);
-    font-weight: 500;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.wd-dismiss:hover { color: var(--ink); background: var(--paper-dim); }
 
 /* phones: a sheet from the bottom */
 @media (max-width: 640px) {
@@ -564,9 +579,17 @@ html:has(dialog.work-dialog[open]) :is(.cursor-dot, .cursor-ring) { display: non
         border-radius: 24px 24px 0 0;
     }
 
-    .wd-close { top: 16px; right: 16px; width: 38px; height: 38px; }
+    .wd-close { width: 38px; height: 38px; }
+
+    .wd-bar { padding: 8px 10px 8px 12px; gap: 8px; }
+
+    .wd-bar-text { font-size: 15px; }
+
+    .wd-bar .wd-primary { padding: 10px 16px; font-size: 11px; gap: 8px; }
 
     .wd-media { border-radius: 16px; }
+
+    .wd-body { padding-bottom: max(28px, env(safe-area-inset-bottom)); }
 
     .wd-head { gap: 12px; }
 
@@ -574,9 +597,6 @@ html:has(dialog.work-dialog[open]) :is(.cursor-dot, .cursor-ring) { display: non
 
     .wd-group ul { gap: 6px; }
 
-    .wd-actions { padding-bottom: max(14px, env(safe-area-inset-bottom)); }
-
-    .wd-actions .wd-primary { flex: 1; justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

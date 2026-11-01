@@ -94,9 +94,17 @@ export function WorkDialog({ item }: { item: WorkItem }) {
   return (
     <dialog id={item.id} className="work-dialog" aria-labelledby={titleId}>
       <div className="wd-sheet">
-        <button type="button" className="wd-close" data-work-close="" aria-label="Close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
-        </button>
+        {/* Sticky: the way out and the way in stay in reach while the sheet scrolls. */}
+        <div className="wd-bar">
+          <span className="wd-bar-name">
+            <span className="wd-bar-icon"><Icon item={item} /></span>
+            <span className="wd-bar-text">{item.name}</span>
+          </span>
+          <PrimaryAction item={item} />
+          <button type="button" className="wd-close" data-work-close="" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+        </div>
 
         <div className={'wd-media' + (item.contain ? ' is-contain' : '')}>
           {item.video ? (
@@ -174,10 +182,6 @@ export function WorkDialog({ item }: { item: WorkItem }) {
           ) : null}
         </div>
 
-        <div className="wd-actions">
-          <PrimaryAction item={item} />
-          <button type="button" className="wd-dismiss" data-work-close="">close</button>
-        </div>
       </div>
     </dialog>
   );
