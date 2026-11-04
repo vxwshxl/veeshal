@@ -40,20 +40,20 @@ type Skill = { name: string; icon_url: string };
 // Showreel: the films that cross-cut on the poster loop until one is played.
 const REELS = [
   {
-    slug: 'hitr',
-    name: 'hitr',
-    title: "showreel '26",
-    poster: '/assets/hitr.webp',
-    alt: 'Highest in the Room — showreel thumbnail',
-    video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4',
-  },
-  {
     slug: 'treasures',
     name: 'treasures',
     title: "showreel '26",
     poster: '/assets/treasures.webp',
     alt: "Treasures — how's your little hobby going? — showreel thumbnail",
     video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/treasures.mp4',
+  },
+  {
+    slug: 'hitr',
+    name: 'hitr',
+    title: "showreel '26",
+    poster: '/assets/hitr.webp',
+    alt: 'Highest in the Room — showreel thumbnail',
+    video: 'https://pub-fe9b85f97c6a4773bbf0ceb5f53c430b.r2.dev/HITR.mp4',
   },
 ];
 
